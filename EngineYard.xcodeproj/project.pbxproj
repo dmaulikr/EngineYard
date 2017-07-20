@@ -11,6 +11,37 @@
 		4D1A4C161F212D2600680333 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C151F212D2600680333 /* BaseTests.swift */; };
 		4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C181F212DAF00680333 /* Assets.xcassets */; };
 		4D1A4C231F212DAF00680333 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C1B1F212DAF00680333 /* data.json */; };
+		4D1A4C261F21314B00680333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C241F21314B00680333 /* Constants.swift */; };
+		4D1A4C271F21314B00680333 /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C251F21314B00680333 /* ErrorCodes.swift */; };
+		4D1A4C2B1F21315200680333 /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C281F21315200680333 /* Devices.swift */; };
+		4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C291F21315200680333 /* Fonts.swift */; };
+		4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C2A1F21315200680333 /* Sounds.swift */; };
+		4D1A4C321F21315800680333 /* EY+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C2E1F21315800680333 /* EY+Array.swift */; };
+		4D1A4C331F21315800680333 /* EY+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C2F1F21315800680333 /* EY+Color.swift */; };
+		4D1A4C341F21315800680333 /* EY+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C301F21315800680333 /* EY+Image.swift */; };
+		4D1A4C351F21315800680333 /* EY+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C311F21315800680333 /* EY+Time.swift */; };
+		4D1A4C381F21316100680333 /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C361F21316100680333 /* GameConfig.swift */; };
+		4D1A4C391F21316100680333 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C371F21316100680333 /* Helpers.swift */; };
+		4D1A4C3B1F21316800680333 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C3A1F21316800680333 /* DataManager.swift */; };
+		4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C3C1F21316F00680333 /* GameStates.swift */; };
+		4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C3D1F21316F00680333 /* StateManager.swift */; };
+		4D1A4C411F21319D00680333 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C401F21319D00680333 /* Generation.swift */; };
+		4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C421F2131A700680333 /* EngineColor.swift */; };
+		4D1A4C451F21321900680333 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C441F21321900680333 /* GameModel.swift */; };
+		4D1A4C471F21335400680333 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C461F21335400680333 /* GameBoard.swift */; };
+		4D1A4C491F21346100680333 /* Locomotive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C481F21346100680333 /* Locomotive.swift */; };
+		4D1A4C4B1F21360A00680333 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C4A1F21360A00680333 /* Engine.swift */; };
+		4D1A4C4D1F21361400680333 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C4C1F21361400680333 /* Player.swift */; };
+		4D1A4C4F1F21361E00680333 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C4E1F21361E00680333 /* Production.swift */; };
+		4D1A4C511F21362900680333 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C501F21362900680333 /* OrderBook.swift */; };
+		4D1A4C531F21365500680333 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C521F21365500680333 /* Die.swift */; };
+		4D1A4C551F21367400680333 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C541F21367400680333 /* Account.swift */; };
+		4D1A4C571F21388800680333 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C561F21388800680333 /* Tax.swift */; };
+		4D1A4C591F2138C200680333 /* SalesRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C581F2138C200680333 /* SalesRule.swift */; };
+		4D1A4C5B1F2138E900680333 /* Locomotive+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C5A1F2138E900680333 /* Locomotive+API.swift */; };
+		4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C5C1F21392000680333 /* Engine+API.swift */; };
+		4D1A4C5F1F21394A00680333 /* Player+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C5E1F21394A00680333 /* Player+API.swift */; };
+		4D1A4C611F21396E00680333 /* Production+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C601F21396E00680333 /* Production+API.swift */; };
 		4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429721F2124B7006B2D89 /* AppDelegate.swift */; };
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
 		4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */; };
@@ -37,6 +68,37 @@
 		4D1A4C151F212D2600680333 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		4D1A4C181F212DAF00680333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D1A4C1B1F212DAF00680333 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		4D1A4C241F21314B00680333 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4D1A4C251F21314B00680333 /* ErrorCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
+		4D1A4C281F21315200680333 /* Devices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
+		4D1A4C291F21315200680333 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		4D1A4C2A1F21315200680333 /* Sounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
+		4D1A4C2E1F21315800680333 /* EY+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EY+Array.swift"; sourceTree = "<group>"; };
+		4D1A4C2F1F21315800680333 /* EY+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EY+Color.swift"; sourceTree = "<group>"; };
+		4D1A4C301F21315800680333 /* EY+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EY+Image.swift"; sourceTree = "<group>"; };
+		4D1A4C311F21315800680333 /* EY+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EY+Time.swift"; sourceTree = "<group>"; };
+		4D1A4C361F21316100680333 /* GameConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
+		4D1A4C371F21316100680333 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		4D1A4C3A1F21316800680333 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4D1A4C3C1F21316F00680333 /* GameStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStates.swift; sourceTree = "<group>"; };
+		4D1A4C3D1F21316F00680333 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		4D1A4C401F21319D00680333 /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
+		4D1A4C421F2131A700680333 /* EngineColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineColor.swift; sourceTree = "<group>"; };
+		4D1A4C441F21321900680333 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		4D1A4C461F21335400680333 /* GameBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		4D1A4C481F21346100680333 /* Locomotive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locomotive.swift; sourceTree = "<group>"; };
+		4D1A4C4A1F21360A00680333 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		4D1A4C4C1F21361400680333 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4D1A4C4E1F21361E00680333 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
+		4D1A4C501F21362900680333 /* OrderBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
+		4D1A4C521F21365500680333 /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		4D1A4C541F21367400680333 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		4D1A4C561F21388800680333 /* Tax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
+		4D1A4C581F2138C200680333 /* SalesRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRule.swift; sourceTree = "<group>"; };
+		4D1A4C5A1F2138E900680333 /* Locomotive+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Locomotive+API.swift"; sourceTree = "<group>"; };
+		4D1A4C5C1F21392000680333 /* Engine+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Engine+API.swift"; sourceTree = "<group>"; };
+		4D1A4C5E1F21394A00680333 /* Player+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+API.swift"; sourceTree = "<group>"; };
+		4D1A4C601F21396E00680333 /* Production+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Production+API.swift"; sourceTree = "<group>"; };
 		4D94294E1F21243C006B2D89 /* EngineYard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineYard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429621F21243C006B2D89 /* EngineYardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineYardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429681F21243C006B2D89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +146,8 @@
 		4D1A4C191F212DAF00680333 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C241F21314B00680333 /* Constants.swift */,
+				4D1A4C251F21314B00680333 /* ErrorCodes.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -99,6 +163,9 @@
 		4D1A4C1C1F212DAF00680333 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C281F21315200680333 /* Devices.swift */,
+				4D1A4C291F21315200680333 /* Fonts.swift */,
+				4D1A4C2A1F21315200680333 /* Sounds.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -106,6 +173,10 @@
 		4D1A4C1D1F212DAF00680333 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C2E1F21315800680333 /* EY+Array.swift */,
+				4D1A4C2F1F21315800680333 /* EY+Color.swift */,
+				4D1A4C301F21315800680333 /* EY+Image.swift */,
+				4D1A4C311F21315800680333 /* EY+Time.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,6 +184,8 @@
 		4D1A4C1E1F212DAF00680333 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C361F21316100680333 /* GameConfig.swift */,
+				4D1A4C371F21316100680333 /* Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -120,6 +193,7 @@
 		4D1A4C1F1F212DAF00680333 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C3A1F21316800680333 /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -127,6 +201,23 @@
 		4D1A4C201F212DAF00680333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C401F21319D00680333 /* Generation.swift */,
+				4D1A4C421F2131A700680333 /* EngineColor.swift */,
+				4D1A4C441F21321900680333 /* GameModel.swift */,
+				4D1A4C461F21335400680333 /* GameBoard.swift */,
+				4D1A4C481F21346100680333 /* Locomotive.swift */,
+				4D1A4C5A1F2138E900680333 /* Locomotive+API.swift */,
+				4D1A4C4A1F21360A00680333 /* Engine.swift */,
+				4D1A4C5C1F21392000680333 /* Engine+API.swift */,
+				4D1A4C4C1F21361400680333 /* Player.swift */,
+				4D1A4C5E1F21394A00680333 /* Player+API.swift */,
+				4D1A4C4E1F21361E00680333 /* Production.swift */,
+				4D1A4C601F21396E00680333 /* Production+API.swift */,
+				4D1A4C501F21362900680333 /* OrderBook.swift */,
+				4D1A4C521F21365500680333 /* Die.swift */,
+				4D1A4C541F21367400680333 /* Account.swift */,
+				4D1A4C561F21388800680333 /* Tax.swift */,
+				4D1A4C581F2138C200680333 /* SalesRule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +225,8 @@
 		4D1A4C211F212DAF00680333 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				4D1A4C3C1F21316F00680333 /* GameStates.swift */,
+				4D1A4C3D1F21316F00680333 /* StateManager.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -430,7 +523,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D94297F1F2124B7006B2D89 /* MainMenuViewController.swift in Sources */,
+				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
+				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
+				4D1A4C3B1F21316800680333 /* DataManager.swift in Sources */,
+				4D1A4C4D1F21361400680333 /* Player.swift in Sources */,
+				4D1A4C491F21346100680333 /* Locomotive.swift in Sources */,
+				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
+				4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */,
+				4D1A4C2B1F21315200680333 /* Devices.swift in Sources */,
+				4D1A4C5B1F2138E900680333 /* Locomotive+API.swift in Sources */,
+				4D1A4C261F21314B00680333 /* Constants.swift in Sources */,
+				4D1A4C511F21362900680333 /* OrderBook.swift in Sources */,
+				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
+				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
+				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
+				4D1A4C531F21365500680333 /* Die.swift in Sources */,
+				4D1A4C451F21321900680333 /* GameModel.swift in Sources */,
+				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
+				4D1A4C471F21335400680333 /* GameBoard.swift in Sources */,
+				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
+				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
+				4D1A4C591F2138C200680333 /* SalesRule.swift in Sources */,
+				4D1A4C611F21396E00680333 /* Production+API.swift in Sources */,
+				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
+				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
+				4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */,
+				4D1A4C551F21367400680333 /* Account.swift in Sources */,
+				4D1A4C4B1F21360A00680333 /* Engine.swift in Sources */,
+				4D1A4C571F21388800680333 /* Tax.swift in Sources */,
+				4D1A4C5F1F21394A00680333 /* Player+API.swift in Sources */,
+				4D1A4C351F21315800680333 /* EY+Time.swift in Sources */,
+				4D1A4C271F21314B00680333 /* ErrorCodes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
