@@ -429,6 +429,7 @@
 				4D48E3701F211F0800B684E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D48E3711F211F0800B684E0 /* Build configuration list for PBXNativeTarget "EngineYardTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +438,7 @@
 				4D48E3731F211F0800B684E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
