@@ -42,6 +42,8 @@
 		4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C5C1F21392000680333 /* Engine+API.swift */; };
 		4D1A4C5F1F21394A00680333 /* Player+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C5E1F21394A00680333 /* Player+API.swift */; };
 		4D1A4C611F21396E00680333 /* Production+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C601F21396E00680333 /* Production+API.swift */; };
+		4D1A4C631F2139C900680333 /* SetupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C621F2139C900680333 /* SetupManager.swift */; };
+		4D1A4C651F213AA800680333 /* TurnOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C641F213AA800680333 /* TurnOrderManager.swift */; };
 		4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429721F2124B7006B2D89 /* AppDelegate.swift */; };
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
 		4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */; };
@@ -99,6 +101,8 @@
 		4D1A4C5C1F21392000680333 /* Engine+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Engine+API.swift"; sourceTree = "<group>"; };
 		4D1A4C5E1F21394A00680333 /* Player+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+API.swift"; sourceTree = "<group>"; };
 		4D1A4C601F21396E00680333 /* Production+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Production+API.swift"; sourceTree = "<group>"; };
+		4D1A4C621F2139C900680333 /* SetupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupManager.swift; sourceTree = "<group>"; };
+		4D1A4C641F213AA800680333 /* TurnOrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOrderManager.swift; sourceTree = "<group>"; };
 		4D94294E1F21243C006B2D89 /* EngineYard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineYard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429621F21243C006B2D89 /* EngineYardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineYardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429681F21243C006B2D89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				4D1A4C3A1F21316800680333 /* DataManager.swift */,
+				4D1A4C621F2139C900680333 /* SetupManager.swift */,
+				4D1A4C641F213AA800680333 /* TurnOrderManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				4D1A4C2B1F21315200680333 /* Devices.swift in Sources */,
 				4D1A4C5B1F2138E900680333 /* Locomotive+API.swift in Sources */,
 				4D1A4C261F21314B00680333 /* Constants.swift in Sources */,
+				4D1A4C651F213AA800680333 /* TurnOrderManager.swift in Sources */,
 				4D1A4C511F21362900680333 /* OrderBook.swift in Sources */,
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
@@ -545,6 +552,7 @@
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
 				4D1A4C591F2138C200680333 /* SalesRule.swift in Sources */,
+				4D1A4C631F2139C900680333 /* SetupManager.swift in Sources */,
 				4D1A4C611F21396E00680333 /* Production+API.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,

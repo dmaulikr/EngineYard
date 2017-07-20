@@ -22,4 +22,9 @@ final class GameModel {
     var gameIsRunning : Bool {
         return (self.dateCreated != nil)
     }
+    var turnOrderManager: TurnOrderManager = TurnOrderManager.instance
+    var players: [Player] {
+        return self.turnOrderManager.turnOrder
+    }
+
 }
