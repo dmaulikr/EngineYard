@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324E8E68A243693241C1263E /* Pods_EngineYardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */; };
 		4D9429671F21243C006B2D89 /* EngineYardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429661F21243C006B2D89 /* EngineYardTests.swift */; };
 		4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429721F2124B7006B2D89 /* AppDelegate.swift */; };
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 		4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429761F2124B7006B2D89 /* Main.storyboard */; };
 		4D94297F1F2124B7006B2D89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429791F2124B7006B2D89 /* ViewController.swift */; };
 		4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9429811F2124DF006B2D89 /* GameKit.framework */; };
+		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		168E1CE1714A49BF9AA68937 /* Pods-EngineYard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.release.xcconfig"; sourceTree = "<group>"; };
+		253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3576C8EE777332A3375423F4 /* Pods-EngineYardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D94294E1F21243C006B2D89 /* EngineYard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineYard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429621F21243C006B2D89 /* EngineYardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineYardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429661F21243C006B2D89 /* EngineYardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineYardTests.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		4D9429781F2124B7006B2D89 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9429791F2124B7006B2D89 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4D9429811F2124DF006B2D89 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
+		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */,
+				5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324E8E68A243693241C1263E /* Pods_EngineYardTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +77,7 @@
 				4D9429651F21243C006B2D89 /* EngineYardTests */,
 				4D94294F1F21243C006B2D89 /* Products */,
 				4D9429801F2124DF006B2D89 /* Frameworks */,
+				AF42B8C9DFE4FE4037A4E31F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				4D9429811F2124DF006B2D89 /* GameKit.framework */,
+				253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */,
+				65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +129,17 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		AF42B8C9DFE4FE4037A4E31F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */,
+				168E1CE1714A49BF9AA68937 /* Pods-EngineYard.release.xcconfig */,
+				3576C8EE777332A3375423F4 /* Pods-EngineYardTests.debug.xcconfig */,
+				E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D94296B1F21243C006B2D89 /* Build configuration list for PBXNativeTarget "EngineYard" */;
 			buildPhases = (
+				F989D52508398DB0B8F9429D /* [CP] Check Pods Manifest.lock */,
 				4D94294A1F21243C006B2D89 /* Sources */,
 				4D94294B1F21243C006B2D89 /* Frameworks */,
 				4D94294C1F21243C006B2D89 /* Resources */,
+				C8934BC8BE7503F24414034E /* [CP] Embed Pods Frameworks */,
+				D3F2584B92320F5D9BB60CE4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D94296E1F21243C006B2D89 /* Build configuration list for PBXNativeTarget "EngineYardTests" */;
 			buildPhases = (
+				36D1401A7126566A02DF6F37 /* [CP] Check Pods Manifest.lock */,
 				4D94295E1F21243C006B2D89 /* Sources */,
 				4D94295F1F21243C006B2D89 /* Frameworks */,
 				4D9429601F21243C006B2D89 /* Resources */,
+				3E5EF48745C3A2B4FB593FF9 /* [CP] Embed Pods Frameworks */,
+				869344112D66AE7BF1792078 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,6 +250,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36D1401A7126566A02DF6F37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3E5EF48745C3A2B4FB593FF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869344112D66AE7BF1792078 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8934BC8BE7503F24414034E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3F2584B92320F5D9BB60CE4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F989D52508398DB0B8F9429D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D94294A1F21243C006B2D89 /* Sources */ = {
@@ -362,7 +485,9 @@
 		};
 		4D94296C1F21243C006B2D89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = A48R25Y4D5;
@@ -377,7 +502,9 @@
 		};
 		4D94296D1F21243C006B2D89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 168E1CE1714A49BF9AA68937 /* Pods-EngineYard.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = A48R25Y4D5;
@@ -392,8 +519,9 @@
 		};
 		4D94296F1F21243C006B2D89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3576C8EE777332A3375423F4 /* Pods-EngineYardTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = A48R25Y4D5;
 				INFOPLIST_FILE = EngineYardTests/Info.plist;
@@ -407,8 +535,9 @@
 		};
 		4D9429701F21243C006B2D89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = A48R25Y4D5;
 				INFOPLIST_FILE = EngineYardTests/Info.plist;
