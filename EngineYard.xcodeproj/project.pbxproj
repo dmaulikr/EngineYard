@@ -12,7 +12,6 @@
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
 		4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */; };
 		4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429761F2124B7006B2D89 /* Main.storyboard */; };
-		4D94297E1F2124B7006B2D89 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429781F2124B7006B2D89 /* Info.plist */; };
 		4D94297F1F2124B7006B2D89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429791F2124B7006B2D89 /* ViewController.swift */; };
 		4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9429811F2124DF006B2D89 /* GameKit.framework */; };
 /* End PBXBuildFile section */
@@ -199,7 +198,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D94297E1F2124B7006B2D89 /* Info.plist in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
@@ -357,7 +355,7 @@
 		4D94296C1F21243C006B2D89 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = A48R25Y4D5;
 				INFOPLIST_FILE = EngineYard_iOS/Info.plist;
@@ -372,7 +370,7 @@
 		4D94296D1F21243C006B2D89 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = A48R25Y4D5;
 				INFOPLIST_FILE = EngineYard_iOS/Info.plist;
