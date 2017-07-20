@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		324E8E68A243693241C1263E /* Pods_EngineYardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */; };
-		4D9429671F21243C006B2D89 /* EngineYardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429661F21243C006B2D89 /* EngineYardTests.swift */; };
+		4D1A4C161F212D2600680333 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C151F212D2600680333 /* BaseTests.swift */; };
 		4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429721F2124B7006B2D89 /* AppDelegate.swift */; };
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
 		4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */; };
@@ -32,9 +32,9 @@
 		168E1CE1714A49BF9AA68937 /* Pods-EngineYard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.release.xcconfig"; sourceTree = "<group>"; };
 		253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3576C8EE777332A3375423F4 /* Pods-EngineYardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D1A4C151F212D2600680333 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		4D94294E1F21243C006B2D89 /* EngineYard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineYard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429621F21243C006B2D89 /* EngineYardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineYardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D9429661F21243C006B2D89 /* EngineYardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineYardTests.swift; sourceTree = "<group>"; };
 		4D9429681F21243C006B2D89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9429721F2124B7006B2D89 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D9429731F2124B7006B2D89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		4D9429651F21243C006B2D89 /* EngineYardTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D9429661F21243C006B2D89 /* EngineYardTests.swift */,
+				4D1A4C151F212D2600680333 /* BaseTests.swift */,
 				4D9429681F21243C006B2D89 /* Info.plist */,
 			);
 			path = EngineYardTests;
@@ -358,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9429671F21243C006B2D89 /* EngineYardTests.swift in Sources */,
+				4D1A4C161F212D2600680333 /* BaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
