@@ -62,6 +62,7 @@
 		4D9429451F21243C006B2D89 = {
 			isa = PBXGroup;
 			children = (
+				4D9429841F21262A006B2D89 /* Shared */,
 				4D9429711F2124B7006B2D89 /* EngineYard_iOS */,
 				4D9429651F21243C006B2D89 /* EngineYardTests */,
 				4D94294F1F21243C006B2D89 /* Products */,
@@ -106,6 +107,13 @@
 				4D9429811F2124DF006B2D89 /* GameKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D9429841F21262A006B2D89 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
