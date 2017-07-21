@@ -75,10 +75,10 @@ final class Locomotive : NSObject, LocomotiveProtocol, Mappable {
 
     override var description: String {
         var returnString = "Train: \(self.name), orders: \(self.existingOrders), completedOrders: \(self.completedOrders)"
-        if (self.isOld) {
+        if (self.isRusting) {
             returnString = returnString.appending(" - OLD -")
         }
-        if (self.isObsolete) {
+        if (self.hasRusted) {
             returnString = returnString.appending(" ** OBSOLETE **")
         }
         if (self.isUnlocked) {
