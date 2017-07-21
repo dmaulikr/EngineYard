@@ -13,7 +13,14 @@ extension Notification.Name {
 }
 
 final class GameBoard {
-    public fileprivate(set) lazy var decks: [Locomotive] = [Locomotive]()
+
+    private var _trains: [Locomotive] = [Locomotive]()
+
+    public var decks: [Locomotive] {
+        return self._trains.sorted(by: { (loco1:Locomotive, loco2:Locomotive) -> Bool in
+            return (loco1.cost < loco2.cost)
+        })
+    }
 
     init() {
         registerForNotifications()
@@ -45,7 +52,7 @@ final class GameBoard {
         let gameBoard = GameBoard()
 
         // # load static game data fixtures
-        gameBoard.decks = LocomotiveAPI.loadFixtures()
+        gameBoard._trains = LocomotiveAPI.loadFixtures()
 
         // # save to db (#TODO)
 
