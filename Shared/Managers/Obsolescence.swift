@@ -78,12 +78,22 @@ struct Obsolescence
     }
 
     func handler() {
-        /*
         for engineColorRef in EngineColor.allValues
         {
-
+            
         }
-        */
+    }
+
+    func handleOneGeneration(trains: [Train]) {
+        assert(trains.count == 1)
+    }
+
+    func handleTwoGenerations(trains: [Train]) {
+        assert(trains.count == 2)
+    }
+
+    func handleThreeGenerations(trains: [Train]) {
+        assert(trains.count == 3)
     }
 
     func filterTrainsOnColorWithOrders(engineColor: EngineColor) -> [Train]? {

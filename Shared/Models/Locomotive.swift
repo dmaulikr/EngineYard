@@ -107,3 +107,9 @@ final class Locomotive : NSObject, LocomotiveProtocol {
     }
 
 }
+
+extension Locomotive {
+    func hasMaximumDice() -> Bool {
+        return true
+    }
+}
