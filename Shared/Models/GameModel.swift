@@ -19,7 +19,7 @@ final class GameModel {
             self.dateCreated = Date.init(timeIntervalSinceNow: 0)
         }
     }
-    var gameIsRunning : Bool {
+    var gameInProgress : Bool {
         return (self.dateCreated != nil)
     }
     var turnOrderManager: TurnOrderManager = TurnOrderManager.instance
