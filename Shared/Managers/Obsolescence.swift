@@ -107,6 +107,15 @@ struct Obsolescence
 
     func handleOneGeneration(trains: [Train]) {
         assert(trains.count == 1)
+
+        guard let firstTrain = trains.first else {
+            return
+        }
+
+        if (firstTrain.hasMaximumDice()) {
+            firstTrain.orderBook.rerollAndTransferCompletedOrders()
+            firstTrain.orderBook.add(order: ExistingOrder.init(value: Die.roll()))
+        }
     }
 
     func handleTwoGenerations(trains: [Train]) {
