@@ -81,7 +81,7 @@ class ObsolescenceTests: BaseTests {
         print ("firstTrain.orders = \(firstTrain.orderBook.existingOrders)")
     }
 
-    // mock the deck so that it will have 2 generations valid
+    // mock the deck so that it will have 2 green generations valid
     func testTwoGenerations() {
         let trains = self.gameObj.gameBoard.decks
 
@@ -91,6 +91,12 @@ class ObsolescenceTests: BaseTests {
                 trains[index].orderBook.generateExistingOrders(howMany: 1)
             }
         }
+
+        let countTrainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
+            return (loco.orderBook.existingOrders.count > 0)
+            }.count
+
+        XCTAssert(countTrainsWithOrders == 5)
     }
 
     // mock the deck so that it will have 3 generations valid
