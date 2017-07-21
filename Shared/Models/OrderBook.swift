@@ -77,34 +77,32 @@ final class OrderBook {
     }
 
 
-    func generateExistingOrders(howMany: Int) -> Bool {
+    func generateExistingOrders(howMany: Int) {
         guard let forTrain = self.parent else {
             assertionFailure("No train provided")
-            return false
+            return
         }
         guard forTrain.capacity > 0 else {
             assertionFailure("Capacity must > 0")
-            return false
+            return
         }
         if howMany <= 0 {
             assertionFailure("Generate must > 0")
-            return false
+            return
         }
         if howMany > forTrain.capacity {
             assertionFailure("Cannot exceed orders capacity .1")
-            return false
+            return
         }
         if ((forTrain.existingOrders.count + howMany) > forTrain.capacity) {
             assertionFailure("Cannot exceed orders capacity .2")
-            return false
+            return
         }
 
         for _ in 1...howMany {
             let orderObj: ExistingOrder = ExistingOrder.generate()
             forTrain.orderBook.add(order: orderObj)
         }
-
-        return true
     }
 
 
@@ -210,9 +208,13 @@ final class OrderBook {
     }
 }
 
-class ExistingOrder: EntryProtocol {
+class ExistingOrder: EntryProtocol, CustomStringConvertible {
     var value : Int = 0
-    
+
+    var description: String {
+        return String(self.value)
+    }
+
     init(value: Int) {
         self.value = value
     }
@@ -223,9 +225,13 @@ class ExistingOrder: EntryProtocol {
     }
 }
 
-class CompletedOrder: EntryProtocol {
+class CompletedOrder: EntryProtocol, CustomStringConvertible {
     var value : Int = 0
-    
+
+    var description: String {
+        return String(self.value)
+    }
+
     init(value: Int) {
         self.value = value
     }

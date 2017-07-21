@@ -98,14 +98,14 @@ extension SetupManager
 
         // generate 3 orders for firstLoco
         print ("Generating orders for \(firstLoco.name)")
-        let _ = firstLoco.orderBook.generateExistingOrders(howMany: 3)
+        firstLoco.orderBook.generateExistingOrders(howMany: 3)
 
         // generate 1 order for secondLoco
         let secondLoco:Locomotive = decks[1] as Locomotive
         if ((secondLoco.generation != .first) && (secondLoco.engineColor != .red)) {
             assertionFailure("Second loco is invalid")
         }
-        let _ = secondLoco.orderBook.generateExistingOrders(howMany: 1)
+        secondLoco.orderBook.generateExistingOrders(howMany: 1)
     }
 
 
@@ -129,7 +129,7 @@ extension SetupManager
 
         // Generate 1 orders for firstLoco
         print ("Generating orders for \(firstLoco.name)")
-        let _ = firstLoco.orderBook.generateExistingOrders(howMany: 1)
+        firstLoco.orderBook.generateExistingOrders(howMany: 1)
     }
     
 

@@ -118,8 +118,10 @@ final class Locomotive : NSObject, LocomotiveProtocol {
 }
 
 extension Locomotive {
+
+    // The maximum number of dice for a locomotive type and generation is determined by the number of boxes in the Customer Base.
     func hasMaximumDice() -> Bool {
-        return true
+        return (self.orderBook.completedOrders.count >= self.capacity)
     }
 
     func markAsOld() {

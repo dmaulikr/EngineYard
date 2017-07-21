@@ -80,23 +80,23 @@ struct Obsolescence
     func handler() {
         for engineColorRef in EngineColor.allValues
         {
-            guard let generations = self.filterTrainsOnColorWithOrders(engineColor: engineColorRef) else {
+            guard let generations = self.findGenerationsForEngineColor(engineColor: engineColorRef) else {
                 break
             }
 
             if (generations.count == 0) {
-                print ("No generations exist")
+                print ("No generations exist for \(engineColorRef)")
             }
             else if (generations.count == 1) {
-                print ("1 generations exist")
+                print ("1 generations exist for \(engineColorRef)")
                 handleOneGeneration(trains: generations)
             }
             else if (generations.count == 2) {
-                print ("2 generations exist")
+                print ("2 generations exist for \(engineColorRef)")
                 handleTwoGenerations(trains: generations)
             }
             else if (generations.count == 3) {
-                print ("3 generations exist")
+                print ("3 generations exist for \(engineColorRef)")
                 handleThreeGenerations(trains: generations)
             }
             else {
@@ -105,7 +105,22 @@ struct Obsolescence
         }
     }
 
-    func handleOneGeneration(trains: [Train]) {
+
+    func findGenerationsForEngineColor(engineColor: EngineColor) -> [Train]? {
+        let filteredTrains = trains
+            .filter { (loco:Locomotive) -> Bool in
+                return ( (loco.engineColor == engineColor) && ((loco.existingOrders.count > 0) || (loco.completedOrders.count > 0)) )
+            }
+            .sorted { (loco1:Locomotive, loco2:Locomotive) -> Bool in
+                return (loco1.cost < loco2.cost)
+        }
+        return filteredTrains
+    }
+
+
+    // MARK: (Private) functions
+
+    private func handleOneGeneration(trains: [Train]) {
         assert(trains.count == 1)
 
         guard let firstTrain = trains.first else {
@@ -118,7 +133,7 @@ struct Obsolescence
         }
     }
 
-    func handleTwoGenerations(trains: [Train]) {
+    private func handleTwoGenerations(trains: [Train]) {
         assert(trains.count == 2)
 
         for (index, train) in trains.enumerated() {
@@ -136,7 +151,7 @@ struct Obsolescence
         }
     }
 
-    func handleThreeGenerations(trains: [Train]) {
+    private func handleThreeGenerations(trains: [Train]) {
         assert(trains.count == 3)
 
         for (index, train) in trains.enumerated() {
@@ -161,14 +176,4 @@ struct Obsolescence
         }
     }
 
-    func filterTrainsOnColorWithOrders(engineColor: EngineColor) -> [Train]? {
-        let filteredTrains = trains
-            .filter { (loco:Locomotive) -> Bool in
-                return ( (loco.engineColor == engineColor) && ((loco.existingOrders.count > 0) || (loco.completedOrders.count > 0)) )
-            }
-            .sorted { (loco1:Locomotive, loco2:Locomotive) -> Bool in
-                return (loco1.cost < loco2.cost)
-        }
-        return filteredTrains
-    }
 }
