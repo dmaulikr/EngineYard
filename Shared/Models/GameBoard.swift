@@ -62,7 +62,7 @@ final class GameBoard {
         }
 
         print ("Unlocking: \(firstLocked.name)")
-        let _ = firstLocked.orderBook.generateOrders(howMany: 1)
+        let _ = firstLocked.orderBook.generateExistingOrders(howMany: 1)
     }
     
 

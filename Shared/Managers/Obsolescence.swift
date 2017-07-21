@@ -112,18 +112,53 @@ struct Obsolescence
             return
         }
 
-        if (firstTrain.hasMaximumDice()) {
+        if (firstTrain.hasMaximumDice() == false) {
             firstTrain.orderBook.rerollAndTransferCompletedOrders()
-            firstTrain.orderBook.add(order: ExistingOrder.init(value: Die.roll()))
+            firstTrain.orderBook.add(order: ExistingOrder.generate())
         }
     }
 
     func handleTwoGenerations(trains: [Train]) {
         assert(trains.count == 2)
+
+        for (index, train) in trains.enumerated() {
+            if (index == 0) {
+                train.orderBook.removeFirstValueFromCompletedOrder()
+                train.orderBook.rerollAndTransferCompletedOrders()
+                train.markAsOld()
+            }
+            else {
+                if (train.hasMaximumDice() == false) {
+                    train.orderBook.rerollAndTransferCompletedOrders()
+                    train.orderBook.add(order: ExistingOrder.generate())
+                }
+            }
+        }
     }
 
     func handleThreeGenerations(trains: [Train]) {
         assert(trains.count == 3)
+
+        for (index, train) in trains.enumerated() {
+            if (index == 0) {
+                train.orderBook.clear()
+                train.markAsObsolete()
+            }
+            else if (index == 1) {
+                if (train.hasMaximumDice() == false) {
+                    train.orderBook.rerollAndTransferCompletedOrders()
+                }
+            }
+            else if (index == 2) {
+                if (train.hasMaximumDice() == false) {
+                    train.orderBook.rerollAndTransferCompletedOrders()
+                    train.orderBook.add(order: ExistingOrder.generate())
+                }
+            }
+            else {
+                break
+            }
+        }
     }
 
     func filterTrainsOnColorWithOrders(engineColor: EngineColor) -> [Train]? {

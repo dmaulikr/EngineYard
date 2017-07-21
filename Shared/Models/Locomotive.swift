@@ -66,8 +66,17 @@ final class Locomotive : NSObject, LocomotiveProtocol {
         return filtered
     }
 
-    public private(set) var isRusting : Bool = false
-    public private(set) var hasRusted: Bool = false
+    // # Obsolescence variables
+    public fileprivate(set) var isRusting : Bool = false {
+        didSet {
+            print ("\(self.name) is rusting")
+        }
+    }
+    public fileprivate(set) var hasRusted: Bool = false {
+        didSet {
+            print ("\(self.name) has rusted - OBSOLETE")
+        }
+    }
 
     var isUnlocked: Bool {
         return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
@@ -111,5 +120,13 @@ final class Locomotive : NSObject, LocomotiveProtocol {
 extension Locomotive {
     func hasMaximumDice() -> Bool {
         return true
+    }
+
+    func markAsOld() {
+        self.isRusting = true
+    }
+
+    func markAsObsolete() {
+        self.hasRusted = true
     }
 }

@@ -30,6 +30,11 @@ final class OrderBook {
         self.parent = parent
     }
 
+    func clear() {
+        self.existingOrders.removeAll()
+        self.completedOrders.removeAll()
+    }
+
     func add<C1: Any>(order: C1) where C1: EntryProtocol {
 
         if let existingOrderObj = order as? ExistingOrder {
@@ -72,7 +77,7 @@ final class OrderBook {
     }
 
 
-    func generateOrders(howMany: Int) -> Bool {
+    func generateExistingOrders(howMany: Int) -> Bool {
         guard let forTrain = self.parent else {
             assertionFailure("No train provided")
             return false
@@ -95,7 +100,7 @@ final class OrderBook {
         }
 
         for _ in 1...howMany {
-            let orderObj = ExistingOrder.init(value: Die.roll())
+            let orderObj: ExistingOrder = ExistingOrder.generate()
             forTrain.orderBook.add(order: orderObj)
         }
 
@@ -159,7 +164,6 @@ final class OrderBook {
                 $0.element.value < $1.element.value
             })
 
-
             guard let firstItem = sortedElementsAndIndices.first else {
                 return
             }
@@ -211,6 +215,11 @@ class ExistingOrder: EntryProtocol {
     
     init(value: Int) {
         self.value = value
+    }
+
+    public static func generate() -> ExistingOrder {
+        let order = ExistingOrder.init(value: Die.roll())
+        return order
     }
 }
 
