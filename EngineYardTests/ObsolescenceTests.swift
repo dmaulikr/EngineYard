@@ -13,7 +13,8 @@ import XCTest
 class ObsolescenceTests: BaseTests {
 
     var gameObj: Game!
-    
+    var trains: [Locomotive]!
+
     override func setUp() {
         super.setUp()
 
@@ -28,6 +29,7 @@ class ObsolescenceTests: BaseTests {
         }
 
         self.gameObj = gameObj
+        self.trains = self.gameObj.gameBoard.decks
     }
     
     override func tearDown() {
@@ -36,7 +38,6 @@ class ObsolescenceTests: BaseTests {
     }
 
     func testUnlockAll() {
-        let trains = self.gameObj.gameBoard.decks
 
         // force unlock all trains
         for (_, train) in trains.enumerated() {
@@ -45,29 +46,28 @@ class ObsolescenceTests: BaseTests {
             }
         }
 
-        let countTrainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
+        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
             return (loco.orderBook.existingOrders.count > 0)
-            }.count
+            }
 
-        XCTAssert(countTrainsWithOrders == Constants.Board.decks)
+        XCTAssert(trainsWithOrders.count == Constants.Board.decks)
 
         // test generations
-        let greenGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .green)
+        let greenGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green)
         XCTAssert(greenGenerations?.count == Constants.Board.numberOfDecksForColor(color: .green))
 
-        let redGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .red)
+        let redGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .red)
         XCTAssert(redGenerations?.count == Constants.Board.numberOfDecksForColor(color: .red))
 
-        let blueGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .blue)
+        let blueGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .blue)
         XCTAssert(blueGenerations?.count == Constants.Board.numberOfDecksForColor(color: .blue))
 
-        let yellowGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .yellow)
+        let yellowGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .yellow)
         XCTAssert(yellowGenerations?.count == Constants.Board.numberOfDecksForColor(color: .yellow))
     }
 
     // Note - This is testing with 5 player game
     func testNoChange() {
-        let trains = self.gameObj.gameBoard.decks
 
         let ob = Obsolescence.init(trains: trains)
 
@@ -87,7 +87,6 @@ class ObsolescenceTests: BaseTests {
 
     // mock the deck so that it will have 1 generation valid
     func testOneGeneration() {
-        let trains = self.gameObj.gameBoard.decks
 
         // force unlock first train
         guard let firstTrain = trains.first else {
@@ -114,7 +113,6 @@ class ObsolescenceTests: BaseTests {
 
     // mock the deck so that it will have 2 green generations valid
     func testTwoGenerations() {
-        let trains = self.gameObj.gameBoard.decks
 
         // force unlock trains
         for index in 0...4 {
@@ -148,7 +146,7 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(countCompleted == 5)
 
         // test generations 
-        guard let greenGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .green) else {
+        guard let greenGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
             return
         }
 
@@ -163,17 +161,17 @@ class ObsolescenceTests: BaseTests {
 
         XCTAssert(greenGenerations.count == 2)
 
-        guard let redGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .red) else {
+        guard let redGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .red) else {
             return
         }
         XCTAssert(redGenerations.count == 1)
 
-        guard let blueGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .blue) else {
+        guard let blueGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .blue) else {
             return
         }
         XCTAssert(blueGenerations.count == 1)
 
-        guard let yellowGenerations = Obsolescence(trains: trains).findGenerationsForEngineColor(engineColor: .yellow) else {
+        guard let yellowGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .yellow) else {
             return
         }
         XCTAssert(yellowGenerations.count == 1)
@@ -206,7 +204,6 @@ class ObsolescenceTests: BaseTests {
 
     // mock the deck so that it will have 3 generations valid
     func testThreeGenerations() {
-        let trains = self.gameObj.gameBoard.decks
 
         // force unlock trains
         for index in 0...7 {
@@ -241,6 +238,12 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(countCompleted == 8)
 
 
+        // test generations
+        guard let greenGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
+            return
+        }
+
+        XCTAssert(greenGenerations.count == 3)
 
 
 
