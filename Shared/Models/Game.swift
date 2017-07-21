@@ -1,5 +1,5 @@
 //
-//  GameModel.swift
+//  Game.swift
 //  EngineYard
 //
 //  Created by Amarjit on 20/07/2017.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-final class GameModel {
-    static var instance = GameModel()
+final class Game {
+    static var instance = Game()
 
     private(set) var dateCreated: Date?
 
@@ -19,7 +19,7 @@ final class GameModel {
             self.dateCreated = Date.init(timeIntervalSinceNow: 0)
         }
     }
-    var gameIsRunning : Bool {
+    var inProgress : Bool {
         return (self.dateCreated != nil)
     }
     var turnOrderManager: TurnOrderManager = TurnOrderManager.instance

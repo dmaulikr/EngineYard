@@ -9,6 +9,8 @@
 import XCTest
 import RealmSwift
 
+@testable import EngineYard
+
 class BaseTests: XCTestCase {
 
     override class func setUp() {
