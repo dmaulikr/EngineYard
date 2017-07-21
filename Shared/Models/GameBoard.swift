@@ -16,7 +16,7 @@ final class GameBoard {
     public fileprivate(set) lazy var decks: [Locomotive] = [Locomotive]()
 
     init() {
-        registerNotification()
+        registerForNotifications()
     }
 
     deinit {
@@ -25,7 +25,7 @@ final class GameBoard {
 
     // MARK: - Register Notifications
 
-    func registerNotification() {
+    func registerForNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didPurchaseTrain), name: .boughtTrainNotificationId, object: nil)
     }
 
@@ -42,12 +42,12 @@ final class GameBoard {
 
     // #TODO - Add callback
     public static func prepare() -> GameBoard {
-        let gameBoard = GameBoard.init()
+        let gameBoard = GameBoard()
 
-        // # load in data from disk
-        gameBoard.decks = LocomotiveAPI.fetchLocomotives()
+        // # load static game data fixtures
+        gameBoard.decks = LocomotiveAPI.loadFixtures()
 
-        // # save to db (TODO)
+        // # save to db (#TODO)
 
         return gameBoard
     }

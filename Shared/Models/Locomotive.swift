@@ -28,8 +28,8 @@ protocol LocomotiveProtocol {
     var hasRusted: Bool { get } // Obsolescence
 }
 
-final class Locomotive : NSObject, LocomotiveProtocol, Mappable {
-    public private(set) var uuid: String = UUID().uuidString
+final class Locomotive : NSObject, LocomotiveProtocol {
+    let uuid: String = UUID().uuidString
     public private(set) var name: String = ""
     public private(set) var generation: Generation = .first
     public private(set) var engineColor: EngineColor = .green
@@ -88,24 +88,22 @@ final class Locomotive : NSObject, LocomotiveProtocol, Mappable {
         return returnString
     }
 
-    //
-    // MARK: - ObjectMapper protocol
-    //
+    // MARK: - Initializer
 
-    required convenience public init?(map: Map) {
-        self.init()
-    }
+    init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
+        super.init()
+        assert(cost % 4 == 0, "Cost must be modulus of 4")
 
-    func mapping(map: Map) {
-        name <- map["engineid"]
-        cost <- map["cost"]
-        productionCost <- map["productioncost"]
-        income <- map["income"]
-        generation <- map["generation"]
-        engineColor <- map["enginecolor"]
-        capacity <- map["capacity"]
-        numberOfChildren <- map["qty"]
-        
+        self.name = name
+        self.cost = cost
+        self.productionCost = Int(cost / 2)
+        self.income = Int(productionCost / 2)
+        self.generation = generation
+        self.engineColor = engineColor
+        self.capacity = capacity
+        self.numberOfChildren = numberOfChildren
+
         EngineAPI.createEnginesFor(train: self)
     }
+
 }
