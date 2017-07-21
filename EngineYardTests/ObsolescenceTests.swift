@@ -96,13 +96,13 @@ class ObsolescenceTests: BaseTests {
 
         XCTAssert(firstTrain.orderBook.existingOrders.count == 1)
 
-        let countTrainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
+        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
             return (loco.orderBook.existingOrders.count > 0)
-        }.count
+        }
 
-        XCTAssert(countTrainsWithOrders == 1)
+        XCTAssert(trainsWithOrders.count == 1)
 
-        let ob = Obsolescence.init(trains: trains)
+        let ob = Obsolescence.init(trains: trainsWithOrders)
         ob.handler()
 
         XCTAssert(firstTrain.orderBook.existingOrders.count == 2, "\(firstTrain.orderBook.existingOrders.count)")
@@ -176,7 +176,7 @@ class ObsolescenceTests: BaseTests {
         }
         XCTAssert(yellowGenerations.count == 1)
 
-        let ob = Obsolescence.init(trains: trains)
+        let ob = Obsolescence.init(trains: trainsWithOrders)
         ob.handler()
 
         // 1st train
@@ -245,8 +245,17 @@ class ObsolescenceTests: BaseTests {
 
         XCTAssert(greenGenerations.count == 3)
 
+        for (index, train) in trainsWithOrders.enumerated() {
+            print ("#\(index), \(train.name), orders: \(train.existingOrders), completedOrders: \(train.completedOrders), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
+        }
 
-
+        // start obsolescence of 3 generations
+        let ob = Obsolescence.init(trains: trainsWithOrders)
+        ob.handler()
+        
+        for (index, train) in trainsWithOrders.enumerated() {
+            print ("#\(index), \(train.name), orders: \(train.existingOrders), completedOrders: \(train.completedOrders), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
+        }
     }
        
 }

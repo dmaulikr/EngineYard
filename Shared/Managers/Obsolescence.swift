@@ -174,6 +174,7 @@ struct Obsolescence
                 break
             }
         }
+        
     }
 
 }
