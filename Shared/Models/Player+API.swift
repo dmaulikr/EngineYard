@@ -26,26 +26,27 @@ class PlayerAPI {
 
 
     public static func generateMockPlayers(howMany:Int) -> [Player]? {
-        var players: [Player]?
+        var players: [Player] = [Player]()
 
         do {
             if try Constants.NumberOfPlayers.isValid(count: howMany)
             {
                 for index in stride(from:0, to: howMany, by: 1) {
                     let playerObj = Player.init(name: "Player #\(index)", asset: nil)
-                    players?.append(playerObj)
+                    players.append(playerObj)
                 }
+
+                return players
             }
             else {
+                assertionFailure("number of players is invalid: \(howMany)")
                 return nil
             }
 
         } catch let error {
-            print (error.localizedDescription)
+            assertionFailure(error.localizedDescription)
             return nil
         }
-
-        return players
     }
     
 }

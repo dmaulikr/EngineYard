@@ -78,6 +78,22 @@ struct Obsolescence
     }
 
     func handler() {
-        
+        /*
+        for engineColorRef in EngineColor.allValues
+        {
+
+        }
+        */
+    }
+
+    func filterTrainsOnColorWithOrders(engineColor: EngineColor) -> [Train]? {
+        let filteredTrains = trains
+            .filter { (loco:Locomotive) -> Bool in
+                return ( (loco.engineColor == engineColor) && ((loco.existingOrders.count > 0) || (loco.completedOrders.count > 0)) )
+            }
+            .sorted { (loco1:Locomotive, loco2:Locomotive) -> Bool in
+                return (loco1.cost < loco2.cost)
+        }
+        return filteredTrains
     }
 }
