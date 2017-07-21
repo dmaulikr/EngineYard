@@ -11,7 +11,7 @@ import ObjectMapper
 
 final class DataManager {
 
-    public static func getJSON(taskCallback: @escaping (Bool, Error?, Array<Dictionary<String, AnyObject>>?) -> ()) {
+    public static func loadJSON(taskCallback: @escaping (Bool, Error?, Array<Dictionary<String, AnyObject>>?) -> ()) {
         // request file
         DataManager.requestLocalJSONFile { (success, error, data) -> Void in
             if (success) {
@@ -43,6 +43,18 @@ final class DataManager {
             
         }
     }
-    
+}
+
+extension DataManager {
+
+    // #TODO
+    public static func saveToPersitenceLayer() {
+
+    }
+
+    public static func loadFromPersistenceLayer() {
+
+    }
 
 }
+

@@ -23,10 +23,9 @@ protocol LocomotiveProtocol {
     var isUnlocked: Bool { get }
     var capacity: Int { get } // capacity of orders, sales array
     var numberOfChildren: Int { get } // how many cards (engines) to create
-    //var engines: [Engine] { get } // child objects
 
-    var isOld: Bool { get } // whether the locomotive is rusting
-    var isObsolete: Bool { get } // whether the locomotive has rusted
+    var isRusting: Bool { get } // Obsolescence
+    var hasRusted: Bool { get } // Obsolescence
 }
 
 final class Locomotive : NSObject, LocomotiveProtocol, Mappable {
@@ -67,8 +66,9 @@ final class Locomotive : NSObject, LocomotiveProtocol, Mappable {
         return filtered
     }
 
-    public private(set) var isOld : Bool = false
-    public private(set) var isObsolete: Bool = false
+    public private(set) var isRusting : Bool = false
+    public private(set) var hasRusted: Bool = false
+
     var isUnlocked: Bool {
         return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
     }

@@ -11,13 +11,9 @@ import ObjectMapper
 
 class LocomotiveAPI : NSObject {
 
-    //    public static func fetchLocomotivesBelongingTo(player:Player) -> [Locomotive] {
-    //        var trains: [Locomotive] = [Locomotive]()
-    //        let results = player.engines.filter { (eng:Engine) -> Bool in
-    //            return ((eng.parent != nil))
-    //        }
-    //        return trains
-    //    }
+    public static func prepare() -> [Locomotive]? {
+        return nil
+    }
 
     public static func getSalesTurnOrderForTrain(train:Locomotive) -> [Engine] {
         let engines = train.engines.filter({ (eng:Engine) -> Bool in
@@ -111,7 +107,7 @@ class LocomotiveAPI : NSObject {
 
     fileprivate static func parseLocomotivesFromLocalJSONFile(taskCallback: @escaping (Bool, Error?, [Locomotive]?) -> ()) {
 
-        DataManager.getJSON { (success, error, json) in
+        DataManager.loadJSON { (success, error, json) in
             if (error != nil) {
                 taskCallback(false, error, nil)
             }

@@ -50,6 +50,7 @@
 		4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429761F2124B7006B2D89 /* Main.storyboard */; };
 		4D94297F1F2124B7006B2D89 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429791F2124B7006B2D89 /* MainMenuViewController.swift */; };
 		4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9429811F2124DF006B2D89 /* GameKit.framework */; };
+		4DC6AC1D1F21CCA300AED444 /* Obsolescence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC1C1F21CCA300AED444 /* Obsolescence.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		4D9429781F2124B7006B2D89 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9429791F2124B7006B2D89 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4D9429811F2124DF006B2D89 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4DC6AC1C1F21CCA300AED444 /* Obsolescence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obsolescence.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				4D1A4C3A1F21316800680333 /* DataManager.swift */,
 				4D1A4C621F2139C900680333 /* SetupManager.swift */,
 				4D1A4C641F213AA800680333 /* TurnOrderManager.swift */,
+				4DC6AC1C1F21CCA300AED444 /* Obsolescence.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
 				4D1A4C531F21365500680333 /* Die.swift in Sources */,
+				4DC6AC1D1F21CCA300AED444 /* Obsolescence.swift in Sources */,
 				4D1A4C451F21321900680333 /* GameModel.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D1A4C471F21335400680333 /* GameBoard.swift in Sources */,

@@ -24,7 +24,6 @@ class SetupManager : NSObject {
                 gameModel.turnOrderManager.turnOrder = players
 
                 if (settings.shouldShuffleTurnOrder) {
-                    // #TODO
                     gameModel.turnOrderManager.shuffleTurnOrder()
                 }
 
@@ -55,14 +54,18 @@ class SetupManager : NSObject {
 
     }
 
+}
 
+
+extension SetupManager
+{
     // # Setup for 3-4 players:
     // Give each player 12 coins and
     // one unowned First Generation Green locomotive card.
     // Each player places one Production Unit counter
     // on the locomotive card, with side “1” face up.
 
-    private func setupThreePlayerGame(gameModel:GameModel) {
+    fileprivate func setupThreePlayerGame(gameModel:GameModel) {
         let seedCash = Constants.SeedCash.threePlayers
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
@@ -112,7 +115,7 @@ class SetupManager : NSObject {
     //    + Roll only 1 die and place it in the Initial Orders
     //    area of the First Generation of the green Passenger locomotive.
 
-    private func setupFivePlayerGame(gameModel:GameModel) {
+    fileprivate func setupFivePlayerGame(gameModel:GameModel) {
 
         let seedCash = Constants.SeedCash.fivePlayers
         let players = gameModel.turnOrderManager.turnOrder
@@ -123,11 +126,11 @@ class SetupManager : NSObject {
         guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
             return
         }
-        
+
         // Generate 1 orders for firstLoco
         print ("Generating orders for \(firstLoco.name)")
         let _ = firstLoco.orderBook.generateOrders(howMany: 1)
     }
     
-    
+
 }
