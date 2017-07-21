@@ -11,10 +11,6 @@ import ObjectMapper
 
 class LocomotiveAPI : NSObject {
 
-    public static func prepare() -> [Locomotive]? {
-        return nil
-    }
-
     public static func getSalesTurnOrderForTrain(train:Locomotive) -> [Engine] {
         let engines = train.engines.filter({ (eng:Engine) -> Bool in
             return ( ((eng.owner != nil) && (eng.parent?.existingOrders.count)! > 0) && (eng.production.units > 0) )
