@@ -1,5 +1,5 @@
 //
-//  GameModelTests.swift
+//  GameTests.swift
 //  EngineYard
 //
 //  Created by Amarjit on 21/07/2017.
@@ -10,9 +10,9 @@ import XCTest
 
 @testable import EngineYard
 
-class GameModelTests: BaseTests {
+class GameTests: BaseTests {
 
-    var gameModel: GameModel = GameModel.instance
+    var game: Game = Game.instance
 
     override func setUp() {
         super.setUp()
@@ -24,8 +24,8 @@ class GameModelTests: BaseTests {
     }
 
     func testGameModel() {
-        XCTAssertFalse(self.gameModel.gameInProgress)
-        XCTAssert(self.gameModel.players.count == 0)
+        XCTAssertFalse(self.game.inProgress)
+        XCTAssert(self.game.players.count == 0)
     }
 
 }

@@ -12,12 +12,12 @@ class SetupManager : NSObject {
     static var instance = SetupManager()
 
     // #TODO - Add callback for completion or nil
-    func setup(settings:GameConfig, players:[Player]) throws -> GameModel? {
+    func setup(settings:GameConfig, players:[Player]) throws -> Game? {
 
         do {
             if try Constants.NumberOfPlayers.isValid(count: players.count)
             {
-                let gameModel = GameModel.init()
+                let gameModel = Game.init()
 
                 // prepare board
                 gameModel.gameBoard = GameBoard.prepare()                                
@@ -65,7 +65,7 @@ extension SetupManager
     // Each player places one Production Unit counter
     // on the locomotive card, with side “1” face up.
 
-    fileprivate func setupThreePlayerGame(gameModel:GameModel) {
+    fileprivate func setupThreePlayerGame(gameModel:Game) {
         let seedCash = Constants.SeedCash.threePlayers
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
@@ -115,7 +115,7 @@ extension SetupManager
     //    + Roll only 1 die and place it in the Initial Orders
     //    area of the First Generation of the green Passenger locomotive.
 
-    fileprivate func setupFivePlayerGame(gameModel:GameModel) {
+    fileprivate func setupFivePlayerGame(gameModel:Game) {
 
         let seedCash = Constants.SeedCash.fivePlayers
         let players = gameModel.turnOrderManager.turnOrder
