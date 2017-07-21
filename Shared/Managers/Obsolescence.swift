@@ -89,12 +89,15 @@ struct Obsolescence
             }
             else if (generations.count == 1) {
                 print ("1 generations exist")
+                handleOneGeneration(trains: generations)
             }
             else if (generations.count == 2) {
                 print ("2 generations exist")
+                handleTwoGenerations(trains: generations)
             }
             else if (generations.count == 3) {
                 print ("3 generations exist")
+                handleThreeGenerations(trains: generations)
             }
             else {
                 // do nothing
