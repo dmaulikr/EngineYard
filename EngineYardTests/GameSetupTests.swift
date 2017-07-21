@@ -38,6 +38,7 @@ class GameSetupTests: BaseTests {
 
         _ = self.gameObj.players.map({
             XCTAssert($0.account.balance == Constants.SeedCash.threePlayers)
+            XCTAssert($0.engines.count == 1)
         })
     }
 
@@ -55,6 +56,7 @@ class GameSetupTests: BaseTests {
 
         _ = self.gameObj.players.map({
             XCTAssert($0.account.balance == Constants.SeedCash.fivePlayers)
+            XCTAssert($0.engines.count == 0)
         })
     }
 }
