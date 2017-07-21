@@ -23,9 +23,11 @@ class GameTests: BaseTests {
         super.tearDown()
     }
 
-    func testGameModel() {
+    func testGameInProgress() {
         XCTAssertFalse(self.game.inProgress)
-        XCTAssert(self.game.players.count == 0)
+
+        self.game.gameBoard = GameBoard.prepare()
+        XCTAssertTrue(self.game.inProgress)
     }
 
 }
