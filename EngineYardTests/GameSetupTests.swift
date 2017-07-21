@@ -24,6 +24,10 @@ class GameSetupTests: BaseTests {
         super.tearDown()
     }
 
+    // Expected: 
+    // $12 coins seed cash
+    // Each player gets 1x Green.1 engine, each with 1x production unit
+    // First two trains have orders, rest do not
     func testThreePlayerSetup() {
         guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: 3) else {
             return
@@ -40,8 +44,27 @@ class GameSetupTests: BaseTests {
             XCTAssert($0.account.balance == Constants.SeedCash.threePlayers)
             XCTAssert($0.engines.count == 1)
         })
+
+        for player in self.gameObj.players {
+            for engine in player.engines {
+                XCTAssert(engine.owner == player)
+                XCTAssert(engine.production.units == 1)
+                XCTAssert(engine.parent?.engineColor == .green)
+                XCTAssert(engine.parent?.generation == .first)
+            }
+        }
+
+        let validDecks = (gameObj.gameBoard.decks.filter({ (loco:Locomotive) -> Bool in
+            return (loco.existingOrders.count > 0)
+        }).count)
+
+        XCTAssert(validDecks == 2)
     }
 
+    // Expected:
+    // $14 coins seed cash
+    // No-one has any engine cards
+    // First train has orders, rest do not
     func testFivePlayerSetup() {
         guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: 5) else {
             return
@@ -58,5 +81,20 @@ class GameSetupTests: BaseTests {
             XCTAssert($0.account.balance == Constants.SeedCash.fivePlayers)
             XCTAssert($0.engines.count == 0)
         })
+
+        for (index, loco) in self.gameObj.gameBoard.decks.enumerated() {
+            if (index == 0) {
+                XCTAssert(loco.existingOrders.count == 1)
+            }
+            else {
+                XCTAssert(loco.existingOrders.count == 0)
+            }
+        }
+
+        let validDecks = (gameObj.gameBoard.decks.filter({ (loco:Locomotive) -> Bool in
+            return (loco.existingOrders.count > 0)
+        }).count)
+
+        XCTAssert(validDecks == 1)
     }
 }
