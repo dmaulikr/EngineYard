@@ -80,7 +80,25 @@ struct Obsolescence
     func handler() {
         for engineColorRef in EngineColor.allValues
         {
-            
+            guard let generations = self.filterTrainsOnColorWithOrders(engineColor: engineColorRef) else {
+                break
+            }
+
+            if (generations.count == 0) {
+                print ("No generations exist")
+            }
+            else if (generations.count == 1) {
+                print ("1 generations exist")
+            }
+            else if (generations.count == 2) {
+                print ("2 generations exist")
+            }
+            else if (generations.count == 3) {
+                print ("3 generations exist")
+            }
+            else {
+                // do nothing
+            }
         }
     }
 
