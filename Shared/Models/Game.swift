@@ -28,3 +28,21 @@ final class Game {
     }
 
 }
+
+extension Game {
+    static public func setup(players:[Player]) -> Game? {
+        do {
+            let settings = GameConfig()
+
+            guard let gameObj = try SetupManager.instance.setup(settings: settings, players: players) else {
+                assertionFailure("no game model found")
+                return nil
+            }
+
+            return gameObj
+        } catch let error {
+            assertionFailure(error.localizedDescription)
+            return nil
+        }
+    }
+}
