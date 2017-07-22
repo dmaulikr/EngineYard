@@ -73,7 +73,7 @@ final class OrderBook {
         if ((self.completedOrders.count + 1) > hasParent.capacity) {
             return false
         }
-        return false
+        return true
     }
 
 
@@ -110,6 +110,13 @@ final class OrderBook {
     // if destination = completedOrder, move value from existingOrders -> customerBase
     // if destination = existingOrders, move value from customerBase -> existingOrders
     //
+
+    func makeTransferOrder<C1: Any>(order: C1, toDestination: OrderBookEntryType) where C1: EntryProtocol
+    {
+
+    }
+
+
     func transfer(index: Int, destination: OrderBookEntryType) {
         switch destination {
         case .existingOrder: // move -> completedOrders
@@ -118,9 +125,9 @@ final class OrderBook {
                 return
             }
 
-            let customerBaseObj = self.completedOrders[index]
+            print ("Transferring index \(index), \(self.completedOrders.description) FROM completedOrders -> existingOrders\n")
 
-            print ("Transferring index \(index), \(customerBaseObj.value) FROM completedOrders -> existingOrders\n")
+            let customerBaseObj = self.completedOrders[index]
 
             let existingOrderObj = ExistingOrder.init(value: customerBaseObj.value)
 
@@ -190,7 +197,7 @@ final class OrderBook {
         self.existingOrders[index] = existingOrderObj
 
         if (transfer == true) {
-            self.transfer(index: index, destination: .completedOrder)
+            self.transfer(index: index, destination: .completedOrder)            
         }
 
         return existingOrderObj.value
@@ -201,7 +208,7 @@ final class OrderBook {
             print ("completedOrders are empty")
             return
         }
-        for (index, item) in self.completedOrders.enumerated() {
+        for (index, item) in self.completedOrders.enumerated().reversed() {
             item.value = Die.roll()
             self.transfer(index: index, destination: .existingOrder)
         }
@@ -220,8 +227,7 @@ class ExistingOrder: EntryProtocol, CustomStringConvertible {
     }
 
     public static func generate() -> ExistingOrder {
-        let order = ExistingOrder.init(value: Die.roll())
-        return order
+        return ExistingOrder.init(value: Die.roll())
     }
 }
 
@@ -234,6 +240,10 @@ class CompletedOrder: EntryProtocol, CustomStringConvertible {
 
     init(value: Int) {
         self.value = value
+    }
+
+    public static func generate() -> CompletedOrder {
+        return CompletedOrder.init(value: Die.roll())
     }
 }
 

@@ -85,18 +85,18 @@ struct Obsolescence
             }
 
             if (generations.count == 0) {
-                print ("No generations exist for \(engineColorRef)")
+                print ("[gens]: No generations exist for \(engineColorRef)")
             }
             else if (generations.count == 1) {
-                print ("1 generations exist for \(engineColorRef)")
+                print ("[gens]: 1 generations exist for \(engineColorRef)")
                 handleOneGeneration(trains: generations)
             }
             else if (generations.count == 2) {
-                print ("2 generations exist for \(engineColorRef)")
+                print ("[gens]: 2 generations exist for \(engineColorRef)")
                 handleTwoGenerations(trains: generations)
             }
             else if (generations.count == 3) {
-                print ("3 generations exist for \(engineColorRef)")
+                print ("[gens]: 3 generations exist for \(engineColorRef)")
                 handleThreeGenerations(trains: generations)
             }
             else {
@@ -128,9 +128,10 @@ struct Obsolescence
         }
 
         if (firstTrain.hasMaximumDice() == false) {
-            firstTrain.orderBook.rerollAndTransferCompletedOrders()
-            firstTrain.orderBook.add(order: ExistingOrder.generate())
+            firstTrain.orderBook.add(order: CompletedOrder.generate())
         }
+
+        firstTrain.orderBook.rerollAndTransferCompletedOrders()
     }
 
     private func handleTwoGenerations(trains: [Train]) {
@@ -162,6 +163,7 @@ struct Obsolescence
             else if (index == 1) {
                 if (train.hasMaximumDice() == false) {
                     train.orderBook.rerollAndTransferCompletedOrders()
+                    train.orderBook.add(order: ExistingOrder.generate())
                 }
             }
             else if (index == 2) {
@@ -171,7 +173,7 @@ struct Obsolescence
                 }
             }
             else {
-                break
+                // do nothing
             }
         }
         
