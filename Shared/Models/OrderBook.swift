@@ -111,9 +111,26 @@ final class OrderBook {
     // if destination = existingOrders, move value from customerBase -> existingOrders
     //
 
-    func makeTransferOrder<C1: Any>(order: C1, toDestination: OrderBookEntryType) where C1: EntryProtocol
+    func transferOrder<C1: Any>(order: C1, index: Int) where C1: EntryProtocol
     {
+        // move: existingOrder -> completedOrder
+        if let existingOrder = order as? ExistingOrder {
+            print ("Transferring \(existingOrder.description), FROM existingOrders -> completedOrders\n")
 
+            let orderObj: CompletedOrder = CompletedOrder.init(value: existingOrder.value)
+
+            self.completedOrders.append(orderObj)
+            self.existingOrders.remove(at: index)
+        }
+        else if let completedOrder = order as? CompletedOrder {
+            // move: completedOrder -> existingOrder
+            print ("Transferring \(completedOrder.description), FROM completedOrders -> existingOrders ->\n")
+
+            let orderObj: ExistingOrder = ExistingOrder.init(value: completedOrder.value)
+
+            self.existingOrders.append(orderObj)
+            self.completedOrders.remove(at: index)
+        }
     }
 
 
@@ -128,7 +145,6 @@ final class OrderBook {
             print ("Transferring index \(index), \(self.completedOrders.description) FROM completedOrders -> existingOrders\n")
 
             let customerBaseObj = self.completedOrders[index]
-
             let existingOrderObj = ExistingOrder.init(value: customerBaseObj.value)
 
             self.existingOrders.append(existingOrderObj)
@@ -142,10 +158,9 @@ final class OrderBook {
             }
 
             let orderObj = self.existingOrders[index] as ExistingOrder
+            let completedOrderObj = CompletedOrder.init(value: orderObj.value)
 
             print ("\nTransferring index: \(index), value: \(orderObj.value) FROM existingOrders -> completedOrders\n")
-
-            let completedOrderObj = CompletedOrder.init(value: orderObj.value)
 
             self.completedOrders.append(completedOrderObj)
             self.existingOrders.remove(at: index)
