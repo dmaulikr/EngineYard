@@ -145,9 +145,10 @@ struct Obsolescence
             }
             else {
                 if (train.hasMaximumDice() == false) {
-                    train.orderBook.rerollAndTransferCompletedOrders()
-                    train.orderBook.add(order: ExistingOrder.generate())
+                    train.orderBook.add(order: CompletedOrder.generate())
                 }
+
+                train.orderBook.rerollAndTransferCompletedOrders()
             }
         }
     }
@@ -162,15 +163,15 @@ struct Obsolescence
             }
             else if (index == 1) {
                 if (train.hasMaximumDice() == false) {
-                    train.orderBook.rerollAndTransferCompletedOrders()
-                    train.orderBook.add(order: ExistingOrder.generate())
+                    train.orderBook.add(order: CompletedOrder.generate())
                 }
+                train.orderBook.rerollAndTransferCompletedOrders()
             }
             else if (index == 2) {
                 if (train.hasMaximumDice() == false) {
-                    train.orderBook.rerollAndTransferCompletedOrders()
-                    train.orderBook.add(order: ExistingOrder.generate())
+                    train.orderBook.add(order: CompletedOrder.generate())
                 }
+                train.orderBook.rerollAndTransferCompletedOrders()
             }
             else {
                 // do nothing
