@@ -1,5 +1,5 @@
 //
-//  Obsolescence.swift
+//  ObsolescenceManager.swift
 //  EngineYard
 //
 //  Created by Amarjit on 21/07/2017.
@@ -69,7 +69,7 @@ import Foundation
 
  */
 
-struct Obsolescence
+struct ObsolescenceManager
 {
     var trains: [Locomotive] = [Locomotive]()
 

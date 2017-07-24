@@ -102,12 +102,6 @@ class ProductionTests: BaseTests {
 
         XCTAssertTrue(firstPlayer.account.canAfford(amount: totalAmount))
 
-        guard let myFirstEngine = trains.first?.engines.first else {
-            return
-        }
-
-        XCTAssertNil(myFirstEngine.production.shiftable())
-
         for train in cart {
             train.purchase(buyer: firstPlayer)
         }
@@ -116,7 +110,6 @@ class ProductionTests: BaseTests {
         XCTAssert(trains[0].owners?.count == 1)
         XCTAssert(trains[1].owners?.count == 1)
         XCTAssert(trains[2].owners?.count == 1)
-
         XCTAssert(firstPlayer.account.balance == (seedCash - totalAmount))
 
         let _ = firstPlayer.engines.map({
@@ -127,16 +120,27 @@ class ProductionTests: BaseTests {
             return
         }
 
-        guard let portfolio = firstEngine.production.shiftable() else {
-            XCTFail("Portfolio is empty")
+        // Shift production
+        let shift = ShiftProductionManager.init(player: firstPlayer, engine: firstEngine)
+        XCTAssert(shift.portfolio?.count == 2)
+
+        guard let hasPortfolio = shift.portfolio else {
             return
         }
 
-        XCTAssert(portfolio.count > 0)
-        XCTAssert(portfolio.count == 2)
-        XCTAssert(portfolio[0].parent?.engineColor == .red)
-        XCTAssert(portfolio[1].parent?.engineColor == .yellow)
+        print ("thisEngine.productionCost: \(firstEngine.parent?.name) ?? #Unknown.TrainObj#, \(firstEngine.production.cost))")
+        print ("--------")
+        for (index, item) in hasPortfolio.enumerated() {
+            guard let itemParent = item.engine.parent else {
+                break
+            }
+            let maxCosting = (item.difference * firstEngine.production.units)
 
+            print ("index: #\(index), \(itemParent.name), difference: \(item.difference), $\(maxCosting)")
+            XCTAssert(item.difference > 0)
+        }
+
+        
     }
 
 

@@ -49,7 +49,7 @@
 		4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429761F2124B7006B2D89 /* Main.storyboard */; };
 		4D94297F1F2124B7006B2D89 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429791F2124B7006B2D89 /* MainMenuViewController.swift */; };
 		4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9429811F2124DF006B2D89 /* GameKit.framework */; };
-		4DC6AC1D1F21CCA300AED444 /* Obsolescence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC1C1F21CCA300AED444 /* Obsolescence.swift */; };
+		4DC6AC1D1F21CCA300AED444 /* ObsolescenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC1C1F21CCA300AED444 /* ObsolescenceManager.swift */; };
 		4DC6AC221F21D6C700AED444 /* FixtureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC211F21D6C700AED444 /* FixtureTests.swift */; };
 		4DC6AC261F21E09900AED444 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC251F21E09900AED444 /* GameTests.swift */; };
 		4DC6AC281F21E3C700AED444 /* TaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC271F21E3C700AED444 /* TaxTests.swift */; };
@@ -59,6 +59,7 @@
 		4DE8BBED1F25F4E700056CF1 /* TransferOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */; };
 		4DE8BBEF1F25FDB100056CF1 /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */; };
 		4DE8BBF11F2647FC00056CF1 /* PurchaseLocomotiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */; };
+		4DE8BBF31F265FEB00056CF1 /* ShiftProductionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF21F265FEB00056CF1 /* ShiftProductionManager.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,7 +122,7 @@
 		4D9429781F2124B7006B2D89 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9429791F2124B7006B2D89 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4D9429811F2124DF006B2D89 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		4DC6AC1C1F21CCA300AED444 /* Obsolescence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obsolescence.swift; sourceTree = "<group>"; };
+		4DC6AC1C1F21CCA300AED444 /* ObsolescenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceManager.swift; sourceTree = "<group>"; };
 		4DC6AC211F21D6C700AED444 /* FixtureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureTests.swift; sourceTree = "<group>"; };
 		4DC6AC251F21E09900AED444 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		4DC6AC271F21E3C700AED444 /* TaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxTests.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferOrderTests.swift; sourceTree = "<group>"; };
 		4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionTests.swift; sourceTree = "<group>"; };
 		4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseLocomotiveTests.swift; sourceTree = "<group>"; };
+		4DE8BBF21F265FEB00056CF1 /* ShiftProductionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftProductionManager.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,7 +219,8 @@
 			children = (
 				4D1A4C621F2139C900680333 /* SetupManager.swift */,
 				4D1A4C641F213AA800680333 /* TurnOrderManager.swift */,
-				4DC6AC1C1F21CCA300AED444 /* Obsolescence.swift */,
+				4DC6AC1C1F21CCA300AED444 /* ObsolescenceManager.swift */,
+				4DE8BBF21F265FEB00056CF1 /* ShiftProductionManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D94297F1F2124B7006B2D89 /* MainMenuViewController.swift in Sources */,
+				4DE8BBF31F265FEB00056CF1 /* ShiftProductionManager.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
@@ -572,7 +576,7 @@
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
 				4D1A4C531F21365500680333 /* Die.swift in Sources */,
-				4DC6AC1D1F21CCA300AED444 /* Obsolescence.swift in Sources */,
+				4DC6AC1D1F21CCA300AED444 /* ObsolescenceManager.swift in Sources */,
 				4D1A4C451F21321900680333 /* Game.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D1A4C471F21335400680333 /* GameBoard.swift in Sources */,

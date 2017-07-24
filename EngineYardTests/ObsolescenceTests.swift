@@ -53,23 +53,23 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(trainsWithOrders.count == Constants.Board.decks)
 
         // test generations
-        let greenGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green)
+        let greenGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green)
         XCTAssert(greenGenerations?.count == Constants.Board.numberOfDecksForColor(color: .green))
 
-        let redGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .red)
+        let redGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .red)
         XCTAssert(redGenerations?.count == Constants.Board.numberOfDecksForColor(color: .red))
 
-        let blueGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .blue)
+        let blueGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .blue)
         XCTAssert(blueGenerations?.count == Constants.Board.numberOfDecksForColor(color: .blue))
 
-        let yellowGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .yellow)
+        let yellowGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .yellow)
         XCTAssert(yellowGenerations?.count == Constants.Board.numberOfDecksForColor(color: .yellow))
     }
 
     // Note - This is testing with 5 player game
     func testNoChange() {
 
-        let ob = Obsolescence.init(trains: trains)
+        let ob = ObsolescenceManager.init(trains: trains)
 
         for (index,engineColorRef) in EngineColor.allValues.enumerated()
         {
@@ -102,7 +102,7 @@ class ObsolescenceTests: BaseTests {
 
         XCTAssert(trainsWithOrders.count == 1)
 
-        let ob = Obsolescence.init(trains: trainsWithOrders)
+        let ob = ObsolescenceManager.init(trains: trainsWithOrders)
         ob.handler()
 
         print (trainsWithOrders.description)
@@ -148,7 +148,7 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(countCompleted == 5)
 
         // test generations 
-        guard let greenGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
+        guard let greenGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
             return
         }
 
@@ -163,22 +163,22 @@ class ObsolescenceTests: BaseTests {
 
         XCTAssert(greenGenerations.count == 2)
 
-        guard let redGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .red) else {
+        guard let redGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .red) else {
             return
         }
         XCTAssert(redGenerations.count == 1)
 
-        guard let blueGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .blue) else {
+        guard let blueGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .blue) else {
             return
         }
         XCTAssert(blueGenerations.count == 1)
 
-        guard let yellowGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .yellow) else {
+        guard let yellowGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .yellow) else {
             return
         }
         XCTAssert(yellowGenerations.count == 1)
 
-        let ob = Obsolescence.init(trains: trainsWithOrders)
+        let ob = ObsolescenceManager.init(trains: trainsWithOrders)
         ob.handler()
 
         // 1st train
@@ -239,7 +239,7 @@ class ObsolescenceTests: BaseTests {
 
 
         // test generations
-        guard let greenGenerations = Obsolescence(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
+        guard let greenGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
             return
         }
 
@@ -250,7 +250,7 @@ class ObsolescenceTests: BaseTests {
         }
 
         // start obsolescence of 3 generations
-        let ob = Obsolescence.init(trains: trainsWithOrders)
+        let ob = ObsolescenceManager.init(trains: trainsWithOrders)
         ob.handler()
 
         for (index, train) in trainsWithOrders.enumerated() {
