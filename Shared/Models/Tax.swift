@@ -47,7 +47,7 @@ struct Tax {
         return Int(sum)
     }
 
-    public static func applyTax(players: [Player]) {
+    public static func applyTax(players: [Player]) -> [Player] {
         _ = players.map({
             let balance = $0.account.balance
             let taxDue = Int(Tax(balance: balance).calculate())
@@ -55,6 +55,7 @@ struct Tax {
                 $0.account.debit(amount: taxDue)
             }
         })
+        return players
     }
     
 }

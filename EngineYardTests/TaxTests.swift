@@ -37,4 +37,27 @@ class TaxTests: BaseTests {
         cash = Int(tax.addSalesTax())
         XCTAssert(cash == 330)
     }
+
+    func testPlayersPayTax() {
+        guard var mockPlayers = PlayerAPI.generateMockPlayers(howMany: 5) else {
+            XCTFail("No mock players found")
+            return
+        }
+
+        let seedCash = Constants.SeedCash.fivePlayers
+        _ = mockPlayers.map({
+            $0.account.credit(amount: seedCash)
+        })
+
+        let taxObj = Tax.init(balance: seedCash)
+
+        // Pay tax
+        mockPlayers = Tax.applyTax(players: mockPlayers)
+
+        let expectedValue = (seedCash - Int(taxObj.calculate()))
+
+        _ = mockPlayers.map({
+            XCTAssert( $0.account.balance == expectedValue )
+        })
+    }
 }
