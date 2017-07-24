@@ -40,7 +40,7 @@ class SalesTests: BaseTests {
         let orders = [3,5,2]
         let units = 1
 
-        let matcher = SalesMatchHandler.init(orders: orders, goods: units)
+        let matcher = SalesMatchHandler.init(orders: orders, units: units)
         XCTAssertTrue(matcher.matchCase == .lower)
     }
 
@@ -48,7 +48,7 @@ class SalesTests: BaseTests {
         let orders = [3,5,2]
         let units = 3
 
-        let matcher = SalesMatchHandler.init(orders: orders, goods: units)
+        let matcher = SalesMatchHandler.init(orders: orders, units: units)
         XCTAssertTrue(matcher.matchCase == .perfectMatch)
     }
 
@@ -56,7 +56,7 @@ class SalesTests: BaseTests {
         let orders = [3,5,2]
         let units = 6
 
-        let matcher = SalesMatchHandler.init(orders: orders, goods: units)
+        let matcher = SalesMatchHandler.init(orders: orders, units: units)
         XCTAssertTrue(matcher.matchCase == .higher)
     }
 

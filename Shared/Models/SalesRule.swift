@@ -18,28 +18,27 @@ struct SalesMatchHandler {
     var matchCase: SalesMatchCase = .lower
     var salesMatch: SalesMatch!
 
-    init(orders:[Int], goods: Int) {
+    init(orders:[Int], units: Int) {
         self.salesMatch = SalesMatch.init(orders: orders)
 
         let orders = self.salesMatch.orders
 
-        if let perfectMatch = self.salesMatch.perfectMatch(goods) {
-            print("Found perfect match for: \(goods) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
+        if let perfectMatch = self.salesMatch.perfectMatch(units) {
+            print("Found perfect match for: \(units) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
             self.matchCase = .perfectMatch
         }
         else {
-            if let lowerMatch = self.salesMatch.lowerMatch(goods) {
-                print("Found lower match for: \(goods) in orders \(orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
+            if let lowerMatch = self.salesMatch.lowerMatch(units) {
+                print("Found lower match for: \(units) in orders \(orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
                 self.matchCase = .lower
             }
             else {
-                if let higherMatch = self.salesMatch.higherMatch(goods) {
-                    print("Found higher match for: \(goods) in orders \(orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
+                if let higherMatch = self.salesMatch.higherMatch(units) {
+                    print("Found higher match for: \(units) in orders \(orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
                     self.matchCase = .higher
                 }
                 else {
-                    print("Sales rule failure for \(orders), units: \(goods)")
-                    exit(-1)
+                    assertionFailure("Sales rule failure for \(orders), units: \(units)")
                 }
             }
         }
