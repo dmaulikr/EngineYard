@@ -71,7 +71,6 @@ class TransferOrderTests: BaseTests {
 
         firstTrainWithOrder.orderBook.transferOrder(order: existingOrder, index: 0)
 
-        XCTAssert(firstTrainWithOrder.orderBook.existingOrders.count == 0)
-        XCTAssert(firstTrainWithOrder.orderBook.completedOrders.count == 1)
+
     }
 }

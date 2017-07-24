@@ -135,6 +135,8 @@ final class OrderBook {
     }
 
 
+    // Old version
+    /*
     func transfer(index: Int, destination: OrderBookEntryType) {
         switch destination {
         case .existingOrder: // move -> completedOrders
@@ -169,6 +171,7 @@ final class OrderBook {
             break
         }
     }
+    */
 
     // Remove first value from completedOrder
     // If no value is found; remove the lowest numbered value in orders
@@ -213,7 +216,8 @@ final class OrderBook {
         self.existingOrders[index] = existingOrderObj
 
         if (transfer == true) {
-            self.transfer(index: index, destination: .completedOrder)            
+            //self.transfer(index: index, destination: .completedOrder)
+            self.transferOrder(order: existingOrderObj, index: index)
         }
 
         return existingOrderObj.value
@@ -226,7 +230,8 @@ final class OrderBook {
         }
         for (index, item) in self.completedOrders.enumerated().reversed() {
             item.value = Die.roll()
-            self.transfer(index: index, destination: .existingOrder)
+            //self.transfer(index: index, destination: .existingOrder)
+            self.transferOrder(order: item, index: index)
         }
     }
 }

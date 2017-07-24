@@ -131,8 +131,9 @@ class ObsolescenceTests: BaseTests {
 
         // Transfer all orders to completed orders
         for train in trainsWithOrders {
-            for (index, _) in train.orderBook.existingOrders.enumerated() {
-                train.orderBook.transfer(index: index, destination: .completedOrder)
+            for (index, item) in train.orderBook.existingOrders.enumerated() {
+                //train.orderBook.transfer(index: index, destination: .completedOrder)
+                train.orderBook.transferOrder(order: item, index: index)
             }
         }
 
@@ -222,8 +223,9 @@ class ObsolescenceTests: BaseTests {
 
         // Transfer all to completed orders
         for train in trainsWithOrders {
-            for (index, _) in train.orderBook.existingOrders.enumerated() {
-                train.orderBook.transfer(index: index, destination: .completedOrder)
+            for (index, item) in train.orderBook.existingOrders.enumerated() {
+                //train.orderBook.transfer(index: index, destination: .completedOrder)
+                train.orderBook.transferOrder(order: item, index: index)
             }
         }
         let countExisting = trains.filter { (loco: Locomotive) -> Bool in
