@@ -1,5 +1,5 @@
 //
-//  SalesManager.swift
+//  SalesHandler.swift
 //  EngineYard
 //
 //  Created by Amarjit on 24/07/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct SalesManager {
+struct SalesHandler {
     
 }

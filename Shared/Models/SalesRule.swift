@@ -8,7 +8,46 @@
 
 import Foundation
 
-struct SalesRule {
+enum SalesMatchCase {
+    case lower
+    case perfectMatch
+    case higher
+}
+
+struct SalesMatchHandler {
+    var matchCase: SalesMatchCase = .lower
+    var salesMatch: SalesMatch!
+
+    init(orders:[Int], goods: Int) {
+        self.salesMatch = SalesMatch.init(orders: orders)
+
+        let orders = self.salesMatch.orders
+
+        if let perfectMatch = self.salesMatch.perfectMatch(goods) {
+            print("Found perfect match for: \(goods) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
+            self.matchCase = .perfectMatch
+        }
+        else {
+            if let lowerMatch = self.salesMatch.lowerMatch(goods) {
+                print("Found lower match for: \(goods) in orders \(orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
+                self.matchCase = .lower
+            }
+            else {
+                if let higherMatch = self.salesMatch.higherMatch(goods) {
+                    print("Found higher match for: \(goods) in orders \(orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
+                    self.matchCase = .higher
+                }
+                else {
+                    print("Sales rule failure for \(orders), units: \(goods)")
+                    exit(-1)
+                }
+            }
+        }
+    }
+}
+
+
+struct SalesMatch {
     private var _orders: [Int]
     var orders: [Int] {
         return _orders
@@ -18,7 +57,7 @@ struct SalesRule {
         _orders = orders
     }
 
-    func match(_ good: Int) -> (Int, Int)? {
+    func perfectMatch(_ good: Int) -> (Int, Int)? {
         var match = _orders.enumerated().filter {
             good == $0.element
         }
@@ -29,7 +68,7 @@ struct SalesRule {
         return match.first
     }
 
-    func lower(_ good: Int) -> (Int, Int)? {
+    func lowerMatch(_ good: Int) -> (Int, Int)? {
         let lower = _orders.enumerated().max {
             a, b in
             return a.element > b.element
@@ -54,7 +93,7 @@ struct SalesRule {
         }
     }
 
-    func higher(_ good: Int) -> (Int, Int)? {
+    func higherMatch(_ good: Int) -> (Int, Int)? {
         let upper = _orders.enumerated().max {
             a, b in
             return a.element < b.element
