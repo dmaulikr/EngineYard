@@ -119,9 +119,9 @@ class ProductionTests: BaseTests {
 
         XCTAssert(firstPlayer.account.balance == (seedCash - totalAmount))
 
-        for eng in firstPlayer.engines {
-            XCTAssert(eng.production.units == 1)
-        }
+        let _ = firstPlayer.engines.map({
+            XCTAssert($0.production.units == 1)
+        })
 
         guard let firstEngine = firstPlayer.engines.first else {
             return
