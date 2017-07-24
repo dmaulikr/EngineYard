@@ -137,30 +137,7 @@ class ProductionTests: BaseTests {
         XCTAssert(portfolio[0].parent?.engineColor == .red)
         XCTAssert(portfolio[1].parent?.engineColor == .yellow)
 
-        // test costs to shift up production
-        // player must be able to pay the difference of production costs to the bank.
-
-        for (index, engine) in portfolio.enumerated() {
-
-            let differenceInProductionCosts = (engine.production.cost - firstEngine.production.cost)
-
-            XCTAssert(differenceInProductionCosts % 2 == 0)
-
-            switch index {
-            case 0:
-                XCTAssert(differenceInProductionCosts == 2)
-                break
-
-            case 1:
-                XCTAssert(differenceInProductionCosts == 4)
-                break
-
-            default:
-                break
-            }
-        }
-
-
     }
+
 
 }

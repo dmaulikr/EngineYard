@@ -129,3 +129,9 @@ extension Production {
     }
 
 }
+
+struct ProductionDifference {
+    var engine: Engine
+    var difference: Int
+}
+
