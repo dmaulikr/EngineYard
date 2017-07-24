@@ -131,6 +131,7 @@ final class OrderBook {
             self.existingOrders.append(orderObj)
             self.completedOrders.remove(at: index)
         }
+        
     }
 
 

@@ -58,7 +58,20 @@ class TransferOrderTests: BaseTests {
             return
         }
 
-        print(firstTrainWithOrder.engines.description)
+        XCTAssert(firstTrainWithOrder.engineColor == .green)
+        XCTAssert(firstTrainWithOrder.generation == .first)
 
+        XCTAssert(firstTrainWithOrder.orderBook.existingOrders.count == 1)
+        XCTAssert(firstTrainWithOrder.orderBook.completedOrders.count == 0)
+
+        guard let existingOrder = firstTrainWithOrder.orderBook.existingOrders.first else {
+            XCTFail("No order found in existingOrders")
+            return
+        }
+
+        firstTrainWithOrder.orderBook.transferOrder(order: existingOrder, index: 0)
+
+        XCTAssert(firstTrainWithOrder.orderBook.existingOrders.count == 0)
+        XCTAssert(firstTrainWithOrder.orderBook.completedOrders.count == 1)
     }
 }
