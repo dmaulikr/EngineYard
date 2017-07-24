@@ -66,7 +66,7 @@ extension Production {
         guard unitsToSpend > 0 else {
             return false
         }
-        return ( (self.units - units) > 0 )
+        return ( (self.units - unitsToSpend) >= 0 )
     }
 
     func setProductionAtZero() {
