@@ -130,48 +130,8 @@ final class OrderBook {
 
             self.existingOrders.append(orderObj)
             self.completedOrders.remove(at: index)
-        }
-        
+        }        
     }
-
-
-    // Old version
-    /*
-    func transfer(index: Int, destination: OrderBookEntryType) {
-        switch destination {
-        case .existingOrder: // move -> completedOrders
-            guard self.completedOrders.count > 0 else {
-                print ("completedOrders are empty")
-                return
-            }
-
-            print ("Transferring index \(index), \(self.completedOrders.description) FROM completedOrders -> existingOrders\n")
-
-            let customerBaseObj = self.completedOrders[index]
-            let existingOrderObj = ExistingOrder.init(value: customerBaseObj.value)
-
-            self.existingOrders.append(existingOrderObj)
-            self.completedOrders.remove(at: index)
-            break
-
-        case .completedOrder: // move -> existingOrders
-            guard self.existingOrders.count > 0 else {
-                print ("existingOrders are empty")
-                return
-            }
-
-            let orderObj = self.existingOrders[index] as ExistingOrder
-            let completedOrderObj = CompletedOrder.init(value: orderObj.value)
-
-            print ("\nTransferring index: \(index), value: \(orderObj.value) FROM existingOrders -> completedOrders\n")
-
-            self.completedOrders.append(completedOrderObj)
-            self.existingOrders.remove(at: index)
-
-            break
-        }
-    }
-    */
 
     // Remove first value from completedOrder
     // If no value is found; remove the lowest numbered value in orders
@@ -216,7 +176,6 @@ final class OrderBook {
         self.existingOrders[index] = existingOrderObj
 
         if (transfer == true) {
-            //self.transfer(index: index, destination: .completedOrder)
             self.transferOrder(order: existingOrderObj, index: index)
         }
 
@@ -230,7 +189,6 @@ final class OrderBook {
         }
         for (index, item) in self.completedOrders.enumerated().reversed() {
             item.value = Die.roll()
-            //self.transfer(index: index, destination: .existingOrder)
             self.transferOrder(order: item, index: index)
         }
     }
