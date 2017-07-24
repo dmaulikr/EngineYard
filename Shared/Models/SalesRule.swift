@@ -16,26 +16,30 @@ enum SalesMatchCase {
 
 struct SalesMatchHandler {
     var matchCase: SalesMatchCase = .lower
-    var salesMatch: SalesMatch!
+    var match: SalesMatch!
+    var matchTuple:(Int,Int)!
 
     init(orders:[Int], units: Int) {
-        self.salesMatch = SalesMatch.init(orders: orders)
+        self.match = SalesMatch.init(orders: orders)
 
-        let orders = self.salesMatch.orders
+        let orders = self.match.orders
 
-        if let perfectMatch = self.salesMatch.perfectMatch(units) {
+        if let perfectMatch = self.match.perfectMatch(units) {
             print("Found perfect match for: \(units) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
             self.matchCase = .perfectMatch
+            self.matchTuple = perfectMatch
         }
         else {
-            if let lowerMatch = self.salesMatch.lowerMatch(units) {
+            if let lowerMatch = self.match.lowerMatch(units) {
                 print("Found lower match for: \(units) in orders \(orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
                 self.matchCase = .lower
+                self.matchTuple = lowerMatch
             }
             else {
-                if let higherMatch = self.salesMatch.higherMatch(units) {
+                if let higherMatch = self.match.higherMatch(units) {
                     print("Found higher match for: \(units) in orders \(orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
                     self.matchCase = .higher
+                    self.matchTuple = higherMatch
                 }
                 else {
                     assertionFailure("Sales rule failure for \(orders), units: \(units)")

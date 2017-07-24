@@ -60,7 +60,40 @@ class SalesTests: BaseTests {
         XCTAssertTrue(matcher.matchCase == .higher)
     }
 
-    func testSalesManipulator() {
+    func testSalesMatchHandlerHigher() {
+        var orders = [3,5,2]
+        var units = 6
+
+        while ((units > 0) && (orders.count > 0)) {
+            let matcher = SalesMatchHandler.init(orders: orders, units: units)
+
+            print("selling units: \(units), \(orders)\n")
+
+            switch matcher.matchCase {
+            case .perfectMatch:
+                orders[matcher.matchTuple.0] -= matcher.matchTuple.1
+                units -= units
+
+                XCTAssertTrue(orders[matcher.matchTuple.0] == 0)
+                XCTAssertTrue(units == 0)
+                break
+            case .lower:
+                orders[matcher.matchTuple.0] -= units
+                units -= units
+                break
+            case .higher:
+                let remainingUnits = (matcher.matchTuple.1 - units)
+                units -= matcher.matchTuple.1
+                orders[matcher.matchTuple.0] = remainingUnits
+
+                XCTAssertTrue(units == 1)
+                XCTAssertTrue(orders[matcher.matchTuple.0] == remainingUnits)
+                break
+            }
+
+            print("remaining units: \(units), \(orders)\n")
+        }
+
 
     }
 }
