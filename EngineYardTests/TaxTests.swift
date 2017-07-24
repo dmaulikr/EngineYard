@@ -49,12 +49,10 @@ class TaxTests: BaseTests {
             $0.account.credit(amount: seedCash)
         })
 
-
         // Pay tax
         mockPlayers = Tax.applyTax(players: mockPlayers)
 
         _ = mockPlayers.map({
-
             let taxDue = Tax.calculate(onBalance: $0.account.balance)
             let expectedValue = (seedCash - taxDue)
 
