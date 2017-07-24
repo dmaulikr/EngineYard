@@ -30,6 +30,11 @@ final class OrderBook {
         self.parent = parent
     }
 
+    func clear() {
+        self.existingOrders.removeAll()
+        self.completedOrders.removeAll()
+    }
+
     func add<C1: Any>(order: C1) where C1: EntryProtocol {
 
         if let existingOrderObj = order as? ExistingOrder {
@@ -68,37 +73,36 @@ final class OrderBook {
         if ((self.completedOrders.count + 1) > hasParent.capacity) {
             return false
         }
-        return false
+        return true
     }
 
 
-    func generateOrders(howMany: Int) -> Bool {
+    func generateExistingOrders(howMany: Int) {
         guard let forTrain = self.parent else {
-            return false
+            assertionFailure("No train provided")
+            return
         }
         guard forTrain.capacity > 0 else {
-            print ("Capacity must > 0")
-            return false
+            assertionFailure("Capacity must > 0")
+            return
         }
         if howMany <= 0 {
-            print ("generate must > 0")
-            return false
+            assertionFailure("Generate must > 0")
+            return
         }
         if howMany > forTrain.capacity {
-            print ("cannot exceed orders capacity .1")
-            return false
+            assertionFailure("Cannot exceed orders capacity .1")
+            return
         }
         if ((forTrain.existingOrders.count + howMany) > forTrain.capacity) {
-            print ("cannot exceed orders capacity .2")
-            return false
+            assertionFailure("Cannot exceed orders capacity .2")
+            return
         }
 
         for _ in 1...howMany {
-            let orderObj = ExistingOrder.init(value: Die.roll())
+            let orderObj: ExistingOrder = ExistingOrder.generate()
             forTrain.orderBook.add(order: orderObj)
         }
-
-        return true
     }
 
 
@@ -106,41 +110,27 @@ final class OrderBook {
     // if destination = completedOrder, move value from existingOrders -> customerBase
     // if destination = existingOrders, move value from customerBase -> existingOrders
     //
-    func transfer(index: Int, destination: OrderBookEntryType) {
-        switch destination {
-        case .existingOrder: // move -> completedOrders
-            guard self.completedOrders.count > 0 else {
-                print ("completedOrders are empty")
-                return
-            }
 
-            let customerBaseObj = self.completedOrders[index]
+    func transferOrder<C1: Any>(order: C1, index: Int) where C1: EntryProtocol
+    {
+        // move: existingOrder -> completedOrder
+        if let existingOrder = order as? ExistingOrder {
+            print ("Transferring \(existingOrder.description), FROM existingOrders -> completedOrders\n")
 
-            print ("Transferring index \(index), \(customerBaseObj.value) FROM completedOrders -> existingOrders\n")
+            let orderObj: CompletedOrder = CompletedOrder.init(value: existingOrder.value)
 
-            let existingOrderObj = ExistingOrder.init(value: customerBaseObj.value)
-
-            self.existingOrders.append(existingOrderObj)
-            self.completedOrders.remove(at: index)
-            break
-
-        case .completedOrder: // move -> existingOrders
-            guard self.existingOrders.count > 0 else {
-                print ("existingOrders are empty")
-                return
-            }
-
-            let orderObj = self.existingOrders[index] as ExistingOrder
-
-            print ("\nTransferring index: \(index), value: \(orderObj.value) FROM existingOrders -> completedOrders\n")
-
-            let completedOrderObj = CompletedOrder.init(value: orderObj.value)
-
-            self.completedOrders.append(completedOrderObj)
+            self.completedOrders.append(orderObj)
             self.existingOrders.remove(at: index)
-
-            break
         }
+        else if let completedOrder = order as? CompletedOrder {
+            // move: completedOrder -> existingOrder
+            print ("Transferring \(completedOrder.description), FROM completedOrders -> existingOrders ->\n")
+
+            let orderObj: ExistingOrder = ExistingOrder.init(value: completedOrder.value)
+
+            self.existingOrders.append(orderObj)
+            self.completedOrders.remove(at: index)
+        }        
     }
 
     // Remove first value from completedOrder
@@ -157,7 +147,6 @@ final class OrderBook {
             let sortedElementsAndIndices = self.existingOrders.enumerated().sorted(by: {
                 $0.element.value < $1.element.value
             })
-
 
             guard let firstItem = sortedElementsAndIndices.first else {
                 return
@@ -187,7 +176,7 @@ final class OrderBook {
         self.existingOrders[index] = existingOrderObj
 
         if (transfer == true) {
-            self.transfer(index: index, destination: .completedOrder)
+            self.transferOrder(order: existingOrderObj, index: index)
         }
 
         return existingOrderObj.value
@@ -198,26 +187,42 @@ final class OrderBook {
             print ("completedOrders are empty")
             return
         }
-        for (index, item) in self.completedOrders.enumerated() {
+        for (index, item) in self.completedOrders.enumerated().reversed() {
             item.value = Die.roll()
-            self.transfer(index: index, destination: .existingOrder)
+            self.transferOrder(order: item, index: index)
         }
     }
 }
 
-class ExistingOrder: EntryProtocol {
+class ExistingOrder: EntryProtocol, CustomStringConvertible {
     var value : Int = 0
-    
+
+    var description: String {
+        return String(self.value)
+    }
+
     init(value: Int) {
         self.value = value
     }
+
+    public static func generate() -> ExistingOrder {
+        return ExistingOrder.init(value: Die.roll())
+    }
 }
 
-class CompletedOrder: EntryProtocol {
+class CompletedOrder: EntryProtocol, CustomStringConvertible {
     var value : Int = 0
-    
+
+    var description: String {
+        return String(self.value)
+    }
+
     init(value: Int) {
         self.value = value
+    }
+
+    public static func generate() -> CompletedOrder {
+        return CompletedOrder.init(value: Die.roll())
     }
 }
 

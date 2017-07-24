@@ -66,8 +66,17 @@ final class Locomotive : NSObject, LocomotiveProtocol {
         return filtered
     }
 
-    public private(set) var isRusting : Bool = false
-    public private(set) var hasRusted: Bool = false
+    // # Obsolescence variables
+    public fileprivate(set) var isRusting : Bool = false {
+        didSet {
+            print ("\(self.name) is rusting")
+        }
+    }
+    public fileprivate(set) var hasRusted: Bool = false {
+        didSet {
+            print ("\(self.name) has rusted - OBSOLETE")
+        }
+    }
 
     var isUnlocked: Bool {
         return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
@@ -106,4 +115,20 @@ final class Locomotive : NSObject, LocomotiveProtocol {
         EngineAPI.createEnginesFor(train: self)
     }
 
+}
+
+extension Locomotive {
+
+    // The maximum number of dice for a locomotive type and generation is determined by the number of boxes in the Customer Base.
+    func hasMaximumDice() -> Bool {
+        return (self.orderBook.completedOrders.count >= self.capacity)
+    }
+
+    func markAsOld() {
+        self.isRusting = true
+    }
+
+    func markAsObsolete() {
+        self.hasRusted = true
+    }
 }

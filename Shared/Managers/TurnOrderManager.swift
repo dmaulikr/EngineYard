@@ -33,7 +33,6 @@ class TurnOrderManager : NSObject, TurnOrderManagerDelegate {
     public private(set) var turnOrderIndex: Int = 0
 
     internal func turnOrderWasSet() {
-        print("turnOrderWasSet")
         for (index, p) in self.turnOrder.enumerated() {
             p.setTurnOrderIndex(number: index)
         }
