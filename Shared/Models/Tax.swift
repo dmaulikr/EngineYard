@@ -10,6 +10,47 @@ import Foundation
 
 struct Tax {
 
+    // Subtract tax from a balance
+    // Players pay taxes, rounded down
+    public static func pay(onBalance: Int) -> Int {
+        let taxDue: Int = self.calculate(onBalance: onBalance)
+        return Int(onBalance - taxDue)
+    }
+
+    // Round down tax due, cast as Int
+    public static func calculate(onBalance: Int) -> Int {
+        let balance: Float = Float(onBalance)
+        let taxDue: Int = Int(floor(balance * Constants.taxRate))
+        return taxDue
+    }
+
+    // MARK: (Private) functions
+
+    // Add tax to a balance
+    public static func addSalesTax(toBalance: Int) -> Int {
+        let salesTax: Int = self.calculate(onBalance: toBalance)
+        return Int(toBalance + salesTax)
+    }
+
+    public static func applyTax(players: [Player]) -> [Player] {
+        _ = players.map({
+            let balance = $0.account.balance
+
+            let taxDue = Tax.calculate(onBalance: balance)
+
+            if (taxDue > 0) {
+                $0.account.debit(amount: taxDue)
+            }
+        })
+
+        return players
+    }
+
+}
+
+/*
+struct Tax {
+
     var balance : Int
 
     init(balance: Int) {
@@ -59,3 +100,4 @@ struct Tax {
     }
     
 }
+*/

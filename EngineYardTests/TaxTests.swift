@@ -24,17 +24,17 @@ class TaxTests: BaseTests {
 
     func testTaxDue() {
         var cash = 100
-        let tax = Tax.init(balance: cash)
-        let taxDue = Int(tax.calculate())
+
+        let taxDue = Tax.calculate(onBalance: cash)
         XCTAssert(taxDue == 10)
-        cash = tax.pay()
+        cash = Tax.pay(onBalance: cash)
         XCTAssert(cash == 90)
+
     }
 
     func testAddTax() {
         var cash = 300
-        let tax = Tax.init(balance: cash)
-        cash = Int(tax.addSalesTax())
+        cash = Tax.addSalesTax(toBalance: cash)
         XCTAssert(cash == 330)
     }
 
@@ -49,15 +49,17 @@ class TaxTests: BaseTests {
             $0.account.credit(amount: seedCash)
         })
 
-        let taxObj = Tax.init(balance: seedCash)
 
         // Pay tax
         mockPlayers = Tax.applyTax(players: mockPlayers)
 
-        let expectedValue = (seedCash - Int(taxObj.calculate()))
-
         _ = mockPlayers.map({
+
+            let taxDue = Tax.calculate(onBalance: $0.account.balance)
+            let expectedValue = (seedCash - taxDue)
+
             XCTAssert( $0.account.balance == expectedValue )
         })
+
     }
 }
