@@ -53,7 +53,8 @@ class ProductionTests: BaseTests {
             return
         }
 
-        LocomotiveAPI.purchase(train: firstTrain, player: firstPlayer)
+        //LocomotiveAPI.purchase(train: firstTrain, player: firstPlayer)
+        firstTrain.purchase(buyer: firstPlayer)
 
         XCTAssert(firstEngine.production.units == 1)
         XCTAssert(firstEngine.owner == firstPlayer)
@@ -79,6 +80,87 @@ class ProductionTests: BaseTests {
         XCTAssert(firstEngine.production.units == 6)
         let spent = firstEngine.production.unitsSpent
         XCTAssert(spent == 0, "\(spent)")
+    }
+
+    func testShiftProduction() {
+
+        // Player has a portfolio of 3 trains [t1,t2,t3]
+        // Player should be able to shift production from t1 to [t2,t3]
+
+        guard let firstPlayer = self.gameObj.players.first else {
+            return
+        }
+
+        // force the player to have $50 so they can afford all the trains in cart
+        let difference = (50 - firstPlayer.cash)
+        firstPlayer.account.credit(amount: difference)
+        let seedCash = firstPlayer.account.balance
+        XCTAssert(seedCash == 50)
+
+        let cart = [trains[0], trains[1], trains[2]]
+        let totalAmount = cart.reduce(0) { $0 + ($1.cost ) }
+
+        XCTAssertTrue(firstPlayer.account.canAfford(amount: totalAmount))
+
+        guard let fEngine = trains.first?.engines.first else {
+            return
+        }
+
+        XCTAssertNil(fEngine.production.shiftable())
+
+        for train in cart {
+            train.purchase(buyer: firstPlayer)
+        }
+
+        XCTAssert(firstPlayer.engines.count == 3)
+        XCTAssert(trains[0].owners?.count == 1)
+        XCTAssert(trains[1].owners?.count == 1)
+        XCTAssert(trains[2].owners?.count == 1)
+
+        XCTAssert(firstPlayer.account.balance == (seedCash - totalAmount))
+
+        for eng in firstPlayer.engines {
+            XCTAssert(eng.production.units == 1)
+        }
+
+        guard let firstEngine = firstPlayer.engines.first else {
+            return
+        }
+
+        guard let portfolio = firstEngine.production.shiftable() else {
+            XCTFail("Portfolio is empty")
+            return
+        }
+
+        XCTAssert(portfolio.count > 0)
+        XCTAssert(portfolio.count == 2)
+        XCTAssert(portfolio[0].parent?.engineColor == .red)
+        XCTAssert(portfolio[1].parent?.engineColor == .yellow)
+
+        // test costs to shift up production
+        // player must be able to pay the difference of production costs to the bank.
+
+        for (index, engine) in portfolio.enumerated() {
+
+            let differenceInProductionCosts = (engine.production.cost - firstEngine.production.cost)
+
+            XCTAssert(differenceInProductionCosts % 2 == 0)
+
+            switch index {
+            case 0:
+                XCTAssert(differenceInProductionCosts == 2)
+                break
+
+            case 1:
+                XCTAssert(differenceInProductionCosts == 4)
+                break
+
+            default:
+                break
+            }
+        }
+
+
     }
 
 }

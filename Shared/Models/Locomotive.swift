@@ -131,4 +131,31 @@ extension Locomotive {
     func markAsObsolete() {
         self.hasRusted = true
     }
+
+    func purchase(buyer: Player) {
+        if (LocomotiveAPI.canPurchase(train: self, player: buyer).0) {
+
+            let remainingEngines = self.engines.filter({ (eng: Engine) -> Bool in
+                return (eng.owner == nil) && (eng.parent == self)
+            })
+
+            print ("There are \(remainingEngines.count) remaining unowned engines in \(self.name)")
+
+            guard let firstUnownedEngine = remainingEngines.first else {
+                print("No engine found")
+                assertionFailure()
+                return
+            }
+
+            buyer.account.debit(amount: self.cost)
+            firstUnownedEngine.assignOwner(player: buyer)
+
+            // only unlock the next one if possible
+            if ( (remainingEngines.count == self.numberOfChildren) && (remainingEngines.count == self.engines.count) ) {
+
+                // Post notification
+                NotificationCenter.default.post(name: .boughtTrainNotificationId, object: nil)
+            }
+        }
+    }
 }

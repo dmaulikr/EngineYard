@@ -42,39 +42,15 @@ class LocomotiveAPI : NSObject {
         return engines
     }
 
-    public static func purchase(train:Locomotive, player:Player) {
-        if (LocomotiveAPI.canPurchase(train: train, player: player).0) {
 
-            let remainingEngines = train.engines.filter({ (eng: Engine) -> Bool in
-                return (eng.owner == nil) && (eng.parent == train)
-            })
-
-            print ("There are \(remainingEngines.count) remaining unowned engines in \(train.name)")
-
-            guard let firstUnownedEngine = remainingEngines.first else {
-                print("No engine found")
-                assertionFailure()
-                return
-            }
-
-            player.account.debit(amount: train.cost)
-            firstUnownedEngine.assignOwner(player: player)
-
-            // only unlock the next one if possible
-            if ( (remainingEngines.count == train.numberOfChildren) && (remainingEngines.count == train.engines.count) ) {
-
-                // Post notification
-                NotificationCenter.default.post(name: .boughtTrainNotificationId, object: nil)
-            }
-        }
-    }
-
-    private static func canPurchase(train:Locomotive, player: Player) -> (Bool, Error?) {
+    public static func canPurchase(train:Locomotive, player: Player) -> (Bool, Error?) {
         if (!train.isUnlocked) {
+            print ("not unlocked")
             return (false, ErrorCode.notUnlocked)
         }
 
         if (!(player.account.canAfford(amount: train.cost))) {
+            print ("insufficent funds")
             return (false, ErrorCode.insufficientFunds(coinsNeeded: train.cost))
         }
 
@@ -84,12 +60,14 @@ class LocomotiveAPI : NSObject {
         }
 
         if (ownedEngines.count > 0) {
+            print ("already own train")
             return (false, ErrorCode.alreadyOwnTrain)
         }
 
         return (true, nil)
     }
-
+    
+    
     public static func findLocomotiveInDeck(decks:[Locomotive], whereColor:EngineColor, whereGeneration:Generation) -> Locomotive? {
         guard let firstLoco = (decks.filter({ (loco:Locomotive) -> Bool in
             return (loco.engineColor == whereColor) && (loco.generation == whereGeneration)
