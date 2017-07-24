@@ -102,11 +102,11 @@ class ProductionTests: BaseTests {
 
         XCTAssertTrue(firstPlayer.account.canAfford(amount: totalAmount))
 
-        guard let fEngine = trains.first?.engines.first else {
+        guard let myFirstEngine = trains.first?.engines.first else {
             return
         }
 
-        XCTAssertNil(fEngine.production.shiftable())
+        XCTAssertNil(myFirstEngine.production.shiftable())
 
         for train in cart {
             train.purchase(buyer: firstPlayer)
