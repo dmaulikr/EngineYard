@@ -7,8 +7,8 @@
 //
 
 import XCTest
-@testable import EngineYard
 
+@testable import EngineYard
 
 class TransferOrderTests: BaseTests {
 
