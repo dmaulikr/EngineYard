@@ -60,9 +60,9 @@ class SalesTests: BaseTests {
         XCTAssertTrue(matcher.matchCase == .higher)
     }
 
-    func testSalesMatchHandlerHigher() {
+    func testSalesMatchMixed() {
         var orders = [3,5,2]
-        var units = 6
+        var units = 10
 
         while ((units > 0) && (orders.count > 0)) {
             let matcher = SalesMatchHandler.init(orders: orders, units: units)
@@ -73,27 +73,22 @@ class SalesTests: BaseTests {
             case .perfectMatch:
                 orders[matcher.matchTuple.0] -= matcher.matchTuple.1
                 units -= units
-
-                XCTAssertTrue(orders[matcher.matchTuple.0] == 0)
-                XCTAssertTrue(units == 0)
                 break
             case .lower:
                 orders[matcher.matchTuple.0] -= units
                 units -= units
                 break
             case .higher:
-                let remainingUnits = (matcher.matchTuple.1 - units)
-                units -= matcher.matchTuple.1
-                orders[matcher.matchTuple.0] = remainingUnits
-
-                XCTAssertTrue(units == 1)
-                XCTAssertTrue(orders[matcher.matchTuple.0] == remainingUnits)
+                let remainingUnits = (units - matcher.matchTuple.1) // 6-5
+                units -= remainingUnits
+                orders[matcher.matchTuple.0] -= orders[matcher.matchTuple.0]
                 break
             }
 
+            let filtered = orders.filter { $0 != 0 }
+            orders = filtered
+
             print("remaining units: \(units), \(orders)\n")
         }
-
-
     }
 }
