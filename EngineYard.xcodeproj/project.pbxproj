@@ -83,9 +83,9 @@
 		4DE5E53C1F27B62C0004126E /* PlayerWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */; };
 		4DE5E53E1F27B63C0004126E /* PlayerWinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E53D1F27B63C0004126E /* PlayerWinnerView.xib */; };
 		4DE5E5411F27BAD40004126E /* DiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E53F1F27BAD40004126E /* DiceCollectionViewCell.swift */; };
-		4DE5E5421F27BAD40004126E /* DiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5401F27BAD40004126E /* DiceCollectionViewCell.xib */; };
 		4DE5E5451F27BB2B0004126E /* EngineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5431F27BB2B0004126E /* EngineCardView.swift */; };
-		4DE5E5461F27BB2B0004126E /* EngineCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5441F27BB2B0004126E /* EngineCardView.xib */; };
+		4DE5E54A1F27BC000004126E /* DiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5481F27BC000004126E /* DiceCollectionViewCell.xib */; };
+		4DE5E54B1F27BC000004126E /* EngineCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5491F27BC000004126E /* EngineCardView.xib */; };
 		4DE8BBED1F25F4E700056CF1 /* TransferOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */; };
 		4DE8BBEF1F25FDB100056CF1 /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */; };
 		4DE8BBF11F2647FC00056CF1 /* PurchaseLocomotiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */; };
@@ -189,9 +189,9 @@
 		4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerWinnerView.swift; sourceTree = "<group>"; };
 		4DE5E53D1F27B63C0004126E /* PlayerWinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerWinnerView.xib; sourceTree = "<group>"; };
 		4DE5E53F1F27BAD40004126E /* DiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceCollectionViewCell.swift; sourceTree = "<group>"; };
-		4DE5E5401F27BAD40004126E /* DiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		4DE5E5431F27BB2B0004126E /* EngineCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardView.swift; sourceTree = "<group>"; };
-		4DE5E5441F27BB2B0004126E /* EngineCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineCardView.xib; sourceTree = "<group>"; };
+		4DE5E5481F27BC000004126E /* DiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		4DE5E5491F27BC000004126E /* EngineCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineCardView.xib; sourceTree = "<group>"; };
 		4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferOrderTests.swift; sourceTree = "<group>"; };
 		4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionTests.swift; sourceTree = "<group>"; };
 		4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseLocomotiveTests.swift; sourceTree = "<group>"; };
@@ -474,10 +474,9 @@
 		4DE5E5251F27808C0004126E /* EngineCard */ = {
 			isa = PBXGroup;
 			children = (
+				4DE5E5471F27BBEE0004126E /* XIBs */,
 				4DE5E5431F27BB2B0004126E /* EngineCardView.swift */,
-				4DE5E5441F27BB2B0004126E /* EngineCardView.xib */,
 				4DE5E53F1F27BAD40004126E /* DiceCollectionViewCell.swift */,
-				4DE5E5401F27BAD40004126E /* DiceCollectionViewCell.xib */,
 			);
 			path = EngineCard;
 			sourceTree = "<group>";
@@ -489,6 +488,15 @@
 				4DE5E53D1F27B63C0004126E /* PlayerWinnerView.xib */,
 			);
 			path = PlayerCard;
+			sourceTree = "<group>";
+		};
+		4DE5E5471F27BBEE0004126E /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				4DE5E5481F27BC000004126E /* DiceCollectionViewCell.xib */,
+				4DE5E5491F27BC000004126E /* EngineCardView.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		AF42B8C9DFE4FE4037A4E31F /* Pods */ = {
@@ -601,7 +609,7 @@
 				4DE5E5011F277B4E0004126E /* BuyTrain.storyboard in Resources */,
 				4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */,
 				4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */,
-				4DE5E5421F27BAD40004126E /* DiceCollectionViewCell.xib in Resources */,
+				4DE5E54A1F27BC000004126E /* DiceCollectionViewCell.xib in Resources */,
 				4DE5E53E1F27B63C0004126E /* PlayerWinnerView.xib in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
@@ -609,7 +617,7 @@
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
 				4DE5E5211F277FFD0004126E /* HUD.storyboard in Resources */,
-				4DE5E5461F27BB2B0004126E /* EngineCardView.xib in Resources */,
+				4DE5E54B1F27BC000004126E /* EngineCardView.xib in Resources */,
 				4DE5E50B1F277BF60004126E /* Selling.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
