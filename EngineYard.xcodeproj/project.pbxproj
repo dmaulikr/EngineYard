@@ -55,6 +55,8 @@
 		4DC6AC2A1F21E53E00AED444 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC291F21E53E00AED444 /* AccountTests.swift */; };
 		4DC6AC2C1F21EB1D00AED444 /* GameSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */; };
 		4DC6AC2E1F21FC0D00AED444 /* ObsolescenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2D1F21FC0D00AED444 /* ObsolescenceTests.swift */; };
+		4DC6B4841F27BD0900B3C991 /* PlayerHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4831F27BD0900B3C991 /* PlayerHUDView.swift */; };
+		4DC6B4861F27BD1700B3C991 /* PlayerHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4851F27BD1700B3C991 /* PlayerHUDView.xib */; };
 		4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */; };
 		4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */; };
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
@@ -161,6 +163,8 @@
 		4DC6AC291F21E53E00AED444 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSetupTests.swift; sourceTree = "<group>"; };
 		4DC6AC2D1F21FC0D00AED444 /* ObsolescenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceTests.swift; sourceTree = "<group>"; };
+		4DC6B4831F27BD0900B3C991 /* PlayerHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHUDView.swift; sourceTree = "<group>"; };
+		4DC6B4851F27BD1700B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerHUDView.xib; sourceTree = "<group>"; };
 		4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
@@ -486,6 +490,7 @@
 			children = (
 				4DE5E54C1F27BC280004126E /* XIBs */,
 				4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */,
+				4DC6B4831F27BD0900B3C991 /* PlayerHUDView.swift */,
 			);
 			path = PlayerCard;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 		4DE5E54C1F27BC280004126E /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				4DC6B4851F27BD1700B3C991 /* PlayerHUDView.xib */,
 				4DE5E54D1F27BC280004126E /* PlayerWinnerView.xib */,
 			);
 			path = XIBs;
@@ -619,6 +625,7 @@
 				4DE5E54E1F27BC280004126E /* PlayerWinnerView.xib in Resources */,
 				4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */,
 				4DE5E54A1F27BC000004126E /* DiceCollectionViewCell.xib in Resources */,
+				4DC6B4861F27BD1700B3C991 /* PlayerHUDView.xib in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
@@ -738,6 +745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE8BBF31F265FEB00056CF1 /* ShiftProductionManager.swift in Sources */,
+				4DC6B4841F27BD0900B3C991 /* PlayerHUDView.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */,
 				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
