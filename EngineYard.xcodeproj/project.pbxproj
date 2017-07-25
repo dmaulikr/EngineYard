@@ -64,6 +64,20 @@
 		4DE5E4F71F2773A20004126E /* WinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F61F2773A20004126E /* WinnerViewModel.swift */; };
 		4DE5E4F91F27749C0004126E /* PauseMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F81F27749C0004126E /* PauseMenuViewModel.swift */; };
 		4DE5E4FC1F2779B90004126E /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4FB1F2779B90004126E /* MainMenuViewController.swift */; };
+		4DE5E4FE1F277B020004126E /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4FD1F277B020004126E /* NewGameViewController.swift */; };
+		4DE5E5011F277B4E0004126E /* BuyTrain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */; };
+		4DE5E5031F277B8A0004126E /* BuyTrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5021F277B8A0004126E /* BuyTrainViewController.swift */; };
+		4DE5E5051F277B990004126E /* BuyProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5041F277B990004126E /* BuyProductionViewController.swift */; };
+		4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5061F277BDF0004126E /* BuyProduction.storyboard */; };
+		4DE5E50B1F277BF60004126E /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5091F277BF60004126E /* Selling.storyboard */; };
+		4DE5E50D1F277C420004126E /* SellingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E50C1F277C420004126E /* SellingViewController.swift */; };
+		4DE5E50F1F277C530004126E /* TaxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E50E1F277C530004126E /* TaxesViewController.swift */; };
+		4DE5E5111F277C620004126E /* NewTurnOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */; };
+		4DE5E5131F277C820004126E /* MarketDemandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */; };
+		4DE5E5151F277CA20004126E /* WinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5141F277CA20004126E /* WinnerViewController.swift */; };
+		4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E5161F277CBD0004126E /* Winner.storyboard */; };
+		4DE5E51A1F277E620004126E /* BuyTrainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */; };
+		4DE5E51C1F277E6F0004126E /* BuyProductionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */; };
 		4DE8BBED1F25F4E700056CF1 /* TransferOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */; };
 		4DE8BBEF1F25FDB100056CF1 /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */; };
 		4DE8BBF11F2647FC00056CF1 /* PurchaseLocomotiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */; };
@@ -148,6 +162,20 @@
 		4DE5E4F61F2773A20004126E /* WinnerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4F81F27749C0004126E /* PauseMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseMenuViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4FB1F2779B90004126E /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		4DE5E4FD1F277B020004126E /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		4DE5E5001F277B4E0004126E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BuyTrain.storyboard; sourceTree = "<group>"; };
+		4DE5E5021F277B8A0004126E /* BuyTrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewController.swift; sourceTree = "<group>"; };
+		4DE5E5041F277B990004126E /* BuyProductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewController.swift; sourceTree = "<group>"; };
+		4DE5E5071F277BDF0004126E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BuyProduction.storyboard; sourceTree = "<group>"; };
+		4DE5E50A1F277BF60004126E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Selling.storyboard; sourceTree = "<group>"; };
+		4DE5E50C1F277C420004126E /* SellingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewController.swift; sourceTree = "<group>"; };
+		4DE5E50E1F277C530004126E /* TaxesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesViewController.swift; sourceTree = "<group>"; };
+		4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTurnOrderViewController.swift; sourceTree = "<group>"; };
+		4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDemandsViewController.swift; sourceTree = "<group>"; };
+		4DE5E5141F277CA20004126E /* WinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewController.swift; sourceTree = "<group>"; };
+		4DE5E5171F277CBD0004126E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Winner.storyboard; sourceTree = "<group>"; };
+		4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainDetailViewController.swift; sourceTree = "<group>"; };
+		4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionDetailViewController.swift; sourceTree = "<group>"; };
 		4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferOrderTests.swift; sourceTree = "<group>"; };
 		4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionTests.swift; sourceTree = "<group>"; };
 		4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseLocomotiveTests.swift; sourceTree = "<group>"; };
@@ -330,6 +358,10 @@
 				4D9429731F2124B7006B2D89 /* Assets.xcassets */,
 				4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */,
 				4D9429761F2124B7006B2D89 /* Main.storyboard */,
+				4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */,
+				4DE5E5061F277BDF0004126E /* BuyProduction.storyboard */,
+				4DE5E5091F277BF60004126E /* Selling.storyboard */,
+				4DE5E5161F277CBD0004126E /* Winner.storyboard */,
 				4D9429781F2124B7006B2D89 /* Info.plist */,
 			);
 			path = EngineYard_iOS;
@@ -381,6 +413,16 @@
 			isa = PBXGroup;
 			children = (
 				4DE5E4FB1F2779B90004126E /* MainMenuViewController.swift */,
+				4DE5E4FD1F277B020004126E /* NewGameViewController.swift */,
+				4DE5E5021F277B8A0004126E /* BuyTrainViewController.swift */,
+				4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */,
+				4DE5E5041F277B990004126E /* BuyProductionViewController.swift */,
+				4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */,
+				4DE5E50C1F277C420004126E /* SellingViewController.swift */,
+				4DE5E50E1F277C530004126E /* TaxesViewController.swift */,
+				4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */,
+				4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */,
+				4DE5E5141F277CA20004126E /* WinnerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -492,11 +534,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE5E5011F277B4E0004126E /* BuyTrain.storyboard in Resources */,
+				4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */,
+				4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
+				4DE5E50B1F277BF60004126E /* Selling.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,20 +657,27 @@
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */,
 				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
+				4DE5E4FE1F277B020004126E /* NewGameViewController.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4DE5E4F71F2773A20004126E /* WinnerViewModel.swift in Sources */,
 				4DE5E4F31F2773490004126E /* MarketDemandsViewModel.swift in Sources */,
 				4D1A4C4D1F21361400680333 /* Player.swift in Sources */,
+				4DE5E50D1F277C420004126E /* SellingViewController.swift in Sources */,
 				4D1A4C491F21346100680333 /* Locomotive.swift in Sources */,
+				4DE5E5151F277CA20004126E /* WinnerViewController.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
 				4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */,
 				4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */,
 				4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */,
+				4DE5E50F1F277C530004126E /* TaxesViewController.swift in Sources */,
 				4D1A4C2B1F21315200680333 /* Devices.swift in Sources */,
 				4D1A4C5B1F2138E900680333 /* Locomotive+API.swift in Sources */,
 				4D1A4C261F21314B00680333 /* Constants.swift in Sources */,
+				4DE5E5051F277B990004126E /* BuyProductionViewController.swift in Sources */,
 				4D1A4C651F213AA800680333 /* TurnOrderManager.swift in Sources */,
+				4DE5E5131F277C820004126E /* MarketDemandsViewController.swift in Sources */,
 				4D1A4C511F21362900680333 /* OrderBook.swift in Sources */,
+				4DE5E5111F277C620004126E /* NewTurnOrderViewController.swift in Sources */,
 				4DE8BBF51F26806D00056CF1 /* SalesHandler.swift in Sources */,
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
@@ -635,13 +688,16 @@
 				4D1A4C451F21321900680333 /* Game.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D1A4C471F21335400680333 /* GameBoard.swift in Sources */,
+				4DE5E51C1F277E6F0004126E /* BuyProductionDetailViewController.swift in Sources */,
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
 				4D1A4C591F2138C200680333 /* SalesRule.swift in Sources */,
 				4D1A4C631F2139C900680333 /* SetupManager.swift in Sources */,
 				4DE5E4F11F2772300004126E /* TaxesViewModel.swift in Sources */,
 				4D1A4C611F21396E00680333 /* Production+API.swift in Sources */,
+				4DE5E51A1F277E620004126E /* BuyTrainDetailViewController.swift in Sources */,
 				4DE5E4FC1F2779B90004126E /* MainMenuViewController.swift in Sources */,
+				4DE5E5031F277B8A0004126E /* BuyTrainViewController.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
 				4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */,
@@ -699,6 +755,38 @@
 				4D9429771F2124B7006B2D89 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE5E5001F277B4E0004126E /* Base */,
+			);
+			name = BuyTrain.storyboard;
+			sourceTree = "<group>";
+		};
+		4DE5E5061F277BDF0004126E /* BuyProduction.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE5E5071F277BDF0004126E /* Base */,
+			);
+			name = BuyProduction.storyboard;
+			sourceTree = "<group>";
+		};
+		4DE5E5091F277BF60004126E /* Selling.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE5E50A1F277BF60004126E /* Base */,
+			);
+			name = Selling.storyboard;
+			sourceTree = "<group>";
+		};
+		4DE5E5161F277CBD0004126E /* Winner.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE5E5171F277CBD0004126E /* Base */,
+			);
+			name = Winner.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
