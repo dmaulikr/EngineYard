@@ -59,8 +59,8 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.nameLbl.text = player.name
         */
 
+        view.layoutIfNeeded()
         cell.setNeedsLayout()
-        cell.sizeToFit()
 
         return cell
     }
