@@ -28,6 +28,7 @@ struct SalesMatchHandler {
             print("Found perfect match for: \(units) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
             self.matchCase = .perfectMatch
             self.matchTuple = perfectMatch
+
         }
         else {
             if let lowerMatch = self.match.lowerMatch(units) {

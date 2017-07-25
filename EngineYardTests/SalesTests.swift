@@ -144,6 +144,8 @@ class SalesTests: BaseTests {
     func testSalesMatchLoop() {
         var orders = [3,5,2]
         var units = 10
+        let perUnitPrice = 1
+        let journal: SalesJournal = SalesJournal.init()
 
         while ((units > 0) && (orders.count > 0)) {
             let matcher = SalesMatchHandler.init(orders: orders, units: units)
@@ -152,14 +154,24 @@ class SalesTests: BaseTests {
 
             switch matcher.matchCase {
             case .perfectMatch:
+
+                let entry = SalesLedger.init(unitsSold: units, perUnitPrice: perUnitPrice)
+                journal.entries.append(entry)
+
                 orders[matcher.matchTuple.0] -= matcher.matchTuple.1
                 units -= units
                 break
             case .lower:
+                let entry = SalesLedger.init(unitsSold: units, perUnitPrice: perUnitPrice)
+                journal.entries.append(entry)
+
                 orders[matcher.matchTuple.0] -= units
                 units -= units
                 break
             case .higher:
+                let entry = SalesLedger.init(unitsSold: matcher.matchTuple.1, perUnitPrice: perUnitPrice)
+                journal.entries.append(entry)
+
                 let remainingUnits = (units - matcher.matchTuple.1) // 6-5
                 units -= remainingUnits
                 orders[matcher.matchTuple.0] -= orders[matcher.matchTuple.0]
@@ -171,5 +183,8 @@ class SalesTests: BaseTests {
 
             print("remaining units: \(units), \(orders)\n")
         }
+
+        XCTAssertTrue(units == 2, "\(units)")
+        XCTAssert(journal.total == 10)
     }
 }

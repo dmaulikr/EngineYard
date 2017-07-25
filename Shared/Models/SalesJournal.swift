@@ -12,9 +12,10 @@ import Foundation
 // its actually a record of sales made
 
 class SalesJournal {
-    weak var owner: Player?
-    weak var engine: Engine?
     var entries : [SalesLedger] = [SalesLedger]()
+    var total : Int {
+        return (self.entries.reduce(0) { $0 + ($1.total ) })
+    }
 }
 
 struct SalesLedger {
