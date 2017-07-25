@@ -80,6 +80,8 @@
 		4DE5E5211F277FFD0004126E /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E51F1F277FFD0004126E /* HUD.storyboard */; };
 		4DE5E5231F2780110004126E /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5221F2780110004126E /* HUDViewController.swift */; };
 		4DE5E5281F2793040004126E /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5271F2793040004126E /* MainMenuViewController.swift */; };
+		4DE5E53C1F27B62C0004126E /* PlayerWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */; };
+		4DE5E53E1F27B63C0004126E /* PlayerWinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E53D1F27B63C0004126E /* PlayerWinnerView.xib */; };
 		4DE8BBED1F25F4E700056CF1 /* TransferOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */; };
 		4DE8BBEF1F25FDB100056CF1 /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */; };
 		4DE8BBF11F2647FC00056CF1 /* PurchaseLocomotiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */; };
@@ -180,6 +182,8 @@
 		4DE5E5201F277FFD0004126E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		4DE5E5221F2780110004126E /* HUDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
 		4DE5E5271F2793040004126E /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerWinnerView.swift; sourceTree = "<group>"; };
+		4DE5E53D1F27B63C0004126E /* PlayerWinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerWinnerView.xib; sourceTree = "<group>"; };
 		4DE8BBEC1F25F4E700056CF1 /* TransferOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferOrderTests.swift; sourceTree = "<group>"; };
 		4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionTests.swift; sourceTree = "<group>"; };
 		4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseLocomotiveTests.swift; sourceTree = "<group>"; };
@@ -469,6 +473,8 @@
 		4DE5E5261F27808C0004126E /* PlayerCard */ = {
 			isa = PBXGroup;
 			children = (
+				4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */,
+				4DE5E53D1F27B63C0004126E /* PlayerWinnerView.xib */,
 			);
 			path = PlayerCard;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				4DE5E5011F277B4E0004126E /* BuyTrain.storyboard in Resources */,
 				4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */,
 				4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */,
+				4DE5E53E1F27B63C0004126E /* PlayerWinnerView.xib in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
@@ -710,6 +717,7 @@
 				4DE5E4F31F2773490004126E /* MarketDemandsViewModel.swift in Sources */,
 				4D1A4C4D1F21361400680333 /* Player.swift in Sources */,
 				4DE5E50D1F277C420004126E /* SellingViewController.swift in Sources */,
+				4DE5E53C1F27B62C0004126E /* PlayerWinnerView.swift in Sources */,
 				4D1A4C491F21346100680333 /* Locomotive.swift in Sources */,
 				4DE5E5151F277CA20004126E /* WinnerViewController.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,

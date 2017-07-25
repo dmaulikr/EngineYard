@@ -11,4 +11,8 @@ import Foundation
 class WinnerViewModel
 {
     var game: Game!
+
+    static var pageTitleText: String {
+        return NSLocalizedString("Winner", comment: "Winner page title")
+    }
 }
