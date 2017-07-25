@@ -19,11 +19,6 @@ struct MainMenuViewModel {
         }
         switch tagSelected {
         case .newGameTag:
-            /*
-            let sb : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc : NewGameViewController = sb.instantiateInitialViewController() as! NewGameViewController
-            navigationController.pushViewController(vc, animated: true)
-             */
             break
         }
     }
