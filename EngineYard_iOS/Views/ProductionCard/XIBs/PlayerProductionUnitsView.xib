@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EYPlayerProductionUnitsView" customModule="EngineYard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="85"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F3-61-R8G">
+                    <rect key="frame" x="28.5" y="56" width="16.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="objects-box-icon32" translatesAutoresizingMaskIntoConstraints="NO" id="c8F-5M-5Gb">
+                    <rect key="frame" x="5" y="59" width="20.5" height="16"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNT-Gh-m56">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="e1O-C2-bh2"/>
+                        <constraint firstAttribute="width" constant="50" id="lr5-z6-A1m"/>
+                    </constraints>
+                    <state key="normal" image="avt_1"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6F3-61-R8G" secondAttribute="trailing" constant="5" id="11T-OX-CCe"/>
+                <constraint firstItem="6F3-61-R8G" firstAttribute="leading" secondItem="c8F-5M-5Gb" secondAttribute="trailing" constant="3" id="AQA-sV-iuN"/>
+                <constraint firstItem="6F3-61-R8G" firstAttribute="top" secondItem="zNT-Gh-m56" secondAttribute="bottom" constant="6" id="CSX-dT-3CV"/>
+                <constraint firstItem="6F3-61-R8G" firstAttribute="top" secondItem="zNT-Gh-m56" secondAttribute="bottom" constant="6" id="Oek-X4-qgn"/>
+                <constraint firstAttribute="trailing" secondItem="zNT-Gh-m56" secondAttribute="trailing" id="Vbt-UD-qYh"/>
+                <constraint firstItem="c8F-5M-5Gb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="dd2-bQ-d3d"/>
+                <constraint firstItem="zNT-Gh-m56" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="khJ-GO-StM"/>
+                <constraint firstItem="zNT-Gh-m56" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lj8-Nm-Wsg"/>
+                <constraint firstAttribute="bottom" secondItem="c8F-5M-5Gb" secondAttribute="bottom" constant="10" id="p7V-hD-d1N"/>
+                <constraint firstAttribute="bottom" secondItem="6F3-61-R8G" secondAttribute="bottom" constant="8" id="xPN-UV-hRy"/>
+                <constraint firstItem="c8F-5M-5Gb" firstAttribute="top" secondItem="zNT-Gh-m56" secondAttribute="bottom" constant="9" id="zyk-i1-tkd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="55" y="48.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avt_1" width="241" height="212"/>
+        <image name="objects-box-icon32" width="32" height="32"/>
+    </resources>
+</document>
