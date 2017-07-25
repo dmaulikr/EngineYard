@@ -14,7 +14,7 @@ enum SalesRuleType {
     case higher
 }
 
-struct SalesMatchHandler {
+struct SalesRuleHandler {
     var ruleType: SalesRuleType = .lower
     var rule: SalesRule!
     var matchTuple:(Int,Int)!

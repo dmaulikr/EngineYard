@@ -40,7 +40,7 @@ class SalesTests: BaseTests {
         let orders = [3,5,2]
         let units = 1
 
-        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        let matcher = SalesRuleHandler.init(orders: orders, units: units)
         XCTAssertTrue(matcher.ruleType == .lower)
     }
 
@@ -48,7 +48,7 @@ class SalesTests: BaseTests {
         let orders = [3,5,2]
         let units = 3
 
-        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        let matcher = SalesRuleHandler.init(orders: orders, units: units)
         XCTAssertTrue(matcher.ruleType == .perfectMatch)
     }
 
@@ -56,7 +56,7 @@ class SalesTests: BaseTests {
         let orders = [3,5,2]
         let units = 6
 
-        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        let matcher = SalesRuleHandler.init(orders: orders, units: units)
         XCTAssertTrue(matcher.ruleType == .higher)
     }
 
@@ -64,7 +64,7 @@ class SalesTests: BaseTests {
         var orders = [3,3,3]
         var units = 1
 
-        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        let matcher = SalesRuleHandler.init(orders: orders, units: units)
         print("selling units: \(units), \(orders)\n")
 
         XCTAssert(matcher.ruleType == .lower)
@@ -90,7 +90,7 @@ class SalesTests: BaseTests {
         var orders = [3,3,3]
         var units = 3
 
-        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        let matcher = SalesRuleHandler.init(orders: orders, units: units)
         print("selling units: \(units), \(orders)\n")
 
         XCTAssert(matcher.ruleType == .perfectMatch)
@@ -116,7 +116,7 @@ class SalesTests: BaseTests {
         var orders = [3,4,5]
         var units = 6
 
-        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        let matcher = SalesRuleHandler.init(orders: orders, units: units)
         print("selling units: \(units), \(orders)\n")
 
         XCTAssert(matcher.ruleType == .higher)
@@ -148,7 +148,7 @@ class SalesTests: BaseTests {
         let journal: SalesJournal = SalesJournal.init()
 
         while ((units > 0) && (orders.count > 0)) {
-            let matcher = SalesMatchHandler.init(orders: orders, units: units)
+            let matcher = SalesRuleHandler.init(orders: orders, units: units)
 
             print("selling units: \(units), \(orders)\n")
 
