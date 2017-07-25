@@ -41,7 +41,7 @@ class SalesTests: BaseTests {
         let units = 1
 
         let matcher = SalesMatchHandler.init(orders: orders, units: units)
-        XCTAssertTrue(matcher.matchCase == .lower)
+        XCTAssertTrue(matcher.ruleType == .lower)
     }
 
     func testSalesRulePerfectMatch() {
@@ -49,7 +49,7 @@ class SalesTests: BaseTests {
         let units = 3
 
         let matcher = SalesMatchHandler.init(orders: orders, units: units)
-        XCTAssertTrue(matcher.matchCase == .perfectMatch)
+        XCTAssertTrue(matcher.ruleType == .perfectMatch)
     }
 
     func testSalesRuleHigher() {
@@ -57,7 +57,7 @@ class SalesTests: BaseTests {
         let units = 6
 
         let matcher = SalesMatchHandler.init(orders: orders, units: units)
-        XCTAssertTrue(matcher.matchCase == .higher)
+        XCTAssertTrue(matcher.ruleType == .higher)
     }
 
     func testSalesLower() {
@@ -67,9 +67,9 @@ class SalesTests: BaseTests {
         let matcher = SalesMatchHandler.init(orders: orders, units: units)
         print("selling units: \(units), \(orders)\n")
 
-        XCTAssert(matcher.matchCase == .lower)
+        XCTAssert(matcher.ruleType == .lower)
 
-        switch matcher.matchCase {
+        switch matcher.ruleType {
         case .perfectMatch:
             break
         case .lower:
@@ -93,9 +93,9 @@ class SalesTests: BaseTests {
         let matcher = SalesMatchHandler.init(orders: orders, units: units)
         print("selling units: \(units), \(orders)\n")
 
-        XCTAssert(matcher.matchCase == .perfectMatch)
+        XCTAssert(matcher.ruleType == .perfectMatch)
 
-        switch matcher.matchCase {
+        switch matcher.ruleType {
         case .perfectMatch:
             orders[matcher.matchTuple.0] -= matcher.matchTuple.1
             units -= units
@@ -119,9 +119,9 @@ class SalesTests: BaseTests {
         let matcher = SalesMatchHandler.init(orders: orders, units: units)
         print("selling units: \(units), \(orders)\n")
 
-        XCTAssert(matcher.matchCase == .higher)
+        XCTAssert(matcher.ruleType == .higher)
 
-        switch matcher.matchCase {
+        switch matcher.ruleType {
         case .perfectMatch:
             break
         case .lower:
@@ -152,7 +152,7 @@ class SalesTests: BaseTests {
 
             print("selling units: \(units), \(orders)\n")
 
-            switch matcher.matchCase {
+            switch matcher.ruleType {
             case .perfectMatch:
 
                 let entry = SalesLedger.init(unitsSold: units, perUnitPrice: perUnitPrice)

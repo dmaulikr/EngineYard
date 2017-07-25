@@ -8,38 +8,38 @@
 
 import Foundation
 
-enum SalesMatchCase {
+enum SalesRuleType {
     case lower
     case perfectMatch
     case higher
 }
 
 struct SalesMatchHandler {
-    var matchCase: SalesMatchCase = .lower
-    var match: SalesMatch!
+    var ruleType: SalesRuleType = .lower
+    var rule: SalesRule!
     var matchTuple:(Int,Int)!
 
     init(orders:[Int], units: Int) {
-        self.match = SalesMatch.init(orders: orders)
+        self.rule = SalesRule.init(orders: orders)
 
-        let orders = self.match.orders
+        let orders = self.rule.orders
 
-        if let perfectMatch = self.match.perfectMatch(units) {
+        if let perfectMatch = self.rule.perfectMatch(units) {
             print("Found perfect match for: \(units) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
-            self.matchCase = .perfectMatch
+            self.ruleType = .perfectMatch
             self.matchTuple = perfectMatch
 
         }
         else {
-            if let lowerMatch = self.match.lowerMatch(units) {
+            if let lowerMatch = self.rule.lowerMatch(units) {
                 print("Found lower match for: \(units) in orders \(orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
-                self.matchCase = .lower
+                self.ruleType = .lower
                 self.matchTuple = lowerMatch
             }
             else {
-                if let higherMatch = self.match.higherMatch(units) {
+                if let higherMatch = self.rule.higherMatch(units) {
                     print("Found higher match for: \(units) in orders \(orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
-                    self.matchCase = .higher
+                    self.ruleType = .higher
                     self.matchTuple = higherMatch
                 }
                 else {
@@ -51,7 +51,7 @@ struct SalesMatchHandler {
 }
 
 
-struct SalesMatch {
+struct SalesRule {
     private var _orders: [Int]
     var orders: [Int] {
         return _orders
