@@ -62,6 +62,7 @@
 		4DE8BBF31F265FEB00056CF1 /* ShiftProductionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF21F265FEB00056CF1 /* ShiftProductionManager.swift */; };
 		4DE8BBF51F26806D00056CF1 /* SalesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF41F26806D00056CF1 /* SalesHandler.swift */; };
 		4DE8BBF71F26817800056CF1 /* SalesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF61F26817800056CF1 /* SalesTests.swift */; };
+		4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF81F2718DA00056CF1 /* SalesJournal.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +138,7 @@
 		4DE8BBF21F265FEB00056CF1 /* ShiftProductionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftProductionManager.swift; sourceTree = "<group>"; };
 		4DE8BBF41F26806D00056CF1 /* SalesHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesHandler.swift; sourceTree = "<group>"; };
 		4DE8BBF61F26817800056CF1 /* SalesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesTests.swift; sourceTree = "<group>"; };
+		4DE8BBF81F2718DA00056CF1 /* SalesJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesJournal.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				4D1A4C541F21367400680333 /* Account.swift */,
 				4D1A4C561F21388800680333 /* Tax.swift */,
 				4D1A4C581F2138C200680333 /* SalesRule.swift */,
+				4DE8BBF81F2718DA00056CF1 /* SalesJournal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				4D94297F1F2124B7006B2D89 /* MainMenuViewController.swift in Sources */,
 				4DE8BBF31F265FEB00056CF1 /* ShiftProductionManager.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
+				4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */,
 				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C4D1F21361400680333 /* Player.swift in Sources */,

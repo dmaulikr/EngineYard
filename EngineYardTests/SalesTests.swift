@@ -60,6 +60,93 @@ class SalesTests: BaseTests {
         XCTAssertTrue(matcher.matchCase == .higher)
     }
 
+    func testSalesLower() {
+        var orders = [3,3,3]
+        var units = 1
+
+        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        print("selling units: \(units), \(orders)\n")
+
+        XCTAssert(matcher.matchCase == .lower)
+
+        switch matcher.matchCase {
+        case .perfectMatch:
+            XCTFail("Unexpected perfectMatch")
+            break
+        case .lower:
+            orders[matcher.matchTuple.0] -= units
+            units -= units
+            break
+        case .higher:
+            XCTFail("Unexpected higherMatch")
+            break
+        }
+
+        let filtered = orders.filter { $0 != 0 }
+        orders = filtered
+
+        XCTAssert(units == 0)
+    }
+
+    func testSalesPerfect() {
+        var orders = [3,3,3]
+        var units = 3
+
+        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        print("selling units: \(units), \(orders)\n")
+
+        XCTAssert(matcher.matchCase == .perfectMatch)
+
+        switch matcher.matchCase {
+        case .perfectMatch:
+            orders[matcher.matchTuple.0] -= matcher.matchTuple.1
+            units -= units
+            break
+        case .lower:
+            XCTFail("Unexpected lower")
+            break
+        case .higher:
+            XCTFail("Unexpected higherMatch")
+            break
+        }
+
+        let filtered = orders.filter { $0 != 0 }
+        orders = filtered
+        
+        XCTAssert(units == 0)
+    }
+
+    func testSalesHigher() {
+        var orders = [3,4,5]
+        var units = 6
+
+        let matcher = SalesMatchHandler.init(orders: orders, units: units)
+        print("selling units: \(units), \(orders)\n")
+
+        XCTAssert(matcher.matchCase == .higher)
+
+        switch matcher.matchCase {
+        case .perfectMatch:
+            XCTFail("Unexpected perfectMatch")
+            break
+        case .lower:
+            XCTFail("Unexpected lowerMatch")
+            break
+        case .higher:
+            units -= matcher.matchTuple.1
+            orders[matcher.matchTuple.0] -= orders[matcher.matchTuple.0]
+
+            XCTAssert(units == 1)
+            XCTAssert(orders[matcher.matchTuple.0] == 0)
+            break
+        }
+
+        let filtered = orders.filter { $0 != 0 }
+        orders = filtered
+    }
+
+
+
     func testSalesMatchMixed() {
         var orders = [3,5,2]
         var units = 10
