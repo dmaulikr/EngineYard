@@ -187,4 +187,76 @@ class SalesTests: BaseTests {
         XCTAssertTrue(units == 2, "\(units)")
         XCTAssert(journal.total == 10)
     }
+
+    func testPlayerSales() {
+
+        // force first train to have max capacity of orders
+        guard let firstTrain = trains.first else {
+            return
+        }
+        XCTAssert(firstTrain.orderBook.existingOrders.count == 1)
+        let remainingSpace = (firstTrain.capacity - firstTrain.orderBook.existingOrders.count)
+        XCTAssert(remainingSpace == 2)
+        firstTrain.orderBook.generateExistingOrders(howMany: remainingSpace)
+        XCTAssert(firstTrain.orderBook.existingOrders.count == firstTrain.capacity)
+
+        // force first 3 players to buy the first train in order
+        for (index, p) in gameObj.players.enumerated() {
+            if (index < 3) {
+                if (p.account.canAfford(amount: firstTrain.cost)) {
+                    firstTrain.purchase(buyer: p)
+                }
+            }
+            else {
+                break
+            }
+        }
+
+        let countUnlocked = gameObj.gameBoard.decks.filter { (loco: Locomotive) -> Bool in
+            return (loco.isUnlocked)
+        }.count
+
+        let trainsWithOrders = gameObj.gameBoard.decks.filter { (loco: Locomotive) -> Bool in
+            return (loco.orderBook.existingOrders.count > 0)
+            }.sorted { (loco1: Locomotive, loco2: Locomotive) -> Bool in
+            return (loco1.cost < loco2.cost)
+        }
+
+        XCTAssert(countUnlocked == 2)
+        XCTAssert(trainsWithOrders.count == 2)
+        XCTAssert(firstTrain.owners?.count == 3)
+
+        // Sell production from trainsWithOrders
+        /*
+        for train in trainsWithOrders {
+            print ("Selling production from \(train.name)")
+
+            // sort engines by turn order
+            let sortedEngines = train.engines.filter({ (eng: Engine) -> Bool in
+                return ((eng.owner != nil) && (eng.production.units > 0))
+            }).sorted(by: { (eng1:Engine, eng2:Engine) -> Bool in
+                return ((eng1.owner?.turnOrder)! < (eng2.owner?.turnOrder)!)
+            })
+
+            //while train.orderBook.existingOrders.count > 0 {
+                for engine in sortedEngines {
+
+                    let units = engine.production.units
+                    let orders = train.orderBook.existingOrders
+
+                    while ((units > 0) && (orders.count > 0)) {
+                        //let matcher = SalesRuleHandler.init(orders: orders, units: units)
+                        print("selling units: \(units), \(orders)\n")
+                        
+                    }
+                }
+
+            //}
+        }
+ */
+
+    }
+
+
+
 }
