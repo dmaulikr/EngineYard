@@ -11,7 +11,4 @@ import Foundation
 class WinnerViewModel
 {
     var game: Game!
-    lazy var winners: [Player]?
-
-
 }
