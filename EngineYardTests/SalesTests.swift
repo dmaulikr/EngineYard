@@ -226,35 +226,7 @@ class SalesTests: BaseTests {
         XCTAssert(trainsWithOrders.count == 2)
         XCTAssert(firstTrain.owners?.count == 3)
 
-        // Sell production from trainsWithOrders
-        /*
-        for train in trainsWithOrders {
-            print ("Selling production from \(train.name)")
-
-            // sort engines by turn order
-            let sortedEngines = train.engines.filter({ (eng: Engine) -> Bool in
-                return ((eng.owner != nil) && (eng.production.units > 0))
-            }).sorted(by: { (eng1:Engine, eng2:Engine) -> Bool in
-                return ((eng1.owner?.turnOrder)! < (eng2.owner?.turnOrder)!)
-            })
-
-            //while train.orderBook.existingOrders.count > 0 {
-                for engine in sortedEngines {
-
-                    let units = engine.production.units
-                    let orders = train.orderBook.existingOrders
-
-                    while ((units > 0) && (orders.count > 0)) {
-                        //let matcher = SalesRuleHandler.init(orders: orders, units: units)
-                        print("selling units: \(units), \(orders)\n")
-                        
-                    }
-                }
-
-            //}
-        }
- */
-
+        // # TODO
     }
 
 
