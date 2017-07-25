@@ -414,10 +414,8 @@
 			children = (
 				4DE5E4FB1F2779B90004126E /* MainMenuViewController.swift */,
 				4DE5E4FD1F277B020004126E /* NewGameViewController.swift */,
-				4DE5E5021F277B8A0004126E /* BuyTrainViewController.swift */,
-				4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */,
-				4DE5E5041F277B990004126E /* BuyProductionViewController.swift */,
-				4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */,
+				4DE5E51D1F277FA40004126E /* BuyTrain */,
+				4DE5E51E1F277FA90004126E /* BuyProduction */,
 				4DE5E50C1F277C420004126E /* SellingViewController.swift */,
 				4DE5E50E1F277C530004126E /* TaxesViewController.swift */,
 				4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */,
@@ -425,6 +423,24 @@
 				4DE5E5141F277CA20004126E /* WinnerViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4DE5E51D1F277FA40004126E /* BuyTrain */ = {
+			isa = PBXGroup;
+			children = (
+				4DE5E5021F277B8A0004126E /* BuyTrainViewController.swift */,
+				4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */,
+			);
+			name = BuyTrain;
+			sourceTree = "<group>";
+		};
+		4DE5E51E1F277FA90004126E /* BuyProduction */ = {
+			isa = PBXGroup;
+			children = (
+				4DE5E5041F277B990004126E /* BuyProductionViewController.swift */,
+				4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */,
+			);
+			name = BuyProduction;
 			sourceTree = "<group>";
 		};
 		AF42B8C9DFE4FE4037A4E31F /* Pods */ = {
