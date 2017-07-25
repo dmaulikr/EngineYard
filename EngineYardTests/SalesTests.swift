@@ -147,7 +147,7 @@ class SalesTests: BaseTests {
 
 
 
-    func testSalesMatchMixed() {
+    func testSalesMatchLoop() {
         var orders = [3,5,2]
         var units = 10
 
