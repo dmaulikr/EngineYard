@@ -26,13 +26,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="mainMenuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Wx-my-lFw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="ucx-eg-Xxt"/>
                     <connections>
-                        <segue destination="m8n-1v-48G" kind="show" identifier="newGameSegue" id="qpU-kb-HuR"/>
+                        <outletCollection property="mainMenuBtnOutletCollection" destination="srQ-rZ-ejI" collectionClass="NSMutableArray" id="Bb3-lG-5KR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -52,21 +55,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="vPr-YW-pGO" kind="show" identifier="buyTrainSegue" id="8XB-Tu-syz"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF5-8b-fjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="1035"/>
-        </scene>
-        <!--BuyTrain-->
-        <scene sceneID="fNP-WV-PxF">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BuyTrain" id="vPr-YW-pGO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ukW-UQ-Wl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1677" y="1658"/>
+            <point key="canvasLocation" x="1272" y="1016"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3r2-pC-mmx">
