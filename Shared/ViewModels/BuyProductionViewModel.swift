@@ -48,6 +48,18 @@ class BuyProductionViewModel : NextStateTransitionProtocol
         }
     }
 
+    func skip() {
+        if (playerOnTurn.isAI == true) {
+            // are you sure?
+            // if yes: complete player turn
+            // if yes: move to next player turn
+        }
+        else {
+            // complete player turn
+            // move to next player turn
+        }
+    }
+
     // MARK: - NextStateTransitionProtocol
 
     internal func shouldTransitionToNextState() -> Bool {
