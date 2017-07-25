@@ -71,14 +71,12 @@ class SalesTests: BaseTests {
 
         switch matcher.matchCase {
         case .perfectMatch:
-            XCTFail("Unexpected perfectMatch")
             break
         case .lower:
             orders[matcher.matchTuple.0] -= units
             units -= units
             break
         case .higher:
-            XCTFail("Unexpected higherMatch")
             break
         }
 
@@ -103,10 +101,8 @@ class SalesTests: BaseTests {
             units -= units
             break
         case .lower:
-            XCTFail("Unexpected lower")
             break
         case .higher:
-            XCTFail("Unexpected higherMatch")
             break
         }
 
@@ -127,10 +123,8 @@ class SalesTests: BaseTests {
 
         switch matcher.matchCase {
         case .perfectMatch:
-            XCTFail("Unexpected perfectMatch")
             break
         case .lower:
-            XCTFail("Unexpected lowerMatch")
             break
         case .higher:
             units -= matcher.matchTuple.1
