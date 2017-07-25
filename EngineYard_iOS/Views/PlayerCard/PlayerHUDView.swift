@@ -1,5 +1,5 @@
 //
-//  EYPlayerHUDView.swift
+//  PlayerHUDView.swift
 //  EngineYard
 //
 //  Created by Amarjit on 29/03/2017.

@@ -52,7 +52,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.contentView.addSubview(view)
 
         /*
-        let player:EYPlayer = self.playerList[indexPath.row]
+        let player:Player = self.playerList[indexPath.row]
         view.avatarImageView.image = UIImage(named: player.asset)
         view.positionLbl.text = "#\(indexPath.row+1)"
         view.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
