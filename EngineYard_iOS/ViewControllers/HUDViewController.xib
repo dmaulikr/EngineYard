@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HUDViewController" customModule="EngineYard" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="Le2-9K-Z1Q" id="m9u-28-LSj"/>
+                <outlet property="menuBtn" destination="fuU-Xo-BND" id="834-2F-OOn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,10 +30,17 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="riF-AZ-adU"/>
+                        <outlet property="delegate" destination="-1" id="f0T-Ue-n3Z"/>
+                    </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuU-Xo-BND">
                     <rect key="frame" x="504" y="10" width="39" height="30"/>
                     <state key="normal" title="Menu"/>
+                    <connections>
+                        <action selector="menuBtnPressed:" destination="-1" eventType="touchUpInside" id="eBM-CX-Sm2"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

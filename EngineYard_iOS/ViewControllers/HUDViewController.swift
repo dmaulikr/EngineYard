@@ -37,35 +37,19 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
         }
     }
 
-
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HUDCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HUDCollectionViewCell.cellReuseIdentifer, for: indexPath) as! HUDCollectionViewCell
 
-        /*
-        let arr = UINib(nibName: "EYPlayerHUDView", bundle: nil).instantiate(withOwner: nil, options: nil)
-        let view = arr[0] as! EYPlayerHUDView
+
+        let arr = UINib(nibName: "PlayerHUDView", bundle: nil).instantiate(withOwner: nil, options: nil)
+        let view = arr[0] as! PlayerHUDView
         cell.contentView.addSubview(view)
-
-        if let allPlayers = self.allPlayers
-        {
-            let player:EYPlayer = allPlayers[indexPath.row]
-            view.updatePlayerHUD(player: player)
-        }
-
-        if (gameModel.turnOrderManager.turnOrderIndex == indexPath.row) {
-            let border = CALayer()
-            border.backgroundColor = UIColor(colorLiteralRed: 23/255, green: 234/255, blue: 217/255, alpha: 0.75).cgColor
-            let width = CGFloat(2.0)
-            border.frame = CGRect(x: 0, y: cell.frame.size.height + 5 - width, width: cell.frame.size.width - 10, height: width)
-            cell.layer.addSublayer(border)
-        }
-        */
 
         cell.layoutIfNeeded()
 
@@ -81,8 +65,6 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
     @IBAction func menuBtnPressed(_ sender:UIButton) {
         print ("Pressed")
     }
-
-
 
     /*
     // MARK: - Navigation

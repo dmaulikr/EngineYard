@@ -70,6 +70,9 @@
 		4DC6B4D01F28A05B00B3C991 /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4CE1F28A05B00B3C991 /* HUDViewController.swift */; };
 		4DC6B4D11F28A05B00B3C991 /* HUDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4CF1F28A05B00B3C991 /* HUDViewController.xib */; };
 		4DC6B4D31F28A19C00B3C991 /* HUDCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4D21F28A19C00B3C991 /* HUDCollectionViewCell.swift */; };
+		4DC6B4E41F28AD9A00B3C991 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4E21F28AD9A00B3C991 /* Common.storyboard */; };
+		4DC6B4E61F28AE1000B3C991 /* HUDXIBView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4E51F28AE1000B3C991 /* HUDXIBView.xib */; };
+		4DC6B4E81F28AE3800B3C991 /* HUDXIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4E71F28AE3800B3C991 /* HUDXIBView.swift */; };
 		4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */; };
 		4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */; };
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
@@ -186,6 +189,9 @@
 		4DC6B4CE1F28A05B00B3C991 /* HUDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
 		4DC6B4CF1F28A05B00B3C991 /* HUDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUDViewController.xib; sourceTree = "<group>"; };
 		4DC6B4D21F28A19C00B3C991 /* HUDCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DC6B4E31F28AD9A00B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Common.storyboard; sourceTree = "<group>"; };
+		4DC6B4E51F28AE1000B3C991 /* HUDXIBView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUDXIBView.xib; sourceTree = "<group>"; };
+		4DC6B4E71F28AE3800B3C991 /* HUDXIBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDXIBView.swift; sourceTree = "<group>"; };
 		4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
@@ -396,6 +402,7 @@
 				4D9429731F2124B7006B2D89 /* Assets.xcassets */,
 				4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */,
 				4D9429761F2124B7006B2D89 /* Main.storyboard */,
+				4DC6B4E21F28AD9A00B3C991 /* Common.storyboard */,
 				4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */,
 				4DE5E5061F277BDF0004126E /* BuyProduction.storyboard */,
 				4DE5E5091F277BF60004126E /* Selling.storyboard */,
@@ -448,6 +455,8 @@
 			children = (
 				4DC6B4CE1F28A05B00B3C991 /* HUDViewController.swift */,
 				4DC6B4CF1F28A05B00B3C991 /* HUDViewController.xib */,
+				4DC6B4E71F28AE3800B3C991 /* HUDXIBView.swift */,
+				4DC6B4E51F28AE1000B3C991 /* HUDXIBView.xib */,
 				4DC6B4D21F28A19C00B3C991 /* HUDCollectionViewCell.swift */,
 			);
 			name = HUD;
@@ -515,8 +524,8 @@
 			isa = PBXGroup;
 			children = (
 				4DC6B4BF1F289F1800B3C991 /* EngineCardView.xib */,
-				4DC6B4C01F289F1800B3C991 /* EngineCardXibView.swift */,
 				4DE5E5431F27BB2B0004126E /* EngineCardView.swift */,
+				4DC6B4C01F289F1800B3C991 /* EngineCardXibView.swift */,
 				4DC6B4C11F289F1800B3C991 /* EngineCardXibView.xib */,
 				4DE5E53F1F27BAD40004126E /* DiceCollectionViewCell.swift */,
 				4DC6B4BE1F289F1800B3C991 /* DiceCollectionViewCell.xib */,
@@ -647,6 +656,8 @@
 				4DC6B4CB1F289F2200B3C991 /* PlayerWinnerView.xib in Resources */,
 				4DE5E5011F277B4E0004126E /* BuyTrain.storyboard in Resources */,
 				4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */,
+				4DC6B4E41F28AD9A00B3C991 /* Common.storyboard in Resources */,
+				4DC6B4E61F28AE1000B3C991 /* HUDXIBView.xib in Resources */,
 				4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */,
 				4DC6B4C21F289F1800B3C991 /* DiceCollectionViewCell.xib in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
@@ -779,6 +790,7 @@
 				4DE5E4FE1F277B020004126E /* NewGameViewController.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4DE5E4F71F2773A20004126E /* WinnerViewModel.swift in Sources */,
+				4DC6B4E81F28AE3800B3C991 /* HUDXIBView.swift in Sources */,
 				4DE5E4F31F2773490004126E /* MarketDemandsViewModel.swift in Sources */,
 				4D1A4C4D1F21361400680333 /* Player.swift in Sources */,
 				4DE5E50D1F277C420004126E /* SellingViewController.swift in Sources */,
@@ -883,6 +895,14 @@
 				4D9429771F2124B7006B2D89 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DC6B4E21F28AD9A00B3C991 /* Common.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DC6B4E31F28AD9A00B3C991 /* Base */,
+			);
+			name = Common.storyboard;
 			sourceTree = "<group>";
 		};
 		4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */ = {
