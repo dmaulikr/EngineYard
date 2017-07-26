@@ -10,6 +10,8 @@ import UIKit
 import SVProgressHUD
 import QuartzCore
 
+@IBDesignable
+
 class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var game: Game?
@@ -33,7 +35,8 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
 
     // MARK: - Load HUD
-    
+
+    /**
     public static func loadHUD(game:Game?, viewController:UIViewController) -> HUDViewController? {
         let sb: UIStoryboard = UIStoryboard(name: "HUD", bundle: nil)
         let hudVC = sb.instantiateViewController(withIdentifier: "HUDViewController") as? HUDViewController
@@ -60,6 +63,7 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
         return hudVC
     }
+     **/
 
     // MARK: - IBActions
 
