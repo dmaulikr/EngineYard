@@ -11,7 +11,6 @@ import Foundation
 class SetupManager : NSObject {
     static var instance = SetupManager()
 
-    // #TODO - Add callback for completion or nil
     func setup(settings:GameConfig, players:[Player]) throws -> Game? {
 
         do {

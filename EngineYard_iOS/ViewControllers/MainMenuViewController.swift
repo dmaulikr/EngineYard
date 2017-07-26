@@ -32,6 +32,13 @@ class MainMenuViewController: UIViewController {
             return
         }
 
+        let viewModel : NewGameViewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
+        Game.setup(players: viewModel.players) { (game:Game?) in
+            if let gameObj = game {
+                Game.instance = gameObj
+            }
+        }
+
         switch tagSelected {
         case .newGame:
             self.performSegue(withIdentifier: "newGameSegue", sender: self)

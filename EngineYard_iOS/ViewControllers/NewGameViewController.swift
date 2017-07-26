@@ -77,31 +77,7 @@ struct NewGameViewModel {
 
     }
 
-    func setupGame(completionClosure : @escaping ((_ completed: Bool)->())) {
-        //completionClosure(true)
-        do {
-            let settings = GameConfig()
 
-            guard let game = try SetupManager.instance.setup(settings: settings, players: self.players) else {
-                assertionFailure("no game model found")
-                return
-            }
-
-            print ("Game: \(game)")
-
-            waitFor(duration: 0.75, callback: { (completed:Bool) in
-                if (completed) {
-                    completionClosure(true)
-                }
-            })
-
-        } catch let error {
-            print (error.localizedDescription)
-
-            completionClosure(false)
-        }
-
-    }
 }
 
 
@@ -157,11 +133,20 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     @IBAction func doneBtnPresed(_ sender: UIButton) {
+
+        Game.setup(players: viewModel.players) { (game:Game?) in
+            if (game != nil) {
+                self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
+            }
+        }
+
+        /*
         self.viewModel.setupGame { (completed) in
             if (completed) {
                 self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
             }
         }
+         */
     }
 
     // MARK: - Collection View

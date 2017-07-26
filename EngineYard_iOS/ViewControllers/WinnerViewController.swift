@@ -14,20 +14,20 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet var menuBtnOutletCollection: [UIButton]!
     @IBOutlet weak var pageTitleLabel: UILabel!
 
-    var viewModel : WinnerViewModel?
+    var viewModel : WinnerViewModel = WinnerViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let _ = self.viewModel {
-            self.pageTitleLabel.text = WinnerViewModel.pageTitleText
-        }
+        self.pageTitleLabel.text = WinnerViewModel.pageTitleText
         self.winnerCollectionView.allowsSelection = false
         self.winnerCollectionView.allowsMultipleSelection = false
         self.winnerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "winnerCellReuseID")
         self.winnerCollectionView.dataSource = self
         self.winnerCollectionView.delegate = self
         self.view.layoutIfNeeded()
+
+        print ("GameObj: \(self.viewModel.game?.description)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.viewModel.game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,14 +53,14 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         let view = arr[0] as! PlayerWinnerView
         cell.contentView.addSubview(view)
 
-        /*
-        let player:Player = self.playerList[indexPath.row]
-        view.avatarImageView.image = UIImage(named: player.asset)
-        view.positionLbl.text = "#\(indexPath.row+1)"
-        view.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
-        view.nameLbl.text = player.name
-        */
-
+        if let _ = self.viewModel.game {
+            let player: Player = self.viewModel.playersSortedByCash[indexPath.row]
+            view.avatarImageView?.image = UIImage(named: player.asset)
+            view.indexLabel?.text = "#\(indexPath.row+1)"
+            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            view.nameLabel?.text = player.name
+        }
+        
         view.layoutIfNeeded()
         cell.setNeedsLayout()
 

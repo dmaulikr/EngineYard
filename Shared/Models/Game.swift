@@ -8,7 +8,8 @@
 
 import Foundation
 
-final class Game {
+final class Game: CustomStringConvertible
+{
     static var instance = Game()
 
     private(set) var dateCreated: Date?
@@ -26,23 +27,39 @@ final class Game {
     var players: [Player] {
         return self.turnOrderManager.turnOrder
     }
+    var description: String {
+        var dateCreatedString = "N/A"
+        if let dateCreated = self.dateCreated {
+            dateCreatedString = String(describing: dateCreated)
+        }
+        return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress), Players: \(self.players.count)")
+    }
 
 }
 
 extension Game {
-    static public func setup(players:[Player]) -> Game? {
+    public static func setup(players:[Player], completionClosure : @escaping ((_ Game:Game?)->())) {
         do {
             let settings = GameConfig()
 
-            guard let gameObj = try SetupManager.instance.setup(settings: settings, players: players) else {
+            guard let game = try SetupManager.instance.setup(settings: settings, players: players) else {
                 assertionFailure("no game model found")
-                return nil
+                return
             }
 
-            return gameObj
+            print ("Game: \(game)")
+
+            waitFor(duration: 0.75, callback: { (completed:Bool) in
+                if (completed) {
+                    completionClosure(game)
+                }
+            })
+
         } catch let error {
+            print (error.localizedDescription)
             assertionFailure(error.localizedDescription)
-            return nil
+            completionClosure(nil)
         }
+        
     }
 }

@@ -12,6 +12,10 @@ class WinnerViewModel
 {
     var game: Game!
 
+    init() {
+        self.game = Game.instance
+    }
+
     lazy var playersSortedByCash: [Player] = {
         return (self.game.players.sorted(by: { (p1:Player, p2:Player) -> Bool in
             return (p1.account.balance > p2.account.balance)
