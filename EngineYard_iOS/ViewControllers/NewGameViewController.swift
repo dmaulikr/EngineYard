@@ -8,13 +8,24 @@
 
 import UIKit
 
+protocol StepperProtocol {
+    func updateStepperValue()
+}
+
 struct NewGameViewModel {
+    var delegate: StepperProtocol?
     private(set) var players:[Player] = [Player]()
     private(set) var playersCopy:[Player] = [Player]()
 
-    var oldStepperValue:Int = Int()
+    var oldStepperValue:Int! {
+        didSet {
+            delegate?.updateStepperValue()
+        }
+    }
 
     init(playerCount:Int = Constants.NumberOfPlayers.max) {
+        self.oldStepperValue = playerCount
+
         for idx:Int in 1...playerCount {
             let name = "Player #\(idx)"
             let filename = "avt_\(idx)"
@@ -48,30 +59,44 @@ struct NewGameViewModel {
             }
         }
     }
+
+    public var stepperLabelText: String {
+        return NSLocalizedString("\(players.count) Players", comment: "Label for number of players in game")
+    }
+
+    public mutating func setStepperValue(value: Int) {
+
+        if value > self.oldStepperValue {
+            self.addPlayer()
+        }
+        else {
+            self.removePlayer()
+        }
+        self.oldStepperValue = value
+
+    }
 }
 
 
-class NewGameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class NewGameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StepperProtocol
 {
-    var viewModel: NewGameViewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
+    var viewModel: NewGameViewModel!
 
-
-    @IBOutlet weak var stepper: UIStepper! {
-        didSet {
-            self.stepperLabel.text = ("\(self.stepper.value) players")
-        }
-    }
-
+    @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.viewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
+        self.viewModel.delegate = self
+
         self.stepper.minimumValue = Double(Constants.NumberOfPlayers.min)
         self.stepper.maximumValue = Double(Constants.NumberOfPlayers.max)
         self.stepper.value = Double(self.viewModel.players.count)
+
+        self.stepperLabel.text = viewModel.stepperLabelText
 
         self.collectionView.register(UINib(nibName:"AddPlayerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddPlayerCellReuseID")
         self.collectionView.delegate = self
@@ -84,14 +109,24 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: - StepperProtocol
+
+    internal func updateStepperValue() {
+        self.stepperLabel.text = self.viewModel.stepperLabelText
+        self.stepperLabel.sizeToFit()
+    }
+
     // MARK: - IBActions
 
     @IBAction func stepperValueDidChange(_ sender: UIStepper) {
-        //let stepperValue = Int(self.stepper.value)
+        let stepperValue:Int = Int(stepper.value)
+
+        self.viewModel.setStepperValue(value: stepperValue)
+        self.collectionView.reloadData()
     }
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
-
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func doneBtnPresed(_ sender: UIButton) {
@@ -100,22 +135,19 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     // MARK: - Collection View
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.viewModel.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: AddPlayerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPlayerCellReuseID", for: indexPath) as! AddPlayerCollectionViewCell
 
         let playerObj = viewModel.players[indexPath.row]
-        let avatar = UIImage(named: playerObj.asset)
-        cell.playerBtn.setImage(avatar, for: .normal)
 
-        let onState = UIImage(named: "icon-bot2")
-        let offState = UIImage(named: "icon-pawn")
+        if let avatar = UIImage(named: playerObj.asset) {
+            cell.avtBtn.setImage(avatar, for: .normal)
+        }
 
-        cell.isAISwitch.setImage(onState, for: .selected)
-        cell.isAISwitch.setImage(offState, for: .normal)
-        cell.isAISwitch.isSelected = playerObj.isAI
+        cell.aiSwitchBtn.isSelected = playerObj.isAI
 
         cell.layoutIfNeeded()
 
@@ -133,6 +165,9 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "buyTrainSegue") {
+            let vc : BuyTrainViewController = (segue.destination as? BuyTrainViewController)!
+        }
     }
     
 
