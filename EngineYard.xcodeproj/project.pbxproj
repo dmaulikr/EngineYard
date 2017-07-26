@@ -83,7 +83,7 @@
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
 		4DE5E4F11F2772300004126E /* TaxesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F01F2772300004126E /* TaxesViewModel.swift */; };
 		4DE5E4F31F2773490004126E /* MarketDemandsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F21F2773490004126E /* MarketDemandsViewModel.swift */; };
-		4DE5E4F51F2773710004126E /* NextRoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F41F2773710004126E /* NextRoundViewModel.swift */; };
+		4DE5E4F51F2773710004126E /* NewTurnOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F41F2773710004126E /* NewTurnOrderViewModel.swift */; };
 		4DE5E4F71F2773A20004126E /* WinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F61F2773A20004126E /* WinnerViewModel.swift */; };
 		4DE5E4F91F27749C0004126E /* PauseMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4F81F27749C0004126E /* PauseMenuViewModel.swift */; };
 		4DE5E4FE1F277B020004126E /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4FD1F277B020004126E /* NewGameViewController.swift */; };
@@ -204,7 +204,7 @@
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4F01F2772300004126E /* TaxesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4F21F2773490004126E /* MarketDemandsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDemandsViewModel.swift; sourceTree = "<group>"; };
-		4DE5E4F41F2773710004126E /* NextRoundViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextRoundViewModel.swift; sourceTree = "<group>"; };
+		4DE5E4F41F2773710004126E /* NewTurnOrderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTurnOrderViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4F61F2773A20004126E /* WinnerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4F81F27749C0004126E /* PauseMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseMenuViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4FD1F277B020004126E /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
@@ -472,7 +472,7 @@
 				4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */,
 				4DE5E4F01F2772300004126E /* TaxesViewModel.swift */,
 				4DE5E4F21F2773490004126E /* MarketDemandsViewModel.swift */,
-				4DE5E4F41F2773710004126E /* NextRoundViewModel.swift */,
+				4DE5E4F41F2773710004126E /* NewTurnOrderViewModel.swift */,
 				4DE5E4F61F2773A20004126E /* WinnerViewModel.swift */,
 				4DE5E4F81F27749C0004126E /* PauseMenuViewModel.swift */,
 			);
@@ -822,7 +822,7 @@
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
-				4DE5E4F51F2773710004126E /* NextRoundViewModel.swift in Sources */,
+				4DE5E4F51F2773710004126E /* NewTurnOrderViewModel.swift in Sources */,
 				4D1A4C531F21365500680333 /* Die.swift in Sources */,
 				4DC6AC1D1F21CCA300AED444 /* ObsolescenceManager.swift in Sources */,
 				4D1A4C451F21321900680333 /* Game.swift in Sources */,

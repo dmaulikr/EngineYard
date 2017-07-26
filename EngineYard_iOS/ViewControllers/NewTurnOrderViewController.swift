@@ -10,6 +10,7 @@ import UIKit
 
 class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
+    var viewModel: NewTurnOrderViewModel = NewTurnOrderViewModel()
 
     @IBOutlet weak var turnOrderCollectionView: UICollectionView!
 
@@ -18,7 +19,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
 
         self.turnOrderCollectionView.delegate = self
         self.turnOrderCollectionView.dataSource = self
-        self.turnOrderCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "NewTurnOrderCollectionViewCellReuseID")
+        self.turnOrderCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NewTurnOrderViewModel.cellReuseIdentifier)
         self.turnOrderCollectionView.backgroundColor = UIColor.clear
         self.turnOrderCollectionView.delegate = self
         self.turnOrderCollectionView.dataSource = self
@@ -26,6 +27,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
         self.turnOrderCollectionView.allowsSelection = false
         self.turnOrderCollectionView.layoutIfNeeded()
         self.turnOrderCollectionView.reloadData()
+        self.view.layoutIfNeeded()
 
     }
 
@@ -33,17 +35,30 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
         super.didReceiveMemoryWarning()
     }
     
-
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.viewModel.game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewTurnOrderCollectionViewCellReuseID", for: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewTurnOrderViewModel.cellReuseIdentifier, for: indexPath) as UICollectionViewCell
 
-        cell.layoutIfNeeded()
+        let arr = UINib(nibName: "PlayerWinnerView", bundle: nil).instantiate(withOwner: nil, options: nil)
+        let view = arr[0] as! PlayerWinnerView
+        cell.contentView.addSubview(view)
+
+        if let _ = self.viewModel.game {
+            let player = self.viewModel.playersSortedByCash[indexPath.row]
+
+            view.avatarImageView?.image = UIImage(named: player.asset)
+            view.indexLabel?.text = "#\(indexPath.row+1)"
+            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            view.nameLabel?.text = player.name
+        }
+
+        view.layoutIfNeeded()
+        cell.setNeedsLayout()
 
         return cell
     }

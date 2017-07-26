@@ -36,7 +36,6 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         alert.addAction(ok)
 
-        //self.present(alertController, animated: true, completion: nil)
         self.present(alert, animated: true, completion: nil)
 
     }
@@ -66,6 +65,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         if let _ = self.viewModel.game {
             let player: Player = self.viewModel.playersSortedByCash[indexPath.row]
+
             view.avatarImageView?.image = UIImage(named: player.asset)
             view.indexLabel?.text = "#\(indexPath.row+1)"
             view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))

@@ -19,7 +19,7 @@ class PlayerAPI {
 
     public static func sortPlayersByHighestCash(players:[Player]) -> [Player] {
         let sortedByHighestCash = players.sorted { (e1:Player, e2:Player) -> Bool in
-            return (e1.cash > e2.cash)
+            return (e1.account.balance > e2.account.balance)
         }
         return sortedByHighestCash
     }

@@ -35,6 +35,7 @@ final class Game: CustomStringConvertible
         return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress), Players: \(self.players.count)")
     }
 
+
 }
 
 extension Game {

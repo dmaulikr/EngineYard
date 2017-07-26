@@ -17,9 +17,7 @@ class WinnerViewModel
     }
 
     lazy var playersSortedByCash: [Player] = {
-        return (self.game.players.sorted(by: { (p1:Player, p2:Player) -> Bool in
-            return (p1.account.balance > p2.account.balance)
-        }))
+        return PlayerAPI.sortPlayersByHighestCash(players: self.game.players)
     }()
 
     static var pageTitleText: String {

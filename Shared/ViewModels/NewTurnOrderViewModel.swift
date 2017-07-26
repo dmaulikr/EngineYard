@@ -1,5 +1,5 @@
 //
-//  NextRoundViewModel.swift
+//  NewTurnOrderViewModel.swift
 //  EngineYard
 //
 //  Created by Amarjit on 25/07/2017.
@@ -8,9 +8,15 @@
 
 import Foundation
 
-class NextRoundViewModel: NextStateTransitionProtocol
+class NewTurnOrderViewModel: NextStateTransitionProtocol
 {
     var game: Game!
+
+    static var cellReuseIdentifier = "turnOrderCellReuseID"
+
+    lazy var playersSortedByCash : [Player] = {
+        return PlayerAPI.sortPlayersByHighestCash(players: self.game.players)
+    }()
 
     // MARK: - NextStateTransitionProtocol
 
@@ -18,7 +24,6 @@ class NextRoundViewModel: NextStateTransitionProtocol
         // true: if all turns complete
         return false
     }
-
 
     internal func transitionToNextState() {
         
