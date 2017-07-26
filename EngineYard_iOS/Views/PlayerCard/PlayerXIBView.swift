@@ -8,9 +8,7 @@
 
 import UIKit
 
-@IBDesignable
-
-class PlayerXIBView: UIView {
+@IBDesignable class PlayerXIBView: UIView {
 
     var contentView:UIView?
     @IBInspectable var nibName:String?

@@ -55,7 +55,6 @@
 		4DC6AC2A1F21E53E00AED444 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC291F21E53E00AED444 /* AccountTests.swift */; };
 		4DC6AC2C1F21EB1D00AED444 /* GameSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */; };
 		4DC6AC2E1F21FC0D00AED444 /* ObsolescenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2D1F21FC0D00AED444 /* ObsolescenceTests.swift */; };
-		4DC6B4841F27BD0900B3C991 /* PlayerHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4831F27BD0900B3C991 /* PlayerHUDView.swift */; };
 		4DC6B49A1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */; };
 		4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
@@ -71,6 +70,7 @@
 		4DC6B4D31F28A19C00B3C991 /* HUDCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4D21F28A19C00B3C991 /* HUDCollectionViewCell.swift */; };
 		4DC6B4F31F28B5E700B3C991 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4F11F28B5E700B3C991 /* Game.storyboard */; };
 		4DC6B4F61F28B84E00B3C991 /* Sales.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4F41F28B84E00B3C991 /* Sales.storyboard */; };
+		4DC6B4FC1F28C0ED00B3C991 /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */; };
 		4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */; };
 		4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */; };
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
@@ -169,7 +169,6 @@
 		4DC6AC291F21E53E00AED444 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSetupTests.swift; sourceTree = "<group>"; };
 		4DC6AC2D1F21FC0D00AED444 /* ObsolescenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceTests.swift; sourceTree = "<group>"; };
-		4DC6B4831F27BD0900B3C991 /* PlayerHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHUDView.swift; sourceTree = "<group>"; };
 		4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -177,7 +176,7 @@
 		4DC6B4BF1F289F1800B3C991 /* EngineCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineCardView.xib; sourceTree = "<group>"; };
 		4DC6B4C01F289F1800B3C991 /* EngineCardXibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardXibView.swift; sourceTree = "<group>"; };
 		4DC6B4C11F289F1800B3C991 /* EngineCardXibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineCardXibView.xib; sourceTree = "<group>"; };
-		4DC6B4C61F289F2200B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerHUDView.xib; sourceTree = "<group>"; };
+		4DC6B4C61F289F2200B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerHUDView.xib; path = /Users/amarjit/Documents/Projects/EngineYard/source/EngineYard_iOS/Views/PlayerCard/PlayerHUDView.xib; sourceTree = "<absolute>"; };
 		4DC6B4C71F289F2200B3C991 /* PlayerWinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerWinnerView.xib; sourceTree = "<group>"; };
 		4DC6B4C81F289F2200B3C991 /* PlayerXIBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerXIBView.swift; sourceTree = "<group>"; };
 		4DC6B4C91F289F2200B3C991 /* PlayerXIBView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerXIBView.xib; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		4DC6B4D21F28A19C00B3C991 /* HUDCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DC6B4F21F28B5E700B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game.storyboard; sourceTree = "<group>"; };
 		4DC6B4F51F28B84E00B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Sales.storyboard; sourceTree = "<group>"; };
+		4DC6B4FB1F28C0ED00B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
@@ -392,6 +392,7 @@
 				4D9429731F2124B7006B2D89 /* Assets.xcassets */,
 				4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */,
 				4D9429761F2124B7006B2D89 /* Main.storyboard */,
+				4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */,
 				4DC6B4F11F28B5E700B3C991 /* Game.storyboard */,
 				4DC6B4F41F28B84E00B3C991 /* Sales.storyboard */,
 				4DE5E5161F277CBD0004126E /* Winner.storyboard */,
@@ -525,8 +526,6 @@
 				4DC6B4C91F289F2200B3C991 /* PlayerXIBView.xib */,
 				4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */,
 				4DC6B4C71F289F2200B3C991 /* PlayerWinnerView.xib */,
-				4DC6B4831F27BD0900B3C991 /* PlayerHUDView.swift */,
-				4DC6B4C61F289F2200B3C991 /* PlayerHUDView.xib */,
 			);
 			path = PlayerCard;
 			sourceTree = "<group>";
@@ -644,6 +643,7 @@
 				4DC6B4C21F289F1800B3C991 /* DiceCollectionViewCell.xib in Resources */,
 				4DC6B4F61F28B84E00B3C991 /* Sales.storyboard in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
+				4DC6B4FC1F28C0ED00B3C991 /* HUD.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4DC6B4CD1F289F2200B3C991 /* PlayerXIBView.xib in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
@@ -764,7 +764,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE8BBF31F265FEB00056CF1 /* ShiftProductionManager.swift in Sources */,
-				4DC6B4841F27BD0900B3C991 /* PlayerHUDView.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */,
 				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
@@ -891,6 +890,14 @@
 				4DC6B4F51F28B84E00B3C991 /* Base */,
 			);
 			name = Sales.storyboard;
+			sourceTree = "<group>";
+		};
+		4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DC6B4FB1F28C0ED00B3C991 /* Base */,
+			);
+			name = HUD.storyboard;
 			sourceTree = "<group>";
 		};
 		4DE5E5161F277CBD0004126E /* Winner.storyboard */ = {

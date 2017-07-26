@@ -36,7 +36,7 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
         }
     }
 
-    public static func loadHUD(game:Game?, viewController:UIViewController) -> HUDViewController? {
+    public static func loadHUD(game: Game?, viewController: UIViewController) -> HUDViewController? {
         let sb: UIStoryboard = UIStoryboard(name: "HUD", bundle: nil)
         let hudVC = sb.instantiateViewController(withIdentifier: "HUDViewController") as? HUDViewController
 
@@ -69,7 +69,6 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HUDCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HUDCollectionViewCell.cellReuseIdentifer, for: indexPath) as! HUDCollectionViewCell
-
 
         let arr = UINib(nibName: "PlayerHUDView", bundle: nil).instantiate(withOwner: nil, options: nil)
         let view = arr[0] as! PlayerHUDView

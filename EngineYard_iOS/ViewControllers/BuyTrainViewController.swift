@@ -10,8 +10,13 @@ import UIKit
 
 class BuyTrainViewController: UIViewController {
 
+    weak var HUD: HUDViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.HUD = HUDViewController.loadHUD(game: nil, viewController: self)
+
     }
 
     override func didReceiveMemoryWarning() {
