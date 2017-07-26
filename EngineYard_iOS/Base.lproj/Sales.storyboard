@@ -84,8 +84,8 @@
                                     <inset key="sectionInset" minX="25" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taxSummaryCellReuseID" id="A2B-M8-G49" customClass="EYTaxSummaryCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="10" width="125" height="175"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taxSummaryCellReuseID" id="A2B-M8-G49">
+                                        <rect key="frame" x="25" y="9.5" width="125" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="175"/>
@@ -189,7 +189,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="turnOrderCellReuseID" id="LvU-O0-iie">
-                                        <rect key="frame" x="13" y="0.0" width="175" height="40"/>
+                                        <rect key="frame" x="12.5" y="0.0" width="175" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>

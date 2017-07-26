@@ -62,7 +62,7 @@
                     <connections>
                         <outletCollection property="mainMenuBtnOutletCollection" destination="srQ-rZ-ejI" collectionClass="NSMutableArray" id="Bb3-lG-5KR"/>
                         <segue destination="m8n-1v-48G" kind="show" identifier="newGameSegue" id="0gm-V0-reX"/>
-                        <segue destination="prM-mt-4xH" kind="show" identifier="taxSegue" id="wkK-IH-SuK"/>
+                        <segue destination="prM-mt-4xH" kind="show" identifier="taxesSegue" id="wkK-IH-SuK"/>
                         <segue destination="7Aq-rj-fvU" kind="show" identifier="turnOrderSegue" id="uov-ex-LJI"/>
                         <segue destination="9rd-eV-Ghu" kind="show" identifier="winnerSegue" id="7Qg-bN-cie"/>
                     </connections>
@@ -104,7 +104,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddPlayerCellReuseID" id="COY-ns-5hs" customClass="AddPlayerCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7" width="65" height="115"/>
+                                        <rect key="frame" x="0.0" y="6.5" width="65" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="65" height="115"/>
@@ -181,7 +181,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SBNewTurnOrderSegueID" storyboardName="Sales" referencedIdentifier="NewTurnOrderViewController" id="7Aq-rj-fvU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43O-jT-e0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="53"/>
+            <point key="canvasLocation" x="1691" y="99"/>
         </scene>
         <!--WinnerViewController-->
         <scene sceneID="s7D-7t-nnh">
@@ -189,7 +189,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SBWinnerSegueID" storyboardName="Winner" referencedIdentifier="WinnerViewController" id="9rd-eV-Ghu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j7-VH-UyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421" y="257"/>
+            <point key="canvasLocation" x="1621" y="347"/>
         </scene>
         <!--BuyTrainViewController-->
         <scene sceneID="dvL-wC-pVy">

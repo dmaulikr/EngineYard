@@ -60,7 +60,7 @@ class MainMenuViewController: UIViewController {
             self.performSegue(withIdentifier: "winnerSegue", sender: self)
             break
         case .nextRound:
-            self.performSegue(withIdentifier: "newTurnOrderSegue", sender: self)
+            self.performSegue(withIdentifier: "turnOrderSegue", sender: self)
             break
         }
     }

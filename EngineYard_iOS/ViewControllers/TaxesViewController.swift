@@ -36,7 +36,8 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.taxViewModel.game.players.count
+        //return self.taxViewModel.game.players.count
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,7 +49,8 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
         cell.contentView.addSubview(view)
 
 
-        if let game = self.taxViewModel.game {
+       // if let game = self.taxViewModel.game {
+        let game = self.taxViewModel.game
             let player: Player = game.players[indexPath.row]
 
             let balanceText = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
@@ -59,7 +61,7 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
             view.preTaxLabel.text = preTaxText
             view.taxDueAmountLabel.text = taxDueText
             view.balanceLabel.text = balanceText
-        }
+       // }
 
         view.layoutIfNeeded()
         cell.setNeedsLayout()
