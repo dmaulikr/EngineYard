@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,8 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHe-sr-cf5">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHe-sr-cf5">
                                 <rect key="frame" x="0.0" y="0.0" width="467" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VG2-AU-IYm">
                                     <size key="itemSize" width="110" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -45,8 +45,9 @@
                                     <outlet property="delegate" destination="cOU-Ah-oad" id="0WO-sg-GJ8"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-Yl-c6P">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-Yl-c6P">
                                 <rect key="frame" x="505" y="10" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Menu"/>
                                 <connections>
                                     <action selector="menuBtnPressed:" destination="cOU-Ah-oad" eventType="touchUpInside" id="Gi4-9x-icM"/>
@@ -54,14 +55,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86885016029999995" green="0.239531352" blue="0.21715741790000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hHe-sr-cf5" secondAttribute="trailing" constant="101" id="1Tb-5T-IY1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2Sa-Yl-c6P" secondAttribute="trailing" constant="4" id="85D-7X-X7F"/>
-                            <constraint firstItem="hHe-sr-cf5" firstAttribute="leading" secondItem="OWg-vu-j1l" secondAttribute="leading" id="8pU-cX-Egq"/>
-                            <constraint firstItem="p5y-pb-pse" firstAttribute="top" secondItem="hHe-sr-cf5" secondAttribute="bottom" id="HrW-FJ-f0y"/>
-                            <constraint firstItem="hHe-sr-cf5" firstAttribute="top" secondItem="Dtq-P0-P1M" secondAttribute="bottom" id="cSl-2a-32D"/>
-                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="centerY" secondItem="OWg-vu-j1l" secondAttribute="centerY" id="pJu-S0-pIp"/>
-                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
