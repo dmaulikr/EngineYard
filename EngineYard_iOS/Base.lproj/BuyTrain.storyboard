@@ -29,7 +29,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8E-01-DiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-101" y="169"/>
+            <point key="canvasLocation" x="-101.40845070422536" y="168.75"/>
         </scene>
         <!--Buy Train Detail View Controller-->
         <scene sceneID="tBd-zA-FzN">
