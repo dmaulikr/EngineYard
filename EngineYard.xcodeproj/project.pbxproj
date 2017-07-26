@@ -73,8 +73,6 @@
 		4DC6B4FC1F28C0ED00B3C991 /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */; };
 		4DC6B5011F28C43200B3C991 /* PlayerHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5001F28C43200B3C991 /* PlayerHUDView.xib */; };
 		4DC6B5031F28C4AA00B3C991 /* PlayerHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5021F28C4AA00B3C991 /* PlayerHUDView.swift */; };
-		4DC6B53B1F28D9A000B3C991 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5391F28D9A000B3C991 /* TrainViewController.swift */; };
-		4DC6B53C1F28D9A000B3C991 /* TrainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B53A1F28D9A000B3C991 /* TrainViewController.xib */; };
 		4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */; };
 		4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */; };
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
@@ -191,8 +189,6 @@
 		4DC6B4FB1F28C0ED00B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		4DC6B5001F28C43200B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerHUDView.xib; sourceTree = "<group>"; };
 		4DC6B5021F28C4AA00B3C991 /* PlayerHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHUDView.swift; sourceTree = "<group>"; };
-		4DC6B5391F28D9A000B3C991 /* TrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
-		4DC6B53A1F28D9A000B3C991 /* TrainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainViewController.xib; sourceTree = "<group>"; };
 		4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
@@ -483,8 +479,6 @@
 				4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */,
 				4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */,
 				4DE5E5141F277CA20004126E /* WinnerViewController.swift */,
-				4DC6B5391F28D9A000B3C991 /* TrainViewController.swift */,
-				4DC6B53A1F28D9A000B3C991 /* TrainViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -666,7 +660,6 @@
 				4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */,
 				4DC6B4C31F289F1800B3C991 /* EngineCardView.xib in Resources */,
 				4DC6B4C51F289F1800B3C991 /* EngineCardXibView.xib in Resources */,
-				4DC6B53C1F28D9A000B3C991 /* TrainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,7 +785,6 @@
 				4DE5E5151F277CA20004126E /* WinnerViewController.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
 				4DC6B49A1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift in Sources */,
-				4DC6B53B1F28D9A000B3C991 /* TrainViewController.swift in Sources */,
 				4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */,
 				4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */,
 				4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */,
