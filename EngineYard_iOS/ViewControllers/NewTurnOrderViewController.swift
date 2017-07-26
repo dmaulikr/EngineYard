@@ -50,7 +50,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
         cell.contentView.addSubview(view)
 
         if let _ = self.turnOrderViewModel.game {
-            let player = self.turnOrderViewModel.playersSortedByCash[indexPath.row]
+            let player = self.turnOrderViewModel.playersSortedByLowestCash[indexPath.row]
 
             view.avatarImageView?.image = UIImage(named: player.asset)
             view.indexLabel?.text = "#\(indexPath.row+1)"

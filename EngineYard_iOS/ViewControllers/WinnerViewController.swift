@@ -64,7 +64,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.contentView.addSubview(view)
 
         if let _ = self.winnerViewModel.game {
-            let player: Player = self.winnerViewModel.playersSortedByCash[indexPath.row]
+            let player: Player = self.winnerViewModel.playersSortedByHighestCash[indexPath.row]
 
             view.avatarImageView?.image = UIImage(named: player.asset)
             view.indexLabel?.text = "#\(indexPath.row+1)"

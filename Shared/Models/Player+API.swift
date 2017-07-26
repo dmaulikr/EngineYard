@@ -18,11 +18,19 @@ class PlayerAPI {
     }
 
     public static func sortPlayersByHighestCash(players:[Player]) -> [Player] {
-        let sortedByHighestCash = players.sorted { (e1:Player, e2:Player) -> Bool in
+        let results = players.sorted { (e1:Player, e2:Player) -> Bool in
             return (e1.account.balance > e2.account.balance)
         }
-        return sortedByHighestCash
+        return results
     }
+
+    public static func sortPlayersByLowestCash(players:[Player]) -> [Player] {
+        let results = players.sorted { (e1:Player, e2:Player) -> Bool in
+            return (e1.account.balance < e2.account.balance)
+        }
+        return results
+    }
+
 
 
     public static func generateMockPlayers(howMany:Int) -> [Player]? {

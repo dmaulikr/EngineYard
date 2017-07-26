@@ -16,7 +16,7 @@ class WinnerViewModel
         self.game = game
     }
 
-    lazy var playersSortedByCash: [Player] = {
+    lazy var playersSortedByHighestCash: [Player] = {
         return PlayerAPI.sortPlayersByHighestCash(players: self.game.players)
     }()
 

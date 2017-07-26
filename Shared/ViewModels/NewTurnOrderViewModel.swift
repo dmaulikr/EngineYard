@@ -18,8 +18,8 @@ class NewTurnOrderViewModel: NextStateTransitionProtocol
 
     static var cellReuseIdentifier = "turnOrderCellReuseID"
 
-    lazy var playersSortedByCash : [Player] = {
-        return PlayerAPI.sortPlayersByHighestCash(players: self.game.players)
+    lazy var playersSortedByLowestCash : [Player] = {
+        return PlayerAPI.sortPlayersByLowestCash(players: self.game.players)
     }()
 
     // MARK: - NextStateTransitionProtocol
