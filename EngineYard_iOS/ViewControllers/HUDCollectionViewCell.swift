@@ -10,7 +10,7 @@ import UIKit
 
 class HUDCollectionViewCell: UICollectionViewCell {
 
-    static var cellReuseIdentifer = "HUDCellReuseID"
+    static var cellReuseIdentifer = "HUDCollectionViewCell"
 
     override func prepareForReuse() {
         super.prepareForReuse()
