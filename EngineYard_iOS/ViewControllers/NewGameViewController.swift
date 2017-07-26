@@ -130,6 +130,7 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     @IBAction func doneBtnPresed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
     }
 
     // MARK: - Collection View
