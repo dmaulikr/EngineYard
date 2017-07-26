@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit
 
 fileprivate enum MainMenuTag: Int {
     case newGame = 0
@@ -38,6 +39,15 @@ class MainMenuViewController: UIViewController {
                 Game.instance = gameObj
             }
         }
+
+        let _ = Game.instance.players.map({
+            let d6 = GKRandomDistribution.d6()
+            let value1 = d6.nextInt()
+            let value2  = d6.nextInt()
+            let randomAmount = (value1 * value2)
+            $0.account.credit(amount: randomAmount)
+        })
+
 
         switch tagSelected {
         case .newGame:

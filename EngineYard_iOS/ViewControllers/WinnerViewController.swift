@@ -28,6 +28,17 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.view.layoutIfNeeded()
 
         print ("GameObj: \(self.viewModel.game?.description)")
+
+        let message = "Winner is declared!"
+
+        let alert = UIAlertController(title: "Winner", message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { (alertAction:UIAlertAction) in
+        }
+        alert.addAction(ok)
+
+        //self.present(alertController, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
