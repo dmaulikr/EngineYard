@@ -12,7 +12,7 @@
         <!--Buy Train View Controller-->
         <scene sceneID="eRY-JH-OaS">
             <objects>
-                <viewController id="EEK-VR-0zt" customClass="BuyTrainViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuyTrainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EEK-VR-0zt" customClass="BuyTrainViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z3M-nh-NYf"/>
                         <viewControllerLayoutGuide type="bottom" id="ckr-gr-lY8"/>

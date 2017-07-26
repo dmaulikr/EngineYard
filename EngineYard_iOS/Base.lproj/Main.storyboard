@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="1284.5070422535211" y="1029.375"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--BuyTrainViewController-->
         <scene sceneID="YyE-80-v2x">
             <objects>
-                <viewControllerPlaceholder id="jzG-6t-7qy" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="BuyTrain" referencedIdentifier="BuyTrainViewController" id="jzG-6t-7qy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCF-ed-iHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1582" y="1628"/>
