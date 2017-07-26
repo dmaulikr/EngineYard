@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eph-ta-eDG">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Train View Controller-->
+        <scene sceneID="mvd-Rz-pMh">
+            <objects>
+                <viewController storyboardIdentifier="TrainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eph-ta-eDG" customClass="TrainViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kd9-hT-0MS"/>
+                        <viewControllerLayoutGuide type="bottom" id="jKQ-L8-ZTR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zab-l2-dYY">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Six-lf-owS">
+                                <rect key="frame" x="0.0" y="105" width="568" height="215"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="blK-aX-yWA">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="25" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiu-mH-12q">
+                                <rect key="frame" x="16" y="69" width="93" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEu-zy-W9z">
+                                <rect key="frame" x="496" y="69" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="eph-ta-eDG" eventType="touchUpInside" id="C5v-tg-RKI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jKQ-L8-ZTR" firstAttribute="top" secondItem="Six-lf-owS" secondAttribute="bottom" id="3GU-VW-07i"/>
+                            <constraint firstItem="kiu-mH-12q" firstAttribute="leading" secondItem="Zab-l2-dYY" secondAttribute="leading" constant="16" id="8XO-V3-DIf"/>
+                            <constraint firstItem="Six-lf-owS" firstAttribute="top" secondItem="kiu-mH-12q" secondAttribute="bottom" constant="6" id="Bvz-xW-0Yd"/>
+                            <constraint firstItem="UEu-zy-W9z" firstAttribute="centerY" secondItem="kiu-mH-12q" secondAttribute="centerY" id="CqM-AK-ytL"/>
+                            <constraint firstAttribute="trailing" secondItem="Six-lf-owS" secondAttribute="trailing" id="Dac-Zf-u3B"/>
+                            <constraint firstItem="kiu-mH-12q" firstAttribute="top" secondItem="kd9-hT-0MS" secondAttribute="bottom" constant="49" id="GKl-X0-ux4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UEu-zy-W9z" secondAttribute="trailing" constant="15" id="PLj-oQ-Nhg"/>
+                            <constraint firstItem="Six-lf-owS" firstAttribute="leading" secondItem="Zab-l2-dYY" secondAttribute="leading" id="kz4-D2-Gbi"/>
+                            <constraint firstItem="UEu-zy-W9z" firstAttribute="top" secondItem="kd9-hT-0MS" secondAttribute="bottom" constant="49" id="zfl-sY-ylf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doneBtn" destination="UEu-zy-W9z" id="j2H-0x-Y4J"/>
+                        <outlet property="pageTitleLabel" destination="kiu-mH-12q" id="Jcz-Y1-rHf"/>
+                        <outlet property="trainsCollectionView" destination="Six-lf-owS" id="WVR-qq-kam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGe-S2-faI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="129"/>
+        </scene>
+    </scenes>
+</document>
