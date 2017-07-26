@@ -12,6 +12,10 @@ class NewTurnOrderViewModel: NextStateTransitionProtocol
 {
     var game: Game!
 
+    init(game: Game) {
+        self.game = game
+    }
+
     static var cellReuseIdentifier = "turnOrderCellReuseID"
 
     lazy var playersSortedByCash : [Player] = {

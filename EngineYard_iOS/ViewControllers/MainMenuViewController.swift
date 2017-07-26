@@ -33,7 +33,7 @@ class MainMenuViewController: UIViewController {
             return
         }
 
-        let viewModel : NewGameViewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
+        let viewModel = NewGameViewModel.init()
         Game.setup(players: viewModel.players) { (game:Game?) in
             if let gameObj = game {
                 Game.instance = gameObj
@@ -75,6 +75,18 @@ class MainMenuViewController: UIViewController {
 
         if (segue.identifier == "newGameSegue") {
             //let vc: NewGameViewController = segue.destination as! NewGameViewController
+        }
+        else if (segue.identifier == "taxesSegue") {
+            let vc: TaxesViewController = segue.destination as! TaxesViewController
+            vc.taxViewModel = TaxesViewModel(game: Game.instance)
+        }
+        else if (segue.identifier == "winnerSegue") {
+            let vc: WinnerViewController = segue.destination as! WinnerViewController
+            vc.winnerViewModel = WinnerViewModel(game: Game.instance)
+        }
+        else if (segue.identifier == "turnOrderSegue") {
+            let vc: NewTurnOrderViewController = segue.destination as! NewTurnOrderViewController
+            vc.turnOrderViewModel = NewTurnOrderViewModel.init(game: Game.instance)
         }
     }
 

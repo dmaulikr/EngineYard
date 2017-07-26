@@ -10,7 +10,7 @@ import UIKit
 
 class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
-    var viewModel: NewTurnOrderViewModel = NewTurnOrderViewModel()
+    var turnOrderViewModel: NewTurnOrderViewModel!
 
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var turnOrderCollectionView: UICollectionView!
@@ -39,7 +39,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.game.players.count
+        return self.turnOrderViewModel.game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,8 +49,8 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
         let view = arr[0] as! PlayerWinnerView
         cell.contentView.addSubview(view)
 
-        if let _ = self.viewModel.game {
-            let player = self.viewModel.playersSortedByCash[indexPath.row]
+        if let _ = self.turnOrderViewModel.game {
+            let player = self.turnOrderViewModel.playersSortedByCash[indexPath.row]
 
             view.avatarImageView?.image = UIImage(named: player.asset)
             view.indexLabel?.text = "#\(indexPath.row+1)"

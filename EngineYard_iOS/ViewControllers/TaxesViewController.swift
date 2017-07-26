@@ -12,7 +12,7 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
 {
     @IBOutlet weak var taxCollectionView: UICollectionView!
 
-    var taxViewModel: TaxesViewModel = TaxesViewModel()
+    var taxViewModel: TaxesViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
 
 
        // if let game = self.taxViewModel.game {
-        let game = self.taxViewModel.game
+        if let game = self.taxViewModel.game {
             let player: Player = game.players[indexPath.row]
 
             let balanceText = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
@@ -61,7 +61,7 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
             view.preTaxLabel.text = preTaxText
             view.taxDueAmountLabel.text = taxDueText
             view.balanceLabel.text = balanceText
-       // }
+       }
 
         view.layoutIfNeeded()
         cell.setNeedsLayout()

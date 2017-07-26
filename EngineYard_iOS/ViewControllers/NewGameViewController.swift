@@ -84,6 +84,7 @@ struct NewGameViewModel {
 class NewGameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StepperProtocol
 {
     var viewModel: NewGameViewModel!
+    var game : Game!
 
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabel: UILabel!

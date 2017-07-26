@@ -12,8 +12,8 @@ class WinnerViewModel
 {
     var game: Game!
 
-    init() {
-        self.game = Game.instance
+    init(game: Game) {
+        self.game = game
     }
 
     lazy var playersSortedByCash: [Player] = {

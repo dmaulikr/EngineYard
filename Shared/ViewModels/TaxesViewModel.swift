@@ -10,7 +10,11 @@ import Foundation
 
 class TaxesViewModel: NextStateTransitionProtocol
 {
-    var game: Game = Game.instance
+    var game: Game!
+
+    init(game: Game) {
+        self.game = game
+    }
 
     func payTaxes() {
         // present user

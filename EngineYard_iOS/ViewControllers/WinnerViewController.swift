@@ -14,7 +14,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet var menuBtnOutletCollection: [UIButton]!
     @IBOutlet weak var pageTitleLabel: UILabel!
 
-    var viewModel : WinnerViewModel = WinnerViewModel()
+    var winnerViewModel : WinnerViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.winnerCollectionView.delegate = self
         self.view.layoutIfNeeded()
 
-        print ("GameObj: \(self.viewModel.game?.description)")
+        print ("GameObj: \(self.winnerViewModel.game?.description)")
 
         let message = "Winner is declared!"
 
@@ -53,7 +53,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.game.players.count
+        return self.winnerViewModel.game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,8 +63,8 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         let view = arr[0] as! PlayerWinnerView
         cell.contentView.addSubview(view)
 
-        if let _ = self.viewModel.game {
-            let player: Player = self.viewModel.playersSortedByCash[indexPath.row]
+        if let _ = self.winnerViewModel.game {
+            let player: Player = self.winnerViewModel.playersSortedByCash[indexPath.row]
 
             view.avatarImageView?.image = UIImage(named: player.asset)
             view.indexLabel?.text = "#\(indexPath.row+1)"
