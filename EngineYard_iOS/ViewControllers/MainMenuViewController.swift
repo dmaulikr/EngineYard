@@ -27,7 +27,6 @@ class MainMenuViewController: UIViewController {
     }
 
     @IBAction func mainMenuBtnPressed(_ sender: UIButton) {
-        //self.viewModel.menuButtonPressed(tag: (sender).tag)
         guard let tagSelected = MainMenuTag.init(rawValue: (sender).tag) else {
             return
         }
