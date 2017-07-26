@@ -1,33 +1,29 @@
 //
-//  MarketDemandsViewController.swift
+//  SalesReportViewController.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 26/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import UIKit
 
-class MarketDemandsViewController: UIViewController {
+class SalesReportViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
     }
 
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -35,6 +31,5 @@ class MarketDemandsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

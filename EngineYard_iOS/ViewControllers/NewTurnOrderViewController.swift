@@ -8,19 +8,55 @@
 
 import UIKit
 
-class NewTurnOrderViewController: UIViewController {
+class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
+{
+
+    @IBOutlet weak var turnOrderCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.turnOrderCollectionView.delegate = self
+        self.turnOrderCollectionView.dataSource = self
+        self.turnOrderCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "NewTurnOrderCollectionViewCellReuseID")
+        self.turnOrderCollectionView.backgroundColor = UIColor.clear
+        self.turnOrderCollectionView.delegate = self
+        self.turnOrderCollectionView.dataSource = self
+        self.turnOrderCollectionView.allowsMultipleSelection = false
+        self.turnOrderCollectionView.allowsSelection = false
+        self.turnOrderCollectionView.layoutIfNeeded()
+        self.turnOrderCollectionView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+
+    // MARK: - CollectionView
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewTurnOrderCollectionViewCellReuseID", for: indexPath) as UICollectionViewCell
+
+        cell.layoutIfNeeded()
+
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print ("Selected indexPath: \(indexPath)")
+    }
+
+    // MARK: - IBActions
+
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+    }
+
 
     /*
     // MARK: - Navigation

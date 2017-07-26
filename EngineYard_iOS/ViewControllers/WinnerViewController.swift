@@ -10,21 +10,23 @@ import UIKit
 
 class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var winnerCollectionView: UICollectionView!
     @IBOutlet var menuBtnOutletCollection: [UIButton]!
     @IBOutlet weak var pageTitle: UILabel!
 
-    var viewModel : WinnerViewModel!
+    var viewModel : WinnerViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.pageTitle.text = WinnerViewModel.pageTitleText
-        self.collectionView.allowsSelection = false
-        self.collectionView.allowsMultipleSelection = false
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "winnerCellReuseID")
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        if let _ = self.viewModel {
+            self.pageTitle.text = WinnerViewModel.pageTitleText
+        }
+        self.winnerCollectionView.allowsSelection = false
+        self.winnerCollectionView.allowsMultipleSelection = false
+        self.winnerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "winnerCellReuseID")
+        self.winnerCollectionView.dataSource = self
+        self.winnerCollectionView.delegate = self
         self.view.layoutIfNeeded()
     }
 
@@ -41,7 +43,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
