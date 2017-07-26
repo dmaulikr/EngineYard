@@ -10,8 +10,9 @@ import UIKit
 
 fileprivate enum MainMenuTag: Int {
     case newGame = 0
-    case leaderBoard = 1
-    case settings = 2
+    case taxes = 1
+    case winner = 2
+    case nextRound = 3
 }
 
 class MainMenuViewController: UIViewController {
@@ -35,7 +36,14 @@ class MainMenuViewController: UIViewController {
         case .newGame:
             self.performSegue(withIdentifier: "newGameSegue", sender: self)
             break
-        default:
+        case .taxes:
+            self.performSegue(withIdentifier: "taxesSegue", sender: self)
+            break
+        case .winner:
+            self.performSegue(withIdentifier: "winnerSegue", sender: self)
+            break
+        case .nextRound:
+            self.performSegue(withIdentifier: "newTurnOrderSegue", sender: self)
             break
         }
     }

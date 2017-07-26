@@ -113,6 +113,11 @@
                                     <action selector="doneBtnPresed:" destination="m8n-1v-48G" eventType="touchUpInside" id="QKh-e6-RpO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag7-MY-xgN">
+                                <rect key="frame" x="300" y="252" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -134,11 +139,38 @@
                         <outlet property="stepper" destination="2zR-7e-1ed" id="jSB-qO-7G2"/>
                         <outlet property="stepperLabel" destination="RdA-Ef-4y2" id="yN8-cp-2Pl"/>
                         <segue destination="s8w-bp-6d0" kind="show" identifier="buyTrainSegue" id="QlQ-nb-mD8"/>
+                        <segue destination="9rd-eV-Ghu" kind="show" identifier="winnerSegue" id="tUn-AN-FtZ"/>
+                        <segue destination="7Aq-rj-fvU" kind="show" identifier="newTurnOrderSegue" id="Gfs-7E-8pU"/>
+                        <segue destination="prM-mt-4xH" kind="show" identifier="taxesSegue" id="gV6-dI-Xza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF5-8b-fjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1284.5070422535211" y="1029.375"/>
+        </scene>
+        <!--TaxesViewController-->
+        <scene sceneID="Pq6-7n-IK9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SBTaxesSegueID" storyboardName="Sales" referencedIdentifier="TaxesViewController" id="prM-mt-4xH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOE-pp-p32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="820"/>
+        </scene>
+        <!--NewTurnOrderViewController-->
+        <scene sceneID="Aa9-D7-2Na">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SBNewTurnOrderSegueID" storyboardName="Sales" referencedIdentifier="NewTurnOrderViewController" id="7Aq-rj-fvU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="43O-jT-e0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1926" y="1031"/>
+        </scene>
+        <!--WinnerViewController-->
+        <scene sceneID="s7D-7t-nnh">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SBWinnerSegueID" storyboardName="Winner" referencedIdentifier="WinnerViewController" id="9rd-eV-Ghu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8j7-VH-UyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1793" y="1234"/>
         </scene>
         <!--BuyTrainViewController-->
         <scene sceneID="dvL-wC-pVy">
