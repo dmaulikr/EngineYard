@@ -21,7 +21,14 @@ class BuyTrainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    private func addTrainViewController() {
         let sb: UIStoryboard = UIStoryboard(name: "Train", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainViewController") as? TrainViewController
         {
@@ -46,16 +53,11 @@ class BuyTrainViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func shouldMoveToProductionSegue() -> Bool {
+    private func shouldMoveToProductionSegue() -> Bool {
         return true
     }
 
-    func moveToProductionSegue() {
+    private func moveToProductionSegue() {
         if (shouldMoveToProductionSegue()) {
             self.performSegue(withIdentifier: "productionSegue", sender: self)
         }

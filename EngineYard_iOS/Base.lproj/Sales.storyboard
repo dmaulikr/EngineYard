@@ -78,7 +78,7 @@
         <!--WinnerViewController-->
         <scene sceneID="kL0-Cz-dPe">
             <objects>
-                <viewControllerPlaceholder storyboardName="Winner" referencedIdentifier="WinnerViewController" id="rIh-GI-22H" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SBWinnerSegueID" storyboardName="Winner" referencedIdentifier="WinnerViewController" id="rIh-GI-22H" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6s-7p-Hho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1051" y="701"/>
@@ -128,7 +128,7 @@
         <!--BuyTrainViewController-->
         <scene sceneID="w2H-es-NmW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Game" referencedIdentifier="BuyTrainViewController" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SBSalesBuyTrainSegueID" storyboardName="Game" referencedIdentifier="BuyTrainViewController" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0M-8v-kBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2521" y="698"/>

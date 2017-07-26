@@ -24,12 +24,20 @@
                     </view>
                     <connections>
                         <segue destination="mYf-WJ-Qu6" kind="presentation" identifier="buyTrainDetailSegue" id="Luk-bH-Yxp"/>
-                        <segue destination="cNb-LI-gdV" kind="show" identifier="productionSegue" id="kOn-t5-faC"/>
+                        <segue destination="yYH-eI-pt4" kind="show" identifier="productionSegue" id="Jfz-EF-OjI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dar-jW-U9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="68" y="155"/>
+        </scene>
+        <!--BuyProductionViewController-->
+        <scene sceneID="tvd-Lk-4Pz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SBProductionSegueID" storyboardName="Production" referencedIdentifier="BuyProductionViewController" id="yYH-eI-pt4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oi-DC-E5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="691" y="-128"/>
         </scene>
         <!--Buy Train Detail View Controller-->
         <scene sceneID="9ou-Cg-aXs">
@@ -48,54 +56,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZ0-aA-S4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="284" y="1089"/>
-        </scene>
-        <!--Buy Production View Controller-->
-        <scene sceneID="xSV-xD-N1C">
-            <objects>
-                <viewController storyboardIdentifier="BuyProductionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cNb-LI-gdV" customClass="BuyProductionViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZMu-wf-5Mc"/>
-                        <viewControllerLayoutGuide type="bottom" id="KAe-5X-nQv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5Qn-H1-klL">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="sQV-zH-ZY2" kind="presentation" identifier="buyProductionDetailSegue" id="IcP-wj-DS2"/>
-                        <segue destination="BrY-XI-9rK" kind="show" identifier="sellingSegue" id="Rme-Fn-oxs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XtU-sf-lwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1009" y="141"/>
-        </scene>
-        <!--SellingViewController-->
-        <scene sceneID="D80-mP-dDB">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Sales" referencedIdentifier="SellingViewController" id="BrY-XI-9rK" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ieF-Pl-Qp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1569" y="301"/>
-        </scene>
-        <!--Buy Production Detail View Controller-->
-        <scene sceneID="8yW-9x-cwO">
-            <objects>
-                <viewController storyboardIdentifier="BuyProductionDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sQV-zH-ZY2" customClass="BuyProductionDetailViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EEj-xS-zhZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="xa3-1V-DkZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="559-KZ-qCU">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p2O-7p-Hlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1068" y="1074"/>
         </scene>
     </scenes>
 </document>

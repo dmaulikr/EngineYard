@@ -76,6 +76,8 @@
 		4DC6B53F1F28DF5800B3C991 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B53D1F28DF5800B3C991 /* TrainViewController.swift */; };
 		4DC6B5431F28E14300B3C991 /* Train.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5411F28E14300B3C991 /* Train.storyboard */; };
 		4DC6B5451F28E8C800B3C991 /* SalesReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5441F28E8C800B3C991 /* SalesReportViewController.swift */; };
+		4DC6B5471F28EA6700B3C991 /* ShiftProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5461F28EA6700B3C991 /* ShiftProductionViewController.swift */; };
+		4DC6B54A1F28EA9300B3C991 /* Production.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5481F28EA9300B3C991 /* Production.storyboard */; };
 		4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */; };
 		4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */; };
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
@@ -195,6 +197,8 @@
 		4DC6B53D1F28DF5800B3C991 /* TrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
 		4DC6B5421F28E14300B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Train.storyboard; sourceTree = "<group>"; };
 		4DC6B5441F28E8C800B3C991 /* SalesReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesReportViewController.swift; sourceTree = "<group>"; };
+		4DC6B5461F28EA6700B3C991 /* ShiftProductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftProductionViewController.swift; sourceTree = "<group>"; };
+		4DC6B5491F28EA9300B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Production.storyboard; sourceTree = "<group>"; };
 		4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
@@ -404,9 +408,10 @@
 				4D9429761F2124B7006B2D89 /* Main.storyboard */,
 				4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */,
 				4DC6B4F11F28B5E700B3C991 /* Game.storyboard */,
-				4DC6B5411F28E14300B3C991 /* Train.storyboard */,
+				4DC6B5481F28EA9300B3C991 /* Production.storyboard */,
 				4DC6B4F41F28B84E00B3C991 /* Sales.storyboard */,
 				4DE5E5161F277CBD0004126E /* Winner.storyboard */,
+				4DC6B5411F28E14300B3C991 /* Train.storyboard */,
 				4D9429781F2124B7006B2D89 /* Info.plist */,
 			);
 			path = EngineYard_iOS;
@@ -506,6 +511,7 @@
 			children = (
 				4DE5E5041F277B990004126E /* BuyProductionViewController.swift */,
 				4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */,
+				4DC6B5461F28EA6700B3C991 /* ShiftProductionViewController.swift */,
 			);
 			name = BuyProduction;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 			files = (
 				4DC6B4CB1F289F2200B3C991 /* PlayerWinnerView.xib in Resources */,
 				4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */,
+				4DC6B54A1F28EA9300B3C991 /* Production.storyboard in Resources */,
 				4DC6B4F31F28B5E700B3C991 /* Game.storyboard in Resources */,
 				4DC6B4C21F289F1800B3C991 /* DiceCollectionViewCell.xib in Resources */,
 				4DC6B4F61F28B84E00B3C991 /* Sales.storyboard in Resources */,
@@ -784,6 +791,7 @@
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */,
 				4D1A4C4F1F21361E00680333 /* Production.swift in Sources */,
+				4DC6B5471F28EA6700B3C991 /* ShiftProductionViewController.swift in Sources */,
 				4DE5E4FE1F277B020004126E /* NewGameViewController.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4DE5E4F71F2773A20004126E /* WinnerViewModel.swift in Sources */,
@@ -926,6 +934,14 @@
 				4DC6B5421F28E14300B3C991 /* Base */,
 			);
 			name = Train.storyboard;
+			sourceTree = "<group>";
+		};
+		4DC6B5481F28EA9300B3C991 /* Production.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DC6B5491F28EA9300B3C991 /* Base */,
+			);
+			name = Production.storyboard;
 			sourceTree = "<group>";
 		};
 		4DE5E5161F277CBD0004126E /* Winner.storyboard */ = {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ihw-6b-7LK">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Buy Production View Controller-->
+        <scene sceneID="vEK-6g-EMN">
+            <objects>
+                <viewController storyboardIdentifier="BuyProductionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ihw-6b-7LK" customClass="BuyProductionViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QTG-1C-Uao"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Ut-gb-CDS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bHV-97-7a9">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="fQ6-4J-2f6" kind="presentation" identifier="buyProductionDetailSegue" id="fxU-4n-1FO"/>
+                        <segue destination="3oz-cw-xfW" kind="show" identifier="salesSegue" id="Jn2-Ui-46g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5B-Rf-Fud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49" y="98"/>
+        </scene>
+        <!--SellingViewController-->
+        <scene sceneID="yOq-dX-QTg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SBSegueSellingID" storyboardName="Sales" referencedIdentifier="SellingViewController" id="3oz-cw-xfW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPM-vS-DzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-253"/>
+        </scene>
+        <!--Shift Production View Controller-->
+        <scene sceneID="R7e-T4-Aev">
+            <objects>
+                <viewController storyboardIdentifier="ShiftProductionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="In3-aY-vPz" customClass="ShiftProductionViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4cQ-FR-z7M"/>
+                        <viewControllerLayoutGuide type="bottom" id="PE1-7n-ugr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dbi-7j-Rec">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w06-td-3pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="756"/>
+        </scene>
+        <!--Buy Production Detail View Controller-->
+        <scene sceneID="7AD-z9-Awq">
+            <objects>
+                <viewController storyboardIdentifier="BuyProductionDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fQ6-4J-2f6" customClass="BuyProductionDetailViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h3K-w5-SRX"/>
+                        <viewControllerLayoutGuide type="bottom" id="hps-Xu-Eeo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TpR-eT-CDm">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="In3-aY-vPz" kind="presentation" identifier="shiftProductionSegue" id="yrx-fQ-Ni3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7t-CO-XAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="1029"/>
+        </scene>
+    </scenes>
+</document>

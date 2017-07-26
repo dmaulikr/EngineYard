@@ -11,6 +11,8 @@ import UIKit
 
 class BuyProductionDetailViewController: UIViewController {
 
+    var completionClosure : ((_ didPurchase: Bool)->())?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,24 @@ class BuyProductionDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - IBActions
 
+    @IBAction func cancelBtnPressed(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            if let closure = self.completionClosure {
+                closure(false)
+            }
+        }
+    }
+
+    @IBAction func buyBtnPressed(_ sender: UIButton) {
+        self.dismiss(animated: true) {
+            if let closure = self.completionClosure {
+                closure(true)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
