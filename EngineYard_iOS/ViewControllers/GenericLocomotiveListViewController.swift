@@ -1,5 +1,5 @@
 //
-//  GenericLocomotiveViewController.swift
+//  GenericLocomotiveListViewController.swift
 //  EngineYard
 //
 //  Created by Amarjit on 26/07/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GenericLocomotiveViewController: UIViewController {
+class GenericLocomotiveListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
