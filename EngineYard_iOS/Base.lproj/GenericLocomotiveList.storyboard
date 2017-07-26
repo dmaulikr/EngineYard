@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6br-u6-BiF">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="9Vd-DU-dM7">
+            <objects>
+                <viewController id="6br-u6-BiF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qnI-8f-mKI"/>
+                        <viewControllerLayoutGuide type="bottom" id="xvV-MV-OBo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FaI-yU-RYA">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4O-nQ-Ma1">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="50"/>
+                                <color key="backgroundColor" red="0.86885016029999995" green="0.239531352" blue="0.21715741790000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fUI-xj-Ecn"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dET-6O-41x">
+                                <rect key="frame" x="0.0" y="95" width="568" height="225"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="bHr-xd-djV"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r9p-zT-1wY">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="25" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trainCellReuseID" id="StO-G4-LE1">
+                                        <rect key="frame" x="15" y="13" width="150" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="200"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-2j-wdG">
+                                <rect key="frame" x="19" y="66" width="40.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jd-UK-aDc">
+                                <rect key="frame" x="492" y="66" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="7jd-UK-aDc" secondAttribute="trailing" constant="19" id="08c-Mx-r4t"/>
+                            <constraint firstAttribute="trailing" secondItem="dET-6O-41x" secondAttribute="trailing" id="0BQ-Q8-OEu"/>
+                            <constraint firstItem="PPn-2j-wdG" firstAttribute="top" secondItem="Z4O-nQ-Ma1" secondAttribute="bottom" constant="16" id="20v-cE-r3w"/>
+                            <constraint firstItem="dET-6O-41x" firstAttribute="leading" secondItem="FaI-yU-RYA" secondAttribute="leading" id="Puh-mc-sEh"/>
+                            <constraint firstItem="PPn-2j-wdG" firstAttribute="leading" secondItem="FaI-yU-RYA" secondAttribute="leading" constant="19" id="Vfl-QW-Zkt"/>
+                            <constraint firstItem="Z4O-nQ-Ma1" firstAttribute="leading" secondItem="FaI-yU-RYA" secondAttribute="leading" id="bIX-3l-L7Q"/>
+                            <constraint firstItem="xvV-MV-OBo" firstAttribute="top" secondItem="dET-6O-41x" secondAttribute="bottom" id="f2c-cx-ieH"/>
+                            <constraint firstItem="Z4O-nQ-Ma1" firstAttribute="top" secondItem="FaI-yU-RYA" secondAttribute="top" id="pit-DA-ul2"/>
+                            <constraint firstItem="dET-6O-41x" firstAttribute="top" secondItem="PPn-2j-wdG" secondAttribute="bottom" constant="8" symbolic="YES" id="pq5-A7-kbz"/>
+                            <constraint firstItem="7jd-UK-aDc" firstAttribute="top" secondItem="Z4O-nQ-Ma1" secondAttribute="bottom" constant="16" id="t1Y-wE-iVg"/>
+                            <constraint firstAttribute="trailing" secondItem="Z4O-nQ-Ma1" secondAttribute="trailing" id="yDd-TC-95D"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jrO-u2-as3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127.8169014084507" y="65.625"/>
+        </scene>
+    </scenes>
+</document>
