@@ -133,11 +133,20 @@
                         <outlet property="collectionView" destination="YRv-DV-Mde" id="VDV-hK-ldF"/>
                         <outlet property="stepper" destination="2zR-7e-1ed" id="jSB-qO-7G2"/>
                         <outlet property="stepperLabel" destination="RdA-Ef-4y2" id="yN8-cp-2Pl"/>
+                        <segue destination="s8w-bp-6d0" kind="show" identifier="buyTrainSegue" id="QlQ-nb-mD8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF5-8b-fjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1284.5070422535211" y="1029.375"/>
+        </scene>
+        <!--BuyTrainViewController-->
+        <scene sceneID="dvL-wC-pVy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Game" referencedIdentifier="BuyTrainViewController" id="s8w-bp-6d0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEK-uk-BXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1440" y="1591"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3r2-pC-mmx">
