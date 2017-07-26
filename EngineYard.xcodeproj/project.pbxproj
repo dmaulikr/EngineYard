@@ -59,7 +59,11 @@
 		4DC6B4861F27BD1700B3C991 /* PlayerHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4851F27BD1700B3C991 /* PlayerHUDView.xib */; };
 		4DC6B49A1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */; };
 		4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */; };
-		4DC6B49E1F284E4100B3C991 /* GenericLocomotiveList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B49C1F284E4100B3C991 /* GenericLocomotiveList.storyboard */; };
+		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
+		4DC6B4A91F28846800B3C991 /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A81F28846800B3C991 /* HUDViewController.swift */; };
+		4DC6B4AC1F28849200B3C991 /* HUDCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4AB1F28849200B3C991 /* HUDCollectionViewCell.swift */; };
+		4DC6B4AF1F288F2000B3C991 /* Locomotive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4AD1F288F2000B3C991 /* Locomotive.storyboard */; };
+		4DC6B4B11F288F6D00B3C991 /* GenericLocomotiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4B01F288F6D00B3C991 /* GenericLocomotiveViewController.swift */; };
 		4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */; };
 		4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */; };
 		4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */; };
@@ -83,7 +87,6 @@
 		4DE5E51A1F277E620004126E /* BuyTrainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */; };
 		4DE5E51C1F277E6F0004126E /* BuyProductionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */; };
 		4DE5E5211F277FFD0004126E /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE5E51F1F277FFD0004126E /* HUD.storyboard */; };
-		4DE5E5231F2780110004126E /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5221F2780110004126E /* HUDViewController.swift */; };
 		4DE5E5281F2793040004126E /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E5271F2793040004126E /* MainMenuViewController.swift */; };
 		4DE5E53C1F27B62C0004126E /* PlayerWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */; };
 		4DE5E5411F27BAD40004126E /* DiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5E53F1F27BAD40004126E /* DiceCollectionViewCell.swift */; };
@@ -170,7 +173,11 @@
 		4DC6B4851F27BD1700B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerHUDView.xib; sourceTree = "<group>"; };
 		4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
-		4DC6B49D1F284E4100B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GenericLocomotiveList.storyboard; sourceTree = "<group>"; };
+		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		4DC6B4A81F28846800B3C991 /* HUDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
+		4DC6B4AB1F28849200B3C991 /* HUDCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DC6B4AE1F288F2000B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Locomotive.storyboard; sourceTree = "<group>"; };
+		4DC6B4B01F288F6D00B3C991 /* GenericLocomotiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericLocomotiveViewController.swift; sourceTree = "<group>"; };
 		4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionViewModel.swift; sourceTree = "<group>"; };
 		4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewModel.swift; sourceTree = "<group>"; };
@@ -194,7 +201,6 @@
 		4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainDetailViewController.swift; sourceTree = "<group>"; };
 		4DE5E51B1F277E6F0004126E /* BuyProductionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyProductionDetailViewController.swift; sourceTree = "<group>"; };
 		4DE5E5201F277FFD0004126E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
-		4DE5E5221F2780110004126E /* HUDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
 		4DE5E5271F2793040004126E /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4DE5E53B1F27B62C0004126E /* PlayerWinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerWinnerView.swift; sourceTree = "<group>"; };
 		4DE5E53F1F27BAD40004126E /* DiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 		4D1A4C1E1F212DAF00680333 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4DC6B4A01F2851E900B3C991 /* GradientView.swift */,
 				4D1A4C361F21316100680333 /* GameConfig.swift */,
 				4D1A4C371F21316100680333 /* Helpers.swift */,
 			);
@@ -385,7 +392,7 @@
 				4D9429731F2124B7006B2D89 /* Assets.xcassets */,
 				4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */,
 				4D9429761F2124B7006B2D89 /* Main.storyboard */,
-				4DC6B49C1F284E4100B3C991 /* GenericLocomotiveList.storyboard */,
+				4DC6B4AD1F288F2000B3C991 /* Locomotive.storyboard */,
 				4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */,
 				4DE5E5061F277BDF0004126E /* BuyProduction.storyboard */,
 				4DE5E5091F277BF60004126E /* Selling.storyboard */,
@@ -423,6 +430,26 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		4DC6B49F1F28509700B3C991 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4DE5E5271F2793040004126E /* MainMenuViewController.swift */,
+				4DE5E4FD1F277B020004126E /* NewGameViewController.swift */,
+				4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */,
+				4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */,
+			);
+			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		4DC6B4AA1F28846A00B3C991 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				4DC6B4A81F28846800B3C991 /* HUDViewController.swift */,
+				4DC6B4AB1F28849200B3C991 /* HUDCollectionViewCell.swift */,
+			);
+			name = HUD;
+			sourceTree = "<group>";
+		};
 		4DE5E4E71F276E6B0004126E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,11 +468,8 @@
 		4DE5E4FA1F2779B90004126E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4DE5E5221F2780110004126E /* HUDViewController.swift */,
-				4DE5E5271F2793040004126E /* MainMenuViewController.swift */,
-				4DE5E4FD1F277B020004126E /* NewGameViewController.swift */,
-				4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */,
-				4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */,
+				4DC6B4AA1F28846A00B3C991 /* HUD */,
+				4DC6B49F1F28509700B3C991 /* MainMenu */,
 				4DE5E51D1F277FA40004126E /* BuyTrain */,
 				4DE5E51E1F277FA90004126E /* BuyProduction */,
 				4DE5E50C1F277C420004126E /* SellingViewController.swift */,
@@ -453,6 +477,7 @@
 				4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */,
 				4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */,
 				4DE5E5141F277CA20004126E /* WinnerViewController.swift */,
+				4DC6B4B01F288F6D00B3C991 /* GenericLocomotiveViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -631,7 +656,6 @@
 			files = (
 				4DE5E5011F277B4E0004126E /* BuyTrain.storyboard in Resources */,
 				4DE5E5181F277CBD0004126E /* Winner.storyboard in Resources */,
-				4DC6B49E1F284E4100B3C991 /* GenericLocomotiveList.storyboard in Resources */,
 				4DE5E54E1F27BC280004126E /* PlayerWinnerView.xib in Resources */,
 				4DE5E5081F277BDF0004126E /* BuyProduction.storyboard in Resources */,
 				4DE5E54A1F27BC000004126E /* DiceCollectionViewCell.xib in Resources */,
@@ -643,6 +667,7 @@
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
 				4DE5E5211F277FFD0004126E /* HUD.storyboard in Resources */,
 				4DE5E54B1F27BC000004126E /* EngineCardView.xib in Resources */,
+				4DC6B4AF1F288F2000B3C991 /* Locomotive.storyboard in Resources */,
 				4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */,
 				4DE5E50B1F277BF60004126E /* Selling.storyboard in Resources */,
 			);
@@ -773,6 +798,7 @@
 				4DC6B49A1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift in Sources */,
 				4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */,
 				4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */,
+				4DC6B4A91F28846800B3C991 /* HUDViewController.swift in Sources */,
 				4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */,
 				4DE5E5411F27BAD40004126E /* DiceCollectionViewCell.swift in Sources */,
 				4DE5E50F1F277C530004126E /* TaxesViewController.swift in Sources */,
@@ -789,7 +815,6 @@
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
 				4DE5E4F51F2773710004126E /* NextRoundViewModel.swift in Sources */,
-				4DE5E5231F2780110004126E /* HUDViewController.swift in Sources */,
 				4D1A4C531F21365500680333 /* Die.swift in Sources */,
 				4DC6AC1D1F21CCA300AED444 /* ObsolescenceManager.swift in Sources */,
 				4D1A4C451F21321900680333 /* Game.swift in Sources */,
@@ -803,11 +828,14 @@
 				4D1A4C591F2138C200680333 /* SalesRule.swift in Sources */,
 				4D1A4C631F2139C900680333 /* SetupManager.swift in Sources */,
 				4DE5E4F11F2772300004126E /* TaxesViewModel.swift in Sources */,
+				4DC6B4B11F288F6D00B3C991 /* GenericLocomotiveViewController.swift in Sources */,
 				4D1A4C611F21396E00680333 /* Production+API.swift in Sources */,
 				4DE5E51A1F277E620004126E /* BuyTrainDetailViewController.swift in Sources */,
 				4DE5E5031F277B8A0004126E /* BuyTrainViewController.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
+				4DC6B4AC1F28849200B3C991 /* HUDCollectionViewCell.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
+				4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */,
 				4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */,
 				4D1A4C551F21367400680333 /* Account.swift in Sources */,
 				4DE5E4EB1F276FBE0004126E /* BuyProductionViewModel.swift in Sources */,
@@ -865,12 +893,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		4DC6B49C1F284E4100B3C991 /* GenericLocomotiveList.storyboard */ = {
+		4DC6B4AD1F288F2000B3C991 /* Locomotive.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC6B49D1F284E4100B3C991 /* Base */,
+				4DC6B4AE1F288F2000B3C991 /* Base */,
 			);
-			name = GenericLocomotiveList.storyboard;
+			name = Locomotive.storyboard;
 			sourceTree = "<group>";
 		};
 		4DE5E4FF1F277B4E0004126E /* BuyTrain.storyboard */ = {

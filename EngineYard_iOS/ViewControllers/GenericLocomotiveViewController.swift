@@ -1,17 +1,19 @@
 //
-//  BuyTrainViewController.swift
+//  GenericLocomotiveViewController.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 26/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import UIKit
 
-class BuyTrainViewController: UIViewController {
+class GenericLocomotiveViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
