@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,28 +74,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jh6-6P-enQ">
-                                <rect key="frame" x="0.0" y="72" width="568" height="175"/>
+                                <rect key="frame" x="0.0" y="72" width="568" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yJD-Gu-oos">
-                                    <size key="itemSize" width="120" height="170"/>
+                                    <size key="itemSize" width="125" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="25" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taxSummaryCellReuseID" id="A2B-M8-G49" customClass="EYTaxSummaryCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="3" width="120" height="170"/>
+                                        <rect key="frame" x="25" y="10" width="125" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <size key="customSize" width="125" height="175"/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZJP-dX-uGr" id="Yii-OU-LxR"/>
+                                    <outlet property="delegate" destination="ZJP-dX-uGr" id="9gn-mF-y0E"/>
+                                </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taxes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGb-fY-9qJ">
-                                <rect key="frame" x="29" y="33" width="54" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGb-fY-9qJ">
+                                <rect key="frame" x="29" y="38" width="100" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
@@ -104,13 +110,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="taxCollectionView" destination="Jh6-6P-enQ" id="ccp-ig-FQI"/>
                         <segue destination="jiY-yq-X1Y" kind="show" identifier="marketDemandSegue" id="hHg-l5-fXo"/>
                         <segue destination="rIh-GI-22H" kind="show" identifier="winnerSegue" id="3Yg-C4-K6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8m-cm-dTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="107"/>
+            <point key="canvasLocation" x="808.09859154929575" y="106.875"/>
         </scene>
         <!--WinnerViewController-->
         <scene sceneID="kL0-Cz-dPe">
@@ -162,17 +169,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Turn Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwz-wX-oEa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Turn Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwz-wX-oEa">
                                 <rect key="frame" x="31" y="27" width="148" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="daK-9a-fBC">
-                                <rect key="frame" x="18" y="64" width="200" height="237"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="daK-9a-fBC">
+                                <rect key="frame" x="18" y="64" width="200" height="256"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="IpO-4s-DyP"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="kkS-ju-Ymm">
                                     <size key="itemSize" width="175" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -195,10 +203,27 @@
                                     <outlet property="delegate" destination="UmY-wY-6fy" id="XVu-SQ-Axc"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcq-ea-yJe">
+                                <rect key="frame" x="476" y="255" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="UmY-wY-6fy" eventType="touchUpInside" id="bgd-zm-LML"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="daK-9a-fBC" secondAttribute="bottom" id="Alx-Iw-efL"/>
+                            <constraint firstItem="dwz-wX-oEa" firstAttribute="leading" secondItem="F84-dZ-Dki" secondAttribute="leadingMargin" constant="11" id="SIK-ql-Mbv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pcq-ea-yJe" secondAttribute="trailing" constant="35" id="TLm-vM-ubf"/>
+                            <constraint firstItem="dwz-wX-oEa" firstAttribute="top" secondItem="m0a-hs-r2J" secondAttribute="bottom" constant="7" id="UTU-Cc-hqu"/>
+                            <constraint firstItem="daK-9a-fBC" firstAttribute="top" secondItem="dwz-wX-oEa" secondAttribute="bottom" constant="11" id="lhj-dA-ZGb"/>
+                            <constraint firstItem="vfn-Xu-c5v" firstAttribute="top" secondItem="Pcq-ea-yJe" secondAttribute="bottom" constant="35" id="p3s-iX-Y4o"/>
+                            <constraint firstItem="daK-9a-fBC" firstAttribute="leading" secondItem="F84-dZ-Dki" secondAttribute="leading" constant="18" id="zJt-Yk-SPA"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneBtn" destination="Pcq-ea-yJe" id="IeF-xy-Ldq"/>
                         <outlet property="turnOrderCollectionView" destination="daK-9a-fBC" id="cnm-fT-wRh"/>
                         <segue destination="Lm0-tP-zmr" kind="show" identifier="buyTrainSegue" id="mks-DH-haf"/>
                     </connections>

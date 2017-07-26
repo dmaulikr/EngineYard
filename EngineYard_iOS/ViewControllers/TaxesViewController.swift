@@ -12,6 +12,8 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
 {
     @IBOutlet weak var taxCollectionView: UICollectionView!
 
+    var taxViewModel: TaxesViewModel = TaxesViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +36,33 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.taxViewModel.game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxCollectionViewCellReuseID", for: indexPath) as UICollectionViewCell
 
+
+        let arr = UINib(nibName: "PlayerTaxView", bundle: nil).instantiate(withOwner: nil, options: nil)
+        let view = arr[0] as! PlayerTaxView
+        cell.contentView.addSubview(view)
+
+
+        if let game = self.taxViewModel.game {
+            let player: Player = game.players[indexPath.row]
+
+            let balanceText = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            let taxDueText = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            let preTaxText = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+
+            view.avatarImageView?.image = UIImage(named: player.asset)
+            view.preTaxLabel.text = preTaxText
+            view.taxDueAmountLabel.text = taxDueText
+            view.balanceLabel.text = balanceText
+        }
+
+        view.layoutIfNeeded()
+        cell.setNeedsLayout()
         cell.layoutIfNeeded()
 
         return cell

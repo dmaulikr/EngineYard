@@ -12,6 +12,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
 {
     var viewModel: NewTurnOrderViewModel = NewTurnOrderViewModel()
 
+    @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var turnOrderCollectionView: UICollectionView!
 
     override func viewDidLoad() {
