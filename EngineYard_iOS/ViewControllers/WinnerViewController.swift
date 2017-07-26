@@ -12,7 +12,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
 {
     @IBOutlet weak var winnerCollectionView: UICollectionView!
     @IBOutlet var menuBtnOutletCollection: [UIButton]!
-    @IBOutlet weak var pageTitle: UILabel!
+    @IBOutlet weak var pageTitleLabel: UILabel!
 
     var viewModel : WinnerViewModel?
 
@@ -20,7 +20,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
 
         if let _ = self.viewModel {
-            self.pageTitle.text = WinnerViewModel.pageTitleText
+            self.pageTitleLabel.text = WinnerViewModel.pageTitleText
         }
         self.winnerCollectionView.allowsSelection = false
         self.winnerCollectionView.allowsMultipleSelection = false
