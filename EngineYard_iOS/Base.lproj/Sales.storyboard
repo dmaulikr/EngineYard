@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qPR-oC-1NQ">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Selling View Controller-->
+        <scene sceneID="GUI-o3-PHn">
+            <objects>
+                <viewController storyboardIdentifier="SellingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qPR-oC-1NQ" customClass="SellingViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SRV-ET-OL5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Suz-qm-fYs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ajQ-wn-QcN">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="ZJP-dX-uGr" kind="show" identifier="taxesSegue" id="yrL-5G-psO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLB-x4-GHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="126"/>
+        </scene>
+        <!--Taxes View Controller-->
+        <scene sceneID="gLd-Jj-hXI">
+            <objects>
+                <viewController storyboardIdentifier="TaxesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZJP-dX-uGr" customClass="TaxesViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4q0-KW-eWu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xl3-Bc-UzB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dXU-5p-pRk">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="jiY-yq-X1Y" kind="show" identifier="marketDemandSegue" id="hHg-l5-fXo"/>
+                        <segue destination="rIh-GI-22H" kind="show" identifier="winnerSegue" id="3Yg-C4-K6S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p8m-cm-dTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="809" y="107"/>
+        </scene>
+        <!--WinnerViewController-->
+        <scene sceneID="kL0-Cz-dPe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Winner" referencedIdentifier="WinnerViewController" id="rIh-GI-22H" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6s-7p-Hho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="701"/>
+        </scene>
+        <!--Market Demands View Controller-->
+        <scene sceneID="bYw-RR-rBy">
+            <objects>
+                <viewController storyboardIdentifier="MarketDemandsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jiY-yq-X1Y" customClass="MarketDemandsViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A8L-xk-yb8"/>
+                        <viewControllerLayoutGuide type="bottom" id="od9-MT-IKo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CYC-k2-iem">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="UmY-wY-6fy" kind="show" identifier="newTurnOrderSegue" id="3ug-Sx-P1X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6r-FM-czL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534" y="103"/>
+        </scene>
+        <!--New Turn Order View Controller-->
+        <scene sceneID="jJy-ta-hXO">
+            <objects>
+                <viewController storyboardIdentifier="NewTurnOrderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UmY-wY-6fy" customClass="NewTurnOrderViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m0a-hs-r2J"/>
+                        <viewControllerLayoutGuide type="bottom" id="vfn-Xu-c5v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F84-dZ-Dki">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="Lm0-tP-zmr" kind="show" identifier="buyTrainSegue" id="mks-DH-haf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gSE-bh-zjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2320" y="94"/>
+        </scene>
+        <!--BuyTrainViewController-->
+        <scene sceneID="w2H-es-NmW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Game" referencedIdentifier="BuyTrainViewController" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q0M-8v-kBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2521" y="698"/>
+        </scene>
+    </scenes>
+</document>

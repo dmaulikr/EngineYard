@@ -12,7 +12,6 @@ import QuartzCore
 
 class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
-
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var menuBtn: UIButton!
 
@@ -36,6 +35,31 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
             self.collectionView.reloadData()
         }
     }
+
+    public static func loadHUD(game:Game?, viewController:UIViewController) -> HUDViewController? {
+        let sb: UIStoryboard = UIStoryboard(name: "HUD", bundle: nil)
+        let hudVC = sb.instantiateViewController(withIdentifier: "HUDViewController") as? HUDViewController
+
+        if let controller = hudVC
+        {
+            let view = viewController.view!
+            //controller.gameModel = gameModel
+            viewController.addChildViewController(controller)
+            controller.view.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(controller.view)
+
+            NSLayoutConstraint.activate([
+                controller.view.topAnchor.constraint(equalTo: view.topAnchor),
+                controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+                controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+                ])
+
+            controller.didMove(toParentViewController: viewController)
+        }
+        
+        return hudVC
+    }
+
 
     // MARK: - CollectionView
 

@@ -13,7 +13,7 @@
         <!--Winner View Controller-->
         <scene sceneID="8Mt-TZ-hd2">
             <objects>
-                <viewController id="8mi-Xg-mVf" customClass="WinnerViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WinnerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8mi-Xg-mVf" customClass="WinnerViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WnJ-qx-xuc"/>
                         <viewControllerLayoutGuide type="bottom" id="CRo-wk-UIL"/>
