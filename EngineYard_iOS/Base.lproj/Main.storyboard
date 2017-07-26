@@ -22,13 +22,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srQ-rZ-ejI">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srQ-rZ-ejI">
                                 <rect key="frame" x="84" y="70" width="75" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="mainMenuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Wx-my-lFw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCO-3N-R19">
+                                <rect key="frame" x="292" y="73" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Taxes"/>
+                                <connections>
+                                    <action selector="mainMenuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBa-j6-l3K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsI-ZW-K0q">
+                                <rect key="frame" x="284" y="167" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New turn order"/>
+                                <connections>
+                                    <action selector="mainMenuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wjx-9O-Cpe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pg-IL-AzH">
+                                <rect key="frame" x="291" y="118" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Winner"/>
+                                <connections>
+                                    <action selector="mainMenuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hzV-KW-B1k"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,6 +62,9 @@
                     <connections>
                         <outletCollection property="mainMenuBtnOutletCollection" destination="srQ-rZ-ejI" collectionClass="NSMutableArray" id="Bb3-lG-5KR"/>
                         <segue destination="m8n-1v-48G" kind="show" identifier="newGameSegue" id="0gm-V0-reX"/>
+                        <segue destination="prM-mt-4xH" kind="show" identifier="taxSegue" id="wkK-IH-SuK"/>
+                        <segue destination="7Aq-rj-fvU" kind="show" identifier="turnOrderSegue" id="uov-ex-LJI"/>
+                        <segue destination="9rd-eV-Ghu" kind="show" identifier="winnerSegue" id="7Qg-bN-cie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -113,11 +140,6 @@
                                     <action selector="doneBtnPresed:" destination="m8n-1v-48G" eventType="touchUpInside" id="QKh-e6-RpO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag7-MY-xgN">
-                                <rect key="frame" x="300" y="252" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -139,9 +161,6 @@
                         <outlet property="stepper" destination="2zR-7e-1ed" id="jSB-qO-7G2"/>
                         <outlet property="stepperLabel" destination="RdA-Ef-4y2" id="yN8-cp-2Pl"/>
                         <segue destination="s8w-bp-6d0" kind="show" identifier="buyTrainSegue" id="QlQ-nb-mD8"/>
-                        <segue destination="9rd-eV-Ghu" kind="show" identifier="winnerSegue" id="tUn-AN-FtZ"/>
-                        <segue destination="7Aq-rj-fvU" kind="show" identifier="newTurnOrderSegue" id="Gfs-7E-8pU"/>
-                        <segue destination="prM-mt-4xH" kind="show" identifier="taxesSegue" id="gV6-dI-Xza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF5-8b-fjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +173,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SBTaxesSegueID" storyboardName="Sales" referencedIdentifier="TaxesViewController" id="prM-mt-4xH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOE-pp-p32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="820"/>
+            <point key="canvasLocation" x="1555" y="-158"/>
         </scene>
         <!--NewTurnOrderViewController-->
         <scene sceneID="Aa9-D7-2Na">
@@ -162,7 +181,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SBNewTurnOrderSegueID" storyboardName="Sales" referencedIdentifier="NewTurnOrderViewController" id="7Aq-rj-fvU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43O-jT-e0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="1031"/>
+            <point key="canvasLocation" x="1553" y="53"/>
         </scene>
         <!--WinnerViewController-->
         <scene sceneID="s7D-7t-nnh">
@@ -170,7 +189,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SBWinnerSegueID" storyboardName="Winner" referencedIdentifier="WinnerViewController" id="9rd-eV-Ghu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j7-VH-UyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="1234"/>
+            <point key="canvasLocation" x="1421" y="257"/>
         </scene>
         <!--BuyTrainViewController-->
         <scene sceneID="dvL-wC-pVy">
