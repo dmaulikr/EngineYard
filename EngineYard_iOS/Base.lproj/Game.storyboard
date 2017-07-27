@@ -105,6 +105,8 @@
                     <connections>
                         <outlet property="buyBtn" destination="kjR-fw-l58" id="nlI-iT-foy"/>
                         <outlet property="cancelBtn" destination="PG1-jN-492" id="QhE-U5-xQA"/>
+                        <outlet property="engineCardXIBView" destination="sCM-Nh-nK4" id="06G-2X-vZA"/>
+                        <outlet property="playerXIBView" destination="zpX-Vv-6JZ" id="rRz-B1-aBv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZ0-aA-S4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
