@@ -22,17 +22,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIt-g6-aU3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIt-g6-aU3">
                                 <rect key="frame" x="27" y="37" width="63" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqk-FI-7Jv">
+                                <rect key="frame" x="473" y="37" width="44" height="30"/>
+                                <state key="normal" title="Skip &gt;"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="qPR-oC-1NQ" eventType="touchUpInside" id="zNv-2E-y2W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cqk-FI-7Jv" firstAttribute="top" secondItem="SRV-ET-OL5" secondAttribute="bottom" constant="17" id="6zN-2O-fDF"/>
+                            <constraint firstItem="SIt-g6-aU3" firstAttribute="leading" secondItem="ajQ-wn-QcN" secondAttribute="leadingMargin" constant="7" id="Wnx-JI-V1S"/>
+                            <constraint firstItem="SIt-g6-aU3" firstAttribute="top" secondItem="SRV-ET-OL5" secondAttribute="bottom" constant="17" id="foi-LB-HCe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cqk-FI-7Jv" secondAttribute="trailing" constant="31" id="gEK-I9-x9e"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneBtn" destination="Cqk-FI-7Jv" id="gGA-Ep-tvj"/>
                         <segue destination="1Yv-8N-No7" kind="show" identifier="salesReportSegue" id="n3n-Zc-Ppg"/>
                     </connections>
                 </viewController>
@@ -51,9 +64,31 @@
                     <view key="view" contentMode="scaleToFill" id="n2G-qc-7Tg">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sales Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9te-ku-FGR">
+                                <rect key="frame" x="29" y="34" width="119" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-6z-fnz">
+                                <rect key="frame" x="479" y="39" width="46" height="30"/>
+                                <state key="normal" title="Next &gt;"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="1Yv-8N-No7" eventType="touchUpInside" id="l48-rW-Pie"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9te-ku-FGR" firstAttribute="leading" secondItem="n2G-qc-7Tg" secondAttribute="leadingMargin" constant="9" id="JU6-eq-JuT"/>
+                            <constraint firstItem="9te-ku-FGR" firstAttribute="top" secondItem="zyA-di-hRc" secondAttribute="bottom" constant="14" id="MG2-sM-89a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OOd-6z-fnz" secondAttribute="trailing" constant="23" id="MVT-W9-PNr"/>
+                            <constraint firstItem="OOd-6z-fnz" firstAttribute="top" secondItem="zyA-di-hRc" secondAttribute="bottom" constant="19" id="Qgo-Pa-TNh"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneBtn" destination="OOd-6z-fnz" id="gx8-MD-0pA"/>
                         <segue destination="ZJP-dX-uGr" kind="show" identifier="taxesSegue" id="AwI-s1-Got"/>
                     </connections>
                 </viewController>
@@ -73,10 +108,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jh6-6P-enQ">
-                                <rect key="frame" x="0.0" y="72" width="568" height="194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jh6-6P-enQ">
+                                <rect key="frame" x="0.0" y="79" width="568" height="212"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="212" id="MOg-vZ-jrM"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yJD-Gu-oos">
                                     <size key="itemSize" width="125" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -85,7 +122,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taxSummaryCellReuseID" id="A2B-M8-G49">
-                                        <rect key="frame" x="25" y="9.5" width="125" height="175"/>
+                                        <rect key="frame" x="25" y="10" width="125" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="175"/>
@@ -99,17 +136,33 @@
                                     <outlet property="delegate" destination="ZJP-dX-uGr" id="9gn-mF-y0E"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGb-fY-9qJ">
-                                <rect key="frame" x="29" y="38" width="100" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tax Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGb-fY-9qJ">
+                                <rect key="frame" x="29" y="38" width="100" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTu-oi-mv8">
+                                <rect key="frame" x="479" y="42" width="46" height="30"/>
+                                <state key="normal" title="Next &gt;"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="ZJP-dX-uGr" eventType="touchUpInside" id="0dc-hd-3NF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jh6-6P-enQ" secondAttribute="trailing" id="Cz8-w8-XJf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTu-oi-mv8" secondAttribute="trailing" constant="23" id="DEb-nL-laP"/>
+                            <constraint firstItem="PGb-fY-9qJ" firstAttribute="leading" secondItem="dXU-5p-pRk" secondAttribute="leadingMargin" constant="9" id="cGJ-bj-bVC"/>
+                            <constraint firstItem="PGb-fY-9qJ" firstAttribute="top" secondItem="4q0-KW-eWu" secondAttribute="bottom" constant="18" id="jYc-g0-pkQ"/>
+                            <constraint firstItem="Jh6-6P-enQ" firstAttribute="leading" secondItem="dXU-5p-pRk" secondAttribute="leading" id="rPH-JE-ASP"/>
+                            <constraint firstItem="Jh6-6P-enQ" firstAttribute="centerY" secondItem="dXU-5p-pRk" secondAttribute="centerY" constant="25" id="xvY-tW-so8"/>
+                            <constraint firstItem="MTu-oi-mv8" firstAttribute="top" secondItem="4q0-KW-eWu" secondAttribute="bottom" constant="22" id="zWS-u6-9cw"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneBtn" destination="MTu-oi-mv8" id="ble-Ey-XVq"/>
                         <outlet property="taxCollectionView" destination="Jh6-6P-enQ" id="ccp-ig-FQI"/>
                         <segue destination="jiY-yq-X1Y" kind="show" identifier="marketDemandSegue" id="hHg-l5-fXo"/>
                         <segue destination="rIh-GI-22H" kind="show" identifier="winnerSegue" id="3Yg-C4-K6S"/>
@@ -146,10 +199,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4o-zW-ugB">
+                                <rect key="frame" x="481" y="34" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next &gt;"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="jiY-yq-X1Y" eventType="touchUpInside" id="U9S-ee-2Ny"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="doneBtn" destination="h4o-zW-ugB" id="xms-vV-3wc"/>
                         <segue destination="UmY-wY-6fy" kind="show" identifier="newTurnOrderSegue" id="3ug-Sx-P1X"/>
                     </connections>
                 </viewController>
@@ -170,13 +232,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Turn Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwz-wX-oEa">
-                                <rect key="frame" x="31" y="27" width="148" height="26"/>
+                                <rect key="frame" x="31" y="35" width="148" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="daK-9a-fBC">
-                                <rect key="frame" x="18" y="64" width="200" height="256"/>
+                                <rect key="frame" x="18" y="86" width="200" height="234"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="IpO-4s-DyP"/>
@@ -189,7 +251,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="turnOrderCellReuseID" id="LvU-O0-iie">
-                                        <rect key="frame" x="12.5" y="0.0" width="175" height="40"/>
+                                        <rect key="frame" x="13" y="0.0" width="175" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>
@@ -204,7 +266,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcq-ea-yJe">
-                                <rect key="frame" x="476" y="255" width="37" height="30"/>
+                                <rect key="frame" x="486" y="39" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneBtnPressed:" destination="UmY-wY-6fy" eventType="touchUpInside" id="bgd-zm-LML"/>
@@ -215,10 +277,10 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="daK-9a-fBC" secondAttribute="bottom" id="Alx-Iw-efL"/>
                             <constraint firstItem="dwz-wX-oEa" firstAttribute="leading" secondItem="F84-dZ-Dki" secondAttribute="leadingMargin" constant="11" id="SIK-ql-Mbv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Pcq-ea-yJe" secondAttribute="trailing" constant="35" id="TLm-vM-ubf"/>
-                            <constraint firstItem="dwz-wX-oEa" firstAttribute="top" secondItem="m0a-hs-r2J" secondAttribute="bottom" constant="7" id="UTU-Cc-hqu"/>
-                            <constraint firstItem="daK-9a-fBC" firstAttribute="top" secondItem="dwz-wX-oEa" secondAttribute="bottom" constant="11" id="lhj-dA-ZGb"/>
-                            <constraint firstItem="vfn-Xu-c5v" firstAttribute="top" secondItem="Pcq-ea-yJe" secondAttribute="bottom" constant="35" id="p3s-iX-Y4o"/>
+                            <constraint firstItem="dwz-wX-oEa" firstAttribute="top" secondItem="m0a-hs-r2J" secondAttribute="bottom" constant="15" id="UTU-Cc-hqu"/>
+                            <constraint firstItem="Pcq-ea-yJe" firstAttribute="top" secondItem="m0a-hs-r2J" secondAttribute="bottom" constant="19" id="fdL-hf-B1K"/>
+                            <constraint firstItem="daK-9a-fBC" firstAttribute="top" secondItem="dwz-wX-oEa" secondAttribute="bottom" constant="25" id="lhj-dA-ZGb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pcq-ea-yJe" secondAttribute="trailing" constant="25" id="pGO-IJ-31m"/>
                             <constraint firstItem="daK-9a-fBC" firstAttribute="leading" secondItem="F84-dZ-Dki" secondAttribute="leading" constant="18" id="zJt-Yk-SPA"/>
                         </constraints>
                     </view>

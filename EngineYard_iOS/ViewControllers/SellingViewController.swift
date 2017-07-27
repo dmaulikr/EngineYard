@@ -11,6 +11,8 @@ import UIKit
 // Sell production from engines
 class SellingViewController: UIViewController {
 
+    @IBOutlet weak var doneBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

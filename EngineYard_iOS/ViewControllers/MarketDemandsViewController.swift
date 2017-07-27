@@ -10,6 +10,8 @@ import UIKit
 
 class MarketDemandsViewController: UIViewController {
 
+    @IBOutlet weak var doneBtn: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

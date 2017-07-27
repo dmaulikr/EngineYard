@@ -11,6 +11,7 @@ import UIKit
 class TaxesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
     @IBOutlet weak var taxCollectionView: UICollectionView!
+    @IBOutlet weak var doneBtn: UIButton!
 
     var taxViewModel: TaxesViewModel!
 
@@ -36,7 +37,9 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return self.taxViewModel.game.players.count
+        if let game = self.taxViewModel.game {
+            return game.players.count
+        }
         return 0
     }
 
@@ -58,9 +61,9 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
             let preTaxText = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
 
             view.avatarImageView?.image = UIImage(named: player.asset)
-            view.preTaxLabel.text = preTaxText
-            view.taxDueAmountLabel.text = taxDueText
-            view.balanceLabel.text = balanceText
+            view.preTaxLabel?.text = preTaxText
+            view.taxDueAmountLabel?.text = taxDueText
+            view.balanceLabel?.text = balanceText
        }
 
         view.layoutIfNeeded()
