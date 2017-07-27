@@ -59,11 +59,12 @@ class BuyTrainViewController: UIViewController {
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
             }
+            controller.selectedTrainClosure = { (purchasedTrain: Locomotive?) in
+                print ("selectedTrainClosure pressed")
+            }
         }
     }
 
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

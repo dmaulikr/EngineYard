@@ -10,7 +10,16 @@ import UIKit
 
 struct TrainListViewModel
 {
-    var game: Game?
+    weak var game: Game?
+    lazy var trains: [Locomotive]? = {
+        guard let gameObj = self.game else {
+            return nil
+        }
+        guard let gameBoard = gameObj.gameBoard else {
+            return nil
+        }
+        return gameBoard.decks
+    }()
 
     init(game: Game) {
         self.game = game
@@ -27,7 +36,8 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var trainsCollectionView: UICollectionView!
     @IBOutlet weak var doneBtn: UIButton!
 
-    var completionClosure : ((_ doneBtnPressed:Bool)->())?
+    var completionClosure : ((_ doneBtnPressed: Bool)->())?
+    var selectedTrainClosure : ((_ train: Locomotive?)->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +63,10 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let gameObj = self.trainsViewModel.game else {
-            assertionFailure("No game object is defined")
+        guard let trains = self.trainsViewModel.trains else {
             return 0
         }
-        guard let gameBoard = gameObj.gameBoard else {
-            assertionFailure("No game board is defined")
-            return 0
-        }
-        return gameBoard.decks.count
+        return trains.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,23 +80,30 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             cell.engineCardView = view
         }
 
-        if let gameBoard = self.trainsViewModel.game?.gameBoard {
-
-            let loco: Locomotive = gameBoard.decks[indexPath.row]
+        if let trains = self.trainsViewModel.trains {
+            let loco: Locomotive = trains[indexPath.row]
             print(indexPath.row, loco.description)
             cell.engineCardView?.setup(loco:loco)
             EngineCardView.applyDropShadow(loco: loco, toView: cell)
         }
 
-
         cell.layoutIfNeeded()
-
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print ("Selected indexPath: \(indexPath)")
+
+        guard let trains = self.trainsViewModel.trains else {
+            return
+        }
+
+        let train: Locomotive = trains[indexPath.row]
+
+        if let closure = self.selectedTrainClosure {
+            closure(train)
+        }
     }
 
     // MARK: - IBActions

@@ -15,6 +15,9 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        self.avtBtn.layer.cornerRadius = 8.0
+        self.avtBtn.layer.masksToBounds = true
     }
 
     @IBAction func avtBtnPressed(_ sender: UIButton) {

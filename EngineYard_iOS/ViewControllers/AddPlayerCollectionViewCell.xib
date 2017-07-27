@@ -55,7 +55,7 @@
                 <outlet property="aiSwitchBtn" destination="cuq-wM-R3g" id="lNj-Gx-cwu"/>
                 <outlet property="avtBtn" destination="2Hb-Lc-t96" id="AXC-9s-UoN"/>
             </connections>
-            <point key="canvasLocation" x="90.5" y="98.5"/>
+            <point key="canvasLocation" x="-270" y="41"/>
         </collectionViewCell>
     </objects>
     <resources>
