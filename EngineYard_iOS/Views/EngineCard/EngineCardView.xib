@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orders..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC1-mG-mMG">
-                    <rect key="frame" x="9" y="126" width="105" height="21"/>
+                    <rect key="frame" x="9" y="128" width="105" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
                     <nil key="textColor"/>
@@ -88,23 +88,23 @@
                     <color key="backgroundColor" red="0.55902833829999998" green="0.76041666669999997" blue="0.47558140799999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="die-face-1" translatesAutoresizingMaskIntoConstraints="NO" id="srL-rt-jEq">
-                    <rect key="frame" x="9" y="147" width="25" height="25"/>
+                    <rect key="frame" x="9" y="150" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="die-face-1" translatesAutoresizingMaskIntoConstraints="NO" id="QPC-Dv-y0H">
-                    <rect key="frame" x="33" y="147" width="25" height="25"/>
+                    <rect key="frame" x="33" y="150" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="die-face-1" translatesAutoresizingMaskIntoConstraints="NO" id="ArS-FC-zT1">
-                    <rect key="frame" x="57" y="147" width="25" height="25"/>
+                    <rect key="frame" x="57" y="150" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="die-face-1" translatesAutoresizingMaskIntoConstraints="NO" id="gpr-U0-oe3">
-                    <rect key="frame" x="81" y="147" width="25" height="25"/>
+                    <rect key="frame" x="81" y="150" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="die-face-1" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-b0-Cgw">
-                    <rect key="frame" x="105" y="147" width="25" height="25"/>
+                    <rect key="frame" x="105" y="150" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
