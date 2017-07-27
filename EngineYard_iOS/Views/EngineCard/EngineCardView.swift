@@ -20,7 +20,7 @@ class EngineCardView: UIView {
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
-    @IBOutlet weak var headerView: GradientView!
+    @IBOutlet weak var headerView: UIView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,13 +44,9 @@ class EngineCardView: UIView {
         }
     }
 
-
     override func updateConstraints() {
         super.updateConstraints()
     }
-
-
-
 
     func setup(loco: Locomotive) {
         let genNumber = NSNumber(integerLiteral: loco.generation.rawValue)
@@ -92,20 +88,16 @@ class EngineCardView: UIView {
     func setHeaderColor(loco: Locomotive) {
         switch loco.engineColor {
         case .green:
-            self.headerView.topColor = UIColor.init(colorLiteralRed: 66/255, green: 230/255, blue: 149/255, alpha: 1)
-            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 59/255, green: 178/255, blue: 184/255, alpha: 1)
+            self.headerView.backgroundColor = UIColor.init(colorLiteralRed: 66/255, green: 230/255, blue: 149/255, alpha: 1)
             break
         case .red:
-            self.headerView.topColor = UIColor.init(colorLiteralRed: 245/255, green: 78/255, blue: 162/255, alpha: 1)
-            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 255/255, green: 118/255, blue: 118/255, alpha: 1)
+            self.headerView.backgroundColor = UIColor.init(colorLiteralRed: 245/255, green: 78/255, blue: 162/255, alpha: 1)
             break
         case .yellow:
-            self.headerView.topColor = UIColor.init(colorLiteralRed: 252/255, green: 227/255, blue: 138/255, alpha: 1)
-            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 243/255, green: 129/255, blue: 129/255, alpha: 1)
+            self.headerView.backgroundColor = UIColor.init(colorLiteralRed: 252/255, green: 227/255, blue: 138/255, alpha: 1)
             break
         case .blue:
-            self.headerView.topColor = UIColor.init(colorLiteralRed: 23/255, green: 234/255, blue: 217/255, alpha: 1)
-            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 96/255, green: 120/255, blue: 234/255, alpha: 1)
+            self.headerView.backgroundColor = UIColor.init(colorLiteralRed: 23/255, green: 234/255, blue: 217/255, alpha: 1)
             break
         }
     }
@@ -141,10 +133,11 @@ class EngineCardView: UIView {
     }
 
 
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
+//    // Only override draw() if you perform custom drawing.
+//    // An empty implementation adversely affects performance during animation.
+//    override func draw(_ rect: CGRect) {
+//        // Drawing code
+//        super.draw(rect)
+//    }
 
 }

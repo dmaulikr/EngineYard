@@ -29,7 +29,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-ug-reM" customClass="GradientView" customModule="EngineYard" customModuleProvider="target">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-ug-reM">
                     <rect key="frame" x="0.0" y="0.0" width="150" height="125"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -114,7 +114,7 @@
             <connections>
                 <outlet property="costLabel" destination="h7l-r5-5fZ" id="0bz-fm-qFf"/>
                 <outlet property="generationLabel" destination="hiW-eS-hoW" id="VpU-Eb-Tq9"/>
-                <outlet property="headerView" destination="2jT-ug-reM" id="jPR-sE-qcv"/>
+                <outlet property="headerView" destination="2jT-ug-reM" id="Kec-vf-IZo"/>
                 <outlet property="incomeLabel" destination="U2F-7E-Pub" id="dbd-TC-3wO"/>
                 <outlet property="nameLabel" destination="h0W-HQ-bZC" id="mDa-i9-eoZ"/>
                 <outlet property="numberOfChildrenLabel" destination="RC6-Tp-F4X" id="Qhq-OM-JX7"/>
