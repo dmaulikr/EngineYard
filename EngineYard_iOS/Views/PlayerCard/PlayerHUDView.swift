@@ -24,7 +24,6 @@ class PlayerHUDView: UIView {
         self.layoutIfNeeded()
     }
 
-    /*
     func updatePlayerHUD(player: Player) {
         let cashNumber = NSNumber(integerLiteral: player.cash)
         self.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: cashNumber)
@@ -37,7 +36,6 @@ class PlayerHUDView: UIView {
 
         self.trainsCountLbl.text = String(0)
     }
-*/
     
     // MARK: - IBActions
 

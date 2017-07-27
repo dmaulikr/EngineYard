@@ -24,39 +24,14 @@ class BuyTrainViewModel : NextStateTransitionProtocol
         self.game = game
     }
 
-    func buy(train: Locomotive) {
-
-        if (playerOnTurn.isAI == false)
-        {
-            if (playerOnTurn.account.canAfford(amount: train.cost))
-            {
-
-            }
-            else {
-
-            }
-        }
-        else {
-            train.purchase(buyer: playerOnTurn)
-            //finish turn
-        }
-    }
-
-    func skip() {
-        if (playerOnTurn.isAI == false) {
-            // Present are you sure
-        }
-        else {
-            // finish turn
-        }
-    }
-
     func handlePurchase() {
         guard let loco = self.selectedTrain else {
             return
         }
 
         print ("purchase the \(loco.description)")
+
+        loco.purchase(buyer: playerOnTurn)
     }
 
     // MARK: - NextStateTransitionProtocol

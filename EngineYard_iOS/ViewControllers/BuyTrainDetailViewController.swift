@@ -12,6 +12,7 @@ class BuyTrainDetailViewController: UIViewController {
 
     var completionClosure : ((_ didPurchase: Bool)->())?
     var trainDetailViewModel: TrainDetailViewModel?
+
     @IBOutlet weak var buyBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var engineCardXIBView: EngineCardXibView!
@@ -21,28 +22,83 @@ class BuyTrainDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let buyBtnText = self.trainDetailViewModel?.buyButtonText else {
+        guard var viewModel = self.trainDetailViewModel else {
+            assertionFailure("No view model found")
             return
         }
-        self.buyBtn.setTitle(buyBtnText, for: .normal)
+        guard let gameObj = viewModel.game else {
+            assertionFailure("No game model found")
+            return
+        }
+        guard let loco = viewModel.locomotive else {
+            assertionFailure("No locomotive found")
+            return
+        }
+
+        let titleText = viewModel.buyButtonText
+        self.buyBtn.setTitle(titleText, for: .normal)
         self.buyBtn.layoutIfNeeded()
         self.buyBtn.sizeToFit()
 
-        if let loco = self.trainDetailViewModel?.locomotive {
-            let engineCard = self.engineCardXIBView.contentView as! EngineCardView
-            engineCard.setup(loco: loco)
-            EngineCardView.applyDropShadow(loco: loco, toView: self.engineCardXIBView)
-            self.engineCardXIBView.layoutIfNeeded()
 
-            //let hudCard = self.playerXIBView.contentView as! PlayerHUDView
-            //hudCard.updatePlayerHUD(player: playerOnTurn)
+        let engineCard = self.engineCardXIBView.contentView as! EngineCardView
+        engineCard.setup(loco: loco)
+        EngineCardView.applyDropShadow(loco: loco, toView: self.engineCardXIBView)
+        self.engineCardXIBView.layoutIfNeeded()
 
+        let playerOnTurn = gameObj.turnOrderManager.current
+
+        let hudCard: PlayerHUDView = self.playerXIBView.contentView as! PlayerHUDView
+        hudCard.updatePlayerHUD(player: playerOnTurn)
+
+        if (playerOnTurn.account.canAfford(amount: loco.cost) == false) {
+            self.toggleBuyBtnState(enabled: false)
+            print ("You cannot afford this locomotive! Cash: \(playerOnTurn.cash) vs Loco: \(loco.cost)")
+        }
+        else {
+            self.toggleBuyBtnState(enabled: false)
         }
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func toggleBuyBtnState(enabled: Bool = true) {
+        self.buyBtn.isEnabled = enabled
+        if (!self.buyBtn.isEnabled) {
+            self.buyBtn.layer.opacity = 0.5
+        }
+    }
+
+    func showPurchaseAlert(completionClosure : @escaping ((_ willPurchase:Bool)->())) {
+        guard let train = self.trainDetailViewModel?.locomotive else {
+            completionClosure(false)
+            return
+        }
+
+        let costNumber = NSNumber(integerLiteral: train.cost)
+        let costString = ObjectCache.currencyRateFormatter.string(from: costNumber)!
+
+        let alertController = UIAlertController(title: "Purchase train?",
+                                                message: "Buy \(train.name) for \(costString)?",
+                                                preferredStyle: .alert)
+
+        let okString = NSLocalizedString("OK", comment: "OK")
+        let cancelString = NSLocalizedString("Cancel", comment: "Cancel")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            completionClosure(true)
+        }
+        let actionCancel = UIAlertAction(title: cancelString, style: .cancel) { (action) in
+            completionClosure(false)
+        }
+
+        alertController.addAction(actionOK)
+        alertController.addAction(actionCancel)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - IBActions
@@ -56,17 +112,45 @@ class BuyTrainDetailViewController: UIViewController {
     }
 
     @IBAction func buyBtnPressed(_ sender: UIButton) {
+        guard let viewModel = self.trainDetailViewModel else {
+            return
+        }
+        guard let gameObj = viewModel.game else {
+            return
+        }
+        guard let loco = viewModel.locomotive else {
+            return
+        }
 
-        waitFor(duration: 1.0) { (complete: Bool) in
-            if (complete) {
-                self.dismiss(animated: true) {
-                    if let closure = self.completionClosure {
+        let playerOnTurn = gameObj.turnOrderManager.current
+        if (playerOnTurn.account.canAfford(amount: loco.cost))
+        {
 
-                        closure(true)
+            showPurchaseAlert { (willPurchase) in
+                if (willPurchase) {
+
+                    viewModel.purchaseTrain(train: loco, player: playerOnTurn)
+
+                    waitFor(duration: 1.0) { (complete: Bool) in
+                        if (complete) {
+                            self.dismiss(animated: true) {
+                                if let closure = self.completionClosure {
+
+                                    closure(true)
+                                }
+                            }
+                        }
                     }
+
                 }
             }
+
         }
+        else {
+            print ("Can't afford \(loco.description)")
+            return
+        }
+
     }
 
     /*

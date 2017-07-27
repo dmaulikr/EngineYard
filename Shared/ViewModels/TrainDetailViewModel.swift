@@ -26,4 +26,17 @@ struct TrainDetailViewModel
         let costText: String = ObjectCache.currencyRateFormatter.string(from: costNumber)!
         return "Buy \(loco.name) for \(costText)"
     }()
+
+
+    func purchaseTrain(train: Locomotive, player: Player) {
+        if (player.account.canAfford(amount: train.cost) == false)
+        {
+            print ("You cannot afford this locomotive! Cash: \(player.cash) vs Loco: \(train.cost)")
+            return
+        }
+        else {
+
+        }
+
+    }
 }
