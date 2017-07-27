@@ -23,7 +23,7 @@ struct TrainDetailViewModel
             return "N/A"
         }
         let costNumber = NSNumber(integerLiteral: loco.cost)
-        let costText = ObjectCache.currencyRateFormatter.string(from: costNumber)
-        return "Buy \(loco.name) \(costText)"
+        let costText: String = ObjectCache.currencyRateFormatter.string(from: costNumber)!
+        return "Buy \(loco.name) for \(costText)"
     }()
 }

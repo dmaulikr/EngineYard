@@ -56,9 +56,15 @@ class BuyTrainDetailViewController: UIViewController {
     }
 
     @IBAction func buyBtnPressed(_ sender: UIButton) {
-        self.dismiss(animated: true) {
-            if let closure = self.completionClosure {
-                closure(true)
+
+        waitFor(duration: 1.0) { (complete: Bool) in
+            if (complete) {
+                self.dismiss(animated: true) {
+                    if let closure = self.completionClosure {
+
+                        closure(true)
+                    }
+                }
             }
         }
     }

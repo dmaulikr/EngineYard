@@ -81,7 +81,11 @@ class BuyTrainViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasGame = self.buyTrainViewModel?.game else {
+        guard let hasViewModel = self.buyTrainViewModel else {
+            assertionFailure("No view model defined")
+            return
+        }
+        guard let hasGame = hasViewModel.game else {
             assertionFailure("No game object defined")
             return
         }
@@ -89,6 +93,7 @@ class BuyTrainViewController: UIViewController {
             assertionFailure("No gameboard defined")
             return
         }
+
 
         if (segue.identifier == "trainDetailSegue") {
             guard let selectedTrain = self.buyTrainViewModel?.selectedTrain else {
@@ -100,7 +105,7 @@ class BuyTrainViewController: UIViewController {
                 print ("didPurchase == \(didPurchase)")
 
                 if (didPurchase) {
-
+                    hasViewModel.handlePurchase()
                 }
             }
         }

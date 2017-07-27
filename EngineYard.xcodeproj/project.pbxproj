@@ -477,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */,
+				4DB1738C1F2A39790018B851 /* TrainDetailViewModel.swift */,
 				4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */,
 				4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */,
 				4DEEBA9C1F29F415000C5D16 /* SalesReportViewModel.swift */,
@@ -485,7 +486,6 @@
 				4DE5E4F41F2773710004126E /* NewTurnOrderViewModel.swift */,
 				4DE5E4F61F2773A20004126E /* WinnerViewModel.swift */,
 				4DE5E4F81F27749C0004126E /* PauseMenuViewModel.swift */,
-				4DB1738C1F2A39790018B851 /* TrainDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

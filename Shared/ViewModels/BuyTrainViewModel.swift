@@ -51,6 +51,14 @@ class BuyTrainViewModel : NextStateTransitionProtocol
         }
     }
 
+    func handlePurchase() {
+        guard let loco = self.selectedTrain else {
+            return
+        }
+
+        print ("purchase the \(loco.description)")
+    }
+
     // MARK: - NextStateTransitionProtocol
 
     internal func shouldTransitionToNextState() -> Bool {
