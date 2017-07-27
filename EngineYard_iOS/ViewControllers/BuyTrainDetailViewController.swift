@@ -56,7 +56,7 @@ class BuyTrainDetailViewController: UIViewController {
             print ("You cannot afford this locomotive! Cash: \(playerOnTurn.cash) vs Loco: \(loco.cost)")
         }
         else {
-            self.toggleBuyBtnState(enabled: false)
+            self.toggleBuyBtnState(enabled: true)
         }
 
     }

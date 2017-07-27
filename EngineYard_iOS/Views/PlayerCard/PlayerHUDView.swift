@@ -34,7 +34,7 @@ class PlayerHUDView: UIView {
             self.avtButton.setImage(image, for: .normal)
         }
 
-        self.trainsCountLbl.text = String(0)
+        //self.trainsCountLbl.text = String(0)
     }
     
     // MARK: - IBActions
