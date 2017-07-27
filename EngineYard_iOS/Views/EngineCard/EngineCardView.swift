@@ -10,26 +10,17 @@ import UIKit
 
 class EngineCardView: UIView {
 
-    @IBOutlet weak var trainNameLabel: UILabel!
+    @IBOutlet var iconsOutletCollection: [UIImageView]!
+    @IBOutlet var labelOutletCollection: [UILabel]!
+    @IBOutlet var diceOutletCollection: [UIImageView]!
     @IBOutlet weak var generationLabel: UILabel!
-    @IBOutlet var iconCollection: [UIImageView]!
-    @IBOutlet weak var purchaseCostLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var productionCostLabel: UILabel!
     @IBOutlet weak var incomeLabel: UILabel!
-    @IBOutlet weak var ordersTitleLabel: UILabel!
-    @IBOutlet weak var qtyLabel: UILabel!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet var diceCollection: [UIImageView]!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.layer.cornerRadius = 5.0
-        self.layer.masksToBounds = true
-        self.backgroundColor = UIColor.white
-        for iconIV in self.iconCollection {
-            iconIV.image = iconIV.image?.maskWithColor(color: .white)
-        }
-    }
+    @IBOutlet weak var numberOfChildrenLabel: UILabel!
+    @IBOutlet weak var orderLabel: UILabel!
+    @IBOutlet weak var headerView: GradientView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,52 +30,116 @@ class EngineCardView: UIView {
         super.init(coder: aDecoder)
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = 5.0
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.masksToBounds = true
+        self.backgroundColor = UIColor.white
+        if (self.iconsOutletCollection.count >  0)
+        {
+            for iconIV in self.iconsOutletCollection {
+                iconIV.image = iconIV.image?.maskWithColor(color: .white)
+            }
+        }
+    }
+
+
+    override func updateConstraints() {
+        super.updateConstraints()
+    }
+
+
+
 
     func setup(loco: Locomotive) {
         let genNumber = NSNumber(integerLiteral: loco.generation.rawValue)
         let costNumber = NSNumber(integerLiteral: loco.cost)
         let productionNumber = NSNumber(integerLiteral: loco.productionCost)
         let incomeNumber = NSNumber(integerLiteral: loco.income)
-        let qtyNumber = NSNumber(integerLiteral: loco.engines.count)
+        let childrenNumber = NSNumber(integerLiteral: loco.numberOfChildren)
 
-        self.headerView.backgroundColor = loco.engineColor.getColorForEngine()
-
-        self.trainNameLabel.text = loco.name
-        self.generationLabel.text = NSLocalizedString("Generation \(genNumber)", comment: "Generation number")
-        self.purchaseCostLabel.text = ObjectCache.currencyRateFormatter.string(from: costNumber)
+        self.nameLabel.text = loco.name
+        self.generationLabel.text = NSLocalizedString("Generation \(genNumber)", comment: "Train generation number")
+        self.costLabel.text = ObjectCache.currencyRateFormatter.string(from: costNumber)
         self.productionCostLabel.text = ObjectCache.currencyRateFormatter.string(from: productionNumber)
         self.incomeLabel.text = ObjectCache.currencyRateFormatter.string(from: incomeNumber)
+        self.numberOfChildrenLabel.text = NSLocalizedString("\(childrenNumber) / \(childrenNumber)", comment: "Number of child Engines remaining in stock")
 
-        self.trainNameLabel.sizeToFit()
-        self.generationLabel.sizeToFit()
-        self.purchaseCostLabel.sizeToFit()
-        self.productionCostLabel.sizeToFit()
-        self.incomeLabel.sizeToFit()
+        for label in labelOutletCollection {
+            label.sizeToFit()
+            label.layoutIfNeeded()
+        }
 
-        self.ordersTitleLabel.text = NSLocalizedString("Orders", comment: "Orders title")
-        self.qtyLabel.text = NSLocalizedString("\(qtyNumber) / \(qtyNumber) Remaining", comment: "Qty of cards remaining in stock")
-        self.qtyLabel.sizeToFit()
+        self.orderLabel.text = NSLocalizedString("Orders", comment: "Orders title")
 
-        for imgView:UIImageView in diceCollection {
+        for imgView:UIImageView in self.diceOutletCollection {
             imgView.isHidden = true
         }
 
-        /**
-        if (loco.orders.count > 0)
+        if (loco.existingOrders.count > 0)
         {
-            for (index, dp) in loco.orders.enumerated() {
-                let dieValue:Int = dp.d6
-                let asset = Die.imageNameForValue(dieValue: dieValue)
-                diceCollection[index].image = UIImage(named: asset)
-                diceCollection[index].isHidden = false
+            for (index, orderValue) in loco.existingOrders.enumerated() {
+                let asset = Die.assetNameForValue(dieValue: orderValue)
+                self.diceOutletCollection[index].image = UIImage(named: asset)
+                self.diceOutletCollection[index].isHidden = false
             }
         }
-        **/
+
+        self.setHeaderColor(loco: loco)
     }
 
-    override func updateConstraints() {
-        super.updateConstraints()
+    func setHeaderColor(loco: Locomotive) {
+        switch loco.engineColor {
+        case .green:
+            self.headerView.topColor = UIColor.init(colorLiteralRed: 66/255, green: 230/255, blue: 149/255, alpha: 1)
+            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 59/255, green: 178/255, blue: 184/255, alpha: 1)
+            break
+        case .red:
+            self.headerView.topColor = UIColor.init(colorLiteralRed: 245/255, green: 78/255, blue: 162/255, alpha: 1)
+            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 255/255, green: 118/255, blue: 118/255, alpha: 1)
+            break
+        case .yellow:
+            self.headerView.topColor = UIColor.init(colorLiteralRed: 252/255, green: 227/255, blue: 138/255, alpha: 1)
+            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 243/255, green: 129/255, blue: 129/255, alpha: 1)
+            break
+        case .blue:
+            self.headerView.topColor = UIColor.init(colorLiteralRed: 23/255, green: 234/255, blue: 217/255, alpha: 1)
+            self.headerView.bottomColor = UIColor.init(colorLiteralRed: 96/255, green: 120/255, blue: 234/255, alpha: 1)
+            break
+        }
     }
+
+    public static func applyDropShadow(loco: Locomotive, toView: UIView) {
+        
+        let alpha: Float = 1.0
+        var color = UIColor.init(colorLiteralRed: 192/255, green: 192/255, blue: 192/255, alpha: alpha)
+
+        switch loco.engineColor {
+        case .green:
+            color = UIColor.init(colorLiteralRed: 59/255, green: 178/255, blue: 184/255, alpha: alpha)
+            break
+        case .red:
+            color = UIColor.init(colorLiteralRed: 255/255, green: 118/255, blue: 118/255, alpha: alpha)
+            break
+        case .yellow:
+            color = UIColor.init(colorLiteralRed: 243/255, green: 129/255, blue: 129/255, alpha: alpha)
+            break
+        case .blue:
+            color = UIColor.init(colorLiteralRed: 96/255, green: 120/255, blue: 234/255, alpha: alpha)
+            break
+        }
+
+        toView.layer.masksToBounds = false
+        toView.layer.shadowColor = color.cgColor
+        toView.layer.shadowOpacity = 0.25
+        toView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        toView.layer.shadowRadius = 5
+        toView.layer.shadowPath = UIBezierPath(rect: toView.bounds).cgPath
+        toView.layer.shouldRasterize = true
+        toView.layer.rasterizationScale = UIScreen.main.scale
+    }
+
 
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

@@ -22,18 +22,26 @@ class BuyTrainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        addTrainViewController()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     private func addTrainViewController() {
+        guard let hasViewModel = self.buyTrainViewModel else {
+            assertionFailure("No view model defined")
+            return
+        }
+
         let sb: UIStoryboard = UIStoryboard(name: "Train", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainViewController") as? TrainViewController
         {
             self.controller = controller
+            self.controller?.trainsViewModel = TrainListViewModel.init(game: hasViewModel.game)
+
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(controller.view)
@@ -49,20 +57,12 @@ class BuyTrainViewController: UIViewController {
 
             controller.completionClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
-                self.moveToProductionSegue()
+                print ("doneBtn pressed")
             }
         }
     }
 
-    private func shouldMoveToProductionSegue() -> Bool {
-        return true
-    }
 
-    private func moveToProductionSegue() {
-        if (shouldMoveToProductionSegue()) {
-            self.performSegue(withIdentifier: "productionSegue", sender: self)
-        }
-    }
     
     // MARK: - Navigation
 

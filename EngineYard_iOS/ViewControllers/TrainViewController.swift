@@ -8,9 +8,21 @@
 
 import UIKit
 
+struct TrainListViewModel
+{
+    var game: Game?
+
+    init(game: Game) {
+        self.game = game
+    }
+}
+
 class TrainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
+
     weak var HUD: HUDViewController?
+    var trainsViewModel: TrainListViewModel!
+
     @IBOutlet weak var pageTitleLabel: UILabel!
     @IBOutlet weak var trainsCollectionView: UICollectionView!
     @IBOutlet weak var doneBtn: UIButton!
@@ -24,7 +36,7 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
 
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self
-        self.trainsCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "engineCardCellReuseID")
+        self.trainsCollectionView.register(EngineCardCollectionViewCell.self, forCellWithReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier)
         self.trainsCollectionView.backgroundColor = UIColor.clear
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self
@@ -41,14 +53,39 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 14
+        guard let gameObj = self.trainsViewModel.game else {
+            assertionFailure("No game object is defined")
+            return 0
+        }
+        guard let gameBoard = gameObj.gameBoard else {
+            assertionFailure("No game board is defined")
+            return 0
+        }
+        return gameBoard.decks.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "engineCardCellReuseID", for: indexPath)
+        let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
 
-        cell.backgroundColor = UIColor.purple
+
+        if cell.engineCardView == nil {
+            let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
+            let view = arr[0] as! EngineCardView
+            cell.contentView.addSubview(view)
+            cell.engineCardView = view
+        }
+
+        if let gameBoard = self.trainsViewModel.game?.gameBoard {
+
+            let loco: Locomotive = gameBoard.decks[indexPath.row]
+            print(indexPath.row, loco.description)
+            cell.engineCardView?.setup(loco:loco)
+            EngineCardView.applyDropShadow(loco: loco, toView: cell)
+        }
+
+
         cell.layoutIfNeeded()
+
 
         return cell
     }
