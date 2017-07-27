@@ -20,4 +20,10 @@ class PauseViewModel {
         // if true: end game
     }
 
+    func toggleMusic() {
+    }
+
+    func toggleSound() {
+    }
+
 }
