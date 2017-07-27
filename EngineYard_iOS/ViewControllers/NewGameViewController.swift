@@ -108,12 +108,6 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.collectionView.dataSource = self
         self.collectionView.allowsMultipleSelection = false
         self.collectionView.layoutIfNeeded()
-
-        Game.setup(players: viewModel.players) { (game:Game?) in
-            if let gameObj = game {
-                self.game = gameObj
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,20 +142,27 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         if (gameObj.inProgress)
         {
             self.abandonGameAlert(completionClosure: { (abandoned) in
-                guard let _ = abandoned else {
+                guard let didAbandon = abandoned else {
                     return
                 }
-                Game.setup(players: self.viewModel.players) { (game:Game?) in
-                    if let gameObj = game {
-                        print ("Game setup!")
-                        self.game = gameObj
-                        self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
-                    }
+                if (didAbandon) {
+                    gameObj.abandon()
+                    self.launchGame()
                 }
             })
         }
         else {
-            self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
+            self.launchGame()
+        }
+    }
+
+    func launchGame() {
+        Game.setup(players: self.viewModel.players) { (game:Game?) in
+            if let gameObj = game {
+                print ("Game setup!")
+                self.game = gameObj
+                self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
+            }
         }
     }
 
@@ -174,10 +175,6 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cancelString = NSLocalizedString("Cancel", comment: "Cancel")
 
         let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
-            guard let gameObj = self.game else {
-                return
-            }
-            gameObj.abandon()
             completionClosure(true)
         }
         let actionCancel = UIAlertAction(title: cancelString, style: .destructive, handler: nil)
@@ -231,7 +228,7 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         if (segue.identifier == "buyTrainSegue") {
             let vc : BuyTrainViewController = (segue.destination as? BuyTrainViewController)!
-            vc.buyTrainViewModel.game = hasGame
+            vc.buyTrainViewModel = BuyTrainViewModel.init(game: hasGame)
         }
     }
     

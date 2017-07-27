@@ -10,7 +10,7 @@ import UIKit
 
 class BuyTrainViewController: UIViewController {
 
-    var buyTrainViewModel: BuyTrainViewModel!
+    var buyTrainViewModel: BuyTrainViewModel?
     weak var controller: TrainViewController?
 
     deinit {
