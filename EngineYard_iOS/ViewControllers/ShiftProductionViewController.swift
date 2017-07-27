@@ -1,0 +1,32 @@
+//
+//  ShiftProductionViewController.swift
+//  EngineYard
+//
+//  Created by Amarjit on 26/07/2017.
+//  Copyright © 2017 Amarjit. All rights reserved.
+//
+
+import UIKit
+
+class ShiftProductionViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
