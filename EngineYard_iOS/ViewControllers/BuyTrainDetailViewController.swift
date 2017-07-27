@@ -11,18 +11,39 @@ import UIKit
 class BuyTrainDetailViewController: UIViewController {
 
     var completionClosure : ((_ didPurchase: Bool)->())?
+    var trainDetailViewModel: TrainDetailViewModel?
+    @IBOutlet weak var buyBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var engineCardXIBView: EngineCardXibView!
+    @IBOutlet weak var playerXIBView: PlayerXIBView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        guard let buyBtnText = self.trainDetailViewModel?.buyButtonText else {
+            return
+        }
+        self.buyBtn.setTitle(buyBtnText, for: .normal)
+        self.buyBtn.layoutIfNeeded()
+        self.buyBtn.sizeToFit()
+
+        if let loco = self.trainDetailViewModel?.locomotive {
+            let engineCard = self.engineCardXIBView.contentView as! EngineCardView
+            engineCard.setup(loco: loco)
+            EngineCardView.applyDropShadow(loco: loco, toView: self.engineCardXIBView)
+            self.engineCardXIBView.layoutIfNeeded()
+
+            //let hudCard = self.playerXIBView.contentView as! PlayerHUDView
+            //hudCard.updatePlayerHUD(player: playerOnTurn)
+
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
 
     // MARK: - IBActions
 

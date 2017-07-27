@@ -63,8 +63,13 @@ class BuyTrainViewController: UIViewController {
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
             }
-            controller.selectedTrainClosure = { (purchasedTrain: Locomotive?) in
+            controller.selectedTrainClosure = { (train: Locomotive?) in
                 print ("selectedTrainClosure pressed")
+                if let selectedTrain = train {
+                    print ("You clicked on: \(selectedTrain.name)")
+                    hasViewModel.selectedTrain = selectedTrain
+                    self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
+                }
             }
         }
     }
@@ -83,6 +88,21 @@ class BuyTrainViewController: UIViewController {
         guard let _ = hasGame.gameBoard else {
             assertionFailure("No gameboard defined")
             return
+        }
+
+        if (segue.identifier == "trainDetailSegue") {
+            guard let selectedTrain = self.buyTrainViewModel?.selectedTrain else {
+                return
+            }
+            let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
+            vc.trainDetailViewModel = TrainDetailViewModel.init(game: hasGame, locomotive: selectedTrain)
+            vc.completionClosure = { (didPurchase) in
+                print ("didPurchase == \(didPurchase)")
+
+                if (didPurchase) {
+
+                }
+            }
         }
 
         if (segue.identifier == "productionSegue") {
