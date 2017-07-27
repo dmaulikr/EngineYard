@@ -12,12 +12,20 @@ final class Game: CustomStringConvertible
 {
     static var instance = Game()
 
-    private(set) var dateCreated: Date?
+    fileprivate(set) var dateCreated: Date?
 
-    var settings: GameConfig = GameConfig()
-    var gameBoard: GameBoard = GameBoard() {
+    var settings: GameConfig?
+    var gameBoard: GameBoard? {
         didSet {
-            self.dateCreated = Date.init(timeIntervalSinceNow: 0)
+            guard let gameBoard = self.gameBoard else {
+                return
+            }
+            if (gameBoard.decks.count > 0) {
+                self.dateCreated = Date.init(timeIntervalSinceNow: 0)
+            }
+            else {
+                self.dateCreated = nil
+            }
         }
     }
     var inProgress : Bool {
@@ -34,8 +42,6 @@ final class Game: CustomStringConvertible
         }
         return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress), Players: \(self.players.count)")
     }
-
-
 }
 
 extension Game {
@@ -61,6 +67,16 @@ extension Game {
             assertionFailure(error.localizedDescription)
             completionClosure(nil)
         }
-        
+    }
+
+    func abandon() {
+        guard let gameBoard = self.gameBoard else {
+            return
+        }
+        gameBoard.reset()
+        self.gameBoard = nil
+        self.dateCreated = nil
+        self.turnOrderManager.turnOrder.removeAll()
+        self.settings = nil
     }
 }

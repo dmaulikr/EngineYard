@@ -69,7 +69,12 @@ extension SetupManager
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
 
-        let decks = gameModel.gameBoard.decks
+        guard let gameBoard = gameModel.gameBoard else {
+            assertionFailure("GameBoard is not defined")
+            return
+        }
+
+        let decks = gameBoard.decks
 
         guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
             return
@@ -120,7 +125,12 @@ extension SetupManager
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
 
-        let decks = gameModel.gameBoard.decks
+        guard let gameBoard = gameModel.gameBoard else {
+            assertionFailure("GameBoard is not defined")
+            return
+        }
+
+        let decks = gameBoard.decks
 
         guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
             return

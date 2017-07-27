@@ -20,6 +20,10 @@ class BuyTrainViewModel : NextStateTransitionProtocol
     var game: Game!
     var playerOnTurn = TurnOrderManager.instance.current
 
+    init(game: Game) {
+        self.game = game
+    }
+
     func buy(train: Locomotive) {
 
         if (playerOnTurn.isAI == false)

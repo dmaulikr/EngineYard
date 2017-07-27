@@ -14,7 +14,7 @@ extension Notification.Name {
 
 final class GameBoard {
 
-    private var _trains: [Locomotive] = [Locomotive]()
+    fileprivate var _trains: [Locomotive] = [Locomotive]()
 
     public var decks: [Locomotive] {
         return self._trains.sorted(by: { (loco1:Locomotive, loco2:Locomotive) -> Bool in
@@ -73,5 +73,9 @@ final class GameBoard {
     }
     
 
+    func reset() {
+        self._trains.removeAll()
+        removeNotifications()
+    }
 
 }

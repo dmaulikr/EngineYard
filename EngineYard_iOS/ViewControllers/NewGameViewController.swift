@@ -76,25 +76,26 @@ struct NewGameViewModel {
         self.oldStepperValue = value
 
     }
-
-
 }
 
 
 class NewGameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StepperProtocol
 {
     var viewModel: NewGameViewModel!
-    var game : Game!
+    var game : Game?
 
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var doneBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.viewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
         self.viewModel.delegate = self
+
+        self.game = Game.instance
 
         self.stepper.minimumValue = Double(Constants.NumberOfPlayers.min)
         self.stepper.maximumValue = Double(Constants.NumberOfPlayers.max)
@@ -107,6 +108,12 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.collectionView.dataSource = self
         self.collectionView.allowsMultipleSelection = false
         self.collectionView.layoutIfNeeded()
+
+        Game.setup(players: viewModel.players) { (game:Game?) in
+            if let gameObj = game {
+                self.game = gameObj
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -134,20 +141,51 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     @IBAction func doneBtnPresed(_ sender: UIButton) {
-
-        Game.setup(players: viewModel.players) { (game:Game?) in
-            if (game != nil) {
-                self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
-            }
+        guard let gameObj = game else {
+            return
         }
 
-        /*
-        self.viewModel.setupGame { (completed) in
-            if (completed) {
-                self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
-            }
+        if (gameObj.inProgress)
+        {
+            self.abandonGameAlert(completionClosure: { (abandoned) in
+                guard let _ = abandoned else {
+                    return
+                }
+                Game.setup(players: self.viewModel.players) { (game:Game?) in
+                    if let gameObj = game {
+                        print ("Game setup!")
+                        self.game = gameObj
+                        self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
+                    }
+                }
+            })
         }
-         */
+        else {
+            self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
+        }
+    }
+
+    func abandonGameAlert(completionClosure : @escaping ((_ abandoned:Bool?)->())) {
+        let alertController = UIAlertController(title: "Abandon game?",
+                                                message: "Do you wish to abandon the current game",
+                                                preferredStyle: .alert)
+
+        let okString = NSLocalizedString("OK", comment: "OK")
+        let cancelString = NSLocalizedString("Cancel", comment: "Cancel")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            guard let gameObj = self.game else {
+                return
+            }
+            gameObj.abandon()
+            completionClosure(true)
+        }
+        let actionCancel = UIAlertAction(title: cancelString, style: .destructive, handler: nil)
+
+        alertController.addAction(actionOK)
+        alertController.addAction(actionCancel)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - Collection View
@@ -182,8 +220,18 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        guard let hasGame = self.game else {
+            assertionFailure("No game object defined")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("No gameboard defined")
+            return
+        }
+
         if (segue.identifier == "buyTrainSegue") {
-            //let vc : BuyTrainViewController = (segue.destination as? BuyTrainViewController)!
+            let vc : BuyTrainViewController = (segue.destination as? BuyTrainViewController)!
+            vc.buyTrainViewModel.game = hasGame
         }
     }
     

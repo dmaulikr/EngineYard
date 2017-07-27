@@ -71,7 +71,6 @@
 		4DC6B4F31F28B5E700B3C991 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4F11F28B5E700B3C991 /* Game.storyboard */; };
 		4DC6B4F61F28B84E00B3C991 /* Sales.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4F41F28B84E00B3C991 /* Sales.storyboard */; };
 		4DC6B4FC1F28C0ED00B3C991 /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */; };
-		4DC6B5011F28C43200B3C991 /* PlayerHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5001F28C43200B3C991 /* PlayerHUDView.xib */; };
 		4DC6B5031F28C4AA00B3C991 /* PlayerHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5021F28C4AA00B3C991 /* PlayerHUDView.swift */; };
 		4DC6B53F1F28DF5800B3C991 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B53D1F28DF5800B3C991 /* TrainViewController.swift */; };
 		4DC6B5431F28E14300B3C991 /* Train.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5411F28E14300B3C991 /* Train.storyboard */; };
@@ -678,7 +677,6 @@
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
 				4DC6B4CA1F289F2200B3C991 /* PlayerHUDView.xib in Resources */,
-				4DC6B5011F28C43200B3C991 /* PlayerHUDView.xib in Resources */,
 				4DC6B54E1F29246800B3C991 /* PlayerTaxView.xib in Resources */,
 				4DC6B5431F28E14300B3C991 /* Train.storyboard in Resources */,
 				4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */,
@@ -1003,7 +1001,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1046,7 +1044,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
