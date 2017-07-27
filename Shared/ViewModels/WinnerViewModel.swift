@@ -10,14 +10,17 @@ import Foundation
 
 class WinnerViewModel
 {
-    var game: Game!
+    var game: Game?
 
     init(game: Game) {
         self.game = game
     }
 
-    lazy var playersSortedByHighestCash: [Player] = {
-        return PlayerAPI.sortPlayersByHighestCash(players: self.game.players)
+    lazy var playersSortedByHighestCash: [Player]? = {
+        guard let gameObj = self.game else {
+            return nil
+        }
+        return PlayerAPI.sortPlayersByHighestCash(players: gameObj.players)
     }()
 
     static var pageTitleText: String {

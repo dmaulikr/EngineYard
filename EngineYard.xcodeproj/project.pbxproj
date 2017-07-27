@@ -110,6 +110,7 @@
 		4DE8BBF71F26817800056CF1 /* SalesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF61F26817800056CF1 /* SalesTests.swift */; };
 		4DE8BBF91F2718DA00056CF1 /* SalesJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8BBF81F2718DA00056CF1 /* SalesJournal.swift */; };
 		4DEEBA9B1F29D8AA000C5D16 /* EngineCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEEBA9A1F29D8AA000C5D16 /* EngineCardCollectionViewCell.swift */; };
+		4DEEBA9D1F29F415000C5D16 /* SalesReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEEBA9C1F29F415000C5D16 /* SalesReportViewModel.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -234,6 +235,7 @@
 		4DE8BBF61F26817800056CF1 /* SalesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesTests.swift; sourceTree = "<group>"; };
 		4DE8BBF81F2718DA00056CF1 /* SalesJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesJournal.swift; sourceTree = "<group>"; };
 		4DEEBA9A1F29D8AA000C5D16 /* EngineCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DEEBA9C1F29F415000C5D16 /* SalesReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesReportViewModel.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */,
 				4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */,
 				4DE5E4EC1F2771BE0004126E /* SellingViewModel.swift */,
+				4DEEBA9C1F29F415000C5D16 /* SalesReportViewModel.swift */,
 				4DE5E4F01F2772300004126E /* TaxesViewModel.swift */,
 				4DE5E4F21F2773490004126E /* MarketDemandsViewModel.swift */,
 				4DE5E4F41F2773710004126E /* NewTurnOrderViewModel.swift */,
@@ -864,6 +867,7 @@
 				4D1A4C4B1F21360A00680333 /* Engine.swift in Sources */,
 				4D1A4C571F21388800680333 /* Tax.swift in Sources */,
 				4D1A4C5F1F21394A00680333 /* Player+API.swift in Sources */,
+				4DEEBA9D1F29F415000C5D16 /* SalesReportViewModel.swift in Sources */,
 				4D1A4C351F21315800680333 /* EY+Time.swift in Sources */,
 				4D1A4C271F21314B00680333 /* ErrorCodes.swift in Sources */,
 			);

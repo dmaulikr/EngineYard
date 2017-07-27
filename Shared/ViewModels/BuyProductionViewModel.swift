@@ -8,56 +8,12 @@
 
 import Foundation
 
-class BuyProductionViewModel : NextStateTransitionProtocol
+class ProductionPageViewModel : NextStateTransitionProtocol
 {
-    var game: Game!
-    var playerOnTurn: Player = TurnOrderManager.instance.current
-    weak var engine: Engine?
+    var game: Game?
 
-    var unitsToPurchase: Int = 0 {
-        didSet {
-            if (self.unitsToPurchase < 0) {
-                self.unitsToPurchase = 0
-            }
-        }
-    }
-    var totalCost: Int {
-        guard let hasEngine = engine else {
-            return 0
-        }
-        guard let hasTrain = hasEngine.parent else {
-            return 0
-        }
-        return (hasTrain.productionCost * unitsToPurchase)
-    }
-
-    func stepperValueDidChange(stepperValue: Int) {
-        self.unitsToPurchase = stepperValue
-    }
-
-    func purchase() {
-        if (playerOnTurn.account.canAfford(amount: self.totalCost)) {
-
-        }
-        else {
-            if (!playerOnTurn.isAI) {
-            }
-            else {
-                skip()
-            }
-        }
-    }
-
-    func skip() {
-        if (playerOnTurn.isAI == true) {
-            // are you sure?
-            // if yes: complete player turn
-            // if yes: move to next player turn
-        }
-        else {
-            // complete player turn
-            // move to next player turn
-        }
+    init(game: Game) {
+        self.game = game
     }
 
     // MARK: - NextStateTransitionProtocol

@@ -10,7 +10,7 @@ import Foundation
 
 class TaxesViewModel: NextStateTransitionProtocol
 {
-    var game: Game!
+    var game: Game?
 
     init(game: Game) {
         self.game = game

@@ -53,7 +53,10 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.winnerViewModel.game.players.count
+        guard let gameObj = self.winnerViewModel.game else {
+            return 0
+        }
+        return gameObj.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,12 +67,14 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.contentView.addSubview(view)
 
         if let _ = self.winnerViewModel.game {
-            let player: Player = self.winnerViewModel.playersSortedByHighestCash[indexPath.row]
+            if let playersSortedByHighestCash = self.winnerViewModel.playersSortedByHighestCash {
+                let player: Player = playersSortedByHighestCash[indexPath.row]
 
-            view.avatarImageView?.image = UIImage(named: player.asset)
-            view.indexLabel?.text = "#\(indexPath.row+1)"
-            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
-            view.nameLabel?.text = player.name
+                view.avatarImageView?.image = UIImage(named: player.asset)
+                view.indexLabel?.text = "#\(indexPath.row+1)"
+                view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+                view.nameLabel?.text = player.name
+            }
         }
         
         view.layoutIfNeeded()

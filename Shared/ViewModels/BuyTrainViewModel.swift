@@ -17,7 +17,7 @@ protocol NextStateTransitionProtocol {
 class BuyTrainViewModel : NextStateTransitionProtocol
 {
 
-    var game: Game!
+    var game: Game?
     var playerOnTurn = TurnOrderManager.instance.current
 
     init(game: Game) {

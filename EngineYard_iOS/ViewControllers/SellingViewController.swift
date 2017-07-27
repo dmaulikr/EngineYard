@@ -12,6 +12,7 @@ import UIKit
 class SellingViewController: UIViewController {
 
     @IBOutlet weak var doneBtn: UIButton!
+    var sellingViewModel: SellingViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

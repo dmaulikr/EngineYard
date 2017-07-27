@@ -10,11 +10,12 @@ import Foundation
 
 class SellingViewModel: NextStateTransitionProtocol
 {
-    var game: Game!
+    var game: Game?
 
-    func sell() {
-        // sell on background queue
+    init(game: Game) {
+        self.game = game
     }
+
 
     // MARK: - NextStateTransitionProtocol
 

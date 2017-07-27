@@ -35,12 +35,16 @@ class BuyTrainViewController: UIViewController {
             assertionFailure("No view model defined")
             return
         }
+        guard let gameObj = hasViewModel.game else {
+            assertionFailure("No game object defined")
+            return
+        }
 
         let sb: UIStoryboard = UIStoryboard(name: "Train", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainViewController") as? TrainViewController
         {
             self.controller = controller
-            self.controller?.trainsViewModel = TrainListViewModel.init(game: hasViewModel.game)
+            self.controller?.trainsViewModel = TrainListViewModel.init(game: gameObj)
 
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +75,20 @@ class BuyTrainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        guard let hasGame = self.buyTrainViewModel?.game else {
+            assertionFailure("No game object defined")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("No gameboard defined")
+            return
+        }
+
+        if (segue.identifier == "productionSegue") {
+            let vc : BuyProductionViewController = (segue.destination as? BuyProductionViewController)!
+            vc.productionPageViewModel = ProductionPageViewModel.init(game: hasGame)
+        }
     }
 
 

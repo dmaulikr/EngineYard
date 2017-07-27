@@ -10,7 +10,11 @@ import Foundation
 
 class MarketDemandsViewModel: NextStateTransitionProtocol
 {
-    var game: Game!
+    var game: Game?
+
+    init(game: Game) {
+        self.game = game
+    }
 
     // MARK: - NextStateTransitionProtocol
 

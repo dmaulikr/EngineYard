@@ -10,16 +10,19 @@ import Foundation
 
 class NewTurnOrderViewModel: NextStateTransitionProtocol
 {
-    var game: Game!
-
+    var game: Game?
+    
     init(game: Game) {
         self.game = game
     }
 
     static var cellReuseIdentifier = "turnOrderCellReuseID"
 
-    lazy var playersSortedByLowestCash : [Player] = {
-        return PlayerAPI.sortPlayersByLowestCash(players: self.game.players)
+    lazy var playersSortedByLowestCash : [Player]? = {
+        guard let gameObj = self.game else {
+            return nil
+        }
+        return PlayerAPI.sortPlayersByLowestCash(players: gameObj.players)
     }()
 
     // MARK: - NextStateTransitionProtocol

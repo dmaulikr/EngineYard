@@ -39,7 +39,10 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.turnOrderViewModel.game.players.count
+        guard let gameObj = self.turnOrderViewModel.game else {
+            return 0
+        }
+        return gameObj.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,12 +53,16 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
         cell.contentView.addSubview(view)
 
         if let _ = self.turnOrderViewModel.game {
-            let player = self.turnOrderViewModel.playersSortedByLowestCash[indexPath.row]
 
-            view.avatarImageView?.image = UIImage(named: player.asset)
-            view.indexLabel?.text = "#\(indexPath.row+1)"
-            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
-            view.nameLabel?.text = player.name
+            if let playersSortedByLowestCash = self.turnOrderViewModel.playersSortedByLowestCash {
+
+                let player = playersSortedByLowestCash[indexPath.row]
+                view.avatarImageView?.image = UIImage(named: player.asset)
+                view.indexLabel?.text = "#\(indexPath.row+1)"
+                view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+                view.nameLabel?.text = player.name
+            }
+
         }
 
         view.layoutIfNeeded()
