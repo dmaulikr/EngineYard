@@ -12,18 +12,9 @@ import XCTest
 
 class SalesTests: BaseTests {
 
-
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    /***
     var gameObj: Game!
-    var trains: [Locomotive]!
+    var gameBoard: GameBoard = GameBoard.init()
+    var trains: [Locomotive] = [Locomotive]()
 
     override func setUp() {
         super.setUp()
@@ -37,11 +28,16 @@ class SalesTests: BaseTests {
             XCTFail("No game object")
             return
         }
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("No game board defined")
+            return
+        }
 
         self.gameObj = gameObj
-        self.trains = self.gameObj.gameBoard.decks
+        self.gameBoard = gameBoard
+        self.trains = gameBoard.decks
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
@@ -149,8 +145,6 @@ class SalesTests: BaseTests {
         orders = filtered
     }
 
-
-
     func testSalesMatchLoop() {
         var orders = [3,5,2]
         var units = 10
@@ -222,11 +216,11 @@ class SalesTests: BaseTests {
             }
         }
 
-        let countUnlocked = gameObj.gameBoard.decks.filter { (loco: Locomotive) -> Bool in
+        let countUnlocked = gameBoard.decks.filter { (loco: Locomotive) -> Bool in
             return (loco.isUnlocked)
         }.count
 
-        let trainsWithOrders = gameObj.gameBoard.decks.filter { (loco: Locomotive) -> Bool in
+        let trainsWithOrders = gameBoard.decks.filter { (loco: Locomotive) -> Bool in
             return (loco.orderBook.existingOrders.count > 0)
             }.sorted { (loco1: Locomotive, loco2: Locomotive) -> Bool in
             return (loco1.cost < loco2.cost)
@@ -238,7 +232,5 @@ class SalesTests: BaseTests {
 
         // # TODO
     }
-
-    **/
 
 }

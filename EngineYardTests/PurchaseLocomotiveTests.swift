@@ -20,33 +20,51 @@ class PurchaseLocomotiveTests: BaseTests {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-//
-//    func testPurchaseTrain() {
-//
-//        var unlocked = trains.filter { (loco:Locomotive) -> Bool in
-//            return (loco.isUnlocked == true)
-//        }
-//        XCTAssert(unlocked.count == 1)
-//
-//        guard let firstTrain = self.trains.first else {
-//            return
-//        }
-//
-//        guard let firstPlayer = self.gameObj.players.first else {
-//            return
-//        }
-//
-//        XCTAssertTrue(firstPlayer.account.canAfford(amount: firstTrain.cost))
-//
-//        let beforePurchase = firstPlayer.account.balance
-//        firstTrain.purchase(buyer: firstPlayer)
-//        XCTAssert(firstPlayer.cash == (beforePurchase - firstTrain.cost))
-//
-//        unlocked = trains.filter { (loco:Locomotive) -> Bool in
-//            return (loco.isUnlocked == true)
-//        }
-//        XCTAssert(unlocked.count == 2)
-//
-//        XCTAssert(firstPlayer.engines.count == 1)
-//    }
+
+    func testPurchaseTrain() {
+        let howMany = 5
+        guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: howMany) else {
+            return
+        }
+        XCTAssert(mockPlayers.count == howMany)
+        guard let gameObj = Game.setup(players: mockPlayers) else {
+            XCTFail("No game object defined")
+            return
+        }
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("No game board defined")
+            return
+        }
+
+        let trains = gameBoard.decks
+
+        var unlocked = trains.filter { (loco:Locomotive) -> Bool in
+            return (loco.isUnlocked == true)
+        }
+        XCTAssert(unlocked.count == 1)
+
+        
+        guard let firstTrain = trains.first else {
+            XCTFail("No train found")
+            return
+        }
+
+        guard let firstPlayer = gameObj.players.first else {
+            XCTFail("No player found")
+            return
+        }
+
+        XCTAssertTrue(firstPlayer.account.canAfford(amount: firstTrain.cost))
+
+        let beforePurchase = firstPlayer.account.balance
+        firstTrain.purchase(buyer: firstPlayer)
+        XCTAssert(firstPlayer.cash == (beforePurchase - firstTrain.cost))
+
+        unlocked = trains.filter { (loco:Locomotive) -> Bool in
+            return (loco.isUnlocked == true)
+        }
+        XCTAssert(unlocked.count == 2)
+
+        XCTAssert(firstPlayer.engines.count == 1)
+    }
 }
