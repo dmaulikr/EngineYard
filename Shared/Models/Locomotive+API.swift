@@ -33,8 +33,23 @@ class LocomotiveAPI : NSObject {
         return trains
     }
 
-    public static func allLocomotives(gameBoard: GameBoard) -> [Locomotive] {
-        return gameBoard.decks
+    // All locomotives that are valid to the rules of the game when in state: BuyLocomotiveState
+    public static func allLocomotives(gameBoard: GameBoard, player: Player?) -> [Locomotive] {
+
+        guard let _ = player else {
+            return self.allLocos(gameBoard: gameBoard)
+        }
+
+        // filter all locomotives not owned by player
+        let results = gameBoard.decks
+
+        return results
+    }
+
+    private static func allLocos(gameBoard: GameBoard) -> [Locomotive] {
+        return (gameBoard.decks.sorted(by: { (loco1:Locomotive, loco2:Locomotive) -> Bool in
+            return (loco1.cost < loco2.cost)
+        }))
     }
 
     public static func getSalesTurnOrderForTrain(train:Locomotive) -> [Engine] {

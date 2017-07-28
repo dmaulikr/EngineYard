@@ -11,6 +11,12 @@ import Foundation
 class ProductionPageViewModel : NextStateTransitionProtocol
 {
     weak var game: Game?
+    lazy var currentPlayer: Player? = {
+        guard let hasGame = self.game else {
+            return nil
+        }
+        return hasGame.turnOrderManager.current
+    }()
 
     lazy var allTrains: [Locomotive]? = {
         guard let hasGame = self.game else {
@@ -21,7 +27,11 @@ class ProductionPageViewModel : NextStateTransitionProtocol
             return nil
         }
 
-        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
+        guard let hasPlayer = self.currentPlayer else {
+            return nil
+        }
+
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard, player: hasPlayer)
     }()
 
     init(game: Game) {

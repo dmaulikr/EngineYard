@@ -27,8 +27,11 @@ class BuyTrainViewModel : NextStateTransitionProtocol
         guard let gameBoard = hasGame.gameBoard else {
             return nil
         }
+        guard let currentPlayer = self.playerOnTurn else {
+            return nil
+        }
 
-        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard, player: currentPlayer)
     }()
 
 
