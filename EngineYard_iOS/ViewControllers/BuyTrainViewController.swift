@@ -40,12 +40,15 @@ class BuyTrainViewController: UIViewController {
             return
         }
 
+        // Launch Train View Controller
         let sb: UIStoryboard = UIStoryboard(name: "Train", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainViewController") as? TrainViewController
         {
+            let trains = hasViewModel.allTrains
+
             self.trainViewController = controller
+            self.trainViewController?.trainsViewModel = TrainListViewModel.init(game: gameObj, trains: trains)
             
-            self.trainViewController?.trainsViewModel = TrainListViewModel.init(game: gameObj)
 
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false

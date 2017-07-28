@@ -12,6 +12,18 @@ class ProductionPageViewModel : NextStateTransitionProtocol
 {
     weak var game: Game?
 
+    lazy var allTrains: [Locomotive]? = {
+        guard let hasGame = self.game else {
+            return nil
+        }
+
+        guard let gameBoard = hasGame.gameBoard else {
+            return nil
+        }
+
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
+    }()
+
     init(game: Game) {
         self.game = game
     }

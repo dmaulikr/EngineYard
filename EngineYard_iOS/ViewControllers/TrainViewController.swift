@@ -11,18 +11,13 @@ import UIKit
 struct TrainListViewModel
 {
     weak var game: Game?
-    lazy var trains: [Locomotive]? = {
-        guard let gameObj = self.game else {
-            return nil
-        }
-        guard let gameBoard = gameObj.gameBoard else {
-            return nil
-        }
-        return gameBoard.decks
-    }()
+    var trains: [Locomotive]?
 
-    init(game: Game) {
+    init(game: Game, trains:[Locomotive]?) {
         self.game = game
+        if let hasTrains = trains {
+            self.trains = hasTrains
+        }
     }
 }
 
@@ -76,7 +71,6 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
-
 
         if cell.engineCardView == nil {
             let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)

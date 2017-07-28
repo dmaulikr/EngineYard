@@ -13,12 +13,24 @@ protocol NextStateTransitionProtocol {
     func transitionToNextState()
 }
 
-
 class BuyTrainViewModel : NextStateTransitionProtocol
 {
     weak var game: Game?
     weak var playerOnTurn = TurnOrderManager.instance.current
     weak var selectedTrain: Locomotive?
+
+    lazy var allTrains: [Locomotive]? = {
+        guard let hasGame = self.game else {
+            return nil
+        }
+
+        guard let gameBoard = hasGame.gameBoard else {
+            return nil
+        }
+
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
+    }()
+
 
     init(game: Game) {
         self.game = game
