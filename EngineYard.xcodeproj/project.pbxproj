@@ -73,8 +73,6 @@
 		4DC6B4F61F28B84E00B3C991 /* Sales.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4F41F28B84E00B3C991 /* Sales.storyboard */; };
 		4DC6B4FC1F28C0ED00B3C991 /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4FA1F28C0ED00B3C991 /* HUD.storyboard */; };
 		4DC6B5031F28C4AA00B3C991 /* PlayerHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5021F28C4AA00B3C991 /* PlayerHUDView.swift */; };
-		4DC6B53F1F28DF5800B3C991 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B53D1F28DF5800B3C991 /* TrainViewController.swift */; };
-		4DC6B5431F28E14300B3C991 /* Train.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5411F28E14300B3C991 /* Train.storyboard */; };
 		4DC6B5451F28E8C800B3C991 /* SalesReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5441F28E8C800B3C991 /* SalesReportViewController.swift */; };
 		4DC6B5471F28EA6700B3C991 /* ShiftProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B5461F28EA6700B3C991 /* ShiftProductionViewController.swift */; };
 		4DC6B54A1F28EA9300B3C991 /* Production.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B5481F28EA9300B3C991 /* Production.storyboard */; };
@@ -199,8 +197,6 @@
 		4DC6B4FB1F28C0ED00B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		4DC6B5001F28C43200B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerHUDView.xib; sourceTree = "<group>"; };
 		4DC6B5021F28C4AA00B3C991 /* PlayerHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHUDView.swift; sourceTree = "<group>"; };
-		4DC6B53D1F28DF5800B3C991 /* TrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
-		4DC6B5421F28E14300B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Train.storyboard; sourceTree = "<group>"; };
 		4DC6B5441F28E8C800B3C991 /* SalesReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesReportViewController.swift; sourceTree = "<group>"; };
 		4DC6B5461F28EA6700B3C991 /* ShiftProductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftProductionViewController.swift; sourceTree = "<group>"; };
 		4DC6B5491F28EA9300B3C991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Production.storyboard; sourceTree = "<group>"; };
@@ -419,7 +415,6 @@
 				4DC6B5481F28EA9300B3C991 /* Production.storyboard */,
 				4DC6B4F41F28B84E00B3C991 /* Sales.storyboard */,
 				4DE5E5161F277CBD0004126E /* Winner.storyboard */,
-				4DC6B5411F28E14300B3C991 /* Train.storyboard */,
 				4D9429781F2124B7006B2D89 /* Info.plist */,
 			);
 			path = EngineYard_iOS;
@@ -503,7 +498,6 @@
 				4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */,
 				4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */,
 				4DE5E5141F277CA20004126E /* WinnerViewController.swift */,
-				4DC6B53D1F28DF5800B3C991 /* TrainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -687,7 +681,6 @@
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
 				4DC6B4CA1F289F2200B3C991 /* PlayerHUDView.xib in Resources */,
 				4DC6B54E1F29246800B3C991 /* PlayerTaxView.xib in Resources */,
-				4DC6B5431F28E14300B3C991 /* Train.storyboard in Resources */,
 				4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */,
 				4DC6B4C31F289F1800B3C991 /* EngineCardView.xib in Resources */,
 				4DC6B4C51F289F1800B3C991 /* EngineCardXibView.xib in Resources */,
@@ -820,7 +813,6 @@
 				4DC6B5451F28E8C800B3C991 /* SalesReportViewController.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
 				4DC6B49A1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift in Sources */,
-				4DC6B53F1F28DF5800B3C991 /* TrainViewController.swift in Sources */,
 				4DE5E4E91F276E7A0004126E /* BuyTrainViewModel.swift in Sources */,
 				4D1A4C5D1F21392000680333 /* Engine+API.swift in Sources */,
 				4DE5E4ED1F2771BE0004126E /* SellingViewModel.swift in Sources */,
@@ -944,14 +936,6 @@
 				4DC6B4FB1F28C0ED00B3C991 /* Base */,
 			);
 			name = HUD.storyboard;
-			sourceTree = "<group>";
-		};
-		4DC6B5411F28E14300B3C991 /* Train.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4DC6B5421F28E14300B3C991 /* Base */,
-			);
-			name = Train.storyboard;
 			sourceTree = "<group>";
 		};
 		4DC6B5481F28EA9300B3C991 /* Production.storyboard */ = {

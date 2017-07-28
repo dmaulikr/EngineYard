@@ -97,6 +97,11 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
         print ("Pressed done")
+
+        if let closure = self.doneBtnClosure {
+            closure(true)
+        }
+
     }
 
 
