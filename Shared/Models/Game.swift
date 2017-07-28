@@ -10,7 +10,7 @@ import Foundation
 
 final class Game: CustomStringConvertible
 {
-    //static var instance = Game()
+    static var instance = Game()
 
     fileprivate(set) var dateCreated: Date?
 
@@ -41,10 +41,6 @@ final class Game: CustomStringConvertible
             dateCreatedString = String(describing: dateCreated)
         }
         return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress), Players: \(self.players.count)")
-    }
-
-    init() {
-
     }
 }
 

@@ -14,7 +14,7 @@ protocol StepperProtocol {
 
 struct NewGameViewModel {
     var delegate: StepperProtocol?
-    weak var game : Game?
+    weak var game: Game?
 
     private(set) var players:[Player] = [Player]()
     private(set) var playersCopy:[Player] = [Player]()
@@ -39,6 +39,12 @@ struct NewGameViewModel {
 
             let playerObj = Player.init(name: name, isAI: isAI, asset: filename)
             self.players.append(playerObj)
+        }
+
+        let gameInstance = Game.instance
+
+        if (!gameInstance.inProgress) {
+            self.game = Game.init()
         }
     }
 
@@ -133,7 +139,11 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     @IBAction func doneBtnPresed(_ sender: UIButton) {
+
         guard let gameObj = self.viewModel.game else {
+            return
+        }
+        guard let _ = gameObj.gameBoard else {
             return
         }
 
@@ -145,17 +155,20 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
                 if (didAbandon) {
                     gameObj.abandon()
-                    self.launchGame()
+                    self.launchGame(game: gameObj)
                 }
             })
         }
         else {
-            self.launchGame()
+            self.launchGame(game: gameObj)
         }
     }
 
-    func launchGame() {
-        self.viewModel.game = Game.setup(players: self.viewModel.players)
+    func launchGame(game: Game) {
+        self.viewModel.game = game
+
+
+
         waitFor(duration: 0.75) { (completed) in
             if (completed) {
                 self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
