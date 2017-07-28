@@ -29,9 +29,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-8I-Pbd">
-                                <rect key="frame" x="493" y="57" width="37" height="30"/>
+                                <rect key="frame" x="460" y="57" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="End Turn"/>
                                 <connections>
                                     <action selector="doneBtnPressed:" destination="wP2-oz-Pjn" eventType="touchUpInside" id="JGA-OU-fo3"/>
                                 </connections>
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dar-jW-U9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="219"/>
+            <point key="canvasLocation" x="20.070422535211268" y="217.5"/>
         </scene>
         <!--BuyProductionViewController-->
         <scene sceneID="tvd-Lk-4Pz">

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
@@ -36,16 +37,35 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
         self.trainsCollectionView.dataSource = self
         self.trainsCollectionView.allowsMultipleSelection = false
         self.trainsCollectionView.layoutIfNeeded()
+
+        self.reload()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    func reload() {
         self.trainsCollectionView.reloadData()
 
         guard let hasHUD = self.HUD else {
             return
         }
         hasHUD.reloadHUD()
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        guard let hasViewModel = self.trainsViewModel else {
+            return
+        }
+
+        if (hasViewModel.didPurchaseTrain) {
+            self.trainsCollectionView.isUserInteractionEnabled = false
+            self.trainsCollectionView.layer.opacity = 0.5
+
+            showMessage("Please press END TURN", type: .info)
+        }
+        else {
+            self.showMessage("Pick a train to buy, or press END TURN", type: .info)
+        }
     }
 
     // MARK: - CollectionView delegate
@@ -60,33 +80,43 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
 
-        if cell.engineCardView == nil {
-            let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
-            let view = arr[0] as! EngineCardView
-            cell.contentView.addSubview(view)
-            cell.engineCardView = view
-        }
-
-        if let trains = self.trainsViewModel?.trains {
-            let loco: Locomotive = trains[indexPath.row]
-            print(indexPath.row, loco.description)
-            cell.engineCardView?.setup(loco:loco)
-            EngineCardView.applyDropShadow(loco: loco, toView: cell)
-
-            if (loco.isUnlocked == false) {
-                cell.isUserInteractionEnabled = false
-                cell.layer.opacity = 0.35
-            }
-            else {
-                cell.isUserInteractionEnabled = true
-                cell.layer.opacity = 1.0
-            }
-        }
+        self.configureCell(cell: cell, atIndexPath: indexPath)
 
         cell.layoutIfNeeded()
 
         return cell
     }
+
+    func configureCell(cell: EngineCardCollectionViewCell, atIndexPath: IndexPath)
+    {
+        if let viewModel = self.trainsViewModel
+        {
+            if cell.engineCardView == nil {
+                let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
+                let view = arr[0] as! EngineCardView
+                cell.contentView.addSubview(view)
+                cell.engineCardView = view
+            }
+
+            if let trains = viewModel.trains {
+                let loco: Locomotive = trains[atIndexPath.row]
+                print(atIndexPath.row, loco.description)
+                cell.engineCardView?.setup(loco:loco)
+                EngineCardView.applyDropShadow(loco: loco, toView: cell)
+
+                if ((loco.isUnlocked == false) || (viewModel.didPurchaseTrain == true))
+                {
+                    cell.isUserInteractionEnabled = false
+                    cell.layer.opacity = 0.35
+                }
+                else {
+                    cell.isUserInteractionEnabled = true
+                    cell.layer.opacity = 1.0
+                }
+            }
+        }
+    }
+
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print ("Selected indexPath: \(indexPath)")

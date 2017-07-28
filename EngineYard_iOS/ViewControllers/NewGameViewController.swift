@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 protocol StepperProtocol {
     func updateStepperValue()
@@ -134,6 +135,8 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.collectionView.dataSource = self
         self.collectionView.allowsMultipleSelection = false
         self.collectionView.layoutIfNeeded()
+
+        self.showMessage("Pick a player", type: .info)
     }
 
     override func didReceiveMemoryWarning() {

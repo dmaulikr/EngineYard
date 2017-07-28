@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import GSMessages
 
 class BuyProductionViewController: UIViewController {
     var productionPageViewModel: ProductionPageViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.showMessage("Buy production, or press END TURN", type: .info)
     }
 
     override func didReceiveMemoryWarning() {
