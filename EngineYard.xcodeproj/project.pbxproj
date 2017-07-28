@@ -52,10 +52,9 @@
 		4DB1738D1F2A39790018B851 /* TrainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1738C1F2A39790018B851 /* TrainDetailViewModel.swift */; };
 		4DC6AC1D1F21CCA300AED444 /* ObsolescenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC1C1F21CCA300AED444 /* ObsolescenceManager.swift */; };
 		4DC6AC221F21D6C700AED444 /* FixtureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC211F21D6C700AED444 /* FixtureTests.swift */; };
-		4DC6AC261F21E09900AED444 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC251F21E09900AED444 /* GameTests.swift */; };
 		4DC6AC281F21E3C700AED444 /* TaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC271F21E3C700AED444 /* TaxTests.swift */; };
 		4DC6AC2A1F21E53E00AED444 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC291F21E53E00AED444 /* AccountTests.swift */; };
-		4DC6AC2C1F21EB1D00AED444 /* GameSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */; };
+		4DC6AC2C1F21EB1D00AED444 /* PlayerSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2B1F21EB1D00AED444 /* PlayerSetupTests.swift */; };
 		4DC6AC2E1F21FC0D00AED444 /* ObsolescenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6AC2D1F21FC0D00AED444 /* ObsolescenceTests.swift */; };
 		4DC6B49A1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */; };
 		4DC6B49B1F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */; };
@@ -178,10 +177,9 @@
 		4DB1738C1F2A39790018B851 /* TrainDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainDetailViewModel.swift; sourceTree = "<group>"; };
 		4DC6AC1C1F21CCA300AED444 /* ObsolescenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceManager.swift; sourceTree = "<group>"; };
 		4DC6AC211F21D6C700AED444 /* FixtureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureTests.swift; sourceTree = "<group>"; };
-		4DC6AC251F21E09900AED444 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		4DC6AC271F21E3C700AED444 /* TaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxTests.swift; sourceTree = "<group>"; };
 		4DC6AC291F21E53E00AED444 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
-		4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSetupTests.swift; sourceTree = "<group>"; };
+		4DC6AC2B1F21EB1D00AED444 /* PlayerSetupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSetupTests.swift; sourceTree = "<group>"; };
 		4DC6AC2D1F21FC0D00AED444 /* ObsolescenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceTests.swift; sourceTree = "<group>"; };
 		4DC6B4981F27DA7D00B3C991 /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DC6B4991F27DA7D00B3C991 /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -394,9 +392,8 @@
 			children = (
 				4D1A4C151F212D2600680333 /* BaseTests.swift */,
 				4DC6AC211F21D6C700AED444 /* FixtureTests.swift */,
-				4DC6AC251F21E09900AED444 /* GameTests.swift */,
+				4DC6AC2B1F21EB1D00AED444 /* PlayerSetupTests.swift */,
 				4DC6AC271F21E3C700AED444 /* TaxTests.swift */,
-				4DC6AC2B1F21EB1D00AED444 /* GameSetupTests.swift */,
 				4DC6AC291F21E53E00AED444 /* AccountTests.swift */,
 				4DE8BBF01F2647FC00056CF1 /* PurchaseLocomotiveTests.swift */,
 				4DE8BBEE1F25FDB100056CF1 /* ProductionTests.swift */,
@@ -885,8 +882,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC6AC261F21E09900AED444 /* GameTests.swift in Sources */,
-				4DC6AC2C1F21EB1D00AED444 /* GameSetupTests.swift in Sources */,
+				4DC6AC2C1F21EB1D00AED444 /* PlayerSetupTests.swift in Sources */,
 				4DC6AC281F21E3C700AED444 /* TaxTests.swift in Sources */,
 				4DE8BBF11F2647FC00056CF1 /* PurchaseLocomotiveTests.swift in Sources */,
 				4DE8BBF71F26817800056CF1 /* SalesTests.swift in Sources */,

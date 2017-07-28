@@ -95,8 +95,6 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.viewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
         self.viewModel.delegate = self
 
-        self.game = Game.instance
-
         self.stepper.minimumValue = Double(Constants.NumberOfPlayers.min)
         self.stepper.maximumValue = Double(Constants.NumberOfPlayers.max)
         self.stepper.value = Double(self.viewModel.players.count)
@@ -157,6 +155,8 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func launchGame() {
+
+        /*
         Game.setup(players: self.viewModel.players) { (game:Game?) in
             if let gameObj = game {
                 print ("Game setup!")
@@ -164,6 +164,7 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
                 self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
             }
         }
+         */
     }
 
     func abandonGameAlert(completionClosure : @escaping ((_ abandoned:Bool?)->())) {

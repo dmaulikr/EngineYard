@@ -16,23 +16,23 @@ class SetupManager : NSObject {
         do {
             if try Constants.NumberOfPlayers.isValid(count: players.count)
             {
-                let gameModel = Game.init()
+                let gameObj = Game.init()
 
                 // prepare board
-                gameModel.gameBoard = GameBoard.prepare()                                
-                gameModel.turnOrderManager.turnOrder = players
+                gameObj.gameBoard = GameBoard.prepare()
+                gameObj.turnOrderManager.turnOrder = players
 
                 if (settings.shouldShuffleTurnOrder) {
-                    gameModel.turnOrderManager.shuffleTurnOrder()
+                    gameObj.turnOrderManager.shuffleTurnOrder()
                 }
 
                 // setup players
                 switch players.count {
                 case 3...4:
-                    setupThreePlayerGame(gameModel:gameModel)
+                    setupThreePlayerGame(gameModel: gameObj)
                     break
                 case 5:
-                    setupFivePlayerGame(gameModel:gameModel)
+                    setupFivePlayerGame(gameModel: gameObj)
                     break
 
                 default:
@@ -40,7 +40,7 @@ class SetupManager : NSObject {
                     break
                 }
 
-                return gameModel
+                return gameObj
             }
             else {
                 return nil

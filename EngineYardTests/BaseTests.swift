@@ -30,7 +30,17 @@ class BaseTests: XCTestCase {
         }
     }
 
+    override func tearDown() {
+        super.tearDown()
+    }
+
     func testGameObject() {
+        let gameObj: Game = Game.init()
+        XCTAssertFalse(gameObj.inProgress)
+        XCTAssertNil(gameObj.gameBoard)
+    }
+
+    func testGamePreparation() {
         let expectedPlayers = Constants.NumberOfPlayers.max
         guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: expectedPlayers) else {
             XCTFail("No mock players generated")
@@ -38,18 +48,20 @@ class BaseTests: XCTestCase {
         }
         XCTAssert(mockPlayers.count == expectedPlayers)
 
-        Game.setup(players: mockPlayers) { (game) in
-            XCTAssertNotNil(game)
-
-            if let gameObj = game {
-                guard let gameBoard = gameObj.gameBoard else {
-                    XCTFail("No game board generated")
-                    return
-                }
-                XCTAssert(gameBoard.decks.count == Constants.Board.decks)
-            }
+        guard let gameObj = Game.setup(players: mockPlayers) else {
+            return
         }
 
+        XCTAssertNotNil(gameObj)
+        XCTAssertNotNil(gameObj.dateCreated)
+        XCTAssertNotNil(gameObj.gameBoard)
+
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("Game board not prepared")
+            return
+        }
+
+        XCTAssert(gameBoard.decks.count == Constants.Board.decks)
 
     }
 

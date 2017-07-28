@@ -1,5 +1,5 @@
 //
-//  GameSetupTests.swift
+//  PlayerSetupTests.swift
 //  EngineYard
 //
 //  Created by Amarjit on 21/07/2017.
@@ -10,9 +10,7 @@ import XCTest
 
 @testable import EngineYard
 
-class GameSetupTests: BaseTests {
-
-    var gameObj: Game?
+class PlayerSetupTests: BaseTests {
 
     override func setUp() {
         super.setUp()
@@ -23,6 +21,7 @@ class GameSetupTests: BaseTests {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
 
     // Expected: 
     // $12 coins seed cash
@@ -35,21 +34,23 @@ class GameSetupTests: BaseTests {
         }
         XCTAssert(mockPlayers.count == howMany)
 
-        /**
-
         guard let gameObj = Game.setup(players: mockPlayers) else {
+            XCTFail("Game obj is undefined")
             return
         }
-        self.gameObj = gameObj
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("Game board is undefined")
+            return
+        }
 
         XCTAssert(gameObj.players.count == 3)
 
-        _ = self.gameObj.players.map({
+        _ = gameObj.players.map({
             XCTAssert($0.account.balance == Constants.SeedCash.threePlayers)
             XCTAssert($0.engines.count == 1)
         })
 
-        for player in self.gameObj.players {
+        for player in gameObj.players {
             for engine in player.engines {
                 XCTAssert(engine.owner == player)
                 XCTAssert(engine.production.units == 1)
@@ -58,12 +59,11 @@ class GameSetupTests: BaseTests {
             }
         }
 
-        let validDecks = (gameObj.gameBoard.decks.filter({ (loco:Locomotive) -> Bool in
+        let validDecks = (gameBoard.decks.filter({ (loco:Locomotive) -> Bool in
             return (loco.existingOrders.count > 0)
         }).count)
 
         XCTAssert(validDecks == 2)
-         **/
     }
 
     // Expected:
@@ -77,20 +77,23 @@ class GameSetupTests: BaseTests {
         }
         XCTAssert(mockPlayers.count == howMany)
 
-        /**
         guard let gameObj = Game.setup(players: mockPlayers) else {
+            XCTFail("Game obj is undefined")
             return
         }
-        self.gameObj = gameObj
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("Game board is undefined")
+            return
+        }
 
         XCTAssert(gameObj.players.count == 5)
 
-        _ = self.gameObj.players.map({
+        _ = gameObj.players.map({
             XCTAssert($0.account.balance == Constants.SeedCash.fivePlayers)
             XCTAssert($0.engines.count == 0)
         })
 
-        for (index, loco) in self.gameObj.gameBoard.decks.enumerated() {
+        for (index, loco) in gameBoard.decks.enumerated() {
             if (index == 0) {
                 XCTAssert(loco.existingOrders.count == 1)
             }
@@ -99,11 +102,10 @@ class GameSetupTests: BaseTests {
             }
         }
 
-        let validDecks = (gameObj.gameBoard.decks.filter({ (loco:Locomotive) -> Bool in
+        let validDecks = (gameBoard.decks.filter({ (loco:Locomotive) -> Bool in
             return (loco.existingOrders.count > 0)
         }).count)
 
         XCTAssert(validDecks == 1)
-         **/
     }
 }
