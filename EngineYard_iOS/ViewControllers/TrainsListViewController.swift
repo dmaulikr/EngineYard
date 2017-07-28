@@ -162,6 +162,9 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
                 }
             })
         }
+        else {
+            self.performSegue(withIdentifier: "productionSegue", sender: self)
+        }
     }
 
     func showAlert(title: String, message: String, completion:@escaping ((_ okPressed:Bool )->()))
@@ -218,6 +221,9 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
                 if (didPurchase) {
                     self.trainsViewModel?.didPurchaseTrain = didPurchase
                     self.reload()
+                }
+                else {
+                    self.showMessage("Pick a train to buy, or press END TURN", type: .info)
                 }
             }
         }
