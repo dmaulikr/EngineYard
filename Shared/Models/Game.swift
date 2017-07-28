@@ -14,6 +14,7 @@ final class Game: CustomStringConvertible
 
     fileprivate(set) var dateCreated: Date?
 
+    var lastKnownState: Int = 0
     var settings: GameConfig?
     var gameBoard: GameBoard? {
         didSet {
