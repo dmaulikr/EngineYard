@@ -24,9 +24,9 @@ class PlayerHUDView: UIView {
         self.layoutIfNeeded()
     }
 
-    func updatePlayerHUD(player: Player) {
+    func setupUI(player: Player) {
         let cashNumber = NSNumber(integerLiteral: player.cash)
-        self.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: cashNumber)
+        self.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: cashNumber)!
         self.cashLbl.sizeToFit()
 
         if (player.asset != "") {

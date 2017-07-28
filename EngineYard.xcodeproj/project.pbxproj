@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		324E8E68A243693241C1263E /* Pods_EngineYardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */; };
+		4D04AF8D1F2B0B8B000480B2 /* HUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04AF8C1F2B0B8B000480B2 /* HUDViewModel.swift */; };
 		4D1A4C161F212D2600680333 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C151F212D2600680333 /* BaseTests.swift */; };
 		4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C181F212DAF00680333 /* Assets.xcassets */; };
 		4D1A4C231F212DAF00680333 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C1B1F212DAF00680333 /* data.json */; };
@@ -129,6 +130,7 @@
 		168E1CE1714A49BF9AA68937 /* Pods-EngineYard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.release.xcconfig"; sourceTree = "<group>"; };
 		253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3576C8EE777332A3375423F4 /* Pods-EngineYardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D04AF8C1F2B0B8B000480B2 /* HUDViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewModel.swift; sourceTree = "<group>"; };
 		4D1A4C151F212D2600680333 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		4D1A4C181F212DAF00680333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D1A4C1B1F212DAF00680333 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		4DE5E4E71F276E6B0004126E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4D04AF8C1F2B0B8B000480B2 /* HUDViewModel.swift */,
 				4DE5E4E81F276E7A0004126E /* BuyTrainViewModel.swift */,
 				4DB1738C1F2A39790018B851 /* TrainDetailViewModel.swift */,
 				4DE5E4EA1F276FBE0004126E /* BuyProductionViewModel.swift */,
@@ -815,6 +818,7 @@
 				4DE5E50D1F277C420004126E /* SellingViewController.swift in Sources */,
 				4DE5E53C1F27B62C0004126E /* PlayerWinnerView.swift in Sources */,
 				4D1A4C491F21346100680333 /* Locomotive.swift in Sources */,
+				4D04AF8D1F2B0B8B000480B2 /* HUDViewModel.swift in Sources */,
 				4DE5E5151F277CA20004126E /* WinnerViewController.swift in Sources */,
 				4DC6B5451F28E8C800B3C991 /* SalesReportViewController.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,

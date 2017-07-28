@@ -16,24 +16,15 @@ protocol NextStateTransitionProtocol {
 
 class BuyTrainViewModel : NextStateTransitionProtocol
 {
-    var game: Game?
-    var playerOnTurn = TurnOrderManager.instance.current
+    weak var game: Game?
+    weak var playerOnTurn = TurnOrderManager.instance.current
     weak var selectedTrain: Locomotive?
 
     init(game: Game) {
         self.game = game
     }
 
-    func handlePurchase() {
-        guard let loco = self.selectedTrain else {
-            return
-        }
-
-        print ("purchase the \(loco.description)")
-
-        loco.purchase(buyer: playerOnTurn)
-    }
-
+    
     // MARK: - NextStateTransitionProtocol
 
     internal func shouldTransitionToNextState() -> Bool {

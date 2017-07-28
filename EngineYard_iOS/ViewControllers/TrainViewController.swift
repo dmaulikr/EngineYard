@@ -42,7 +42,12 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.HUD = HUDViewController.loadHUD(game: nil, viewController: self)
+        guard let hasGame = self.trainsViewModel.game else {
+            assertionFailure("** No game object defined **")
+            return
+        }
+
+        self.HUD = HUDViewController.loadHUD(game: hasGame, viewController: self)
 
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self

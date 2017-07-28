@@ -22,7 +22,7 @@ class BuyTrainDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard var viewModel = self.trainDetailViewModel else {
+        guard let viewModel = self.trainDetailViewModel else {
             assertionFailure("No view model found")
             return
         }
@@ -49,7 +49,7 @@ class BuyTrainDetailViewController: UIViewController {
         let playerOnTurn = gameObj.turnOrderManager.current
 
         let hudCard: PlayerHUDView = self.playerXIBView.contentView as! PlayerHUDView
-        hudCard.updatePlayerHUD(player: playerOnTurn)
+        hudCard.setupUI(player: playerOnTurn)
 
         if (playerOnTurn.account.canAfford(amount: loco.cost) == false) {
             self.toggleBuyBtnState(enabled: false)
@@ -135,7 +135,6 @@ class BuyTrainDetailViewController: UIViewController {
                         if (complete) {
                             self.dismiss(animated: true) {
                                 if let closure = self.completionClosure {
-
                                     closure(true)
                                 }
                             }

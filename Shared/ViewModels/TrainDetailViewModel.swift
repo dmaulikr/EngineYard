@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct TrainDetailViewModel
+class TrainDetailViewModel
 {
-    var game: Game?
+    weak var game: Game?
     weak var locomotive: Locomotive?
 
     init(game: Game, locomotive: Locomotive) {

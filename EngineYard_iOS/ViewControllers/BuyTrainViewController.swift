@@ -11,10 +11,10 @@ import UIKit
 class BuyTrainViewController: UIViewController {
 
     var buyTrainViewModel: BuyTrainViewModel?
-    weak var controller: TrainViewController?
+    weak var trainViewController: TrainViewController?
 
     deinit {
-        guard let hasChildController = self.controller else {
+        guard let hasChildController = self.trainViewController else {
             return
         }
         hasChildController.removeFromParentViewController()
@@ -43,8 +43,9 @@ class BuyTrainViewController: UIViewController {
         let sb: UIStoryboard = UIStoryboard(name: "Train", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainViewController") as? TrainViewController
         {
-            self.controller = controller
-            self.controller?.trainsViewModel = TrainListViewModel.init(game: gameObj)
+            self.trainViewController = controller
+            
+            self.trainViewController?.trainsViewModel = TrainListViewModel.init(game: gameObj)
 
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +106,9 @@ class BuyTrainViewController: UIViewController {
                 print ("didPurchase == \(didPurchase)")
 
                 if (didPurchase) {
-                    hasViewModel.handlePurchase()
+                    // Update HUD
+                    self.trainViewController?.HUD?.reloadHUD()
+                    self.trainViewController?.trainsCollectionView.reloadData()
                 }
             }
         }
