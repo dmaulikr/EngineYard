@@ -12,6 +12,15 @@ import XCTest
 
 class ProductionTests: BaseTests {
 
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    /**
     var gameObj: Game!
     var trains: [Locomotive]!
 
@@ -142,6 +151,6 @@ class ProductionTests: BaseTests {
 
         
     }
-
+ **/
 
 }

@@ -30,4 +30,27 @@ class BaseTests: XCTestCase {
         }
     }
 
+    func testGameObject() {
+        let expectedPlayers = Constants.NumberOfPlayers.max
+        guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: expectedPlayers) else {
+            XCTFail("No mock players generated")
+            return
+        }
+        XCTAssert(mockPlayers.count == expectedPlayers)
+
+        Game.setup(players: mockPlayers) { (game) in
+            XCTAssertNotNil(game)
+
+            if let gameObj = game {
+                guard let gameBoard = gameObj.gameBoard else {
+                    XCTFail("No game board generated")
+                    return
+                }
+                XCTAssert(gameBoard.decks.count == Constants.Board.decks)
+            }
+        }
+
+
+    }
+
 }

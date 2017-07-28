@@ -12,6 +12,15 @@ import XCTest
 
 class TransferOrderTests: BaseTests {
 
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    /**
     var gameObj: Game!
     var trains: [Locomotive]!
 
@@ -70,7 +79,6 @@ class TransferOrderTests: BaseTests {
         }
 
         firstTrainWithOrder.orderBook.transferOrder(order: existingOrder, index: 0)
-
-
     }
+     **/
 }
