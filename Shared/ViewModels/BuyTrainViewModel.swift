@@ -31,7 +31,7 @@ class BuyTrainViewModel : NextStateTransitionProtocol
             return nil
         }
 
-        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard, player: currentPlayer)
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
     }()
 
 

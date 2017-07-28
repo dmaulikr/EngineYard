@@ -84,6 +84,15 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             print(indexPath.row, loco.description)
             cell.engineCardView?.setup(loco:loco)
             EngineCardView.applyDropShadow(loco: loco, toView: cell)
+
+            if (loco.isUnlocked == false) {
+                print ("loco \(loco.name) is locked")
+                //cell.isUserInteractionEnabled = false
+                cell.layer.opacity = 0.35
+            } else {
+                //cell.isUserInteractionEnabled = true
+                cell.layer.opacity = 1
+            }
         }
 
         cell.layoutIfNeeded()
@@ -98,9 +107,17 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             return
         }
 
-        let train: Locomotive = trains[indexPath.row]
+        let selectedTrain = trains[indexPath.row]
+
+        if (selectedTrain.isUnlocked == false) {
+            let title: String = NSLocalizedString("\(selectedTrain.name) not available", comment: "Loco is not available alert title")
+            let message: String = NSLocalizedString("\(selectedTrain.name) has no orders and is not available; try buying an earlier model", comment: "Loco is not available - message")
+            self.alertTrainIssue(title: title, message: message)
+            return
+        }
 
         if let closure = self.selectedTrainClosure {
+            let train: Locomotive = trains[indexPath.row]
             closure(train)
         }
     }
@@ -112,6 +129,22 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
         if let closure = self.completionClosure {
             closure(true)
         }
+    }
+
+    func alertTrainIssue(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+            preferredStyle: .alert)
+
+        let okString = NSLocalizedString("OK", comment: "OK")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            return
+        }
+
+        alertController.addAction(actionOK)
+
+        present(alertController, animated: true, completion: nil)
     }
 
 

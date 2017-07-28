@@ -31,7 +31,7 @@ class ProductionPageViewModel : NextStateTransitionProtocol
             return nil
         }
 
-        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard, player: hasPlayer)
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
     }()
 
     init(game: Game) {
