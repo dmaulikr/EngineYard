@@ -72,6 +72,15 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
             print(indexPath.row, loco.description)
             cell.engineCardView?.setup(loco:loco)
             EngineCardView.applyDropShadow(loco: loco, toView: cell)
+
+            if (loco.isUnlocked == false) {
+                cell.isUserInteractionEnabled = false
+                cell.layer.opacity = 0.35
+            }
+            else {
+                cell.isUserInteractionEnabled = true
+                cell.layer.opacity = 1.0
+            }
         }
 
         cell.layoutIfNeeded()
@@ -98,12 +107,43 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBAction func doneBtnPressed(_ sender: UIButton) {
         print ("Pressed done")
 
-        if let closure = self.doneBtnClosure {
-            closure(true)
+        guard let hasModel = self.trainsViewModel else {
+            return
         }
 
+        if (hasModel.didPurchaseTrain == false)
+        {
+            let title = BuyTrainViewModel.NoTrainBoughtMessage.title
+            let message = BuyTrainViewModel.NoTrainBoughtMessage.message
+
+            showAlert(title: title, message: message, completion: { (okPressed) in
+                if (okPressed) {
+                    // advance next turn, but for now, advance to next screen
+                    self.performSegue(withIdentifier: "productionSegue", sender: self)
+                }
+            })
+        }
     }
 
+    func showAlert(title: String, message: String, completion:@escaping ((_ okPressed:Bool )->()))
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let ok = NSLocalizedString("OK", comment: "OK")
+        let cancel = NSLocalizedString("Cancel", comment: "Cancel")
+
+        let okAction = UIAlertAction(title: ok, style: .default) { (action) in
+            completion(true)
+        }
+        let cancelAction = UIAlertAction(title: cancel, style: .cancel) { (action) in
+            completion(false)
+        }
+
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
 
     
     // MARK: - Navigation

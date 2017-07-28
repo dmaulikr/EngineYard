@@ -18,6 +18,12 @@ class BuyTrainViewModel : NextStateTransitionProtocol
     weak var game: Game?
     weak var playerOnTurn = TurnOrderManager.instance.current
     weak var selectedTrain: Locomotive?
+    var didPurchaseTrain: Bool = false
+
+    struct NoTrainBoughtMessage {
+        static var title: String = NSLocalizedString("End Turn -- Are you sure?", comment: "No train bought title")
+        static var message: String = NSLocalizedString("You didn't buy a train, are you sure you want to end your turn without buying a train?", comment: "No train bought message")
+    }
 
     lazy var trains: [Locomotive]? = {
         guard let hasGame = self.game else {
