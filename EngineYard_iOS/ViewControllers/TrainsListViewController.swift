@@ -137,11 +137,8 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
             return
         }
 
-        let train: Locomotive = trains[indexPath.row]
-
-        if let closure = self.selectedTrainClosure {
-            closure(train)
-        }
+        self.trainsViewModel?.selectedTrain = trains[indexPath.row]
+        self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
     }
 
     // MARK: - IBActions
@@ -207,6 +204,22 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
         if (segue.identifier == "productionSegue") {
             let vc : BuyProductionViewController = (segue.destination as? BuyProductionViewController)!
             vc.productionPageViewModel = ProductionPageViewModel.init(game: hasGame)
+        }
+
+        if (segue.identifier == "trainDetailSegue") {
+            guard let selectedTrain = self.trainsViewModel?.selectedTrain else {
+                return
+            }
+            let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
+            vc.trainDetailViewModel = TrainDetailViewModel.init(game: hasGame, locomotive: selectedTrain)
+            vc.completionClosure = { (didPurchase) in
+                print ("didPurchase == \(didPurchase)")
+
+                if (didPurchase) {
+                    self.trainsViewModel?.didPurchaseTrain = didPurchase
+                    self.reload()
+                }
+            }
         }
     }
 
