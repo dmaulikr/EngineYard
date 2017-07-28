@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class MarketDemandsViewController: UIViewController {
 
@@ -15,12 +16,13 @@ class MarketDemandsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Obsolescence message
+        let message = NSLocalizedString("Determining market demands", comment: "Market demands message")
+        showMessage(message, type: .info)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - IBActions

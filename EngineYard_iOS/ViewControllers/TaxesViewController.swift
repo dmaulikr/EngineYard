@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class TaxesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
@@ -28,6 +29,9 @@ class TaxesViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.taxCollectionView.allowsSelection = false
         self.taxCollectionView.layoutIfNeeded()
         self.taxCollectionView.reloadData()
+
+        let message = NSLocalizedString("Tax report", comment: "Tax report message")
+        showMessage(message, type: .info)
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class SalesReportViewController: UIViewController {
 
@@ -14,6 +15,9 @@ class SalesReportViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let message = NSLocalizedString("Sales report", comment: "Sales report message")
+        showMessage(message, type: .info)
     }
 
     override func didReceiveMemoryWarning() {

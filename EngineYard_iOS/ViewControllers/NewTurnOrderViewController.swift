@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
@@ -30,6 +31,8 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, 
         self.turnOrderCollectionView.reloadData()
         self.view.layoutIfNeeded()
 
+        let message = NSLocalizedString("This is the new turn order", comment: "New turn order")
+        showMessage(message, type: .info)
     }
 
     override func didReceiveMemoryWarning() {

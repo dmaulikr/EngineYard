@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
@@ -27,21 +28,30 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.winnerCollectionView.delegate = self
         self.view.layoutIfNeeded()
 
-        print ("GameObj: \(self.winnerViewModel.game?.description)")
-
-        let message = "Winner is declared!"
-
-        let alert = UIAlertController(title: "Winner", message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default) { (alertAction:UIAlertAction) in
-        }
-        alert.addAction(ok)
-
-        self.present(alert, animated: true, completion: nil)
-
+        self.setupWinnerMessage()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func setupWinnerMessage() {
+        guard let viewModel = self.winnerViewModel else {
+            return
+        }
+
+        guard let winners = viewModel.playersSortedByHighestCash else {
+            return
+        }
+
+        guard let winner = winners.first else {
+            return
+        }
+
+        let cashNumber = NSNumber(integerLiteral: winner.account.balance)
+        let cashString = ObjectCache.currencyRateFormatter.string(from: cashNumber)
+        let message = NSLocalizedString("\(winner.name) is the winner with \(cashString)", comment: "Winner declared!")
+        showMessage(message, type: .success)
     }
 
     // MARK: - IBActions

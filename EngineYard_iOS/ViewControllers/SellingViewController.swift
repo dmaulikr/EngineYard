@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 // Sell production from engines
 class SellingViewController: UIViewController {
@@ -16,6 +17,9 @@ class SellingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let message = NSLocalizedString("Selling production", comment: "Selling message")
+        showMessage(message, type: .info)
     }
 
     override func didReceiveMemoryWarning() {
