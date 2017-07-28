@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct SalesReportViewModel {
-    var game: Game?
+class SalesReportViewModel {
+    weak var game: Game?
 
     init(game: Game) {
         self.game = game

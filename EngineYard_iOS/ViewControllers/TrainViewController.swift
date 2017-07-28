@@ -11,18 +11,14 @@ import UIKit
 struct TrainListViewModel
 {
     weak var game: Game?
-    lazy var trains: [Locomotive]? = {
-        guard let gameObj = self.game else {
-            return nil
-        }
-        guard let gameBoard = gameObj.gameBoard else {
-            return nil
-        }
-        return gameBoard.decks
-    }()
+    var trains: [Locomotive]?
+    var shouldLockAll: Bool = false
 
-    init(game: Game) {
+    init(game: Game, trains:[Locomotive]?) {
         self.game = game
+        if let hasTrains = trains {
+            self.trains = hasTrains
+        }
     }
 }
 
@@ -42,7 +38,12 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.HUD = HUDViewController.loadHUD(game: nil, viewController: self)
+        guard let hasGame = self.trainsViewModel.game else {
+            assertionFailure("** No game object defined **")
+            return
+        }
+
+        self.HUD = HUDViewController.loadHUD(game: hasGame, viewController: self)
 
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self
@@ -72,7 +73,6 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
 
-
         if cell.engineCardView == nil {
             let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
             let view = arr[0] as! EngineCardView
@@ -85,6 +85,15 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             print(indexPath.row, loco.description)
             cell.engineCardView?.setup(loco:loco)
             EngineCardView.applyDropShadow(loco: loco, toView: cell)
+
+            if ((loco.isUnlocked == false) || (trainsViewModel.shouldLockAll)) {
+                print ("loco \(loco.name) is locked")
+                cell.isUserInteractionEnabled = false
+                cell.layer.opacity = 0.35
+            } else {
+                cell.isUserInteractionEnabled = true
+                cell.layer.opacity = 1
+            }
         }
 
         cell.layoutIfNeeded()
@@ -99,9 +108,17 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             return
         }
 
-        let train: Locomotive = trains[indexPath.row]
+        let selectedTrain = trains[indexPath.row]
+
+        if (selectedTrain.isUnlocked == false) {
+            let title: String = NSLocalizedString("\(selectedTrain.name) not available", comment: "Loco is not available alert title")
+            let message: String = NSLocalizedString("\(selectedTrain.name) has no orders and is not available; try buying an earlier model", comment: "Loco is not available - message")
+            self.alertTrainIssue(title: title, message: message)
+            return
+        }
 
         if let closure = self.selectedTrainClosure {
+            let train: Locomotive = trains[indexPath.row]
             closure(train)
         }
     }
@@ -113,6 +130,22 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
         if let closure = self.completionClosure {
             closure(true)
         }
+    }
+
+    func alertTrainIssue(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+            preferredStyle: .alert)
+
+        let okString = NSLocalizedString("OK", comment: "OK")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            return
+        }
+
+        alertController.addAction(actionOK)
+
+        present(alertController, animated: true, completion: nil)
     }
 
 

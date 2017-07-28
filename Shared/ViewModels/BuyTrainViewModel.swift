@@ -13,44 +13,33 @@ protocol NextStateTransitionProtocol {
     func transitionToNextState()
 }
 
-
 class BuyTrainViewModel : NextStateTransitionProtocol
 {
+    weak var game: Game?
+    weak var playerOnTurn = TurnOrderManager.instance.current
+    weak var selectedTrain: Locomotive?
 
-    var game: Game?
-    var playerOnTurn = TurnOrderManager.instance.current
+    lazy var allTrains: [Locomotive]? = {
+        guard let hasGame = self.game else {
+            return nil
+        }
+
+        guard let gameBoard = hasGame.gameBoard else {
+            return nil
+        }
+        guard let currentPlayer = self.playerOnTurn else {
+            return nil
+        }
+
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
+    }()
+
 
     init(game: Game) {
         self.game = game
     }
 
-    func buy(train: Locomotive) {
-
-        if (playerOnTurn.isAI == false)
-        {
-            if (playerOnTurn.account.canAfford(amount: train.cost))
-            {
-
-            }
-            else {
-
-            }
-        }
-        else {
-            train.purchase(buyer: playerOnTurn)
-            //finish turn
-        }
-    }
-
-    func skip() {
-        if (playerOnTurn.isAI == false) {
-            // Present are you sure
-        }
-        else {
-            // finish turn
-        }
-    }
-
+    
     // MARK: - NextStateTransitionProtocol
 
     internal func shouldTransitionToNextState() -> Bool {

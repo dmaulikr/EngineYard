@@ -14,8 +14,8 @@ final class Player : NSObject {
     public fileprivate(set) var asset: String = ""
     public fileprivate(set) var turnOrder: Int = 0
 
-    lazy var account: Account = Account()
-    lazy var engines: [Engine] = [Engine]()
+    var account: Account = Account()
+    var engines: [Engine] = [Engine]()
 
     var cash: Int {
         return self.account.balance

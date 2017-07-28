@@ -150,10 +150,13 @@ extension Locomotive {
             buyer.account.debit(amount: self.cost)
             firstUnownedEngine.assignOwner(player: buyer)
 
+            print ("\(buyer.name) purchased \(self.name) for $\(self.cost). Remaining cash: \(buyer.account.balance)")
+
             // only unlock the next one if possible
             if ( (remainingEngines.count == self.numberOfChildren) && (remainingEngines.count == self.engines.count) ) {
 
                 // Post notification
+                print ("Firing notification")
                 NotificationCenter.default.post(name: .boughtTrainNotificationId, object: nil)
             }
         }

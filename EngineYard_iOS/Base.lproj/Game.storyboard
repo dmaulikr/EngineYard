@@ -32,7 +32,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="mYf-WJ-Qu6" kind="presentation" identifier="buyTrainDetailSegue" id="Luk-bH-Yxp"/>
+                        <segue destination="mYf-WJ-Qu6" kind="presentation" identifier="trainDetailSegue" id="Luk-bH-Yxp"/>
                         <segue destination="yYH-eI-pt4" kind="show" identifier="productionSegue" id="Jfz-EF-OjI"/>
                     </connections>
                 </viewController>
@@ -67,9 +67,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCM-Nh-nK4" customClass="EngineCardXibView" customModule="EngineYard" customModuleProvider="target">
+                                <rect key="frame" x="28" y="82" width="150" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="EngineCardView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpX-Vv-6JZ" customClass="PlayerXIBView" customModule="EngineYard" customModuleProvider="target">
+                                <rect key="frame" x="255" y="35" width="140" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="PlayerHUDView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG1-jN-492">
+                                <rect key="frame" x="351" y="270" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBtnPressed:" destination="mYf-WJ-Qu6" eventType="touchUpInside" id="ysc-AL-5II"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjR-fw-l58">
+                                <rect key="frame" x="458" y="270" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Buy $99"/>
+                                <connections>
+                                    <action selector="buyBtnPressed:" destination="mYf-WJ-Qu6" eventType="touchUpInside" id="cB0-TN-ifM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="buyBtn" destination="kjR-fw-l58" id="nlI-iT-foy"/>
+                        <outlet property="cancelBtn" destination="PG1-jN-492" id="QhE-U5-xQA"/>
+                        <outlet property="engineCardXIBView" destination="sCM-Nh-nK4" id="06G-2X-vZA"/>
+                        <outlet property="playerXIBView" destination="zpX-Vv-6JZ" id="rRz-B1-aBv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZ0-aA-S4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,7 +13,8 @@ import XCTest
 class ObsolescenceTests: BaseTests {
 
     var gameObj: Game!
-    var trains: [Locomotive]!
+    var gameBoard: GameBoard = GameBoard.init()
+    var trains: [Locomotive] = [Locomotive]()
 
     override func setUp() {
         super.setUp()
@@ -27,13 +28,17 @@ class ObsolescenceTests: BaseTests {
             XCTFail("No game object")
             return
         }
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("No game board defined")
+            return
+        }
 
         self.gameObj = gameObj
-        self.trains = self.gameObj.gameBoard.decks
+        self.gameBoard = gameBoard
+        self.trains = gameBoard.decks
     }
-    
+
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
@@ -275,5 +280,5 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(firstRusted.engineColor == .green)
         XCTAssert(firstRusted.generation == .first)
     }
-       
+        
 }

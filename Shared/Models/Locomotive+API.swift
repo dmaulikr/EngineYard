@@ -33,6 +33,13 @@ class LocomotiveAPI : NSObject {
         return trains
     }
 
+
+    public static func allLocomotives(gameBoard: GameBoard) -> [Locomotive] {
+        return (gameBoard.decks.sorted(by: { (loco1:Locomotive, loco2:Locomotive) -> Bool in
+            return (loco1.cost < loco2.cost)
+        }))
+    }
+
     public static func getSalesTurnOrderForTrain(train:Locomotive) -> [Engine] {
         let engines = train.engines.filter({ (eng:Engine) -> Bool in
             return ( ((eng.owner != nil) && (eng.parent?.existingOrders.count)! > 0) && (eng.production.units > 0) )
@@ -76,5 +83,7 @@ class LocomotiveAPI : NSObject {
         }
         return firstLoco
     }
+
+
 
 }

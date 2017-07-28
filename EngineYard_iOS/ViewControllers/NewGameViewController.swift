@@ -14,6 +14,7 @@ protocol StepperProtocol {
 
 struct NewGameViewModel {
     var delegate: StepperProtocol?
+    var game: Game = Game.instance
 
     private(set) var players:[Player] = [Player]()
     private(set) var playersCopy:[Player] = [Player]()
@@ -66,7 +67,6 @@ struct NewGameViewModel {
     }
 
     public mutating func setStepperValue(value: Int) {
-
         if value > self.oldStepperValue {
             self.addPlayer()
         }
@@ -74,7 +74,36 @@ struct NewGameViewModel {
             self.removePlayer()
         }
         self.oldStepperValue = value
+    }
 
+    func shouldAbandonGame(abandoned: Bool?) -> Bool {
+        guard let willAbandon = abandoned else {
+            return false
+        }
+        if (willAbandon) {
+            self.abandonGame()
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+    private func abandonGame() {
+        self.game.abandon()
+    }
+
+    mutating func setupNewGame() {
+        guard let gameObj = Game.setup(players: self.players) else {
+            assertionFailure("Invalid game object")
+            return
+        }
+        guard let _ = gameObj.gameBoard else {
+            assertionFailure("Invalid game board")
+            return
+        }
+        self.game = gameObj
+        print (self.game.description)
     }
 }
 
@@ -82,7 +111,6 @@ struct NewGameViewModel {
 class NewGameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StepperProtocol
 {
     var viewModel: NewGameViewModel!
-    var game : Game?
 
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabel: UILabel!
@@ -94,8 +122,6 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         self.viewModel = NewGameViewModel.init(playerCount: Constants.NumberOfPlayers.max)
         self.viewModel.delegate = self
-
-        self.game = Game.instance
 
         self.stepper.minimumValue = Double(Constants.NumberOfPlayers.min)
         self.stepper.maximumValue = Double(Constants.NumberOfPlayers.max)
@@ -125,7 +151,6 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     @IBAction func stepperValueDidChange(_ sender: UIStepper) {
         let stepperValue:Int = Int(stepper.value)
-
         self.viewModel.setStepperValue(value: stepperValue)
         self.collectionView.reloadData()
     }
@@ -135,18 +160,12 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     @IBAction func doneBtnPresed(_ sender: UIButton) {
-        guard let gameObj = game else {
-            return
-        }
 
-        if (gameObj.inProgress)
+        if (self.viewModel.game.inProgress)
         {
             self.abandonGameAlert(completionClosure: { (abandoned) in
-                guard let didAbandon = abandoned else {
-                    return
-                }
-                if (didAbandon) {
-                    gameObj.abandon()
+                if (self.viewModel.shouldAbandonGame(abandoned: abandoned))
+                {
                     self.launchGame()
                 }
             })
@@ -156,15 +175,19 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
 
+    // MARK: - Launch game protocol
+
     func launchGame() {
-        Game.setup(players: self.viewModel.players) { (game:Game?) in
-            if let gameObj = game {
-                print ("Game setup!")
-                self.game = gameObj
+        self.viewModel.setupNewGame()
+
+        waitFor(duration: 0.85) { (completed) in
+            if (completed) {
                 self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
             }
         }
     }
+
+    // MARK: - Alert
 
     func abandonGameAlert(completionClosure : @escaping ((_ abandoned:Bool?)->())) {
         let alertController = UIAlertController(title: "Abandon game?",
@@ -217,10 +240,9 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        guard let hasGame = self.game else {
-            assertionFailure("No game object defined")
-            return
-        }
+
+        let hasGame = self.viewModel.game
+
         guard let _ = hasGame.gameBoard else {
             assertionFailure("No gameboard defined")
             return
@@ -230,6 +252,7 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
             let vc : BuyTrainViewController = (segue.destination as? BuyTrainViewController)!
             vc.buyTrainViewModel = BuyTrainViewModel.init(game: hasGame)
         }
+
     }
     
 
