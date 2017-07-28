@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Buy Train View Controller-->
+        <!--Trains List View Controller-->
         <scene sceneID="tMI-Ny-laD">
             <objects>
-                <viewController storyboardIdentifier="BuyTrainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wP2-oz-Pjn" customClass="BuyTrainViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrainsListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wP2-oz-Pjn" customClass="TrainsListViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hZx-le-b9d"/>
                         <viewControllerLayoutGuide type="bottom" id="ydd-9Z-8Qu"/>
@@ -21,24 +21,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Buy Train" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mO0-o6-pC0">
-                                <rect key="frame" x="29" y="33" width="87" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Page Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEx-3U-JJj">
+                                <rect key="frame" x="18" y="49" width="93" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-8I-Pbd">
+                                <rect key="frame" x="493" y="57" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="wP2-oz-Pjn" eventType="touchUpInside" id="JGA-OU-fo3"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7iX-cx-VDR">
+                                <rect key="frame" x="0.0" y="68" width="568" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Mm-23-P0x">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="25" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EngineCardCollectionViewCell" id="l2i-3k-DpE" customClass="EngineCardCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="25" width="150" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wP2-oz-Pjn" id="JXF-ON-Be9"/>
+                                    <outlet property="delegate" destination="wP2-oz-Pjn" id="G14-oM-LDe"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="doneBtn" destination="gcl-8I-Pbd" id="d4d-jE-l0d"/>
+                        <outlet property="pageTitleLabel" destination="QEx-3U-JJj" id="ZxY-4G-Yti"/>
+                        <outlet property="trainsCollectionView" destination="7iX-cx-VDR" id="M2o-M4-dvA"/>
                         <segue destination="mYf-WJ-Qu6" kind="presentation" identifier="trainDetailSegue" id="Luk-bH-Yxp"/>
                         <segue destination="yYH-eI-pt4" kind="show" identifier="productionSegue" id="Jfz-EF-OjI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dar-jW-U9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="155"/>
+            <point key="canvasLocation" x="21" y="219"/>
         </scene>
         <!--BuyProductionViewController-->
         <scene sceneID="tvd-Lk-4Pz">

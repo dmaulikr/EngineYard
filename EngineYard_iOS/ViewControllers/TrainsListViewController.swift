@@ -26,7 +26,7 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.HUD = HUDViewController.loadHUD(game: nil, viewController: self)
+        self.HUD = HUDViewController.loadHUD(game: self.trainsViewModel?.game, viewController: self)
 
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self
@@ -37,6 +37,11 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
         self.trainsCollectionView.allowsMultipleSelection = false
         self.trainsCollectionView.layoutIfNeeded()
         self.trainsCollectionView.reloadData()
+
+        guard let hasHUD = self.HUD else {
+            return
+        }
+        hasHUD.reloadHUD()
     }
 
     override func didReceiveMemoryWarning() {

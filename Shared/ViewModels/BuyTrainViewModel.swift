@@ -19,7 +19,7 @@ class BuyTrainViewModel : NextStateTransitionProtocol
     weak var playerOnTurn = TurnOrderManager.instance.current
     weak var selectedTrain: Locomotive?
 
-    lazy var allTrains: [Locomotive]? = {
+    lazy var trains: [Locomotive]? = {
         guard let hasGame = self.game else {
             return nil
         }

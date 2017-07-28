@@ -77,7 +77,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddPlayerCellReuseID" id="COY-ns-5hs" customClass="AddPlayerCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6.5" width="65" height="115"/>
+                                        <rect key="frame" x="0.0" y="7" width="65" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="65" height="115"/>
