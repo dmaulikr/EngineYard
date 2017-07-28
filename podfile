@@ -9,6 +9,8 @@ def commmon_pods
     pod 'SwiftyJSON'
     pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
     pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+    pod "GSMessages"
+    pod 'EasyTipView', '~> 1.0.2'
 end
 
 target 'EngineYard' do
