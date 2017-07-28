@@ -12,6 +12,7 @@ struct TrainListViewModel
 {
     weak var game: Game?
     var trains: [Locomotive]?
+    var shouldLockAll: Bool = false
 
     init(game: Game, trains:[Locomotive]?) {
         self.game = game
@@ -85,12 +86,12 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             cell.engineCardView?.setup(loco:loco)
             EngineCardView.applyDropShadow(loco: loco, toView: cell)
 
-            if (loco.isUnlocked == false) {
+            if ((loco.isUnlocked == false) || (trainsViewModel.shouldLockAll)) {
                 print ("loco \(loco.name) is locked")
-                //cell.isUserInteractionEnabled = false
+                cell.isUserInteractionEnabled = false
                 cell.layer.opacity = 0.35
             } else {
-                //cell.isUserInteractionEnabled = true
+                cell.isUserInteractionEnabled = true
                 cell.layer.opacity = 1
             }
         }
