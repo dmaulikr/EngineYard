@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TaxesViewModel: NextStateTransitionProtocol
+class TaxesViewModel
 {
     var game: Game?
 
@@ -19,18 +19,6 @@ class TaxesViewModel: NextStateTransitionProtocol
     func payTaxes() {
         // present user
         // do this on background queue
-    }
-
-    // MARK: - NextStateTransitionProtocol
-
-    internal func shouldTransitionToNextState() -> Bool {
-        // true: if all turns complete
-        return false
-    }
-
-
-    internal func transitionToNextState() {
-        
     }
 
 }

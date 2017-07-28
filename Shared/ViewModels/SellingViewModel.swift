@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SellingViewModel: NextStateTransitionProtocol
+class SellingViewModel
 {
     var game: Game?
 
@@ -16,17 +16,5 @@ class SellingViewModel: NextStateTransitionProtocol
         self.game = game
     }
 
-
-    // MARK: - NextStateTransitionProtocol
-
-    internal func shouldTransitionToNextState() -> Bool {
-        // true: if all turns complete
-        return false
-    }
-
-
-    internal func transitionToNextState() {
-        
-    }
 
 }

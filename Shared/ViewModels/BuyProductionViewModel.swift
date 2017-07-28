@@ -8,23 +8,11 @@
 
 import Foundation
 
-class ProductionPageViewModel : NextStateTransitionProtocol
+class ProductionPageViewModel
 {
     var game: Game?
 
     init(game: Game) {
         self.game = game
-    }
-
-    // MARK: - NextStateTransitionProtocol
-
-    internal func shouldTransitionToNextState() -> Bool {
-        // true: if all turns complete
-        return false
-    }
-
-
-    internal func transitionToNextState() {
-        
     }
 }

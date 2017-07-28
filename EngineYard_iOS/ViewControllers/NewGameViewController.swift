@@ -227,8 +227,8 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
 
         if (segue.identifier == "buyTrainSegue") {
-            let vc : BuyTrainViewController = (segue.destination as? BuyTrainViewController)!
-            vc.buyTrainViewModel = BuyTrainViewModel.init(game: hasGame)
+            let vc : TrainsListViewController = (segue.destination as? TrainsListViewController)!
+            vc.trainsViewModel = BuyTrainViewModel.init(game: hasGame)
         }
     }
     

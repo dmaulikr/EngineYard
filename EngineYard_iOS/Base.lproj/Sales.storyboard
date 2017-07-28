@@ -122,7 +122,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taxSummaryCellReuseID" id="A2B-M8-G49">
-                                        <rect key="frame" x="25" y="10" width="125" height="175"/>
+                                        <rect key="frame" x="25" y="19" width="125" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="175"/>
@@ -294,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="2319.7183098591549" y="93.75"/>
         </scene>
-        <!--BuyTrainViewController-->
+        <!--TrainsListViewController-->
         <scene sceneID="w2H-es-NmW">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SBSalesBuyTrainSegueID" storyboardName="Game" referencedIdentifier="BuyTrainViewController" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SBSalesBuyTrainSegueID" storyboardName="Game" referencedIdentifier="TrainsListViewController" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0M-8v-kBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2521" y="698"/>

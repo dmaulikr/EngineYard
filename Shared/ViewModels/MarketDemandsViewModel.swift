@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MarketDemandsViewModel: NextStateTransitionProtocol
+class MarketDemandsViewModel
 {
     var game: Game?
 
@@ -16,15 +16,4 @@ class MarketDemandsViewModel: NextStateTransitionProtocol
         self.game = game
     }
 
-    // MARK: - NextStateTransitionProtocol
-
-    internal func shouldTransitionToNextState() -> Bool {
-        // true: if all turns complete
-        return false
-    }
-
-
-    internal func transitionToNextState() {
-        
-    }
 }

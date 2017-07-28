@@ -1,43 +1,27 @@
 //
-//  TrainViewController.swift
+//  TrainsListViewController.swift
 //  EngineYard
 //
-//  Created by Amarjit on 26/07/2017.
+//  Created by Amarjit on 25/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import UIKit
 
-fileprivate struct TrainListViewModel
+class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
-    weak var game: Game?
-    lazy var trains: [Locomotive]? = {
-        guard let gameObj = self.game else {
-            return nil
-        }
-        guard let gameBoard = gameObj.gameBoard else {
-            return nil
-        }
-        return gameBoard.decks
-    }()
-
-    init(game: Game) {
-        self.game = game
-    }
-}
-
-class TrainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
-{
+    var trainsViewModel: BuyTrainViewModel?
+    var doneBtnClosure : ((_ doneBtnPressed: Bool)->())?
+    var selectedTrainClosure : ((_ train: Locomotive?)->())?
 
     weak var HUD: HUDViewController?
-    fileprivate var trainsViewModel: TrainListViewModel!
-
     @IBOutlet weak var pageTitleLabel: UILabel!
     @IBOutlet weak var trainsCollectionView: UICollectionView!
     @IBOutlet weak var doneBtn: UIButton!
 
-    var completionClosure : ((_ doneBtnPressed: Bool)->())?
-    var selectedTrainClosure : ((_ train: Locomotive?)->())?
+    deinit {
+        self.HUD = nil
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,17 +37,16 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.trainsCollectionView.allowsMultipleSelection = false
         self.trainsCollectionView.layoutIfNeeded()
         self.trainsCollectionView.reloadData()
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    // MARK: - CollectionView
+    // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trains = self.trainsViewModel.trains else {
+        guard let trains = self.trainsViewModel?.trains else {
             return 0
         }
         return trains.count
@@ -72,7 +55,6 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
 
-
         if cell.engineCardView == nil {
             let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
             let view = arr[0] as! EngineCardView
@@ -80,7 +62,7 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             cell.engineCardView = view
         }
 
-        if let trains = self.trainsViewModel.trains {
+        if let trains = self.trainsViewModel?.trains {
             let loco: Locomotive = trains[indexPath.row]
             print(indexPath.row, loco.description)
             cell.engineCardView?.setup(loco:loco)
@@ -95,7 +77,7 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print ("Selected indexPath: \(indexPath)")
 
-        guard let trains = self.trainsViewModel.trains else {
+        guard let trains = self.trainsViewModel?.trains else {
             return
         }
 
@@ -109,21 +91,32 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
-        print ("Done pressed")
-        if let closure = self.completionClosure {
-            closure(true)
+        print ("Pressed done")
+    }
+
+
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+
+        guard let hasGame = self.trainsViewModel?.game else {
+            assertionFailure("No game object defined")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("No gameboard defined")
+            return
+        }
+
+        if (segue.identifier == "productionSegue") {
+            let vc : BuyProductionViewController = (segue.destination as? BuyProductionViewController)!
+            vc.productionPageViewModel = ProductionPageViewModel.init(game: hasGame)
         }
     }
 
 
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

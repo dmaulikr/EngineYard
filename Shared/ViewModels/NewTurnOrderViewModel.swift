@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewTurnOrderViewModel: NextStateTransitionProtocol
+class NewTurnOrderViewModel
 {
     var game: Game?
     
@@ -24,16 +24,5 @@ class NewTurnOrderViewModel: NextStateTransitionProtocol
         }
         return PlayerAPI.sortPlayersByLowestCash(players: gameObj.players)
     }()
-
-    // MARK: - NextStateTransitionProtocol
-
-    internal func shouldTransitionToNextState() -> Bool {
-        // true: if all turns complete
-        return false
-    }
-
-    internal func transitionToNextState() {
-        
-    }
 
 }
