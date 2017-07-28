@@ -27,16 +27,13 @@ class TrainDetailViewModel
         return "Buy \(loco.name) for \(costText)"
     }()
 
+    func canPurchaseTrain(train: Locomotive, player: Player) -> Bool {
+        return (player.account.canAfford(amount: train.cost))
+    }
 
     func purchaseTrain(train: Locomotive, player: Player) {
-        if (player.account.canAfford(amount: train.cost) == false)
-        {
-            print ("You cannot afford this locomotive! Cash: \(player.cash) vs Loco: \(train.cost)")
-            return
+        if (self.canPurchaseTrain(train: train, player: player)) {
+            train.purchase(buyer: player)
         }
-        else {
-
-        }
-
     }
 }
