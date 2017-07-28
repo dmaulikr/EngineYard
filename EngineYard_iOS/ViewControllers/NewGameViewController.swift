@@ -98,6 +98,10 @@ struct NewGameViewModel {
             assertionFailure("Invalid game object")
             return
         }
+        guard let _ = gameObj.gameBoard else {
+            assertionFailure("Invalid game board")
+            return
+        }
         self.game = gameObj
         print (self.game.description)
     }
@@ -162,13 +166,11 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
             self.abandonGameAlert(completionClosure: { (abandoned) in
                 if (self.viewModel.shouldAbandonGame(abandoned: abandoned))
                 {
-                    self.viewModel.setupNewGame()
                     self.launchGame()
                 }
             })
         }
         else {
-            self.viewModel.setupNewGame()
             self.launchGame()
         }
     }
@@ -176,7 +178,9 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
     // MARK: - Launch game protocol
 
     func launchGame() {
-        waitFor(duration: 0.75) { (completed) in
+        self.viewModel.setupNewGame()
+
+        waitFor(duration: 0.85) { (completed) in
             if (completed) {
                 self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
             }
