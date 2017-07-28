@@ -13,11 +13,11 @@ import XCTest
 class TransferOrderTests: BaseTests {
 
     var gameObj: Game!
-    var trains: [Locomotive]!
+    var gameBoard: GameBoard = GameBoard.init()
+    var trains: [Locomotive] = [Locomotive]()
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
 
         guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: 5) else {
             XCTFail("No mock players found")
@@ -28,17 +28,23 @@ class TransferOrderTests: BaseTests {
             XCTFail("No game object")
             return
         }
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("No game board defined")
+            return
+        }
 
         self.gameObj = gameObj
-        self.trains = self.gameObj.gameBoard.decks
+        self.gameBoard = gameBoard
+        self.trains = gameBoard.decks
+
     }
-    
+
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
     func testTransferOrders() {
+        XCTAssert(self.trains.count == Constants.Board.decks)
 
         // force unlock first train
         guard let firstTrain = trains.first else {
@@ -70,7 +76,6 @@ class TransferOrderTests: BaseTests {
         }
 
         firstTrainWithOrder.orderBook.transferOrder(order: existingOrder, index: 0)
-
-
     }
+
 }

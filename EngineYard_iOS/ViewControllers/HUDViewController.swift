@@ -15,6 +15,8 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var menuBtn: UIButton!
 
+    var hudViewModel: HUDViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,20 +32,25 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
         super.didReceiveMemoryWarning()
     }
 
-    func reloadData() {
+    func reloadHUD() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
 
     public static func loadHUD(game: Game?, viewController: UIViewController) -> HUDViewController? {
+        guard let hasGame = game else {
+            assertionFailure("** HUD Failure - No game object found **")
+            return nil
+        }
+
         let sb: UIStoryboard = UIStoryboard(name: "HUD", bundle: nil)
         let hudVC = sb.instantiateViewController(withIdentifier: "HUDViewController") as? HUDViewController
 
         if let controller = hudVC
         {
             let view = viewController.view!
-            //controller.gameModel = gameModel
+            controller.hudViewModel = HUDViewModel.init(game: hasGame)
             viewController.addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(controller.view)
@@ -64,15 +71,33 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        guard let hasViewModel = self.hudViewModel else {
+            return 0
+        }
+        guard let playersInTurnOrder = hasViewModel.playersInTurnOrder else {
+            return 0
+        }
+        return playersInTurnOrder.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HUDCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HUDCollectionViewCell.cellReuseIdentifer, for: indexPath) as! HUDCollectionViewCell
 
-        let arr = UINib(nibName: "PlayerHUDView", bundle: nil).instantiate(withOwner: nil, options: nil)
-        let view = arr[0] as! PlayerHUDView
-        cell.contentView.addSubview(view)
+        if let hasViewModel = self.hudViewModel {
+            if let playersInTurnOrder = hasViewModel.playersInTurnOrder  {
+
+                let player = playersInTurnOrder[indexPath.row]
+
+                let arr = UINib(nibName: "PlayerHUDView", bundle: nil).instantiate(withOwner: nil, options: nil)
+                let view = arr[0] as! PlayerHUDView
+                cell.contentView.addSubview(view)
+
+                view.setupUI(player: player)
+                view.updateConstraints()
+                view.layoutIfNeeded()
+            }
+        }
+
 
         cell.layoutIfNeeded()
 

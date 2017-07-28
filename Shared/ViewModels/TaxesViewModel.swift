@@ -10,7 +10,7 @@ import Foundation
 
 class TaxesViewModel
 {
-    var game: Game?
+    weak var game: Game?
 
     init(game: Game) {
         self.game = game

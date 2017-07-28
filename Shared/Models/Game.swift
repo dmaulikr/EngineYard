@@ -14,6 +14,7 @@ final class Game: CustomStringConvertible
 
     fileprivate(set) var dateCreated: Date?
 
+    var lastKnownState: Int = 0
     var settings: GameConfig?
     var gameBoard: GameBoard? {
         didSet {
@@ -45,27 +46,22 @@ final class Game: CustomStringConvertible
 }
 
 extension Game {
-    public static func setup(players:[Player], completionClosure : @escaping ((_ Game:Game?)->())) {
+    
+    public static func setup(players:[Player]) -> Game? {
         do {
             let settings = GameConfig()
 
             guard let game = try SetupManager.instance.setup(settings: settings, players: players) else {
                 assertionFailure("no game model found")
-                return
+                return nil
             }
 
-            print ("Game: \(game)")
-
-            waitFor(duration: 0.75, callback: { (completed:Bool) in
-                if (completed) {
-                    completionClosure(game)
-                }
-            })
+            return game
 
         } catch let error {
             print (error.localizedDescription)
             assertionFailure(error.localizedDescription)
-            completionClosure(nil)
+            return nil
         }
     }
 

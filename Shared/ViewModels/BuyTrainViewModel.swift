@@ -8,24 +8,47 @@
 
 import Foundation
 
-class BuyTrainViewModel
+protocol NextStateTransitionProtocol {
+    func shouldTransitionToNextState() -> Bool
+    func transitionToNextState()
+}
+
+class BuyTrainViewModel : NextStateTransitionProtocol
 {
-    var game: Game?
-    var playerOnTurn = TurnOrderManager.instance.current
-    
-    lazy var trains: [Locomotive]? = {
-        guard let gameObj = self.game else {
+    weak var game: Game?
+    weak var playerOnTurn = TurnOrderManager.instance.current
+    weak var selectedTrain: Locomotive?
+
+    lazy var allTrains: [Locomotive]? = {
+        guard let hasGame = self.game else {
             return nil
         }
-        guard let gameBoard = gameObj.gameBoard else {
+
+        guard let gameBoard = hasGame.gameBoard else {
             return nil
         }
-        return gameBoard.decks
+        guard let currentPlayer = self.playerOnTurn else {
+            return nil
+        }
+
+        return LocomotiveAPI.allLocomotives(gameBoard: gameBoard)
     }()
+
 
     init(game: Game) {
         self.game = game
     }
 
+    
+    // MARK: - NextStateTransitionProtocol
 
+    internal func shouldTransitionToNextState() -> Bool {
+        // true: if all turns complete
+        return false
+    }
+
+
+    internal func transitionToNextState() {
+
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  BuyProductionViewController.swift
+//  BuyTrainViewController.swift
 //  EngineYard
 //
 //  Created by Amarjit on 25/07/2017.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BuyProductionViewController: UIViewController {
+class BuyTrainViewController: UIViewController {
 
-    weak var controller: TrainViewController?
-    var productionPageViewModel: ProductionPageViewModel!
+    var buyTrainViewModel: BuyTrainViewModel?
+    weak var trainViewController: TrainViewController?
 
     deinit {
-        guard let hasChildController = self.controller else {
+        guard let hasChildController = self.trainViewController else {
             return
         }
         hasChildController.removeFromParentViewController()
@@ -28,11 +28,10 @@ class BuyProductionViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     private func addTrainViewController() {
-        guard let hasViewModel = self.productionPageViewModel else {
+        guard let hasViewModel = self.buyTrainViewModel else {
             assertionFailure("No view model defined")
             return
         }
@@ -40,17 +39,16 @@ class BuyProductionViewController: UIViewController {
             assertionFailure("No game object defined")
             return
         }
-        guard let trains = hasViewModel.allTrains else {
-            assertionFailure("No trains found")
-            return
-        }
 
         // Launch Train View Controller
         let sb: UIStoryboard = UIStoryboard(name: "Train", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainViewController") as? TrainViewController
         {
-            self.controller = controller
-            self.controller?.trainsViewModel = TrainListViewModel.init(game: gameObj, trains: trains)
+            let trains = hasViewModel.allTrains
+
+            self.trainViewController = controller
+            self.trainViewController?.trainsViewModel = TrainListViewModel.init(game: gameObj, trains: trains)
+            
 
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -69,14 +67,16 @@ class BuyProductionViewController: UIViewController {
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
             }
-            controller.selectedTrainClosure = { (purchasedTrain: Locomotive?) in
+            controller.selectedTrainClosure = { (train: Locomotive?) in
                 print ("selectedTrainClosure pressed")
+                if let selectedTrain = train {
+                    print ("You clicked on: \(selectedTrain.name)")
+                    hasViewModel.selectedTrain = selectedTrain
+                    self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
+                }
             }
         }
     }
-
-
-
 
     // MARK: - Navigation
 
@@ -85,7 +85,11 @@ class BuyProductionViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasGame = self.productionPageViewModel?.game else {
+        guard let hasViewModel = self.buyTrainViewModel else {
+            assertionFailure("No view model defined")
+            return
+        }
+        guard let hasGame = hasViewModel.game else {
             assertionFailure("No game object defined")
             return
         }
@@ -94,11 +98,28 @@ class BuyProductionViewController: UIViewController {
             return
         }
 
-        if (segue.identifier == "sellingSegue") {
-            let vc : SellingViewController = (segue.destination as? SellingViewController)!
-            vc.sellingViewModel = SellingViewModel.init(game: hasGame)        
+
+        if (segue.identifier == "trainDetailSegue") {
+            guard let selectedTrain = self.buyTrainViewModel?.selectedTrain else {
+                return
+            }
+            let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
+            vc.trainDetailViewModel = TrainDetailViewModel.init(game: hasGame, locomotive: selectedTrain)
+            vc.completionClosure = { (didPurchase) in
+                print ("didPurchase == \(didPurchase)")
+
+                if (didPurchase) {
+                    // Update HUD
+                    self.trainViewController?.HUD?.reloadHUD()
+                    self.trainViewController?.trainsCollectionView.reloadData()
+                }
+            }
         }
 
+        if (segue.identifier == "productionSegue") {
+            let vc : BuyProductionViewController = (segue.destination as? BuyProductionViewController)!
+            vc.productionPageViewModel = ProductionPageViewModel.init(game: hasGame)
+        }
     }
 
 

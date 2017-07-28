@@ -24,10 +24,9 @@ class PlayerHUDView: UIView {
         self.layoutIfNeeded()
     }
 
-    /*
-    func updatePlayerHUD(player: Player) {
+    func setupUI(player: Player) {
         let cashNumber = NSNumber(integerLiteral: player.cash)
-        self.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: cashNumber)
+        self.cashLbl.text = ObjectCache.currencyRateFormatter.string(from: cashNumber)!
         self.cashLbl.sizeToFit()
 
         if (player.asset != "") {
@@ -35,9 +34,8 @@ class PlayerHUDView: UIView {
             self.avtButton.setImage(image, for: .normal)
         }
 
-        self.trainsCountLbl.text = String(0)
+        //self.trainsCountLbl.text = String(0)
     }
-*/
     
     // MARK: - IBActions
 
