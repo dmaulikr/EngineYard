@@ -106,9 +106,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH8-CR-Jm6">
-                                <rect key="frame" x="482" y="20" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH8-CR-Jm6">
+                                <rect key="frame" x="459" y="231" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Yrd-JF-9RT"/>
+                                    <constraint firstAttribute="width" constant="64" id="cFT-M9-YbM"/>
+                                </constraints>
+                                <state key="normal" image="circle-check"/>
                                 <connections>
                                     <action selector="doneBtnPresed:" destination="m8n-1v-48G" eventType="touchUpInside" id="TYx-oj-Ofn"/>
                                 </connections>
@@ -117,15 +121,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YRv-DV-Mde" firstAttribute="centerX" secondItem="2wt-hS-KWv" secondAttribute="centerX" id="9cK-q7-pfW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qH8-CR-Jm6" secondAttribute="trailing" constant="29" id="IAd-zK-yUJ"/>
                             <constraint firstItem="2zR-7e-1ed" firstAttribute="leading" secondItem="hzH-mZ-9RR" secondAttribute="leading" id="MVR-c1-hgd"/>
                             <constraint firstItem="hzH-mZ-9RR" firstAttribute="top" secondItem="2wt-hS-KWv" secondAttribute="topMargin" constant="20" id="PLc-Iy-Ymj"/>
                             <constraint firstItem="YRv-DV-Mde" firstAttribute="leading" secondItem="2zR-7e-1ed" secondAttribute="leading" id="Sjc-YZ-9Su"/>
-                            <constraint firstItem="qH8-CR-Jm6" firstAttribute="centerY" secondItem="hzH-mZ-9RR" secondAttribute="centerY" id="UaX-st-7hy"/>
                             <constraint firstItem="RdA-Ef-4y2" firstAttribute="centerY" secondItem="2zR-7e-1ed" secondAttribute="centerY" id="XBE-bZ-iYE"/>
                             <constraint firstItem="RdA-Ef-4y2" firstAttribute="leading" secondItem="2zR-7e-1ed" secondAttribute="trailing" constant="13" id="ah1-Rg-tFZ"/>
                             <constraint firstItem="2zR-7e-1ed" firstAttribute="top" secondItem="hzH-mZ-9RR" secondAttribute="bottom" constant="15" id="dH3-6d-JT9"/>
+                            <constraint firstItem="q3D-oz-CbU" firstAttribute="top" secondItem="qH8-CR-Jm6" secondAttribute="bottom" constant="25" id="hnp-uJ-ZSO"/>
                             <constraint firstItem="hzH-mZ-9RR" firstAttribute="leading" secondItem="2wt-hS-KWv" secondAttribute="leadingMargin" constant="6" id="ksG-u2-FPG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qH8-CR-Jm6" secondAttribute="trailing" constant="25" id="sO0-VN-5hA"/>
                             <constraint firstItem="YRv-DV-Mde" firstAttribute="top" secondItem="2zR-7e-1ed" secondAttribute="bottom" constant="20" id="uqR-km-ftV"/>
                         </constraints>
                     </view>
@@ -169,4 +173,7 @@
             <point key="canvasLocation" x="248.2394366197183" y="834.375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle-check" width="128" height="128"/>
+    </resources>
 </document>

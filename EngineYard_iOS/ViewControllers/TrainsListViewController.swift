@@ -113,6 +113,18 @@ class TrainsListViewController: UIViewController, UICollectionViewDelegate, UICo
                     cell.isUserInteractionEnabled = true
                     cell.layer.opacity = 1.0
                 }
+                guard let owners = loco.owners else {
+                    return
+                }
+                guard let currentPlayer = self.trainsViewModel?.playerOnTurn else {
+                    return
+                }
+                if (owners.contains(currentPlayer)) {
+                    cell.engineCardView?.checkMark.isHidden = false
+                }
+                else {
+                    cell.engineCardView?.checkMark.isHidden = true
+                }
             }
         }
     }

@@ -21,6 +21,7 @@ class EngineCardView: UIView {
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var checkMark: UIImageView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +43,7 @@ class EngineCardView: UIView {
                 iconIV.image = iconIV.image?.maskWithColor(color: .white)
             }
         }
+        self.checkMark.image = self.checkMark.image?.maskWithColor(color: .green)
     }
 
     override func updateConstraints() {
@@ -77,10 +79,23 @@ class EngineCardView: UIView {
         {
             for (index, orderValue) in loco.existingOrders.enumerated() {
                 let asset = Die.assetNameForValue(dieValue: orderValue)
+
+                guard let item = (self.diceOutletCollection.filter({ (imgView) -> Bool in
+                    return (imgView.tag == index)
+                }).first) else {
+                    return
+                }
+                item.image = UIImage(named: asset)
+                item.isHidden = false
+
+                /*
                 self.diceOutletCollection[index].image = UIImage(named: asset)
                 self.diceOutletCollection[index].isHidden = false
+                 */
             }
         }
+
+        self.checkMark.isHidden = true
 
         self.setHeaderColor(loco: loco)
     }
