@@ -75,4 +75,5 @@ extension Game {
         self.turnOrderManager.turnOrder.removeAll()
         self.settings = nil
     }
+
 }

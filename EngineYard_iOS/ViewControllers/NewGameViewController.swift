@@ -252,8 +252,8 @@ class NewGameViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
 
         if (segue.identifier == "buyTrainSegue") {
-            let vc : TrainsListViewController = (segue.destination as? TrainsListViewController)!
-            vc.trainsViewModel = BuyTrainViewModel.init(game: hasGame)
+            let vc : ListTrainsForPurchaseVC = (segue.destination as? ListTrainsForPurchaseVC)!
+            vc.trainsListViewModel = PurchaseableTrainsViewModel.init(game: hasGame)
         }
 
     }

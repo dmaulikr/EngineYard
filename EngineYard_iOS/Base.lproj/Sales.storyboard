@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qPR-oC-1NQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qPR-oC-1NQ">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -294,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="2319.7183098591549" y="93.75"/>
         </scene>
-        <!--TrainsListViewController-->
+        <!--ListTrainsForPurchaseVC-->
         <scene sceneID="w2H-es-NmW">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SBSalesBuyTrainSegueID" storyboardName="Game" referencedIdentifier="TrainsListViewController" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="SBSalesBuyTrainSegueID" storyboardName="Game" referencedIdentifier="ListTrainsForPurchaseVC" id="Lm0-tP-zmr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0M-8v-kBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2521" y="698"/>

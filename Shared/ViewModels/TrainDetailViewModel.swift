@@ -16,6 +16,16 @@ class TrainDetailViewModel
     init(game: Game, locomotive: Locomotive) {
         self.game = game
         self.locomotive = locomotive
+
+        guard let hasGame = self.game else {
+            assertionFailure("** No game model defined **")
+            return
+        }
+
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
+            return
+        }
     }
 
     lazy var buyButtonText: String? = {

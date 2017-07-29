@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol TurnDelegate: NSObjectProtocol {
+    func turnDidEnd()
+    func allTurnsDidComplete()
+}
 
 protocol TurnOrderManagerDelegate: NSObjectProtocol {
     func turnOrderWasSet()
