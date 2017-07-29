@@ -10,8 +10,28 @@ import UIKit
 
 // Generic train view controller used for various pages
 
-class TrainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class TrainViewController: UIViewController
+    //, UICollectionViewDelegate, UICollectionViewDataSource
 {
+    var doneClosure : ((_ doneBtnPressed: Bool)->())?
+    var selectedTrainClosure : ((_ train: Locomotive?)->())?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+        if let closure = self.doneClosure {
+            closure(true)
+        }
+    }
+
+
+    /***
     var trainsListViewModel: PurchaseableTrainsViewModel?
     var doneBtnClosure : ((_ doneBtnPressed: Bool)->())?
     var selectedTrainClosure : ((_ train: Locomotive?)->())?
@@ -84,5 +104,5 @@ class TrainViewController: UIViewController, UICollectionViewDelegate, UICollect
             closure(true)
         }
     }
-
+    **/
 }

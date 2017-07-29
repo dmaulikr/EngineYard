@@ -506,6 +506,7 @@
 				4DE5E5121F277C820004126E /* MarketDemandsViewController.swift */,
 				4DE5E5101F277C620004126E /* NewTurnOrderViewController.swift */,
 				4DE5E5141F277CA20004126E /* WinnerViewController.swift */,
+				4DC993F11F2C9C010069A179 /* TrainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -513,7 +514,6 @@
 		4DE5E51D1F277FA40004126E /* BuyTrain */ = {
 			isa = PBXGroup;
 			children = (
-				4DC993F11F2C9C010069A179 /* TrainViewController.swift */,
 				4DE5E5021F277B8A0004126E /* ListTrainsForPurchaseVC.swift */,
 				4DE5E5191F277E620004126E /* BuyTrainDetailViewController.swift */,
 				4DEEBA9A1F29D8AA000C5D16 /* EngineCardCollectionViewCell.swift */,
