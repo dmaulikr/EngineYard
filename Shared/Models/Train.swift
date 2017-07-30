@@ -8,9 +8,8 @@
 
 import Foundation
 
-final class Train : CustomStringConvertible
+final class Train : CustomStringConvertible, Equatable
 {
-    let uuid: String = UUID().uuidString
     public private (set) var name: String = ""
     public private (set) var cost: Int = 0
     public private (set) var productionCost: Int = 0
@@ -68,6 +67,12 @@ extension Train {
         return returnString
     }
 
+}
+
+extension Train {
+    public static func ==(lhs: Train, rhs: Train) -> Bool {
+        return (lhs.name == rhs.name)
+    }
 }
 
 extension Train {

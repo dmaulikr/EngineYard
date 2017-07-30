@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import GameplayKit
 
-final class Player : CustomStringConvertible
+final class Player : CustomStringConvertible, Equatable
 {
-    public fileprivate(set) var name : String!
+    let uuid: String = UUID().uuidString
+    public fileprivate(set) var name : String = ""
     public fileprivate(set) var isAI: Bool = false
     public fileprivate(set) var asset: String = ""
     public fileprivate(set) var turnOrder: Int = 0
@@ -34,6 +36,12 @@ final class Player : CustomStringConvertible
 extension Player {
     var description: String {
         return ("\(self.name), turnOrder: \(self.turnOrder), cash: $\(self.cash)")
+    }
+}
+
+extension Player {
+    public static func ==(lhs: Player, rhs: Player) -> Bool {
+        return (lhs.uuid == rhs.uuid)
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  PortfolioTests.swift
+//  HandTests.swift
 //  EngineYard
 //
 //  Created by Amarjit on 30/07/2017.
@@ -9,8 +9,6 @@
 import XCTest
 
 @testable import EngineYard
-
-// Tests involvingç adding cards to a player's hand
 
 class HandTests: BaseTests {
     
@@ -24,8 +22,8 @@ class HandTests: BaseTests {
         super.tearDown()
     }
 
-    func testAddToPortfolio()
-    {
+    func testHand() {
+
         guard let players = Mock.players(howMany: 5) else {
             XCTFail("Mock players failed")
             return
@@ -47,39 +45,36 @@ class HandTests: BaseTests {
             return
         }
 
-        guard let firstPlayer = game.players.first else {
-            XCTFail("No player found")
-            return
+        for player in game.players {
+            guard let firstUnownedCard = firstTrain.cards.filter({ (card: LocomotiveCard) -> Bool in
+                return (card.owner == nil)
+            }).first else {
+                break
+            }
+
+            player.hand.add(card: firstUnownedCard)
         }
 
-        guard let firstCard = firstTrain.cards.first else {
-            XCTFail("no card found")
-            return
+        for card in firstTrain.cards {
+            XCTAssertNotNil(card.owner)
         }
 
+        for (index, p) in game.players.enumerated() {
+            if (index < firstTrain.numberOfChildren) {
+                XCTAssert(p.hand.cards.count == 1, "#\(index),  Cards: \(p.hand.cards.count)")
+            }
+            else {
+                XCTAssert(p.hand.cards.count == 0)
+            }
 
-        XCTAssert(firstPlayer.hand.cards.count == 0)
-        XCTAssertFalse(firstTrain.isOwned(by: firstPlayer))
-
-        XCTAssertTrue( firstPlayer.hand.canAdd(card: firstCard) )
-
-        firstPlayer.hand.add(card: firstCard)
-
-        XCTAssert(firstPlayer.hand.cards.count == 1)
-
-        guard let firstCardOwned = firstPlayer.hand.cards.first else {
-            XCTFail("no first card owned found")
-            return
+            print ("#\(index), Player: \(p.name), Cards: \(p.hand.cards)\n")
         }
 
-        XCTAssert(firstCardOwned.owner === firstPlayer)
-        XCTAssert(firstCardOwned.production.units == 1)
-
-        XCTAssertFalse( firstPlayer.hand.canAdd(card: firstCardOwned) )
 
 
 
     }
+
 
 
 }

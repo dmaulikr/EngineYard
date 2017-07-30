@@ -10,8 +10,9 @@ import Foundation
 
 typealias Locomotive = LocomotiveCard
 
-final class LocomotiveCard : CustomStringConvertible
+final class LocomotiveCard : CustomStringConvertible, Equatable
 {
+    let uuid: String = UUID().uuidString
     public fileprivate(set) weak var parent: Train?
     public fileprivate(set) weak var owner: Player?
     lazy var production: Production = Production.init(parent: self)
@@ -27,9 +28,20 @@ final class LocomotiveCard : CustomStringConvertible
 
 extension LocomotiveCard {
     var description: String {
-        return ":LocomotiveCard"
+        guard let hasParent = self.parent else {
+            return "No parent"
+        }
+        return hasParent.name
     }
 }
+
+
+extension LocomotiveCard {
+    public static func ==(lhs: LocomotiveCard, rhs: LocomotiveCard) -> Bool {
+        return (lhs.uuid == rhs.uuid)
+    }
+}
+
 
 extension LocomotiveCard {
 
