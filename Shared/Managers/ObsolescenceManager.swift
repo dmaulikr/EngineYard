@@ -71,10 +71,10 @@ import Foundation
 
 struct ObsolescenceManager
 {
-    var trains: [Locomotive] = [Locomotive]()
+    fileprivate var locos: [Locomotive] = [Locomotive]()
 
-    init(trains: [Train]) {
-        self.trains = trains
+    init(locos: [Locomotive]) {
+        self.locos = locos
     }
 
     func handler() {
@@ -89,15 +89,15 @@ struct ObsolescenceManager
             }
             else if (generations.count == 1) {
                 print ("[gens]: 1 generations exist for \(engineColorRef)")
-                handleOneGeneration(trains: generations)
+                handleOneGeneration(locos: generations)
             }
             else if (generations.count == 2) {
                 print ("[gens]: 2 generations exist for \(engineColorRef)")
-                handleTwoGenerations(trains: generations)
+                handleTwoGenerations(locos: generations)
             }
             else if (generations.count == 3) {
                 print ("[gens]: 3 generations exist for \(engineColorRef)")
-                handleThreeGenerations(trains: generations)
+                handleThreeGenerations(locos: generations)
             }
             else {
                 // do nothing
@@ -106,24 +106,24 @@ struct ObsolescenceManager
     }
 
 
-    func findGenerationsForEngineColor(engineColor: EngineColor) -> [Train]? {
-        let filteredTrains = trains
+    func findGenerationsForEngineColor(engineColor: EngineColor) -> [Locomotive]? {
+        let filteredlocos = locos
             .filter { (loco:Locomotive) -> Bool in
                 return ( (loco.engineColor == engineColor) && ((loco.existingOrders.count > 0) || (loco.completedOrders.count > 0)) )
             }
             .sorted { (loco1:Locomotive, loco2:Locomotive) -> Bool in
                 return (loco1.cost < loco2.cost)
         }
-        return filteredTrains
+        return filteredlocos
     }
 
 
     // MARK: (Private) functions
 
-    private func handleOneGeneration(trains: [Train]) {
-        assert(trains.count == 1)
+    private func handleOneGeneration(locos: [Locomotive]) {
+        assert(locos.count == 1)
 
-        guard let firstTrain = trains.first else {
+        guard let firstTrain = locos.first else {
             return
         }
 
@@ -134,10 +134,10 @@ struct ObsolescenceManager
         firstTrain.orderBook.rerollAndTransferCompletedOrders()
     }
 
-    private func handleTwoGenerations(trains: [Train]) {
-        assert(trains.count == 2)
+    private func handleTwoGenerations(locos: [Locomotive]) {
+        assert(locos.count == 2)
 
-        for (index, train) in trains.enumerated() {
+        for (index, train) in locos.enumerated() {
             if (index == 0) {
                 train.orderBook.removeFirstValueFromCompletedOrder()
                 train.orderBook.rerollAndTransferCompletedOrders()
@@ -153,25 +153,25 @@ struct ObsolescenceManager
         }
     }
 
-    private func handleThreeGenerations(trains: [Train]) {
-        assert(trains.count == 3)
+    private func handleThreeGenerations(locos: [Locomotive]) {
+        assert(locos.count == 3)
 
-        for (index, train) in trains.enumerated() {
+        for (index, loco) in locos.enumerated() {
             if (index == 0) {
-                train.orderBook.clear()
-                train.markAsObsolete()
+                loco.orderBook.clear()
+                loco.markAsObsolete()
             }
             else if (index == 1) {
-                if (train.hasMaximumDice() == false) {
-                    train.orderBook.add(order: CompletedOrder.generate())
+                if (loco.hasMaximumDice() == false) {
+                    loco.orderBook.add(order: CompletedOrder.generate())
                 }
-                train.orderBook.rerollAndTransferCompletedOrders()
+                loco.orderBook.rerollAndTransferCompletedOrders()
             }
             else if (index == 2) {
-                if (train.hasMaximumDice() == false) {
-                    train.orderBook.add(order: CompletedOrder.generate())
+                if (loco.hasMaximumDice() == false) {
+                    loco.orderBook.add(order: CompletedOrder.generate())
                 }
-                train.orderBook.rerollAndTransferCompletedOrders()
+                loco.orderBook.rerollAndTransferCompletedOrders()
             }
             else {
                 // do nothing
