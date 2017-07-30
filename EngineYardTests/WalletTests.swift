@@ -23,7 +23,7 @@ class WalletTests: BaseTests {
     }
 
     func testWalletCanDebit() {
-        var wallet = Wallet.init(balance: 100)
+        let wallet = Wallet.init(balance: 100)
         XCTAssertTrue(wallet.canDebit(amount: 100))
         XCTAssertFalse(wallet.canDebit(amount: 101))
         XCTAssertFalse(wallet.canDebit(amount: -99))
@@ -34,7 +34,7 @@ class WalletTests: BaseTests {
     }
 
     func testWalletCanCredit() {
-        var wallet = Wallet.init(balance: 100)
+        let wallet = Wallet.init(balance: 100)
         XCTAssertTrue(wallet.canCredit(amount: 99))
         XCTAssertFalse(wallet.canCredit(amount: -100))
         XCTAssertFalse(wallet.canCredit(amount: -1))

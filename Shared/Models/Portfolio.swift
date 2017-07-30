@@ -24,6 +24,9 @@ final class Portfolio : NSObject
             card.production.setDefaultProduction()
             self.cards.append(card)
         }
+        else {
+            print("Cannot add \(card.description) to portfolio, already own it")
+        }
     }
 
     func canAdd(card: LocomotiveCard) -> Bool {
