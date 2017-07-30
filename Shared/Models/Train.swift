@@ -35,6 +35,11 @@ final class Train : CustomStringConvertible, Equatable
 
     lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book
 
+    var isUnlocked: Bool {
+        return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
+    }
+
+
     init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
         assert(cost % 4 == 0, "Cost must be a modulus of 4")
         assert(capacity > 0, "Capacity must be > 0")
@@ -87,6 +92,15 @@ extension Train {
         return orderBook.completedOrders.flatMap({ (c:CompletedOrder) -> Int in
             return c.value
         })
+    }
+
+    // The maximum number of dice for a locomotive type and generation is determined by the number of boxes in the Customer Base.
+    //func hasMaximumDice() -> Bool {
+    //    return (self.orderBook.completedOrders.count >= self.capacity)
+    //}
+
+    var hasMaximumDice: Bool {
+        return (self.orderBook.completedOrders.count >= self.capacity)
     }
 }
 
