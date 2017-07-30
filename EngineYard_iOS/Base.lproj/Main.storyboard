@@ -6,153 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Menu View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srQ-rZ-ejI">
-                                <rect key="frame" x="84" y="70" width="75" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="mainMenuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Wx-my-lFw"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ucx-eg-Xxt"/>
-                    <connections>
-                        <outletCollection property="mainMenuBtnOutletCollection" destination="srQ-rZ-ejI" collectionClass="NSMutableArray" id="Bb3-lG-5KR"/>
-                        <segue destination="m8n-1v-48G" kind="show" identifier="newGameSegue" id="0gm-V0-reX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="969" y="99"/>
-        </scene>
-        <!--New Game View Controller-->
-        <scene sceneID="GaJ-lg-ZnA">
-            <objects>
-                <viewController storyboardIdentifier="NewGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m8n-1v-48G" customClass="NewGameViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1if-4i-D3d"/>
-                        <viewControllerLayoutGuide type="bottom" id="q3D-oz-CbU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2wt-hS-KWv">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-mZ-9RR">
-                                <rect key="frame" x="26" y="20" width="48" height="30"/>
-                                <state key="normal" title="&lt; Back"/>
-                                <connections>
-                                    <action selector="backBtnPressed:" destination="m8n-1v-48G" eventType="touchUpOutside" id="N4I-IM-vso"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YRv-DV-Mde">
-                                <rect key="frame" x="26" y="114" width="516" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="pyr-c6-1bu"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="etN-Dk-8Ua">
-                                    <size key="itemSize" width="65" height="115"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddPlayerCellReuseID" id="COY-ns-5hs" customClass="AddPlayerCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7" width="65" height="115"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="65" height="115"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="65" height="115"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="m8n-1v-48G" id="9vf-03-vKH"/>
-                                    <outlet property="delegate" destination="m8n-1v-48G" id="6k0-ux-7y5"/>
-                                </connections>
-                            </collectionView>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="3" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-7e-1ed">
-                                <rect key="frame" x="26" y="65" width="94" height="29"/>
-                                <connections>
-                                    <action selector="stepperValueDidChange:" destination="m8n-1v-48G" eventType="valueChanged" id="Gba-g0-YgA"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdA-Ef-4y2">
-                                <rect key="frame" x="133" y="69" width="164" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="Ahw-Xx-iew"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH8-CR-Jm6">
-                                <rect key="frame" x="459" y="231" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Yrd-JF-9RT"/>
-                                    <constraint firstAttribute="width" constant="64" id="cFT-M9-YbM"/>
-                                </constraints>
-                                <state key="normal" image="circle-check"/>
-                                <connections>
-                                    <action selector="doneBtnPresed:" destination="m8n-1v-48G" eventType="touchUpInside" id="TYx-oj-Ofn"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YRv-DV-Mde" firstAttribute="centerX" secondItem="2wt-hS-KWv" secondAttribute="centerX" id="9cK-q7-pfW"/>
-                            <constraint firstItem="2zR-7e-1ed" firstAttribute="leading" secondItem="hzH-mZ-9RR" secondAttribute="leading" id="MVR-c1-hgd"/>
-                            <constraint firstItem="hzH-mZ-9RR" firstAttribute="top" secondItem="2wt-hS-KWv" secondAttribute="topMargin" constant="20" id="PLc-Iy-Ymj"/>
-                            <constraint firstItem="YRv-DV-Mde" firstAttribute="leading" secondItem="2zR-7e-1ed" secondAttribute="leading" id="Sjc-YZ-9Su"/>
-                            <constraint firstItem="RdA-Ef-4y2" firstAttribute="centerY" secondItem="2zR-7e-1ed" secondAttribute="centerY" id="XBE-bZ-iYE"/>
-                            <constraint firstItem="RdA-Ef-4y2" firstAttribute="leading" secondItem="2zR-7e-1ed" secondAttribute="trailing" constant="13" id="ah1-Rg-tFZ"/>
-                            <constraint firstItem="2zR-7e-1ed" firstAttribute="top" secondItem="hzH-mZ-9RR" secondAttribute="bottom" constant="15" id="dH3-6d-JT9"/>
-                            <constraint firstItem="q3D-oz-CbU" firstAttribute="top" secondItem="qH8-CR-Jm6" secondAttribute="bottom" constant="25" id="hnp-uJ-ZSO"/>
-                            <constraint firstItem="hzH-mZ-9RR" firstAttribute="leading" secondItem="2wt-hS-KWv" secondAttribute="leadingMargin" constant="6" id="ksG-u2-FPG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qH8-CR-Jm6" secondAttribute="trailing" constant="25" id="sO0-VN-5hA"/>
-                            <constraint firstItem="YRv-DV-Mde" firstAttribute="top" secondItem="2zR-7e-1ed" secondAttribute="bottom" constant="20" id="uqR-km-ftV"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="YRv-DV-Mde" id="VDV-hK-ldF"/>
-                        <outlet property="doneBtn" destination="qH8-CR-Jm6" id="fLr-lQ-cnR"/>
-                        <outlet property="stepper" destination="2zR-7e-1ed" id="jSB-qO-7G2"/>
-                        <outlet property="stepperLabel" destination="RdA-Ef-4y2" id="yN8-cp-2Pl"/>
-                        <segue destination="s8w-bp-6d0" kind="show" identifier="buyTrainSegue" id="QlQ-nb-mD8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mF5-8b-fjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1284.5070422535211" y="1029.375"/>
-        </scene>
-        <!--ListTrainsForPurchaseVC-->
-        <scene sceneID="dvL-wC-pVy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SBTrainsListSegue" storyboardName="Game" referencedIdentifier="ListTrainsForPurchaseVC" id="s8w-bp-6d0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xEK-uk-BXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1421" y="1658"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3r2-pC-mmx">
             <objects>
@@ -165,15 +21,31 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hEh-AZ-D6y"/>
+                        <segue destination="OBY-p4-9UJ" kind="relationship" relationship="rootViewController" id="JBi-Jj-ZWa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VH-LC-FZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="248.2394366197183" y="834.375"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qeC-fV-NzL">
+            <objects>
+                <viewController id="OBY-p4-9UJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eoq-WH-Oag"/>
+                        <viewControllerLayoutGuide type="bottom" id="XBp-qg-jLc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PYp-On-r5k">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iXg-Wa-DYk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8m0-nO-Bzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="731" y="1665"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="circle-check" width="128" height="128"/>
-    </resources>
 </document>
