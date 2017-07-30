@@ -30,7 +30,12 @@
 		4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */; };
 		4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429761F2124B7006B2D89 /* Main.storyboard */; };
 		4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9429811F2124DF006B2D89 /* GameKit.framework */; };
+		4D9EDADF1F2DFEBB00755834 /* LocomotiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDADE1F2DFEBB00755834 /* LocomotiveCard.swift */; };
+		4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE01F2DFEF000755834 /* Player.swift */; };
+		4D9EDAE31F2DFF1800755834 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE21F2DFF1800755834 /* Portfolio.swift */; };
+		4D9EDAE51F2DFF3B00755834 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE41F2DFF3B00755834 /* Production.swift */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
+		4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB42D41F2DFDCF009ABCD7 /* Train.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +79,12 @@
 		4D9429771F2124B7006B2D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D9429781F2124B7006B2D89 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9429811F2124DF006B2D89 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4D9EDADE1F2DFEBB00755834 /* LocomotiveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocomotiveCard.swift; sourceTree = "<group>"; };
+		4D9EDAE01F2DFEF000755834 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4D9EDAE21F2DFF1800755834 /* Portfolio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
+		4D9EDAE41F2DFF3B00755834 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		4DCB42D41F2DFDCF009ABCD7 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +179,11 @@
 			children = (
 				4D1A4C401F21319D00680333 /* Generation.swift */,
 				4D1A4C421F2131A700680333 /* EngineColor.swift */,
+				4DCB42D41F2DFDCF009ABCD7 /* Train.swift */,
+				4D9EDADE1F2DFEBB00755834 /* LocomotiveCard.swift */,
+				4D9EDAE01F2DFEF000755834 /* Player.swift */,
+				4D9EDAE21F2DFF1800755834 /* Portfolio.swift */,
+				4D9EDAE41F2DFF3B00755834 /* Production.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -482,19 +497,24 @@
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
+				4D9EDAE31F2DFF1800755834 /* Portfolio.swift in Sources */,
+				4D9EDAE51F2DFF3B00755834 /* Production.swift in Sources */,
 				4D1A4C2B1F21315200680333 /* Devices.swift in Sources */,
 				4D1A4C261F21314B00680333 /* Constants.swift in Sources */,
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
+				4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
+				4D9EDADF1F2DFEBB00755834 /* LocomotiveCard.swift in Sources */,
 				4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */,
 				4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */,
 				4D1A4C351F21315800680333 /* EY+Time.swift in Sources */,
+				4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */,
 				4D1A4C271F21314B00680333 /* ErrorCodes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
