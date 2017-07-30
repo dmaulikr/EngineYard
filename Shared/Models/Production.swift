@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Production : NSObject
+final class Production : NSObject
 {
     weak var parent: LocomotiveCard?
     var units: Int = 0

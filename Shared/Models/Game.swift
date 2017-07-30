@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Game {
+final class Game {
 
     weak var gameBoard: GameBoard? {
         didSet {

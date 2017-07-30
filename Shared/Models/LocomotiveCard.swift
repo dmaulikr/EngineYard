@@ -10,7 +10,7 @@ import Foundation
 
 typealias Locomotive = LocomotiveCard
 
-class LocomotiveCard : NSObject
+final class LocomotiveCard : NSObject
 {
     weak var parent: Train?
     weak var owner: Player?

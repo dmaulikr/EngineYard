@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Train : NSObject {
+final class Train : NSObject
+{
     public private (set) var uuid: String = UUID().uuidString
     var name: String!
     var cost: Int!

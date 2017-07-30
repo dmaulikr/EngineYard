@@ -8,8 +8,11 @@
 
 import Foundation
 
-class Player : NSObject {
-    var name : String!
+final class Player : NSObject {
+    public fileprivate(set) var name : String!
+    public fileprivate(set) var isAI: Bool = false
+    public fileprivate(set) var asset: String = ""
+    public fileprivate(set) var turnOrder: Int = 0
 
     init(name: String) {
         super.init()

@@ -13,7 +13,7 @@ extension Notification.Name {
 }
 
 
-class GameBoard {
+final class GameBoard {
 
     fileprivate var _decks: [Train] = [Train]()
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Portfolio : NSObject
+final class Portfolio : NSObject
 {
     weak var owner: Player?
     var cards: [LocomotiveCard] = [LocomotiveCard]()
