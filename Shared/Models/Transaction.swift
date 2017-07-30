@@ -8,6 +8,7 @@
 
 import Foundation
 
+// #TODO
 struct Transaction {
     let dateCreated: Date = Date.init(timeIntervalSinceNow: 0)
     var amount: Int = 0

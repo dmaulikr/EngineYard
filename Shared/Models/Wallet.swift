@@ -13,7 +13,6 @@ import Foundation
 
 struct Wallet: CustomStringConvertible  {
     public private(set) var balance: Int = 0
-    public private(set) var transactions: [Transaction] = [Transaction]() // #TODO
 
     var description: String {
         return ("Balance: $\(self.balance)")
