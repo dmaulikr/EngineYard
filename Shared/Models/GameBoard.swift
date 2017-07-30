@@ -64,27 +64,21 @@ extension GameBoard {
 
     fileprivate static func prepareDecks() -> [Train] {
         let trains: [Train] = [
-            Train.init(name: "Green.1", generation: .first, engineColor: .green, capacity: 3, numberOfChildren: 4)
-            , Train.init(name: "Red.1", generation: .first, engineColor: .red, capacity: 3, numberOfChildren: 3)
-            , Train.init(name: "Yellow.1", generation: .first, engineColor: .yellow, capacity: 2, numberOfChildren: 2)
-            , Train.init(name: "Blue.1", generation: .first, engineColor: .blue, capacity: 1, numberOfChildren: 1)
-            , Train.init(name: "Green.2", generation: .second, engineColor: .green, capacity: 4, numberOfChildren: 4)
-            , Train.init(name: "Red.2", generation: .second, engineColor: .red, capacity: 3, numberOfChildren: 3)
-            , Train.init(name: "Yellow.2", generation: .second, engineColor: .yellow, capacity: 3, numberOfChildren: 2)
-            , Train.init(name: "Green.3", generation: .third, engineColor: .green, capacity: 4, numberOfChildren: 4)
-            , Train.init(name: "Blue.2", generation: .second, engineColor: .blue, capacity: 2, numberOfChildren: 2)
-            , Train.init(name: "Red.3", generation: .third, engineColor: .red, capacity: 4, numberOfChildren: 3)
-            , Train.init(name: "Green.4", generation: .fourth, engineColor: .green, capacity: 5, numberOfChildren: 4)
-            , Train.init(name: "Yellow.3", generation: .third, engineColor: .yellow, capacity: 3, numberOfChildren: 3)
-            , Train.init(name: "Red.4", generation: .fourth, engineColor: .red, capacity: 4, numberOfChildren: 4)
-            , Train.init(name: "Green.5", generation: .fifth, engineColor: .green, capacity: 5, numberOfChildren: 4)
-        ]
-
-        for (index, train) in trains.enumerated() {
-            train.cost = ((index + 1) * 4)
-            assert(train.cost % 4 == 0)
-        }
-
+            Train.init(name: "Green.1", cost: 4, generation: .first, engineColor: .green, capacity: 3, numberOfChildren: 4)
+            , Train.init(name: "Red.1", cost: 8, generation: .first, engineColor: .red, capacity: 3, numberOfChildren: 3)
+            , Train.init(name: "Yellow.1", cost: 12, generation: .first, engineColor: .yellow, capacity: 2, numberOfChildren: 2)
+            , Train.init(name: "Blue.1", cost: 16, generation: .first, engineColor: .blue, capacity: 1, numberOfChildren: 1)
+            , Train.init(name: "Green.2", cost: 20, generation: .second, engineColor: .green, capacity: 4, numberOfChildren: 4)
+            , Train.init(name: "Red.2", cost: 24, generation: .second, engineColor: .red, capacity: 3, numberOfChildren: 3)
+            , Train.init(name: "Yellow.2", cost: 28, generation: .second, engineColor: .yellow, capacity: 3, numberOfChildren: 2)
+            , Train.init(name: "Green.3", cost: 32, generation: .third, engineColor: .green, capacity: 4, numberOfChildren: 4)
+            , Train.init(name: "Blue.2", cost: 36, generation: .second, engineColor: .blue, capacity: 2, numberOfChildren: 2)
+            , Train.init(name: "Red.3", cost: 40, generation: .third, engineColor: .red, capacity: 4, numberOfChildren: 3)
+            , Train.init(name: "Green.4", cost: 44, generation: .fourth, engineColor: .green, capacity: 5, numberOfChildren: 4)
+            , Train.init(name: "Yellow.3", cost: 48, generation: .third, engineColor: .yellow, capacity: 3, numberOfChildren: 3)
+            , Train.init(name: "Red.4", cost: 52, generation: .fourth, engineColor: .red, capacity: 4, numberOfChildren: 4)
+            , Train.init(name: "Green.5", cost: 56, generation: .fifth, engineColor: .green, capacity: 5, numberOfChildren: 4)
+        ]        
         return trains
     }
 

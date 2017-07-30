@@ -10,15 +10,15 @@ import Foundation
 
 final class Train : NSObject
 {
-    public private (set) var uuid: String = UUID().uuidString
-    var name: String!
-    var cost: Int!
-    var productionCost: Int!
-    var income: Int!
-    var generation: Generation = .first
-    var engineColor: EngineColor = .green
-    var capacity: Int = 0
-    var numberOfChildren: Int = 0
+    let uuid: String = UUID().uuidString
+    public private (set) var name: String = ""
+    public private (set) var cost: Int = 0
+    public private (set) var productionCost: Int = 0
+    public private (set) var income: Int = 0
+    public private (set) var generation: Generation = .first
+    public private (set) var engineColor: EngineColor = .green
+    public private (set) var capacity: Int = 0
+    public private (set) var numberOfChildren: Int = 0
 
     // # Obsolescence variables
     public fileprivate(set) var isRusting : Bool = false {
@@ -32,13 +32,38 @@ final class Train : NSObject
         }
     }
 
-    init(name:String, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
+    var cards: [LocomotiveCard] = [LocomotiveCard]()
+
+    override var description: String {
+        var returnString = "Train: \(self.name) : "
+        if (self.isRusting) {
+            returnString = returnString.appending(" - OLD -")
+        }
+        if (self.hasRusted) {
+            returnString = returnString.appending(" ** OBSOLETE **")
+        }
+        returnString = returnString.appending(" Cost: \(self.cost), Production: \(self.productionCost) Income: \(self.income)")
+        returnString = returnString.appending(" -- Cards: \(self.cards.count)")
+        return returnString
+    }
+
+    init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
         super.init()
+        assert(cost % 4 == 0, "Cost must be a modulus of 4")
         self.name = name
+        self.cost = cost
+        self.productionCost = Int(cost / 2)
+        self.income = Int(productionCost / 2)
         self.generation = generation
         self.engineColor = engineColor
         self.capacity = capacity
         self.numberOfChildren = numberOfChildren
+
+        guard let cards = LocomotiveCardAPI.createCardsForTrain(train: self) else {
+            assertionFailure("No locomotive cards generated for train: \(self.name)")
+            return
+        }
+        self.cards = cards
     }
 
 }

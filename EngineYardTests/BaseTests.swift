@@ -35,6 +35,24 @@ struct Mock
             return nil
         }
     }
+
+    struct Cards {
+        var green: Int = 0
+        var red: Int = 0
+        var blue: Int = 0
+        var yellow: Int = 0
+        var total : Int {
+            return (self.green + self.red + self.blue + self.yellow)
+        }
+
+        fileprivate struct Expected {
+            static let green = Constants.Board.numberOfCardsForColor(engineColor: .green)
+            static let red = Constants.Board.numberOfCardsForColor(engineColor: .red)
+            static let blue = Constants.Board.numberOfCardsForColor(engineColor: .blue)
+            static let yellow = Constants.Board.numberOfCardsForColor(engineColor: .yellow)
+            static let total = Constants.Board.cards
+        }
+    }
 }
 
 class BaseTests: XCTestCase {
@@ -76,11 +94,54 @@ class BaseTests: XCTestCase {
             return
         }
 
+        guard let gameBoard = gameObj.gameBoard else {
+            assertionFailure("** No game board defined **")
+            return
+        }
+
         XCTAssertNotNil(gameObj)
         XCTAssertNotNil(gameObj.dateCreated)
-
-        XCTAssertNotNil(gameObj.gameBoard)
-        XCTAssert(gameObj.gameBoard?.decks.count == Constants.Board.decks)
         XCTAssert(gameObj.players.count == expectedPlayers)
+        XCTAssert(gameBoard.decks.count == Constants.Board.decks)
+
+
+        // Validate board decks
+        var cards = Mock.Cards()
+
+        for train in gameBoard.decks
+        {
+            XCTAssert(train.cost % 4 == 0)
+            XCTAssert(train.productionCost == Int(train.cost / 2))
+            XCTAssert(train.income == Int(train.productionCost / 2))
+
+            print (train.description)
+
+            for _ in train.cards {
+                switch train.engineColor {
+                case .green:
+                    cards.green += 1
+                    break
+
+                case .red:
+                    cards.red += 1
+                    break
+
+                case .blue:
+                    cards.blue += 1
+                    break
+
+                case .yellow:
+                    cards.yellow += 1
+                    break
+                }
+            }
+        }
+
+        XCTAssert(cards.green == Mock.Cards.Expected.green, "Not enough green cards. Found: \(cards.green), Expected: \(Mock.Cards.Expected.green)")
+        XCTAssert(cards.red == Mock.Cards.Expected.red, "Not enough red cards. Found: \(cards.red), Expected: \(Mock.Cards.Expected.red)")
+        XCTAssert(cards.yellow == Mock.Cards.Expected.yellow, "Not enough yellow cards. Found: \(cards.yellow), Expected: \(Mock.Cards.Expected.yellow)")
+        XCTAssert(cards.blue == Mock.Cards.Expected.blue, "Not enough blue cards. Found: \(cards.blue), Expected: \(Mock.Cards.Expected.blue)")
+        XCTAssert(cards.total == Mock.Cards.Expected.total, "Not enough cards, total = \(cards.total), Expected: \(Mock.Cards.Expected.total)")
+
     }
 }
