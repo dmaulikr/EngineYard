@@ -8,20 +8,25 @@
 
 import Foundation
 
-final class Production : NSObject
+final class Production: HandDelegate
 {
     weak var parent: LocomotiveCard?
     var units: Int = 0
     private var unitsSpent: Int = 0
 
     init(parent: LocomotiveCard) {
-        super.init()
         self.parent = parent
     }
 }
 
 extension Production {
-    func setDefaultProduction() {
+
+    // #TODO
+    internal func didAdd(card: LocomotiveCard) {
+        self.setDefaultProduction()
+    }
+
+    private func setDefaultProduction() {
         self.units = 1
     }
 }

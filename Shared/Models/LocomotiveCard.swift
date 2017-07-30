@@ -35,13 +35,11 @@ extension LocomotiveCard {
     }
 }
 
-
 extension LocomotiveCard {
     public static func ==(lhs: LocomotiveCard, rhs: LocomotiveCard) -> Bool {
         return (lhs.uuid == rhs.uuid)
     }
 }
-
 
 extension LocomotiveCard {
 

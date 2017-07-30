@@ -34,30 +34,70 @@ class PlayerTests: BaseTests {
     }
 
     func testThreePlayerSetup() {
-
-    }
-
-    func testFivePlayerSetup() {
-        guard let players = Mock.players(howMany: 5) else {
+        let howMany = 3
+        guard let players = Mock.players(howMany: howMany) else {
             XCTFail("Mock players failed")
             return
         }
-        XCTAssert(players.count == 5)
+        XCTAssert(players.count == howMany)
 
         guard let game = Game.setup(players: players) else {
             XCTFail("Game setup failed")
             return
         }
-        XCTAssert(game.players.count == 5)
+        XCTAssert(game.players.count == howMany)
 
         guard let gameBoard = game.gameBoard else {
             XCTFail("Game board setup failed")
             return
         }
 
+        let hasOrders = gameBoard.decks.filter { (train: Train) -> Bool in
+            return (train.orderBook.existingOrders.count > 0)
+        }
+
+        XCTAssert(hasOrders.count == 2)
+
+        // players
+        let _ = game.players.map({
+            XCTAssert($0.wallet.balance == Constants.SeedCash.threePlayers)
+            XCTAssert($0.hand.cards.count == 1)
+        })
+
+        for player in game.players {
+            for card in player.hand.cards {
+                XCTAssert(card.owner == player)
+                XCTAssert(card.production.units == 1)
+                XCTAssert(card.parent?.engineColor == .green)
+                XCTAssert(card.parent?.generation == .first)
+            }
+        }
+
+
+    }
+
+    func testFivePlayerSetup() {
+        let howMany = 5
+        guard let players = Mock.players(howMany: howMany) else {
+            XCTFail("Mock players failed")
+            return
+        }
+        XCTAssert(players.count == howMany)
+
+        guard let game = Game.setup(players: players) else {
+            XCTFail("Game setup failed")
+            return
+        }
+        XCTAssert(game.players.count == howMany)
+
         let _ = game.players.map({
             XCTAssert($0.wallet.balance == Constants.SeedCash.fivePlayers)
         })
+
+        guard let gameBoard = game.gameBoard else {
+            XCTFail("Game board setup failed")
+            return
+        }
 
         let results = gameBoard.decks.filter { (t:Train) -> Bool in
             return (t.orderBook.existingOrders.count > 0)

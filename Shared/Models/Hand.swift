@@ -8,10 +8,15 @@
 
 import Foundation
 
-// Each player has their own hand of cards
+protocol HandDelegate: class {
+    func didAdd(card: LocomotiveCard)
+}
 
-class Hand: CustomStringConvertible
+// Each player has their own hand of cards
+class Hand : CustomStringConvertible
 {
+    weak var delegate: HandDelegate?
+
     public fileprivate(set) weak var owner: Player?
     public fileprivate(set) var cards: [LocomotiveCard] = [LocomotiveCard]()
 
@@ -24,9 +29,11 @@ class Hand: CustomStringConvertible
             assertionFailure("This hand is not assigned to any player")
             return
         }
+        self.delegate = card.production
+
         if (canAdd(card: card)) {
             card.setOwner(owner: hasOwner)
-            card.production.setDefaultProduction()
+            self.delegate?.didAdd(card: card)
             cards.append(card)
         }
     }

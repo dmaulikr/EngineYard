@@ -78,56 +78,32 @@ extension SetupManager
             return
         }
 
-        let decks = gameBoard.decks
+        // Get first 2 decks
+        let decks = gameBoard.decks[0...1]
 
-        guard let firstTrain = TrainAPI.findTrainInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
-            assertionFailure("Cannot find first train in deck that matches (green, first)")
+        guard let firstTrain = decks.first else {
+            assertionFailure("No first train found")
             return
         }
 
-        let filter = firstTrain.cards.filter({
-            $0.owner == nil
-        })
+        guard let lastTrain = decks.last else {
+            assertionFailure("No last train found")
+            return
+        }
 
-        assert(filter.count > 0, "Cards returned is invalid")
+        assert(firstTrain.generation == .first && firstTrain.engineColor == .green)
+        assert(lastTrain.generation == .first && lastTrain.engineColor == .red)
 
-//
-//        for player in gameModel.players {
-//            guard let firstUnownedEngine = enginesList.filter({ (eng:Engine) -> Bool in
-//                return (eng.owner == nil)
-//            }).first else {
-//                fatalError("Cannot find any unowned engine for \(firstLoco.name)")
-//                break
-//            }
-//
-//            firstUnownedEngine.assignOwner(player: player)
-//        }
-
-        /*
-
-        // Give each player first generation green train
+        // Give each player a first train card (if possible)
         for player in gameModel.players {
-            guard let firstUnownedEngine = enginesList.filter({ (eng:Engine) -> Bool in
-                return (eng.owner == nil)
-            }).first else {
-                fatalError("Cannot find any unowned engine for \(firstLoco.name)")
-                break
+            guard let cardToAdd = LocomotiveCardAPI.findFirstUnownedCard(for: firstTrain) else {
+                return
             }
-
-            firstUnownedEngine.assignOwner(player: player)
+            player.hand.add(card: cardToAdd)
         }
 
-        // generate 3 orders for firstLoco
-        print ("Generating orders for \(firstLoco.name)")
-        firstLoco.orderBook.generateExistingOrders(howMany: 3)
-
-        // generate 1 order for secondLoco
-        let secondLoco:Locomotive = decks[1] as Locomotive
-        if ((secondLoco.generation != .first) && (secondLoco.engineColor != .red)) {
-            assertionFailure("Second loco is invalid")
-        }
-        secondLoco.orderBook.generateExistingOrders(howMany: 1)
-         */
+        firstTrain.orderBook.generateExistingOrders(howMany: 3)
+        lastTrain.orderBook.generateExistingOrders(howMany: 1)
     }
 
 
@@ -149,14 +125,13 @@ extension SetupManager
             return
         }
 
-        let decks = gameBoard.decks
-
-        guard let firstTrain = TrainAPI.findTrainInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
-            assertionFailure("Could not find train (.green, .first)")
+        guard let firstTrain = gameBoard.decks.first else {
+            assertionFailure("firstTrain does not exist")
             return
         }
-        firstTrain.orderBook.generateExistingOrders(howMany: 1)
+        assert(firstTrain.generation == .first && firstTrain.engineColor == .green)
 
+        firstTrain.orderBook.generateExistingOrders(howMany: 1)
     }
     
     
