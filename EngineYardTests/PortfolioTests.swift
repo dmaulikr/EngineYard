@@ -1,5 +1,5 @@
 //
-//  PlayerTests.swift
+//  PortfolioTests.swift
 //  EngineYard
 //
 //  Created by Amarjit on 30/07/2017.
@@ -10,7 +10,7 @@ import XCTest
 
 @testable import EngineYard
 
-class PlayerTests: BaseTests {
+class PortfolioTests: BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -22,22 +22,8 @@ class PlayerTests: BaseTests {
         super.tearDown()
     }
 
-    func testMockPlayerSetup() {
-        XCTAssertNil( Mock.players(howMany: 1) )
-        XCTAssertNil( Mock.players(howMany: 6) )
-
-        guard let players = Mock.players(howMany: 5) else {
-            XCTFail("Mock players failed")
-            return
-        }
-        XCTAssert(players.count == 5)
-    }
-
-    func testThreePlayerSetup() {
-
-    }
-
-    func testFivePlayerSetup() {
+    func testAddToPortfolio()
+    {
         guard let players = Mock.players(howMany: 5) else {
             XCTFail("Mock players failed")
             return
@@ -49,11 +35,24 @@ class PlayerTests: BaseTests {
             return
         }
 
-        XCTAssert(game.players.count == 5)
+        guard let gameBoard = game.gameBoard else {
+            XCTFail("No game board defined")
+            return
+        }
 
-        let _ = game.players.map({
-            XCTAssert($0.wallet.balance == Constants.SeedCash.fivePlayers)
-        })
+        guard let firstTrain = gameBoard.decks.first else {
+            XCTFail("No train found")
+            return
+        }
+
+        guard let firstPlayer = game.players.first else {
+            XCTFail("No player found")
+            return
+        }
+
+        
+
+
     }
 
 

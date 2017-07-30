@@ -67,11 +67,11 @@ extension SetupManager
     // on the locomotive card, with side “1” face up.
 
     fileprivate func setupThreePlayerGame(gameModel:Game) {
-
-        /*
         let seedCash = Constants.SeedCash.threePlayers
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
+
+        assert(gameModel.players.count > 0, "No players were defined")
 
         guard let gameBoard = gameModel.gameBoard else {
             assertionFailure("GameBoard is not defined")
@@ -80,17 +80,30 @@ extension SetupManager
 
         let decks = gameBoard.decks
 
-        guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
+        guard let firstTrain = TrainAPI.findTrainInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
+            assertionFailure("Cannot find first train in deck that matches (green, first)")
             return
         }
 
-        let enginesList = firstLoco.engines.filter({
+        let filter = firstTrain.cards.filter({
             $0.owner == nil
         })
 
-        if (enginesList.count == 0) {
-            return
-        }
+        assert(filter.count > 0, "Cards returned is invalid")
+
+//
+//        for player in gameModel.players {
+//            guard let firstUnownedEngine = enginesList.filter({ (eng:Engine) -> Bool in
+//                return (eng.owner == nil)
+//            }).first else {
+//                fatalError("Cannot find any unowned engine for \(firstLoco.name)")
+//                break
+//            }
+//
+//            firstUnownedEngine.assignOwner(player: player)
+//        }
+
+        /*
 
         // Give each player first generation green train
         for player in gameModel.players {
@@ -126,7 +139,7 @@ extension SetupManager
 
     fileprivate func setupFivePlayerGame(gameModel:Game) {
 
-        /*
+        assert(gameModel.players.count > 0, "# Players invalid")
         let seedCash = Constants.SeedCash.fivePlayers
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
@@ -136,6 +149,7 @@ extension SetupManager
             return
         }
 
+        /*
         let decks = gameBoard.decks
 
         guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {

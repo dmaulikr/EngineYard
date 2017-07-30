@@ -31,7 +31,7 @@ struct Mock
             }
 
         } catch let error {
-            assertionFailure(error.localizedDescription)
+            print ("Player setup error: \(error.localizedDescription as Any)")
             return nil
         }
     }
@@ -90,12 +90,12 @@ class BaseTests: XCTestCase {
         XCTAssert(generatedPlayers.count == expectedPlayers)
 
         guard let gameObj = Game.setup(players: generatedPlayers) else {
-            assertionFailure("** No game object defined **")
+            XCTFail("** No game object defined **")
             return
         }
 
         guard let gameBoard = gameObj.gameBoard else {
-            assertionFailure("** No game board defined **")
+            XCTFail("** No game board defined **")
             return
         }
 

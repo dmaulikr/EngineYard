@@ -48,6 +48,9 @@
 		4D9EDB051F2E1B1300755834 /* TurnOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB041F2E1B1300755834 /* TurnOrderManager.swift */; };
 		4D9EDB0B1F2E1F2400755834 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */; };
 		4D9EDB0D1F2E200700755834 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB0C1F2E200700755834 /* OrderBook.swift */; };
+		4D9EDB0F1F2E258C00755834 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB0E1F2E258C00755834 /* Die.swift */; };
+		4D9EDB111F2E261E00755834 /* Train+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB101F2E261E00755834 /* Train+API.swift */; };
+		4D9EDB151F2E29BB00755834 /* PortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB141F2E29BB00755834 /* PortfolioTests.swift */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
 		4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB42D41F2DFDCF009ABCD7 /* Train.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
@@ -112,6 +115,9 @@
 		4D9EDB041F2E1B1300755834 /* TurnOrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOrderManager.swift; sourceTree = "<group>"; };
 		4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		4D9EDB0C1F2E200700755834 /* OrderBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
+		4D9EDB0E1F2E258C00755834 /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		4D9EDB101F2E261E00755834 /* Train+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Train+API.swift"; sourceTree = "<group>"; };
+		4D9EDB141F2E29BB00755834 /* PortfolioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTests.swift; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4DCB42D41F2DFDCF009ABCD7 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,7 +210,9 @@
 				4D9EDAE81F2E02D500755834 /* Game.swift */,
 				4D9EDAEA1F2E02F700755834 /* GameBoard.swift */,
 				4DCB42D41F2DFDCF009ABCD7 /* Train.swift */,
+				4D9EDB101F2E261E00755834 /* Train+API.swift */,
 				4D9EDB0C1F2E200700755834 /* OrderBook.swift */,
+				4D9EDB0E1F2E258C00755834 /* Die.swift */,
 				4D9EDADE1F2DFEBB00755834 /* LocomotiveCard.swift */,
 				4D9EDAE61F2E01F000755834 /* LocomotiveCard+API.swift */,
 				4D9EDAE01F2DFEF000755834 /* Player.swift */,
@@ -254,6 +262,7 @@
 				4D9429681F21243C006B2D89 /* Info.plist */,
 				4D9EDAEF1F2E07C700755834 /* BaseTests.swift */,
 				4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */,
+				4D9EDB141F2E29BB00755834 /* PortfolioTests.swift */,
 				4D9EDAF31F2E09A200755834 /* WalletTests.swift */,
 				4D9EDAFB1F2E10AF00755834 /* TaxTests.swift */,
 				4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */,
@@ -541,6 +550,7 @@
 			files = (
 				4D9EDAF21F2E089800755834 /* Wallet.swift in Sources */,
 				4D9EDAE71F2E01F000755834 /* LocomotiveCard+API.swift in Sources */,
+				4D9EDB0F1F2E258C00755834 /* Die.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
@@ -559,6 +569,7 @@
 				4D9EDB0D1F2E200700755834 /* OrderBook.swift in Sources */,
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
 				4D9EDAF61F2E0A0B00755834 /* Transaction.swift in Sources */,
+				4D9EDB111F2E261E00755834 /* Train+API.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
 				4D9EDB031F2E1AEF00755834 /* SetupManager.swift in Sources */,
@@ -579,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9EDB0B1F2E1F2400755834 /* PlayerTests.swift in Sources */,
+				4D9EDB151F2E29BB00755834 /* PortfolioTests.swift in Sources */,
 				4D9EDAF41F2E09A200755834 /* WalletTests.swift in Sources */,
 				4D9EDAFC1F2E10AF00755834 /* TaxTests.swift in Sources */,
 				4D9EDAF01F2E07C700755834 /* BaseTests.swift in Sources */,

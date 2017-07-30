@@ -67,3 +67,17 @@ final class Train : NSObject
     }
 
 }
+
+extension Train {
+
+
+    func markAsOld() {
+        self.isRusting = true
+    }
+
+    func markAsObsolete() {
+        self.hasRusted = true
+    }
+
+
+}
