@@ -31,7 +31,6 @@
 		4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429761F2124B7006B2D89 /* Main.storyboard */; };
 		4D9429821F2124DF006B2D89 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9429811F2124DF006B2D89 /* GameKit.framework */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
-		4DC6B4CA1F289F2200B3C991 /* PlayerHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC6B4C61F289F2200B3C991 /* PlayerHUDView.xib */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +75,6 @@
 		4D9429781F2124B7006B2D89 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D9429811F2124DF006B2D89 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		4DC6B4C61F289F2200B3C991 /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerHUDView.xib; path = /Users/amarjit/Documents/Projects/EngineYard/source/EngineYard_iOS/Views/PlayerCard/PlayerHUDView.xib; sourceTree = "<absolute>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
-				4DC6B4CA1F289F2200B3C991 /* PlayerHUDView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
