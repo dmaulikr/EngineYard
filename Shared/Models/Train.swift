@@ -36,6 +36,8 @@ final class Train : CustomStringConvertible
 
     init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
         assert(cost % 4 == 0, "Cost must be a modulus of 4")
+        assert(capacity > 0, "Capacity must be > 0")
+        assert(numberOfChildren > 0, "Number of children must be > 0")
         self.name = name
         self.cost = cost
         self.productionCost = Int(cost / 2)
@@ -44,6 +46,8 @@ final class Train : CustomStringConvertible
         self.engineColor = engineColor
         self.capacity = capacity
         self.numberOfChildren = numberOfChildren
+
+        // functional code to map the cards to children
         self.cards += (1...numberOfChildren).map{ _ in LocomotiveCard.init(parent: self) }
     }
 }
