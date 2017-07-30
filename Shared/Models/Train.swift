@@ -97,6 +97,14 @@ extension Train {
 
 extension Train {
 
+    var owners: [Player]? {
+        return self.cards
+            .lazy
+            .flatMap { card in card.owner.map{ (card: card, owner: $0) } }
+            .sorted { $0.owner.turnOrder < $1.owner.turnOrder }
+            .map { $0.owner }
+    }
+    
     func isOwned(by player: Player?) -> Bool {
         return self.cards.contains(where: { $0.isOwned(by: player)} )
     }
