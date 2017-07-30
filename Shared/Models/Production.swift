@@ -8,8 +8,9 @@
 
 import Foundation
 
-final class Production : NSObject {
-    fileprivate(set) weak var parent: Engine?
+final class Production : NSObject
+{
+    fileprivate(set) weak var parent: LocomotiveCard?
     fileprivate(set) var units : Int = 0 {
         didSet {
             if (units < 0) {
@@ -32,7 +33,7 @@ final class Production : NSObject {
         return ("Production Units - \(self.units) vs spent: \(self.unitsSpent)")
     }
 
-    init(parent: Engine) {
+    init(parent: LocomotiveCard) {
         self.parent = parent
     }
 }

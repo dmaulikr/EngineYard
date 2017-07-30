@@ -11,9 +11,11 @@ import Foundation
 class TrainDetailViewModel
 {
     weak var game: Game?
-    weak var locomotive: Locomotive?
 
-    init(game: Game, locomotive: Locomotive) {
+    /*
+    weak var locomotive: LocomotiveCard?
+
+    init(game: Game, locomotive: LocomotiveCard) {
         self.game = game
         self.locomotive = locomotive
 
@@ -46,4 +48,5 @@ class TrainDetailViewModel
             train.purchase(buyer: player)
         }
     }
+    */
 }

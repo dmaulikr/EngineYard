@@ -35,6 +35,7 @@ class BaseViewModel : CustomStringConvertible {
             return "** No game board defined **"
         }
         return ("\(hasGame.description), decks: \(gameBoard.decks.count)")
+        return ""
     }
 
 }

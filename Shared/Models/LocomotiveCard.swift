@@ -1,5 +1,5 @@
 //
-//  Locomotive.swift
+//  LocomotiveCard.swift
 //  EngineYard
 //
 //  Created by Amarjit on 20/07/2017.
@@ -9,6 +9,29 @@
 import Foundation
 import ObjectMapper
 
+//typealias Locomotive = LocomotiveCard
+
+final class LocomotiveCard : NSObject {
+    weak var parent: Train?
+    weak var owner: Player?
+    //lazy var production = Production.init(parent: self)
+
+    override var description: String {
+        return ("Engine.parent: \(self.parent?.name), Owner: \(self.owner?.name) - Production: \(self.production.description)")
+    }
+}
+
+extension LocomotiveCard {
+    /*
+    func assignOwner(player: Player) {
+        self.production.setDefaultProduction()
+        self.owner = player
+    }
+    */
+}
+
+
+/**
 final class Locomotive : NSObject, TrainProtocol {
     let uuid: String = UUID().uuidString
     public private(set) var name: String = ""
@@ -143,3 +166,4 @@ extension Locomotive {
         }
     }
 }
+**/

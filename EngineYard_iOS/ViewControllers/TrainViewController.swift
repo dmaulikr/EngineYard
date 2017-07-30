@@ -14,7 +14,7 @@ class TrainViewController: UIViewController
     //, UICollectionViewDelegate, UICollectionViewDataSource
 {
     var doneClosure : ((_ doneBtnPressed: Bool)->())?
-    var selectedTrainClosure : ((_ train: Locomotive?)->())?
+    var selectedTrainClosure : ((_ train: Train?)->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()

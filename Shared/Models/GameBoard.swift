@@ -14,11 +14,12 @@ extension Notification.Name {
 
 final class GameBoard {
 
-    fileprivate var _trains: [Locomotive] = [Locomotive]()
+    // The game board is a series of spaces, representing
+    fileprivate var _spaces: [Train] = [Train]()
 
-    public var decks: [Locomotive] {
-        return self._trains.sorted(by: { (loco1:Locomotive, loco2:Locomotive) -> Bool in
-            return (loco1.cost < loco2.cost)
+    public var decks: [Train] {
+        return self._spaces.sorted(by: { (t1:Train, t2:Train) -> Bool in
+            return (t1.cost < t2.cost)
         })
     }
 
@@ -40,6 +41,7 @@ final class GameBoard {
         NotificationCenter.default.removeObserver(self, name: .boughtTrainNotificationId, object: nil)
     }
 
+
     @objc func didPurchaseTrain() {
         print ("didPurchaseTrain")
         self.unlockNext()
@@ -52,30 +54,28 @@ final class GameBoard {
         let gameBoard = GameBoard()
 
         // # load static game data fixtures
-        gameBoard._trains = LocomotiveAPI.loadFixtures()
+        //gameBoard._trains = LocomotiveAPI.loadFixtures()
 
         // # save to db (#TODO)
 
         return gameBoard
     }
 
-    // Unlock next deck
+    // Unlock next train
     private func unlockNext() {
-        guard let firstLocked = (self.decks.filter({ (loco:Locomotive) -> Bool in
-            return (loco.isUnlocked == false)
+        guard let firstLocked = (self.decks.filter({ (train: Train) -> Bool in
+            return (train.isUnlocked == false)
         }).first) else {
-            print ("No more locos to unlock")
+            print ("No more trains to unlock")
             return
         }
 
         print ("Unlocking: \(firstLocked.name)")
-        firstLocked.orderBook.generateExistingOrders(howMany: 1)
+        //firstLocked.orderBook.generateExistingOrders(howMany: 1)
     }
-    
 
     func reset() {
-        self._trains.removeAll()
+        self._spaces.removeAll()
         removeNotifications()
     }
-
 }

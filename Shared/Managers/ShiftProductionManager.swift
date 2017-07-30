@@ -23,6 +23,7 @@ import Foundation
 // no Production Units, remove it from play immediately.
 //
 
+/**
 struct ShiftablePortfolio {
     var engine: Engine
     var difference: Int = 0
@@ -74,3 +75,4 @@ struct ShiftProductionManager {
 
     
 }
+**/

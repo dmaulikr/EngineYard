@@ -9,9 +9,9 @@
 import Foundation
 
 protocol PurchaseTrainProtocol {
-    func canPurchaseTrain(train: Locomotive) -> Bool
-    func willPurchaseTrain(train: Locomotive)
-    func didPurchaseTrain(train: Locomotive)
+    func canPurchaseTrain(train: Train) -> Bool
+    func willPurchaseTrain(train: Train)
+    func didPurchaseTrain(train: Train)
 }
 
 public struct Message {
@@ -39,7 +39,7 @@ final class PurchaseableTrainsViewModel: BaseViewModel, PurchaseTrainProtocol
         super.init(game: game)
     }
 
-    var trains: [Locomotive]?
+    var trains: [Train]?
 
     lazy var noTrainPurchasedMessage: Message = {
         let title: String = NSLocalizedString("End Turn -- Are you sure?", comment: "No train bought title")
@@ -54,15 +54,15 @@ final class PurchaseableTrainsViewModel: BaseViewModel, PurchaseTrainProtocol
 
     // PurchaseTrainProtocol delegate methods
 
-    internal func canPurchaseTrain(train: Locomotive) -> Bool {
+    internal func canPurchaseTrain(train: Train) -> Bool {
         return false
     }
 
-    internal func willPurchaseTrain(train: Locomotive) {
+    internal func willPurchaseTrain(train: Train) {
 
     }
 
-    internal func didPurchaseTrain(train: Locomotive) {
+    internal func didPurchaseTrain(train: Train) {
 
     }
 }

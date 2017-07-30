@@ -15,7 +15,7 @@ final class Player : NSObject {
     public fileprivate(set) var turnOrder: Int = 0
 
     var account: Account = Account()
-    var engines: [Engine] = [Engine]()
+    lazy var portfolio: Portfolio = Portfolio(owner: self)
 
     var cash: Int {
         return self.account.balance
@@ -47,8 +47,4 @@ extension Player {
         self.isAI = !self.isAI
     }
 
-    func addEngine(engine:Engine) {
-        self.engines.append(engine)
-    }
-    
 }
