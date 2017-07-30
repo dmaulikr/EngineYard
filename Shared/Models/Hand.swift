@@ -32,12 +32,10 @@ class Hand: CustomStringConvertible
     }
 
     func canAdd(card: LocomotiveCard) -> Bool {
-        // make sure the card is not owned by anybody
+        // I expect that card has no owner
         guard card.owner == nil else {
             return false
         }
-
-        // find first loco that matches the card and matches right color, etc
 
         let whereEngineColor = card.parent?.engineColor
         let whereGeneration = card.parent?.generation

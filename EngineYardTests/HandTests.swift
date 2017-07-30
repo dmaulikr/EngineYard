@@ -46,18 +46,26 @@ class HandTests: BaseTests {
         }
 
         for player in game.players {
+
+            guard let firstUnownedCard = LocomotiveCardAPI.findFirstUnownedCard(for: firstTrain) else {
+                return
+            }
+
+            /*
             guard let firstUnownedCard = firstTrain.cards.filter({ (card: LocomotiveCard) -> Bool in
                 return (card.owner == nil)
             }).first else {
                 break
             }
+             */
 
             player.hand.add(card: firstUnownedCard)
         }
 
-        for card in firstTrain.cards {
-            XCTAssertNotNil(card.owner)
-        }
+        let _ = firstTrain.cards.map({
+            XCTAssertNotNil($0.owner)
+        })
+
 
         for (index, p) in game.players.enumerated() {
             if (index < firstTrain.numberOfChildren) {
@@ -66,12 +74,8 @@ class HandTests: BaseTests {
             else {
                 XCTAssert(p.hand.cards.count == 0)
             }
-
             print ("#\(index), Player: \(p.name), Cards: \(p.hand.cards)\n")
         }
-
-
-
 
     }
 

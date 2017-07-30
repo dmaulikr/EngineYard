@@ -8,23 +8,18 @@
 
 import Foundation
 
-class LocomotiveCardAPI {
+final class LocomotiveCardAPI {
 
-    //self.cards = LocomotiveCardAPI.createCardsForTrain(train: self)
-    static func createCardsForTrain(train: Train) -> [LocomotiveCard]? {
-        guard train.cards.count == 0 else {
+    public static func findFirstUnownedCard(for train:Train) -> LocomotiveCard? {
+
+        guard let firstUnownedCard = train.cards.filter({ (card: LocomotiveCard) -> Bool in
+            return (card.owner == nil)
+        }).first else {
             return nil
         }
 
-        var cards: [LocomotiveCard] = [LocomotiveCard]()
-
-        for _ in stride(from:0, to: train.numberOfChildren, by: 1) {
-            let card : LocomotiveCard = LocomotiveCard.init(parent: train)
-            //train.cards.append(card)
-            cards.append(card)
-        }
-
-        return cards
+        return firstUnownedCard
     }
+
 
 }
