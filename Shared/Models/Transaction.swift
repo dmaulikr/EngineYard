@@ -9,7 +9,8 @@
 import Foundation
 
 // #TODO
-struct Transaction {
+struct Transaction: CustomStringConvertible
+{
     let dateCreated: Date = Date.init(timeIntervalSinceNow: 0)
     var amount: Int = 0
     var note: String = ""
@@ -19,5 +20,11 @@ struct Transaction {
         if let noteObj = note {
             self.note = noteObj
         }
+    }
+}
+
+extension Transaction {
+    var description: String {
+        return ("Transaction: \(self.dateCreated) - Amount: \(self.amount) - Note: \(self.note)")
     }
 }

@@ -14,10 +14,6 @@ import Foundation
 class Wallet: CustomStringConvertible  {
     public private(set) var balance: Int = 0
 
-    var description: String {
-        return ("Balance: $\(self.balance)")
-    }
-
     init(balance: Int = 0) {
         self.balance = balance
     }
@@ -54,6 +50,13 @@ class Wallet: CustomStringConvertible  {
             return false
         }
         return true
+    }
+}
+
+extension Wallet {
+
+    var description: String {
+        return ("Balance: $\(self.balance)")
     }
 
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 
-final class Player : NSObject {
+final class Player : CustomStringConvertible
+{
     public fileprivate(set) var name : String!
     public fileprivate(set) var isAI: Bool = false
     public fileprivate(set) var asset: String = ""
@@ -20,12 +21,7 @@ final class Player : NSObject {
         return (self.wallet.balance)
     }
 
-    override var description: String {
-        return ("\(self.name), turnOrder: \(self.turnOrder), cash: $\(self.cash)")
-    }
-
     init(name: String, isAI: Bool = false, asset: String?) {
-        super.init()
         self.name = name
         self.isAI = isAI
         if let hasAsset = asset {
@@ -34,6 +30,11 @@ final class Player : NSObject {
     }
 }
 
+extension Player {
+    var description: String {
+        return ("\(self.name), turnOrder: \(self.turnOrder), cash: $\(self.cash)")
+    }
+}
 
 extension Player {
 

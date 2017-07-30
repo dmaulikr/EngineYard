@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Train : NSObject
+final class Train : CustomStringConvertible
 {
     let uuid: String = UUID().uuidString
     public private (set) var name: String = ""
@@ -34,7 +34,22 @@ final class Train : NSObject
 
     var cards: [LocomotiveCard] = [LocomotiveCard]()
 
-    override var description: String {
+    init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
+        assert(cost % 4 == 0, "Cost must be a modulus of 4")
+        self.name = name
+        self.cost = cost
+        self.productionCost = Int(cost / 2)
+        self.income = Int(productionCost / 2)
+        self.generation = generation
+        self.engineColor = engineColor
+        self.capacity = capacity
+        self.numberOfChildren = numberOfChildren
+        self.cards += (1...numberOfChildren).map{ _ in LocomotiveCard.init(parent: self) }
+    }
+}
+
+extension Train {
+    var description: String {
         var returnString = "Train: \(self.name) : "
         if (self.isRusting) {
             returnString = returnString.appending(" - OLD -")
@@ -47,30 +62,9 @@ final class Train : NSObject
         return returnString
     }
 
-    init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
-        super.init()
-        assert(cost % 4 == 0, "Cost must be a modulus of 4")
-        self.name = name
-        self.cost = cost
-        self.productionCost = Int(cost / 2)
-        self.income = Int(productionCost / 2)
-        self.generation = generation
-        self.engineColor = engineColor
-        self.capacity = capacity
-        self.numberOfChildren = numberOfChildren
-
-        guard let cards = LocomotiveCardAPI.createCardsForTrain(train: self) else {
-            assertionFailure("No locomotive cards generated for train: \(self.name)")
-            return
-        }
-        self.cards = cards
-    }
-
 }
 
 extension Train {
-
-
     func markAsOld() {
         self.isRusting = true
     }
@@ -78,6 +72,8 @@ extension Train {
     func markAsObsolete() {
         self.hasRusted = true
     }
+}
 
-
+extension Train {
+    
 }

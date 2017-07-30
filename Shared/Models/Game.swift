@@ -10,7 +10,6 @@ import Foundation
 
 final class Game : CustomStringConvertible
 {
-
     var gameBoard: GameBoard? {
         didSet {
             guard let gameBoard = self.gameBoard else {
@@ -35,7 +34,9 @@ final class Game : CustomStringConvertible
     var inProgress : Bool {
         return (self.dateCreated != nil)
     }
+}
 
+extension Game {
     var description: String {
         var dateCreatedString = "N/A"
         if let dateCreated = self.dateCreated {
@@ -44,7 +45,6 @@ final class Game : CustomStringConvertible
         return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress)")
     }
 }
-
 
 
 extension Game {

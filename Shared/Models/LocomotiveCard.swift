@@ -10,15 +10,23 @@ import Foundation
 
 typealias Locomotive = LocomotiveCard
 
-final class LocomotiveCard : NSObject
+final class LocomotiveCard : CustomStringConvertible
 {
     weak var parent: Train?
     weak var owner: Player?
     lazy var production: Production = Production.init(parent: self)
 
-
     init(parent: Train) {
-        super.init()
         self.parent = parent
+    }
+
+    func setOwner(owner: Player) {
+        self.owner = owner
+    }
+}
+
+extension LocomotiveCard {
+    var description: String {
+        return ":LocomotiveCard"
     }
 }
