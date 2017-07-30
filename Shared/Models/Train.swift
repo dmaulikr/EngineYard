@@ -79,5 +79,9 @@ extension Train {
 }
 
 extension Train {
-    
+
+    func isOwned(by player: Player?) -> Bool {
+        return self.cards.contains(where: { $0.isOwned(by: player)} )
+    }
+
 }

@@ -50,6 +50,12 @@ class PortfolioTests: BaseTests {
             return
         }
 
+        let portfolio = firstPlayer.portfolio
+
+        XCTAssert(portfolio.cards.count == 0)
+
+        XCTAssertFalse(firstTrain.isOwned(by: firstPlayer))
+        
         
 
 

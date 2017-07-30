@@ -18,6 +18,10 @@ final class Portfolio : NSObject
         self.owner = owner
     }
 
+    
+
+
+    /*
     func add(card: LocomotiveCard) {
         if (canAdd(card: card)) {
             card.owner = self.owner
@@ -36,4 +40,5 @@ final class Portfolio : NSObject
 
         return (results > 0)
     }
+    */
 }

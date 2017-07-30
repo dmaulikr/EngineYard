@@ -30,3 +30,11 @@ extension LocomotiveCard {
         return ":LocomotiveCard"
     }
 }
+
+extension LocomotiveCard {
+
+    func isOwned(by player: Player?) -> Bool {
+        return self.owner === player
+    }
+
+}
