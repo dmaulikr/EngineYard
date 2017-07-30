@@ -8,9 +8,10 @@
 
 import Foundation
 
-final class Game {
+final class Game : CustomStringConvertible
+{
 
-    weak var gameBoard: GameBoard? {
+    var gameBoard: GameBoard? {
         didSet {
             guard let gameBoard = self.gameBoard else {
                 return
@@ -24,6 +25,11 @@ final class Game {
         }
     }
 
+    var turnOrderManager: TurnOrderManager = TurnOrderManager.instance
+    var players: [Player] {
+        return self.turnOrderManager.turnOrder
+    }
+    
     var dateCreated: Date?
 
     var inProgress : Bool {
@@ -37,4 +43,41 @@ final class Game {
         }
         return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress)")
     }
+}
+
+
+
+extension Game {
+
+    public static func setup(players:[Player]) -> Game? {
+        do {
+            let settings = GameConfig()
+
+            guard let game = try SetupManager.instance.setup(settings: settings, players: players) else {
+                assertionFailure("no game model found")
+                return nil
+            }
+
+            return game
+
+        } catch let error {
+            print (error.localizedDescription)
+            assertionFailure(error.localizedDescription)
+            return nil
+        }
+    }
+
+    func abandon() {
+        /**
+        guard let gameBoard = self.gameBoard else {
+            return
+        }
+        gameBoard.reset()
+        self.gameBoard = nil
+        self.dateCreated = nil
+        self.turnOrderManager.turnOrder.removeAll()
+        self.settings = nil
+         **/
+    }
+    
 }

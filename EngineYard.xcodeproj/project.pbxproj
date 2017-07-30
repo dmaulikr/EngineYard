@@ -34,7 +34,7 @@
 		4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE01F2DFEF000755834 /* Player.swift */; };
 		4D9EDAE31F2DFF1800755834 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE21F2DFF1800755834 /* Portfolio.swift */; };
 		4D9EDAE51F2DFF3B00755834 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE41F2DFF3B00755834 /* Production.swift */; };
-		4D9EDAE71F2E01F000755834 /* LocomotiveCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE61F2E01F000755834 /* LocomotiveCardAPI.swift */; };
+		4D9EDAE71F2E01F000755834 /* LocomotiveCard+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE61F2E01F000755834 /* LocomotiveCard+API.swift */; };
 		4D9EDAE91F2E02D500755834 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE81F2E02D500755834 /* Game.swift */; };
 		4D9EDAEB1F2E02F700755834 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAEA1F2E02F700755834 /* GameBoard.swift */; };
 		4D9EDAF01F2E07C700755834 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAEF1F2E07C700755834 /* BaseTests.swift */; };
@@ -43,6 +43,10 @@
 		4D9EDAF61F2E0A0B00755834 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAF51F2E0A0B00755834 /* Transaction.swift */; };
 		4D9EDAF81F2E0FCF00755834 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAF71F2E0FCF00755834 /* Tax.swift */; };
 		4D9EDAFC1F2E10AF00755834 /* TaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAFB1F2E10AF00755834 /* TaxTests.swift */; };
+		4D9EDAFF1F2E198E00755834 /* Player+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAFD1F2E194B00755834 /* Player+API.swift */; };
+		4D9EDB031F2E1AEF00755834 /* SetupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB011F2E1A7800755834 /* SetupManager.swift */; };
+		4D9EDB051F2E1B1300755834 /* TurnOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB041F2E1B1300755834 /* TurnOrderManager.swift */; };
+		4D9EDB0B1F2E1F2400755834 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
 		4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB42D41F2DFDCF009ABCD7 /* Train.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
@@ -92,7 +96,7 @@
 		4D9EDAE01F2DFEF000755834 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4D9EDAE21F2DFF1800755834 /* Portfolio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		4D9EDAE41F2DFF3B00755834 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
-		4D9EDAE61F2E01F000755834 /* LocomotiveCardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocomotiveCardAPI.swift; sourceTree = "<group>"; };
+		4D9EDAE61F2E01F000755834 /* LocomotiveCard+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocomotiveCard+API.swift"; sourceTree = "<group>"; };
 		4D9EDAE81F2E02D500755834 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4D9EDAEA1F2E02F700755834 /* GameBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EngineYardTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -102,6 +106,10 @@
 		4D9EDAF51F2E0A0B00755834 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4D9EDAF71F2E0FCF00755834 /* Tax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
 		4D9EDAFB1F2E10AF00755834 /* TaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxTests.swift; sourceTree = "<group>"; };
+		4D9EDAFD1F2E194B00755834 /* Player+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+API.swift"; sourceTree = "<group>"; };
+		4D9EDB011F2E1A7800755834 /* SetupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupManager.swift; sourceTree = "<group>"; };
+		4D9EDB041F2E1B1300755834 /* TurnOrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOrderManager.swift; sourceTree = "<group>"; };
+		4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4DCB42D41F2DFDCF009ABCD7 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,13 +194,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		4D1A4C1F1F212DAF00680333 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		4D1A4C201F212DAF00680333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +203,9 @@
 				4D9EDAEA1F2E02F700755834 /* GameBoard.swift */,
 				4DCB42D41F2DFDCF009ABCD7 /* Train.swift */,
 				4D9EDADE1F2DFEBB00755834 /* LocomotiveCard.swift */,
-				4D9EDAE61F2E01F000755834 /* LocomotiveCardAPI.swift */,
+				4D9EDAE61F2E01F000755834 /* LocomotiveCard+API.swift */,
 				4D9EDAE01F2DFEF000755834 /* Player.swift */,
+				4D9EDAFD1F2E194B00755834 /* Player+API.swift */,
 				4D9EDAF11F2E089800755834 /* Wallet.swift */,
 				4D9EDAF51F2E0A0B00755834 /* Transaction.swift */,
 				4D9EDAE21F2DFF1800755834 /* Portfolio.swift */,
@@ -248,6 +250,7 @@
 			children = (
 				4D9429681F21243C006B2D89 /* Info.plist */,
 				4D9EDAEF1F2E07C700755834 /* BaseTests.swift */,
+				4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */,
 				4D9EDAF31F2E09A200755834 /* WalletTests.swift */,
 				4D9EDAFB1F2E10AF00755834 /* TaxTests.swift */,
 				4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */,
@@ -277,6 +280,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4D9EDB001F2E1A6E00755834 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4D9EDB011F2E1A7800755834 /* SetupManager.swift */,
+				4D9EDB041F2E1B1300755834 /* TurnOrderManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		4DC6AC1E1F21CD7300AED444 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +298,7 @@
 				4D1A4C1C1F212DAF00680333 /* Enums */,
 				4D1A4C1D1F212DAF00680333 /* Extensions */,
 				4D1A4C1E1F212DAF00680333 /* Helpers */,
-				4D1A4C1F1F212DAF00680333 /* Managers */,
+				4D9EDB001F2E1A6E00755834 /* Managers */,
 				4D1A4C201F212DAF00680333 /* Models */,
 				4DE5E4E71F276E6B0004126E /* ViewModels */,
 				4D1A4C211F212DAF00680333 /* States */,
@@ -525,7 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9EDAF21F2E089800755834 /* Wallet.swift in Sources */,
-				4D9EDAE71F2E01F000755834 /* LocomotiveCardAPI.swift in Sources */,
+				4D9EDAE71F2E01F000755834 /* LocomotiveCard+API.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
@@ -538,13 +550,16 @@
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
+				4D9EDAFF1F2E198E00755834 /* Player+API.swift in Sources */,
 				4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
 				4D9EDAF61F2E0A0B00755834 /* Transaction.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
+				4D9EDB031F2E1AEF00755834 /* SetupManager.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
+				4D9EDB051F2E1B1300755834 /* TurnOrderManager.swift in Sources */,
 				4D9EDADF1F2DFEBB00755834 /* LocomotiveCard.swift in Sources */,
 				4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */,
 				4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */,
@@ -559,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9EDB0B1F2E1F2400755834 /* PlayerTests.swift in Sources */,
 				4D9EDAF41F2E09A200755834 /* WalletTests.swift in Sources */,
 				4D9EDAFC1F2E10AF00755834 /* TaxTests.swift in Sources */,
 				4D9EDAF01F2E07C700755834 /* BaseTests.swift in Sources */,
