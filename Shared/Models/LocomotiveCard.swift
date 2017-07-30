@@ -12,8 +12,8 @@ typealias Locomotive = LocomotiveCard
 
 final class LocomotiveCard : CustomStringConvertible
 {
-    weak var parent: Train?
-    weak var owner: Player?
+    public fileprivate(set) weak var parent: Train?
+    public fileprivate(set) weak var owner: Player?
     lazy var production: Production = Production.init(parent: self)
 
     init(parent: Train) {

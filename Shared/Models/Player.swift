@@ -15,7 +15,7 @@ final class Player : CustomStringConvertible
     public fileprivate(set) var asset: String = ""
     public fileprivate(set) var turnOrder: Int = 0
 
-    var hand: Hand = Hand() // hand of cards
+    lazy var hand: Hand = Hand(owner: self) // hand of cards
     var wallet: Wallet = Wallet() // in-game cash wallet
 
     var cash: Int {

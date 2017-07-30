@@ -10,7 +10,9 @@ import XCTest
 
 @testable import EngineYard
 
-class PortfolioTests: BaseTests {
+// Tests involvingç adding cards to a player's hand
+
+class HandTests: BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -50,13 +52,31 @@ class PortfolioTests: BaseTests {
             return
         }
 
-        let portfolio = firstPlayer.portfolio
+        guard let firstCard = firstTrain.cards.first else {
+            XCTFail("no card found")
+            return
+        }
 
-        XCTAssert(portfolio.cards.count == 0)
 
+        XCTAssert(firstPlayer.hand.cards.count == 0)
         XCTAssertFalse(firstTrain.isOwned(by: firstPlayer))
-        
-        
+
+        XCTAssertTrue( firstPlayer.hand.canAdd(card: firstCard) )
+
+        firstPlayer.hand.add(card: firstCard)
+
+        XCTAssert(firstPlayer.hand.cards.count == 1)
+
+        guard let firstCardOwned = firstPlayer.hand.cards.first else {
+            XCTFail("no first card owned found")
+            return
+        }
+
+        XCTAssert(firstCardOwned.owner === firstPlayer)
+        XCTAssert(firstCardOwned.production.units == 1)
+
+        XCTAssertFalse( firstPlayer.hand.canAdd(card: firstCardOwned) )
+
 
 
     }
