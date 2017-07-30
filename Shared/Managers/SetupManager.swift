@@ -149,17 +149,14 @@ extension SetupManager
             return
         }
 
-        /*
         let decks = gameBoard.decks
 
-        guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
+        guard let firstTrain = TrainAPI.findTrainInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
+            assertionFailure("Could not find train (.green, .first)")
             return
         }
+        firstTrain.orderBook.generateExistingOrders(howMany: 1)
 
-        // Generate 1 orders for firstLoco
-        print ("Generating orders for \(firstLoco.name)")
-        firstLoco.orderBook.generateExistingOrders(howMany: 1)
-         */
     }
     
     

@@ -48,12 +48,30 @@ class PlayerTests: BaseTests {
             XCTFail("Game setup failed")
             return
         }
-
         XCTAssert(game.players.count == 5)
+
+        guard let gameBoard = game.gameBoard else {
+            XCTFail("Game board setup failed")
+            return
+        }
 
         let _ = game.players.map({
             XCTAssert($0.wallet.balance == Constants.SeedCash.fivePlayers)
         })
+
+        let results = gameBoard.decks.filter { (t:Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
+        }
+
+        XCTAssert(results.count == 1)
+
+        guard let firstTrain = results.first else {
+            return
+        }
+
+        XCTAssert(firstTrain.existingOrders.count == 1)
+        XCTAssert(firstTrain.engineColor == .green)
+        XCTAssert(firstTrain.generation == .first)
     }
 
 

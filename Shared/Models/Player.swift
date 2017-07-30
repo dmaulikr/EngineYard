@@ -17,6 +17,7 @@ final class Player : CustomStringConvertible
 
     lazy var portfolio: Portfolio = Portfolio(owner: self)
     var wallet: Wallet = Wallet()
+
     var cash: Int {
         return (self.wallet.balance)
     }

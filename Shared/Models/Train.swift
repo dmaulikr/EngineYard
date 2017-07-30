@@ -34,6 +34,8 @@ final class Train : CustomStringConvertible
 
     var cards: [LocomotiveCard] = [LocomotiveCard]()
 
+    lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book
+
     init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
         assert(cost % 4 == 0, "Cost must be a modulus of 4")
         assert(capacity > 0, "Capacity must be > 0")
@@ -66,6 +68,21 @@ extension Train {
         return returnString
     }
 
+}
+
+extension Train {
+    
+    var existingOrders: [Int] {
+        return orderBook.existingOrders.flatMap({ (e:ExistingOrder) -> Int in
+            return e.value
+        })
+    }
+
+    var completedOrders: [Int] {
+        return orderBook.completedOrders.flatMap({ (c:CompletedOrder) -> Int in
+            return c.value
+        })
+    }
 }
 
 extension Train {
