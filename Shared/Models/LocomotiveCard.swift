@@ -14,12 +14,11 @@ class LocomotiveCard : NSObject
 {
     weak var parent: Train?
     weak var owner: Player?
-    weak var production: Production?
+    lazy var production: Production = Production.init(parent: self)
+
 
     init(parent: Train) {
         super.init()
         self.parent = parent
-        self.production = Production.init(parent: self)
     }
-
 }

@@ -34,6 +34,13 @@
 		4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE01F2DFEF000755834 /* Player.swift */; };
 		4D9EDAE31F2DFF1800755834 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE21F2DFF1800755834 /* Portfolio.swift */; };
 		4D9EDAE51F2DFF3B00755834 /* Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE41F2DFF3B00755834 /* Production.swift */; };
+		4D9EDAE71F2E01F000755834 /* LocomotiveCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE61F2E01F000755834 /* LocomotiveCardAPI.swift */; };
+		4D9EDAE91F2E02D500755834 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAE81F2E02D500755834 /* Game.swift */; };
+		4D9EDAEB1F2E02F700755834 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAEA1F2E02F700755834 /* GameBoard.swift */; };
+		4D9EDAF01F2E07C700755834 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAEF1F2E07C700755834 /* BaseTests.swift */; };
+		4D9EDAF21F2E089800755834 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAF11F2E089800755834 /* Wallet.swift */; };
+		4D9EDAF41F2E09A200755834 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAF31F2E09A200755834 /* WalletTests.swift */; };
+		4D9EDAF61F2E0A0B00755834 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDAF51F2E0A0B00755834 /* Transaction.swift */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
 		4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB42D41F2DFDCF009ABCD7 /* Train.swift */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
@@ -83,6 +90,14 @@
 		4D9EDAE01F2DFEF000755834 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4D9EDAE21F2DFF1800755834 /* Portfolio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		4D9EDAE41F2DFF3B00755834 /* Production.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Production.swift; sourceTree = "<group>"; };
+		4D9EDAE61F2E01F000755834 /* LocomotiveCardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocomotiveCardAPI.swift; sourceTree = "<group>"; };
+		4D9EDAE81F2E02D500755834 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4D9EDAEA1F2E02F700755834 /* GameBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EngineYardTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		4D9EDAEF1F2E07C700755834 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
+		4D9EDAF11F2E089800755834 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		4D9EDAF31F2E09A200755834 /* WalletTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
+		4D9EDAF51F2E0A0B00755834 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4DCB42D41F2DFDCF009ABCD7 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,9 +194,14 @@
 			children = (
 				4D1A4C401F21319D00680333 /* Generation.swift */,
 				4D1A4C421F2131A700680333 /* EngineColor.swift */,
+				4D9EDAE81F2E02D500755834 /* Game.swift */,
+				4D9EDAEA1F2E02F700755834 /* GameBoard.swift */,
 				4DCB42D41F2DFDCF009ABCD7 /* Train.swift */,
 				4D9EDADE1F2DFEBB00755834 /* LocomotiveCard.swift */,
+				4D9EDAE61F2E01F000755834 /* LocomotiveCardAPI.swift */,
 				4D9EDAE01F2DFEF000755834 /* Player.swift */,
+				4D9EDAF11F2E089800755834 /* Wallet.swift */,
+				4D9EDAF51F2E0A0B00755834 /* Transaction.swift */,
 				4D9EDAE21F2DFF1800755834 /* Portfolio.swift */,
 				4D9EDAE41F2DFF3B00755834 /* Production.swift */,
 			);
@@ -222,6 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				4D9429681F21243C006B2D89 /* Info.plist */,
+				4D9EDAEF1F2E07C700755834 /* BaseTests.swift */,
+				4D9EDAF31F2E09A200755834 /* WalletTests.swift */,
+				4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */,
 			);
 			path = EngineYardTests;
 			sourceTree = "<group>";
@@ -350,6 +373,7 @@
 					4D9429611F21243C006B2D89 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = A48R25Y4D5;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4D94294D1F21243C006B2D89;
 					};
@@ -494,12 +518,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9EDAF21F2E089800755834 /* Wallet.swift in Sources */,
+				4D9EDAE71F2E01F000755834 /* LocomotiveCardAPI.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
 				4D9EDAE31F2DFF1800755834 /* Portfolio.swift in Sources */,
 				4D9EDAE51F2DFF3B00755834 /* Production.swift in Sources */,
 				4D1A4C2B1F21315200680333 /* Devices.swift in Sources */,
+				4D9EDAEB1F2E02F700755834 /* GameBoard.swift in Sources */,
+				4D9EDAE91F2E02D500755834 /* Game.swift in Sources */,
 				4D1A4C261F21314B00680333 /* Constants.swift in Sources */,
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
@@ -507,6 +535,7 @@
 				4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
+				4D9EDAF61F2E0A0B00755834 /* Transaction.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
@@ -523,6 +552,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9EDAF41F2E09A200755834 /* WalletTests.swift in Sources */,
+				4D9EDAF01F2E07C700755834 /* BaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,11 +720,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = A48R25Y4D5;
 				INFOPLIST_FILE = EngineYardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.silentflute.EngineYardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EngineYardTests/EngineYardTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EngineYard.app/EngineYard";
 			};
@@ -705,11 +739,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = A48R25Y4D5;
 				INFOPLIST_FILE = EngineYardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.silentflute.EngineYardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EngineYardTests/EngineYardTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EngineYard.app/EngineYard";
 			};

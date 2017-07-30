@@ -11,9 +11,26 @@ import Foundation
 class Portfolio : NSObject
 {
     weak var owner: Player?
+    var cards: [LocomotiveCard] = [LocomotiveCard]()
 
     init(owner: Player) {
         super.init()
         self.owner = owner
+    }
+
+    func add(card: LocomotiveCard) {
+        if (canAdd(card: card)) {
+            card.owner = self.owner
+            card.production.setDefaultProduction()
+            self.cards.append(card)
+        }
+    }
+
+    func canAdd(card: LocomotiveCard) -> Bool {
+        let results = self.cards.filter { (cardObj: LocomotiveCard) -> Bool in
+            return (cardObj.parent?.uuid == card.parent?.uuid)
+        }.count
+
+        return (results > 0)
     }
 }

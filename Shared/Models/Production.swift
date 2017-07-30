@@ -19,3 +19,9 @@ class Production : NSObject
         self.parent = parent
     }
 }
+
+extension Production {
+    func setDefaultProduction() {
+        self.units = 1
+    }
+}

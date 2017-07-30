@@ -9,18 +9,35 @@
 import Foundation
 
 class Train : NSObject {
+    public private (set) var uuid: String = UUID().uuidString
     var name: String!
     var cost: Int!
     var productionCost: Int!
     var income: Int!
     var generation: Generation = .first
     var engineColor: EngineColor = .green
+    var capacity: Int = 0
+    var numberOfChildren: Int = 0
 
-    init(name: String, generation: Generation, engineColor: EngineColor) {
+    // # Obsolescence variables
+    public fileprivate(set) var isRusting : Bool = false {
+        didSet {
+            print ("\(self.name) is rusting")
+        }
+    }
+    public fileprivate(set) var hasRusted: Bool = false {
+        didSet {
+            print ("\(self.name) has rusted - OBSOLETE")
+        }
+    }
+
+    init(name:String, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
         super.init()
         self.name = name
         self.generation = generation
         self.engineColor = engineColor
+        self.capacity = capacity
+        self.numberOfChildren = numberOfChildren
     }
 
 }
