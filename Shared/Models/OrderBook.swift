@@ -93,19 +93,15 @@ final class OrderBook {
 
     internal func canGenerateExistingOrders(howMany: Int, forTrain: Train) -> Bool {
         guard forTrain.capacity > 0 else {
-            assertionFailure("Capacity must > 0")
             return false
         }
         if howMany <= 0 {
-            assertionFailure("Generate must > 0")
             return false
         }
         if howMany > forTrain.capacity {
-            assertionFailure("Cannot exceed orders capacity .1")
             return false
         }
         if ((forTrain.existingOrders.count + howMany) > forTrain.capacity) {
-            assertionFailure("Cannot exceed orders capacity .2")
             return false
         }
         return true

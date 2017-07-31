@@ -53,22 +53,29 @@ extension GameBoard {
 
     // MARK: - GameBoard delegate method
 
-    internal func unlockNextDeck() {
-
+    internal func nextDeckToUnlock() -> Train? {
         let numberOfUnlocked = TrainAPI.countUnlockedDecks(in: self)
-
-        if (numberOfUnlocked == Constants.Board.decks) {
-            print ("numberOfUnlocked: \(numberOfUnlocked) - No more trains to unlock")
+        if (numberOfUnlocked < Constants.Board.decks) {
+            guard let train = TrainAPI.getNextLockedDeck(in: self) else {
+                return nil
+            }
+            return train
         }
+        return nil
+    }
 
-        guard let train = TrainAPI.getNextLockedDeck(in: self) else {
-            print ("There are no more trains to unlock")
+    internal func unlockNextDeck() {
+        guard let train = nextDeckToUnlock() else {
             return
         }
 
+        self.didUnlockNextDeck(train: train)
+    }
+
+    private func didUnlockNextDeck(train: Train) {
         let order = ExistingOrder.generate()
         train.orderBook.add(order: order)
-        print ("Unlocking \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
+        print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
     }
 
 }
