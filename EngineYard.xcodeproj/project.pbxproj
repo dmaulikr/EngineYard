@@ -39,6 +39,20 @@
 		4D0834071F2FA2170055641A /* NewTurnOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834061F2FA2170055641A /* NewTurnOrderViewController.swift */; };
 		4D0834091F2FA2230055641A /* WinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834081F2FA2230055641A /* WinnerViewController.swift */; };
 		4D08340F1F2FA2620055641A /* MarketDemandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D08340E1F2FA2620055641A /* MarketDemandsViewController.swift */; };
+		4D0834241F2FA31A0055641A /* DiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834151F2FA31A0055641A /* DiceCollectionViewCell.swift */; };
+		4D0834251F2FA31A0055641A /* DiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0834161F2FA31A0055641A /* DiceCollectionViewCell.xib */; };
+		4D0834261F2FA31A0055641A /* EngineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834171F2FA31A0055641A /* EngineCardView.swift */; };
+		4D0834271F2FA31A0055641A /* EngineCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0834181F2FA31A0055641A /* EngineCardView.xib */; };
+		4D0834281F2FA31A0055641A /* EngineCardXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834191F2FA31A0055641A /* EngineCardXibView.swift */; };
+		4D0834291F2FA31A0055641A /* EngineCardXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D08341A1F2FA31A0055641A /* EngineCardXibView.xib */; };
+		4D08342A1F2FA31A0055641A /* PlayerHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D08341C1F2FA31A0055641A /* PlayerHUDView.swift */; };
+		4D08342B1F2FA31A0055641A /* PlayerHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D08341D1F2FA31A0055641A /* PlayerHUDView.xib */; };
+		4D08342C1F2FA31A0055641A /* PlayerTaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D08341E1F2FA31A0055641A /* PlayerTaxView.swift */; };
+		4D08342D1F2FA31A0055641A /* PlayerTaxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D08341F1F2FA31A0055641A /* PlayerTaxView.xib */; };
+		4D08342E1F2FA31A0055641A /* PlayerWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834201F2FA31A0055641A /* PlayerWinnerView.swift */; };
+		4D08342F1F2FA31A0055641A /* PlayerOblongView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0834211F2FA31A0055641A /* PlayerOblongView.xib */; };
+		4D0834301F2FA31A0055641A /* PlayerXIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834221F2FA31A0055641A /* PlayerXIBView.swift */; };
+		4D0834311F2FA31A0055641A /* PlayerXIBView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0834231F2FA31A0055641A /* PlayerXIBView.xib */; };
 		4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C181F212DAF00680333 /* Assets.xcassets */; };
 		4D1A4C231F212DAF00680333 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C1B1F212DAF00680333 /* data.json */; };
 		4D1A4C261F21314B00680333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C241F21314B00680333 /* Constants.swift */; };
@@ -140,6 +154,20 @@
 		4D0834061F2FA2170055641A /* NewTurnOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTurnOrderViewController.swift; sourceTree = "<group>"; };
 		4D0834081F2FA2230055641A /* WinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewController.swift; sourceTree = "<group>"; };
 		4D08340E1F2FA2620055641A /* MarketDemandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDemandsViewController.swift; sourceTree = "<group>"; };
+		4D0834151F2FA31A0055641A /* DiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		4D0834161F2FA31A0055641A /* DiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		4D0834171F2FA31A0055641A /* EngineCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardView.swift; sourceTree = "<group>"; };
+		4D0834181F2FA31A0055641A /* EngineCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineCardView.xib; sourceTree = "<group>"; };
+		4D0834191F2FA31A0055641A /* EngineCardXibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardXibView.swift; sourceTree = "<group>"; };
+		4D08341A1F2FA31A0055641A /* EngineCardXibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineCardXibView.xib; sourceTree = "<group>"; };
+		4D08341C1F2FA31A0055641A /* PlayerHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHUDView.swift; sourceTree = "<group>"; };
+		4D08341D1F2FA31A0055641A /* PlayerHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerHUDView.xib; sourceTree = "<group>"; };
+		4D08341E1F2FA31A0055641A /* PlayerTaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTaxView.swift; sourceTree = "<group>"; };
+		4D08341F1F2FA31A0055641A /* PlayerTaxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTaxView.xib; sourceTree = "<group>"; };
+		4D0834201F2FA31A0055641A /* PlayerWinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerWinnerView.swift; sourceTree = "<group>"; };
+		4D0834211F2FA31A0055641A /* PlayerOblongView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerOblongView.xib; sourceTree = "<group>"; };
+		4D0834221F2FA31A0055641A /* PlayerXIBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerXIBView.swift; sourceTree = "<group>"; };
+		4D0834231F2FA31A0055641A /* PlayerXIBView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerXIBView.xib; sourceTree = "<group>"; };
 		4D1A4C181F212DAF00680333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D1A4C1B1F212DAF00680333 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		4D1A4C241F21314B00680333 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -261,6 +289,8 @@
 		4D0833DF1F2F9FE80055641A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D0834141F2FA31A0055641A /* EngineCard */,
+				4D08341B1F2FA31A0055641A /* PlayerCard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +362,34 @@
 				4D0834081F2FA2230055641A /* WinnerViewController.swift */,
 			);
 			name = Winner;
+			sourceTree = "<group>";
+		};
+		4D0834141F2FA31A0055641A /* EngineCard */ = {
+			isa = PBXGroup;
+			children = (
+				4D0834151F2FA31A0055641A /* DiceCollectionViewCell.swift */,
+				4D0834161F2FA31A0055641A /* DiceCollectionViewCell.xib */,
+				4D0834171F2FA31A0055641A /* EngineCardView.swift */,
+				4D0834181F2FA31A0055641A /* EngineCardView.xib */,
+				4D0834191F2FA31A0055641A /* EngineCardXibView.swift */,
+				4D08341A1F2FA31A0055641A /* EngineCardXibView.xib */,
+			);
+			path = EngineCard;
+			sourceTree = "<group>";
+		};
+		4D08341B1F2FA31A0055641A /* PlayerCard */ = {
+			isa = PBXGroup;
+			children = (
+				4D08341C1F2FA31A0055641A /* PlayerHUDView.swift */,
+				4D08341D1F2FA31A0055641A /* PlayerHUDView.xib */,
+				4D08341E1F2FA31A0055641A /* PlayerTaxView.swift */,
+				4D08341F1F2FA31A0055641A /* PlayerTaxView.xib */,
+				4D0834201F2FA31A0055641A /* PlayerWinnerView.swift */,
+				4D0834211F2FA31A0055641A /* PlayerOblongView.xib */,
+				4D0834221F2FA31A0055641A /* PlayerXIBView.swift */,
+				4D0834231F2FA31A0055641A /* PlayerXIBView.xib */,
+			);
+			path = PlayerCard;
 			sourceTree = "<group>";
 		};
 		4D1A4C171F212DAF00680333 /* Assets */ = {
@@ -633,13 +691,20 @@
 				4D0833E61F2FA10E0055641A /* BuyTrain.storyboard in Resources */,
 				4D0833E91F2FA1290055641A /* BuyProduction.storyboard in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
+				4D0834251F2FA31A0055641A /* DiceCollectionViewCell.xib in Resources */,
 				4D0833EF1F2FA1550055641A /* HUD.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4D0833F21F2FA16E0055641A /* Winner.storyboard in Resources */,
+				4D08342D1F2FA31A0055641A /* PlayerTaxView.xib in Resources */,
+				4D08342F1F2FA31A0055641A /* PlayerOblongView.xib in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
+				4D08342B1F2FA31A0055641A /* PlayerHUDView.xib in Resources */,
+				4D0834311F2FA31A0055641A /* PlayerXIBView.xib in Resources */,
 				4D0833F51F2FA17C0055641A /* Trains.storyboard in Resources */,
+				4D0834271F2FA31A0055641A /* EngineCardView.xib in Resources */,
+				4D0834291F2FA31A0055641A /* EngineCardXibView.xib in Resources */,
 				4D0833EC1F2FA1360055641A /* Sales.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,12 +816,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0834281F2FA31A0055641A /* EngineCardXibView.swift in Sources */,
 				4D9EDAF21F2E089800755834 /* Wallet.swift in Sources */,
 				4D0833CF1F2F9DD80055641A /* MarketDemandsViewModel.swift in Sources */,
 				4D9EDAE71F2E01F000755834 /* LocomotiveCard+API.swift in Sources */,
 				4D9EDB0F1F2E258C00755834 /* Die.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
 				4D0833D31F2F9E220055641A /* SalesReportViewModel.swift in Sources */,
+				4D08342E1F2FA31A0055641A /* PlayerWinnerView.swift in Sources */,
 				4D55EDCD1F2E8D9A008B773F /* ObsolescenceManager.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
@@ -769,9 +836,11 @@
 				4D9EDAE91F2E02D500755834 /* Game.swift in Sources */,
 				4D55EDC91F2E4EBD008B773F /* Hand.swift in Sources */,
 				4D1A4C261F21314B00680333 /* Constants.swift in Sources */,
+				4D08342C1F2FA31A0055641A /* PlayerTaxView.swift in Sources */,
 				4D0833E11F2FA00B0055641A /* MainMenuViewController.swift in Sources */,
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
+				4D0834261F2FA31A0055641A /* EngineCardView.swift in Sources */,
 				4D0833FB1F2FA1D40055641A /* BuyTrainDetailViewController.swift in Sources */,
 				4D0833CB1F2F9D960055641A /* TaxesViewModel.swift in Sources */,
 				4D0833CD1F2F9DB60055641A /* PauseViewModel.swift in Sources */,
@@ -782,6 +851,7 @@
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D9EDB0D1F2E200700755834 /* OrderBook.swift in Sources */,
 				4D0833FF1F2FA1EB0055641A /* BuyProductionDetailViewController.swift in Sources */,
+				4D08342A1F2FA31A0055641A /* PlayerHUDView.swift in Sources */,
 				4D0833C91F2F9D730055641A /* WinnerViewModel.swift in Sources */,
 				4D0833F91F2FA1CA0055641A /* BuyTrainListViewController.swift in Sources */,
 				4D0833E31F2FA0180055641A /* NewGameSetupViewController.swift in Sources */,
@@ -799,6 +869,7 @@
 				4D9EDB051F2E1B1300755834 /* TurnOrderManager.swift in Sources */,
 				4D0833C71F2F9D4B0055641A /* HUDViewModel.swift in Sources */,
 				4D9EDADF1F2DFEBB00755834 /* LocomotiveCard.swift in Sources */,
+				4D0834301F2FA31A0055641A /* PlayerXIBView.swift in Sources */,
 				4D0833DB1F2F9E8C0055641A /* PlayerHandViewModel.swift in Sources */,
 				4D0833D91F2F9E780055641A /* TrainsListViewModel.swift in Sources */,
 				4D0834031F2FA2060055641A /* SalesReportViewController.swift in Sources */,
@@ -808,6 +879,7 @@
 				4D0834011F2FA1FF0055641A /* SellingViewController.swift in Sources */,
 				4D1A4C351F21315800680333 /* EY+Time.swift in Sources */,
 				4D9EDAF81F2E0FCF00755834 /* Tax.swift in Sources */,
+				4D0834241F2FA31A0055641A /* DiceCollectionViewCell.swift in Sources */,
 				4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */,
 				4D08340F1F2FA2620055641A /* MarketDemandsViewController.swift in Sources */,
 				4D1A4C271F21314B00680333 /* ErrorCodes.swift in Sources */,
