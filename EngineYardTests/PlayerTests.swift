@@ -67,7 +67,7 @@ class PlayerTests: BaseTests {
         for player in game.players {
             for card in player.hand.cards {
                 XCTAssert(card.owner == player)
-                XCTAssert(card.production.units == 1)
+                XCTAssert(card.production?.units == 1)
                 XCTAssert(card.parent?.engineColor == .green)
                 XCTAssert(card.parent?.generation == .first)
             }

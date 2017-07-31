@@ -95,11 +95,9 @@ extension SetupManager
         assert(lastTrain.generation == .first && lastTrain.engineColor == .red)
 
         // Give each player a first train card (if possible)
+
         for player in gameModel.players {
-            guard let cardToAdd = LocomotiveCardAPI.findFirstUnownedCard(for: firstTrain) else {
-                return
-            }
-            player.hand.add(card: cardToAdd)
+            player.hand.add(train: firstTrain)
         }
 
         firstTrain.orderBook.generateExistingOrders(howMany: 3)

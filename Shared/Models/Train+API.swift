@@ -10,6 +10,18 @@ import Foundation
 
 class TrainAPI
 {
+    // find first card in train.cards with nil owner (if possible)
+    public static func findFirstUnownedCard(for train: Train) -> LocomotiveCard?
+    {
+        guard let card = (train.cards.filter({ (card) -> Bool in
+            return (card.owner == nil)
+        }).first) else {
+            return nil
+        }
+
+        return card
+    }
+
 
     public static func countUnlockedDecks(in gameBoard: GameBoard) -> Int {
         let results = gameBoard.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) }

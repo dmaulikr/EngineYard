@@ -231,8 +231,8 @@
 				4D9EDAFD1F2E194B00755834 /* Player+API.swift */,
 				4D55EDC81F2E4EBD008B773F /* Hand.swift */,
 				4D9EDAF11F2E089800755834 /* Wallet.swift */,
-				4D9EDAF51F2E0A0B00755834 /* Transaction.swift */,
 				4D9EDAE41F2DFF3B00755834 /* Production.swift */,
+				4D9EDAF51F2E0A0B00755834 /* Transaction.swift */,
 				4D9EDAF71F2E0FCF00755834 /* Tax.swift */,
 				4D9EDB161F2E335A00755834 /* SalesRule.swift */,
 			);
@@ -276,11 +276,11 @@
 				4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */,
 				4D9EDAEF1F2E07C700755834 /* BaseTests.swift */,
 				4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */,
+				4D55EDCA1F2E5594008B773F /* HandTests.swift */,
 				4D55EDD21F2EA974008B773F /* TrainUnlockTests.swift */,
 				4D9EDAF31F2E09A200755834 /* WalletTests.swift */,
 				4D9EDAFB1F2E10AF00755834 /* TaxTests.swift */,
 				4D9EDB181F2E336F00755834 /* SalesRuleTests.swift */,
-				4D55EDCA1F2E5594008B773F /* HandTests.swift */,
 				4D55EDD01F2E9067008B773F /* ProductionTests.swift */,
 				4D55EDCE1F2E8EC1008B773F /* ObsolescenceTests.swift */,
 			);

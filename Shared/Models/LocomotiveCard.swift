@@ -15,10 +15,14 @@ final class LocomotiveCard : CustomStringConvertible, Equatable
     let uuid: String = UUID().uuidString
     public fileprivate(set) weak var parent: Train?
     public fileprivate(set) weak var owner: Player?
-    lazy var production: Production = Production.init(parent: self)
+
+    var production: Production?
+    weak var productionDelegate : ProductionProtocol?
 
     init(parent: Train) {
         self.parent = parent
+        self.production = Production.init(parent: self)
+        self.productionDelegate = self.production
     }
 
     func setOwner(owner: Player) {

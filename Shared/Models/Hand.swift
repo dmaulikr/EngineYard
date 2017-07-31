@@ -8,15 +8,9 @@
 
 import Foundation
 
-protocol HandDelegate: class {
-    func didAdd(card: LocomotiveCard)
-}
-
 // Each player has their own hand of cards
 class Hand : CustomStringConvertible
 {
-    weak var delegate: HandDelegate?
-
     public fileprivate(set) weak var owner: Player?
     public fileprivate(set) var cards: [LocomotiveCard] = [LocomotiveCard]()
 
@@ -27,57 +21,53 @@ class Hand : CustomStringConvertible
     func containsTrain(train: Train) -> Bool {
 
         // does my hand already contain the train
-        let filter = self.cards.contains(where: {
+        let filter1 = self.cards.contains(where: {
             return ($0.parent == train)
         })
 
-        if (filter) {
-            return filter
+        if (filter1 == true) {
+            return true
         }
         else {
             // is there any nil owner spaces available
 
             let results = train.cards.filter({ (card) -> Bool in
-                return ((card.owner == self.owner) || (card.owner == nil))
+                return (card.owner == nil)
             })
 
-            return results.count == 0
+            print (results.count)
+
+            return (results.count == 0)
         }
     }
 
-
-    
-    func add(card: LocomotiveCard) {
+    func add(train: Train) {
         guard let hasOwner = self.owner else {
-            assertionFailure("This hand is not assigned to any player")
+            assertionFailure("Hand has no owner")
             return
         }
-        self.delegate = card.production
-
-        if (canAdd(card: card)) {
-            card.setOwner(owner: hasOwner)
-            self.delegate?.didAdd(card: card)
-            cards.append(card)
+        guard let card = self.canAdd(train: train) else {
+            return
         }
+        card.setOwner(owner: hasOwner)
+        self.cards.append(card)
+        card.productionDelegate?.setDefaultProduction()
     }
 
-    internal func canAdd(card: LocomotiveCard) -> Bool {
-        // I expect that card has no owner
-        guard card.owner == nil else {
-            return false
+    func canAdd(train: Train) -> LocomotiveCard? {
+        if (self.containsTrain(train: train) == false) {
+
+            guard let card = TrainAPI.findFirstUnownedCard(for: train) else {
+                return nil
+            }
+
+            return card
         }
 
-        let whereEngineColor = card.parent?.engineColor
-        let whereGeneration = card.parent?.generation
-
-        // search my hand for type, can't own more than 1 of each type
-        let filterMyHand = self.cards.filter { (lc: LocomotiveCard) -> Bool in
-            return ((lc.parent?.engineColor == whereEngineColor) &&
-                (lc.parent?.generation == whereGeneration))
-        }
-
-        return (filterMyHand.count == 0) 
+        return nil
     }
+
+
 }
 
 extension Hand {

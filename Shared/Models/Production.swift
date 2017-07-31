@@ -8,9 +8,20 @@
 
 import Foundation
 
-final class Production: CustomStringConvertible, HandDelegate
+protocol ProductionProtocol: class
+{
+    func setDefaultProduction()
+}
+
+final class Production: CustomStringConvertible, ProductionProtocol
 {
     weak var parent: LocomotiveCard?
+
+    init(parent: LocomotiveCard) {
+        self.parent = parent
+    }
+
+
 
     public fileprivate(set) var units : Int = 0 {
         didSet {
@@ -35,10 +46,6 @@ final class Production: CustomStringConvertible, HandDelegate
         return train.productionCost
     }
 
-
-    init(parent: LocomotiveCard) {
-        self.parent = parent
-    }
 }
 
 extension Production {
@@ -82,11 +89,9 @@ extension Production {
 
 extension Production {
 
-    internal func didAdd(card: LocomotiveCard) {
-        self.setDefaultProduction()
-    }
+    // MARK: - Production delegate methods
 
-    private func setDefaultProduction() {
+    internal func setDefaultProduction() {
         self.units = 1
     }
 }
