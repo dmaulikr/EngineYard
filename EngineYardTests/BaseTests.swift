@@ -149,8 +149,38 @@ class BaseTests: XCTestCase {
         XCTAssert(cards.yellow == Mock.Cards.Expected.yellow, "Not enough yellow cards. Found: \(cards.yellow), Expected: \(Mock.Cards.Expected.yellow)")
         XCTAssert(cards.blue == Mock.Cards.Expected.blue, "Not enough blue cards. Found: \(cards.blue), Expected: \(Mock.Cards.Expected.blue)")
         XCTAssert(cards.total == Mock.Cards.Expected.total, "Not enough cards, total = \(cards.total), Expected: \(Mock.Cards.Expected.total)")
+    }
+
+    func testAbandonGame() {
+        let expectedPlayers = Constants.NumberOfPlayers.max
+
+        guard let generatedPlayers = Mock.players(howMany: expectedPlayers) else {
+            XCTFail("No mock players generated")
+            return
+        }
+        XCTAssert(generatedPlayers.count == expectedPlayers)
+
+        guard let gameObj = Game.setup(players: generatedPlayers) else {
+            XCTFail("** No game object defined **")
+            return
+        }
+
+        guard let gameBoard = gameObj.gameBoard else {
+            XCTFail("** No game board defined **")
+            return
+        }
+
+        XCTAssertNotNil(gameObj)
+        XCTAssertNotNil(gameObj.dateCreated)
+        XCTAssert(gameObj.players.count == expectedPlayers)
+        XCTAssert(gameBoard.decks.count == Constants.Board.decks)
 
 
+        gameObj.abandon()
+
+        XCTAssertFalse(gameObj.inProgress)
+        XCTAssertNil(gameObj.dateCreated)
+        XCTAssertNil(gameObj.gameBoard)
     }
 
 }

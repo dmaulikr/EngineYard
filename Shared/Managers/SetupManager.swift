@@ -22,6 +22,7 @@ class SetupManager
                 // prepare board
                 gameObj.gameBoard = GameBoard.prepare()
                 gameObj.turnOrderManager.turnOrder = players
+                gameObj.settings = settings
 
                 if (settings.shouldShuffleTurnOrder) {
                     gameObj.turnOrderManager.shuffleTurnOrder()

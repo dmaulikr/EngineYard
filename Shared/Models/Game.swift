@@ -10,6 +10,8 @@ import Foundation
 
 final class Game : CustomStringConvertible
 {
+    var settings: GameConfig?
+    
     var gameBoard: GameBoard? {
         didSet {
             guard let gameBoard = self.gameBoard else {
@@ -68,7 +70,6 @@ extension Game {
     }
 
     func abandon() {
-        /**
         guard let gameBoard = self.gameBoard else {
             return
         }
@@ -77,7 +78,6 @@ extension Game {
         self.dateCreated = nil
         self.turnOrderManager.turnOrder.removeAll()
         self.settings = nil
-         **/
+
     }
-    
 }

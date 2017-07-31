@@ -47,6 +47,10 @@ final class GameBoard: DeckProtocol
         print ("didPurchaseTrain")
     }
      */
+
+    func reset() {
+        self._decks.removeAll()
+    }
 }
 
 extension GameBoard {
