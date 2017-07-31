@@ -46,28 +46,41 @@ class HandTests: BaseTests {
         }
         XCTAssertTrue(firstTrain.generation == .first && firstTrain.engineColor == .green)
 
+        XCTAssertTrue(firstTrain.owners?.count == 0)
 
-        /**
-        for (index, p) in players.enumerated() {
+        let _ = players.map({
+            XCTAssertTrue( $0.hand.cards.count == 0 )
+        })
+
+        // try to add all 4 cards from first train to 5 players; 
+        // this should assign 4 players and leave 1 with no card
+
+        for (index, player) in players.enumerated() {
+            print ("#\(index)- Adding to player's hand \(player.name) -- \(player.hand.cards.count)")
 
             if (index < firstTrain.numberOfChildren) {
-
-                let _ = p.hand.containsTrain(train: firstTrain)
-
-                p.hand.add(train: firstTrain)
-
-                XCTAssertTrue(p.hand.cards.count == 1)
-                XCTAssertTrue(p.hand.cards.first?.parent == firstTrain)
-
+                XCTAssertTrue((player.hand.canAdd(train: firstTrain) != nil))
+                player.hand.add(train: firstTrain)
             }
             else {
-
+                XCTAssertFalse((player.hand.canAdd(train: firstTrain) != nil))
             }
         }
 
-        let expectedOwners = firstTrain.owners?.count
-        XCTAssertTrue( expectedOwners == 4, "\(expectedOwners)")
- **/
+        for (index, player) in players.enumerated() {
+            print ("#\(index)- Player's hand \(player.name) -- \(player.hand.cards.count)")
+
+            if (index < firstTrain.numberOfChildren) {
+                let _ = player.hand.cards.map({
+                    XCTAssertNotNil($0.owner)
+                    XCTAssertNotNil($0.production)
+                    XCTAssertTrue($0.production?.units == 1)
+                })
+            }
+            else {
+                XCTAssertTrue(player.hand.cards.count == 0)
+            }
+        }
     }
 
 
