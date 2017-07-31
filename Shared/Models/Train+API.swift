@@ -10,6 +10,11 @@ import Foundation
 
 class TrainAPI
 {
+    public static func countUnlockedDecks(in gameBoard: GameBoard) -> Int {
+        let results = gameBoard.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) }
+        return results
+    }
+
     public static func findTrainInDeck(decks: [Train], whereColor: EngineColor, whereGeneration: Generation) -> Train? {
         guard let firstTrain = (decks.filter({ (train: Train) -> Bool in
             return (train.engineColor == whereColor) && (train.generation == whereGeneration)

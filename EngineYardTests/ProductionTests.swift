@@ -39,7 +39,10 @@ class ProductionTests: BaseTests {
             return
         }
 
-        guard let firstTrain = gameBoard.decks.first else {
+        let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
+        XCTAssertTrue(numberOfTrue == 1)
+
+        guard let train = gameBoard.decks.first else {
             XCTFail("No train found")
             return
         }
@@ -49,22 +52,14 @@ class ProductionTests: BaseTests {
             return
         }
 
-        do {
-            if let result = try firstTrain.canPurchase(buyer: buyer) {
+        XCTAssertEqual(try train.canPurchase(buyer: buyer), train.cards.first)
 
-                firstTrain.purchase(buyer: buyer)
-            }
-            else {
-                XCTFail("parse failed")
-            }
-
-        } catch {
-
-            XCTFail("Parsing failed. \(error)")
-        }
-
-
-
+        train.purchase(buyer: buyer)
+        
     }
+
+
+
+
 
 }

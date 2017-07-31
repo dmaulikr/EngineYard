@@ -10,6 +10,8 @@ import Foundation
 
 final class Train : CustomStringConvertible, Equatable
 {
+    var delegate: DeckProtocol?
+
     public private (set) var name: String = ""
     public private (set) var cost: Int = 0
     public private (set) var productionCost: Int = 0
@@ -39,8 +41,8 @@ final class Train : CustomStringConvertible, Equatable
         return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
     }
 
-
-    init(name:String, cost: Int, generation:Generation, engineColor:EngineColor, capacity:Int, numberOfChildren:Int) {
+    //public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){
+    init(name: String, cost: Int, generation: Generation, engineColor: EngineColor, capacity: Int, numberOfChildren: Int, delegate: DeckProtocol?) {
         assert(cost % 4 == 0, "Cost must be a modulus of 4")
         assert(capacity > 0, "Capacity must be > 0")
         assert(numberOfChildren > 0, "Number of children must be > 0")
@@ -52,6 +54,7 @@ final class Train : CustomStringConvertible, Equatable
         self.engineColor = engineColor
         self.capacity = capacity
         self.numberOfChildren = numberOfChildren
+        self.delegate = delegate
 
         // functional code to map the cards to children
         self.cards += (1...numberOfChildren).map{ _ in LocomotiveCard.init(parent: self) }
@@ -134,12 +137,24 @@ extension Train {
 
     func purchase(buyer:Player) {
         do {
-            let result = try canPurchase(buyer: buyer)
-            print(result?.description as Any)
+            guard let card = try (canPurchase(buyer: buyer)) else {
+                return
+            }
+
+            self.didPurchase(card: card, buyer: buyer)
+
         } catch let error {
             print(error)
         }
     }
+
+    func didPurchase(card: LocomotiveCard, buyer: Player) {
+        //buyer.hand.add(card: card)
+        //buyer.wallet.debit(amount: self.cost)
+        self.delegate?.unlockNextDeck()
+        //self.delegate?.unlockNextDeck()
+    }
+
 
     func canPurchase(buyer: Player) throws -> LocomotiveCard? {
         //

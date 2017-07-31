@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ErrorCode: Error, CustomStringConvertible {
+enum ErrorCode: Error {
     case notUnlocked
     case gameIsPaused
     case notYourTurn
@@ -24,7 +24,7 @@ enum ErrorCode: Error, CustomStringConvertible {
     case invalidAction
     case __UNKNOWN__
 
-    public var description: String {
+    public var localizedDescription: String {
         switch self {
         case .notUnlocked:
             let localizedDescription = NSLocalizedString("This train is not unlocked", comment: "notUnlocked message")
@@ -64,6 +64,22 @@ enum ErrorCode: Error, CustomStringConvertible {
             return localizedDescription
         default:
             return ""
+        }
+    }
+}
+
+extension ErrorCode: Equatable
+{
+    public static func == (lhs: ErrorCode, rhs: ErrorCode) -> Bool {
+        switch (lhs, rhs) {
+        case (.notUnlocked, .notUnlocked):
+            return true
+
+        case  (.insufficientFunds, .insufficientFunds):
+            return true
+
+        default:
+            return false;
         }
     }
 }

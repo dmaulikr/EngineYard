@@ -39,7 +39,7 @@ class TrainUnlockTests: BaseTests {
             return
         }
 
-        let numberOfTrue = gameBoard.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) }
+        let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
         XCTAssert(numberOfTrue == 1, "\(numberOfTrue)")
 
         // attempt purchase of train
