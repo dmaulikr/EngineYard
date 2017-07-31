@@ -23,11 +23,11 @@ class ProductionTests: BaseTests {
     }
 
     func testProductionUnits() {
-        guard let players = Mock.players(howMany: 5) else {
+        let howMany = 5
+        guard let players = Mock.players(howMany: howMany) else {
             XCTFail("Mock players failed")
             return
         }
-        XCTAssert(players.count == 5)
 
         guard let game = Game.setup(players: players) else {
             XCTFail("Game setup failed")
@@ -44,7 +44,27 @@ class ProductionTests: BaseTests {
             return
         }
 
-        
+        guard let buyer = players.first else {
+            XCTFail("No buyer found")
+            return
+        }
+
+        do {
+            if let result = try firstTrain.canPurchase(buyer: buyer) {
+
+                firstTrain.purchase(buyer: buyer)
+            }
+            else {
+                XCTFail("parse failed")
+            }
+
+        } catch {
+
+            XCTFail("Parsing failed. \(error)")
+        }
+
+
+
     }
 
 }

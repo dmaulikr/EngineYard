@@ -18,8 +18,4 @@ class TrainAPI
         }
         return firstTrain
     }
-
-    public static func canPurchase(train: Train, buyer: Player) -> Bool {
-        return false
-    }
 }
