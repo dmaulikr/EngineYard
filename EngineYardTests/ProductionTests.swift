@@ -128,10 +128,6 @@ class ProductionTests: BaseTests {
         XCTAssertTrue(production.units == 6)
         XCTAssertTrue(production.unitsSpent == 0)
         XCTAssertTrue(production.canSpend(unitsToSpend: 6))
-
     }
-
-
-
 
 }
