@@ -61,5 +61,24 @@ class TransferOrderTests: BaseTests {
         XCTAssertTrue(firstTrain.orderBook.completedOrders.first?.value == value)
     }
 
+    func testRerollAndTransfer() {
+        let firstTrain = gameBoard.decks.first!
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 1)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 0)
+
+        let firstExistingOrder = firstTrain.orderBook.existingOrders.first!
+        firstTrain.orderBook.transferOrder(order: firstExistingOrder, index: 0)
+
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 0)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 1)
+
+        firstTrain.orderBook.rerollAndTransferCompletedOrders()
+
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 1)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 0)
+
+
+    }
+
     
 }
