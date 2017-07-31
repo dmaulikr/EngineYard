@@ -21,8 +21,6 @@ final class Production: CustomStringConvertible, ProductionProtocol
         self.parent = parent
     }
 
-
-
     public fileprivate(set) var units : Int = 0 {
         didSet {
             if (units < 0) {
