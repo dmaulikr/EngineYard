@@ -14,9 +14,9 @@ class TrainAPI
     {
         let results = gameBoard.decks.filter { (train: Train) -> Bool in
             return (train.isUnlocked == false)
-        }.first
+        }
 
-        return results
+        return results.first
     }
 
     public static func countUnlockedDecks(in gameBoard: GameBoard) -> Int {

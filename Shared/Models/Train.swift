@@ -38,7 +38,7 @@ final class Train : CustomStringConvertible, Equatable
     lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book
 
     var isUnlocked: Bool {
-        return (((self.existingOrders.count > 0) || (self.completedOrders.count > 0)) && (self.owners?.count == 0))
+        return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
     }
 
     //public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){

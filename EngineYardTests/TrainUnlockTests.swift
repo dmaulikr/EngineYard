@@ -22,7 +22,7 @@ class TrainUnlockTests: BaseTests {
         super.tearDown()
     }
 
-    func testUnlocking() {
+    func testMassUnlocking() {
         guard let players = Mock.players(howMany: 5) else {
             XCTFail("Mock players failed")
             return
@@ -39,19 +39,41 @@ class TrainUnlockTests: BaseTests {
             return
         }
 
-        var numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
+        for (index, train) in gameBoard.decks.enumerated() {
+            print ("index: #\(index) - \(train.name), \(train.isUnlocked), \(train.existingOrders), \(train.completedOrders)")
+        }
+
+        let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
         XCTAssert(numberOfTrue == 1, "\(numberOfTrue)")
 
+        if let nextTrain = TrainAPI.getNextLockedDeck(in: gameBoard) {
 
 
-        for train in gameBoard.decks {
-            train.orderBook.generateExistingOrders(howMany: 1)
+            print ("NXT TRAIN > \(nextTrain.name), \(nextTrain.isUnlocked), \(nextTrain.existingOrders), \(nextTrain.completedOrders)")
+
+        }
+        else {
+            XCTFail("no next train")
+        }
+
+
+        
+
+
+        /**
+
+        // force clear & generate orders
+        for t in gameBoard.decks {
+            t.orderBook.clear()
+            t.orderBook.generateExistingOrders(howMany: 1)
         }
 
         numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
         XCTAssert(numberOfTrue == Constants.Board.decks, "\(numberOfTrue)")
 
         XCTAssertNil(gameBoard.nextDeckToUnlock())
+
+        **/
     }
 
 

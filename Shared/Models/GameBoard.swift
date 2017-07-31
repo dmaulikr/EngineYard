@@ -69,13 +69,13 @@ extension GameBoard {
             return
         }
 
-        self.didUnlockNextDeck(train: train)
-    }
-
-    private func didUnlockNextDeck(train: Train) {
         let order = ExistingOrder.generate()
         train.orderBook.add(order: order)
         print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
+    }
+
+    private func didUnlockNextDeck(train: Train) {
+
     }
 
 }
