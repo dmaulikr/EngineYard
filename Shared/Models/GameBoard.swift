@@ -66,9 +66,9 @@ extension GameBoard {
             return
         }
 
-        print ("Unlocking \(train.name)")
-        let order: ExistingOrder = ExistingOrder.generate()
+        let order = ExistingOrder.generate()
         train.orderBook.add(order: order)
+        print ("Unlocking \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
     }
 
 }

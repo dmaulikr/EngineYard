@@ -201,7 +201,7 @@ final class OrderBook {
 }
 
 class ExistingOrder: EntryProtocol, CustomStringConvertible {
-    var value : Int = 0
+    var value: Int = 0
 
     var description: String {
         return String(self.value)
@@ -217,7 +217,7 @@ class ExistingOrder: EntryProtocol, CustomStringConvertible {
 }
 
 class CompletedOrder: EntryProtocol, CustomStringConvertible {
-    var value : Int = 0
+    var value: Int = 0
 
     var description: String {
         return String(self.value)
