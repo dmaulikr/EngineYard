@@ -132,7 +132,9 @@ extension Train {
 
 extension Train {
 
-    
+    func purchase(buyer:Player) {
+
+    }
 
 }
 
