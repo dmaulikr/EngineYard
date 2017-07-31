@@ -61,26 +61,24 @@ class HandTests: BaseTests {
             if (index < firstTrain.numberOfChildren) {
                 XCTAssertTrue((player.hand.canAdd(train: firstTrain) != nil))
                 player.hand.add(train: firstTrain)
-            }
-            else {
-                XCTAssertFalse((player.hand.canAdd(train: firstTrain) != nil))
-            }
-        }
 
-        for (index, player) in players.enumerated() {
-            print ("#\(index)- Player's hand \(player.name) -- \(player.hand.cards.count)")
+                XCTAssertTrue(player.hand.cards.count == 1)
 
-            if (index < firstTrain.numberOfChildren) {
                 let _ = player.hand.cards.map({
                     XCTAssertNotNil($0.owner)
+                    XCTAssertTrue($0.parent == firstTrain)
                     XCTAssertNotNil($0.production)
                     XCTAssertTrue($0.production?.units == 1)
                 })
             }
             else {
+                XCTAssertFalse((player.hand.canAdd(train: firstTrain) != nil))
+
                 XCTAssertTrue(player.hand.cards.count == 0)
             }
         }
+
+
     }
 
 
