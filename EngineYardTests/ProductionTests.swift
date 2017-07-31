@@ -52,10 +52,8 @@ class ProductionTests: BaseTests {
             return
         }
 
-        XCTAssertEqual(try train.canPurchase(buyer: buyer), train.cards.first)
-
         train.purchase(buyer: buyer)
-        
+
     }
 
 

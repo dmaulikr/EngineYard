@@ -54,13 +54,7 @@ extension GameBoard {
     // MARK: - GameBoard delegate method
 
     internal func nextDeckToUnlock() -> Train? {
-        let numberOfUnlocked = TrainAPI.countUnlockedDecks(in: self)
-        if (numberOfUnlocked < Constants.Board.decks) {
-            guard let train = TrainAPI.getNextLockedDeck(in: self) else {
-                return nil
-            }
-            return train
-        }
+
         return nil
     }
 

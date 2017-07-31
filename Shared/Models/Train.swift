@@ -131,25 +131,27 @@ extension Train {
 extension Train {
 
     func purchase(buyer:Player) {
-        do {
-            guard let card = try (canPurchase(buyer: buyer)) else {
-                assertionFailure("Could not find card to purchase")
-                return
-            }
 
-            self.didPurchase(card: card, buyer: buyer)
-        } catch let error {
-            assertionFailure(error as! String)
+        guard let cardObj = LocomotiveCardAPI.findFirstUnownedCard(for: self) else {
+            return
         }
+
+        if (LocomotiveCardAPI.canPurchase(card: cardObj, buyer: buyer)) {
+            
+        }
+
     }
 
-    func didPurchase(card: LocomotiveCard, buyer: Player) {
-        buyer.hand.add(card: card)
-        buyer.wallet.debit(amount: self.cost)
-        self.delegate?.unlockNextDeck()
+    internal func didPurchase(card: LocomotiveCard, buyer: Player) {
+        //buyer.hand.add(card: card)
+        //buyer.wallet.debit(amount: self.cost)
+        //self.delegate?.unlockNextDeck()
     }
 
-    func canPurchase(buyer: Player) throws -> LocomotiveCard? {
+
+
+    /**
+    internal func canPurchase(buyer: Player) throws -> LocomotiveCard? {
         //
         // is train unlocked
         // is valid purchase:
@@ -172,5 +174,6 @@ extension Train {
         }
         return results
     }
+     **/
 }
 

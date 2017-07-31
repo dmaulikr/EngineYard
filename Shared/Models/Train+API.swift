@@ -10,17 +10,10 @@ import Foundation
 
 class TrainAPI
 {
-    public static func getNextLockedDeck(in gameBoard: GameBoard) -> Train?
-    {
-        let results = gameBoard.decks.filter { (train: Train) -> Bool in
-            return (train.isUnlocked == false)
-        }
-
-        return results.first
-    }
 
     public static func countUnlockedDecks(in gameBoard: GameBoard) -> Int {
         let results = gameBoard.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) }
+        print ("unlocked.results: \(results)")
         return results
     }
 
