@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="248.2394366197183" y="834.375"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="qeC-fV-NzL">
             <objects>
-                <viewController id="OBY-p4-9UJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OBY-p4-9UJ" customClass="MainMenuViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eoq-WH-Oag"/>
                         <viewControllerLayoutGuide type="bottom" id="XBp-qg-jLc"/>
@@ -39,13 +39,21 @@
                     <view key="view" contentMode="scaleToFill" id="PYp-On-r5k">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-oC-Wdd">
+                                <rect key="frame" x="52" y="60" width="75" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Play"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iXg-Wa-DYk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8m0-nO-Bzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="731" y="1665"/>
+            <point key="canvasLocation" x="752" y="1753"/>
         </scene>
     </scenes>
 </document>
