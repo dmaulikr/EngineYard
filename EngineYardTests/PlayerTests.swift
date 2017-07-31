@@ -58,6 +58,15 @@ class PlayerTests: BaseTests {
 
         XCTAssert(hasOrders.count == 2)
 
+        for (index, train) in hasOrders.enumerated() {
+            if (index == 0) {
+                XCTAssert(train.owners?.count == 3)
+            }
+            else {
+                XCTAssert(train.owners?.count == 0)
+            }
+        }
+
         // players
         let _ = game.players.map({
             XCTAssert($0.wallet.balance == Constants.SeedCash.threePlayers)
@@ -66,6 +75,10 @@ class PlayerTests: BaseTests {
 
         for player in game.players {
             for card in player.hand.cards {
+                XCTAssertNotNil(card.production)
+                XCTAssertNotNil(card.parent)
+                XCTAssertNotNil(card.owner)
+
                 XCTAssert(card.owner == player)
                 XCTAssert(card.production?.units == 1)
                 XCTAssert(card.parent?.engineColor == .green)
@@ -88,10 +101,6 @@ class PlayerTests: BaseTests {
         }
         XCTAssert(game.players.count == howMany)
 
-        let _ = game.players.map({
-            XCTAssert($0.wallet.balance == Constants.SeedCash.fivePlayers)
-        })
-
         guard let gameBoard = game.gameBoard else {
             XCTFail("Game board setup failed")
             return
@@ -110,6 +119,18 @@ class PlayerTests: BaseTests {
         XCTAssert(firstTrain.existingOrders.count == 1)
         XCTAssert(firstTrain.engineColor == .green)
         XCTAssert(firstTrain.generation == .first)
+
+        let _ = game.players.map({
+            XCTAssert($0.wallet.balance == Constants.SeedCash.fivePlayers)
+            XCTAssert($0.hand.cards.count == 0)
+        })
+
+
+        let _ = gameBoard.decks.map({
+            XCTAssert($0.owners?.count == 0)
+        })
+
+
     }
 
 
