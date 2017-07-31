@@ -50,10 +50,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iXg-Wa-DYk"/>
+                    <connections>
+                        <segue destination="ywo-bh-DyN" kind="show" identifier="newGameSetupSegue" id="Y2K-MK-qPk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8m0-nO-Bzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="1753"/>
+        </scene>
+        <!--New Game Setup View Controller-->
+        <scene sceneID="V6N-ff-iUu">
+            <objects>
+                <viewController id="ywo-bh-DyN" customClass="NewGameSetupViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s7r-wN-4hp"/>
+                        <viewControllerLayoutGuide type="bottom" id="c4V-1o-UtZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1ob-hg-BUy">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h15-Bs-tHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="1521"/>
         </scene>
     </scenes>
 </document>
