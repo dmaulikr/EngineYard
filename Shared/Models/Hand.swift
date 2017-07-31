@@ -24,6 +24,29 @@ class Hand : CustomStringConvertible
         self.owner = owner
     }
 
+    func containsTrain(train: Train) -> Bool {
+
+        // does my hand already contain the train
+        let filter = self.cards.contains(where: {
+            return ($0.parent == train)
+        })
+
+        if (filter) {
+            return filter
+        }
+        else {
+            // is there any nil owner spaces available
+
+            let results = train.cards.filter({ (card) -> Bool in
+                return ((card.owner == self.owner) || (card.owner == nil))
+            })
+
+            return results.count == 0
+        }
+    }
+
+
+    
     func add(card: LocomotiveCard) {
         guard let hasOwner = self.owner else {
             assertionFailure("This hand is not assigned to any player")
@@ -38,7 +61,7 @@ class Hand : CustomStringConvertible
         }
     }
 
-    func canAdd(card: LocomotiveCard) -> Bool {
+    internal func canAdd(card: LocomotiveCard) -> Bool {
         // I expect that card has no owner
         guard card.owner == nil else {
             return false

@@ -129,51 +129,5 @@ extension Train {
 }
 
 extension Train {
-
-    func purchase(buyer:Player) {
-
-        guard let cardObj = LocomotiveCardAPI.findFirstUnownedCard(for: self) else {
-            return
-        }
-
-        if (LocomotiveCardAPI.canPurchase(card: cardObj, buyer: buyer)) {
-            
-        }
-
-    }
-
-    internal func didPurchase(card: LocomotiveCard, buyer: Player) {
-        //buyer.hand.add(card: card)
-        //buyer.wallet.debit(amount: self.cost)
-        //self.delegate?.unlockNextDeck()
-    }
-
-
-
-    /**
-    internal func canPurchase(buyer: Player) throws -> LocomotiveCard? {
-        //
-        // is train unlocked
-        // is valid purchase:
-        // a) can afford train
-        // b) don't already own type
-        // c) there is stock (there are cards left to buy)
-        // d) can add card to buyers hand
-
-        if (!self.isUnlocked) {
-            throw ErrorCode.notUnlocked
-        }
-        if (!buyer.wallet.canAfford(amount: self.cost)) {
-            throw ErrorCode.insufficientFunds(coinsNeeded: self.cost)
-        }
-        guard let results = LocomotiveCardAPI.findFirstUnownedCard(for: self) else {
-            throw ErrorCode.noLocoFound
-        }
-        if (!buyer.hand.canAdd(card: results)) {
-            throw ErrorCode.alreadyOwnTrain
-        }
-        return results
-    }
-     **/
 }
 

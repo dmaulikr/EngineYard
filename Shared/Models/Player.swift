@@ -50,5 +50,13 @@ extension Player {
     func setTurnOrderIndex(number: Int) {
         self.turnOrder = number
     }
-    
+
+    func canPurchase(train: Train) -> Bool {
+        print ("train: \(train.description)")
+
+        
+
+        return true
+    }
+
 }

@@ -52,7 +52,7 @@ class ProductionTests: BaseTests {
             return
         }
 
-        train.purchase(buyer: buyer)
+        //train.purchase(buyer: buyer)
 
     }
 

@@ -44,38 +44,27 @@ class HandTests: BaseTests {
             XCTFail("No train found")
             return
         }
+        XCTAssertTrue(firstTrain.generation == .first && firstTrain.engineColor == .green)
 
-        for player in game.players {
-
-            guard let firstUnownedCard = LocomotiveCardAPI.findFirstUnownedCard(for: firstTrain) else {
-                return
-            }
-
-            /*
-            guard let firstUnownedCard = firstTrain.cards.filter({ (card: LocomotiveCard) -> Bool in
-                return (card.owner == nil)
-            }).first else {
-                break
-            }
-             */
-
-            player.hand.add(card: firstUnownedCard)
+        guard let firstPlayer = game.players.first else {
+            XCTFail("No player object found")
+            return
         }
 
-        let _ = firstTrain.cards.map({
-            XCTAssertNotNil($0.owner)
-        })
+        XCTAssertTrue(firstPlayer.hand.cards.count == 0)
 
+        let result = firstPlayer.hand.containsTrain(train: firstTrain)
+        XCTAssertFalse(result)
 
-        for (index, p) in game.players.enumerated() {
-            if (index < firstTrain.numberOfChildren) {
-                XCTAssert(p.hand.cards.count == 1, "#\(index),  Cards: \(p.hand.cards.count)")
-            }
-            else {
-                XCTAssert(p.hand.cards.count == 0)
-            }
-            print ("#\(index), Player: \(p.name), Cards: \(p.hand.cards)\n")
-        }
+        let firstCard = LocomotiveCardAPI.findFirstUnownedCard(for: firstTrain)!
+        let canAddTrue = firstPlayer.hand.canAdd(card: firstCard)
+
+        XCTAssertTrue(canAddTrue)
+        firstPlayer.hand.add(card: firstCard)
+
+        
+
+        
 
     }
 
