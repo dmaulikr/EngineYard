@@ -32,6 +32,10 @@ class Wallet: CustomStringConvertible  {
 
     // MARK: - (Private) functions
 
+    func canAfford(amount: Int) -> Bool {
+        return (self.canDebit(amount: amount))
+    }
+
     internal func canCredit(amount: Int) -> Bool {
         guard amount > 0 else {
             return false

@@ -1,8 +1,8 @@
 //
-//  ProductionTests.swift
+//  TrainUnlockTests.swift
 //  EngineYard
 //
-//  Created by Amarjit on 30/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import XCTest
 
 @testable import EngineYard
 
-class ProductionTests: BaseTests {
+class TrainUnlockTests: BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -22,7 +22,7 @@ class ProductionTests: BaseTests {
         super.tearDown()
     }
 
-    func testProductionUnits() {
+    func testUnlocking() {
         guard let players = Mock.players(howMany: 5) else {
             XCTFail("Mock players failed")
             return
@@ -39,12 +39,12 @@ class ProductionTests: BaseTests {
             return
         }
 
-        guard let firstTrain = gameBoard.decks.first else {
-            XCTFail("No train found")
-            return
-        }
+        let numberOfTrue = gameBoard.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) }
+        XCTAssert(numberOfTrue == 1, "\(numberOfTrue)")
 
-        
+        // attempt purchase of train
+
     }
+
 
 }
