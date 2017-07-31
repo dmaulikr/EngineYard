@@ -78,31 +78,37 @@ final class OrderBook {
 
 
     func generateExistingOrders(howMany: Int) {
-        guard let forTrain = self.parent else {
+        guard let train = self.parent else {
             assertionFailure("No train provided")
             return
         }
+
+        if self.canGenerateExistingOrders(howMany: howMany, forTrain: train) {
+            for _ in 1...howMany {
+                let orderObj: ExistingOrder = ExistingOrder.generate()
+                train.orderBook.add(order: orderObj)
+            }
+        }
+    }
+
+    internal func canGenerateExistingOrders(howMany: Int, forTrain: Train) -> Bool {
         guard forTrain.capacity > 0 else {
             assertionFailure("Capacity must > 0")
-            return
+            return false
         }
         if howMany <= 0 {
             assertionFailure("Generate must > 0")
-            return
+            return false
         }
         if howMany > forTrain.capacity {
             assertionFailure("Cannot exceed orders capacity .1")
-            return
+            return false
         }
         if ((forTrain.existingOrders.count + howMany) > forTrain.capacity) {
             assertionFailure("Cannot exceed orders capacity .2")
-            return
+            return false
         }
-
-        for _ in 1...howMany {
-            let orderObj: ExistingOrder = ExistingOrder.generate()
-            forTrain.orderBook.add(order: orderObj)
-        }
+        return true
     }
 
 

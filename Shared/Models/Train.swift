@@ -38,7 +38,7 @@ final class Train : CustomStringConvertible, Equatable
     lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book
 
     var isUnlocked: Bool {
-        return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
+        return (((self.existingOrders.count > 0) || (self.completedOrders.count > 0)) && (self.owners?.count == 0))
     }
 
     //public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){
@@ -97,11 +97,6 @@ extension Train {
         })
     }
 
-    // The maximum number of dice for a locomotive type and generation is determined by the number of boxes in the Customer Base.
-    //func hasMaximumDice() -> Bool {
-    //    return (self.orderBook.completedOrders.count >= self.capacity)
-    //}
-
     var hasMaximumDice: Bool {
         return (self.orderBook.completedOrders.count >= self.capacity)
     }
@@ -138,23 +133,21 @@ extension Train {
     func purchase(buyer:Player) {
         do {
             guard let card = try (canPurchase(buyer: buyer)) else {
+                assertionFailure("Could not find card to purchase")
                 return
             }
 
             self.didPurchase(card: card, buyer: buyer)
-
         } catch let error {
-            print(error)
+            assertionFailure(error as! String)
         }
     }
 
     func didPurchase(card: LocomotiveCard, buyer: Player) {
-        //buyer.hand.add(card: card)
-        //buyer.wallet.debit(amount: self.cost)
+        buyer.hand.add(card: card)
+        buyer.wallet.debit(amount: self.cost)
         self.delegate?.unlockNextDeck()
-        //self.delegate?.unlockNextDeck()
     }
-
 
     func canPurchase(buyer: Player) throws -> LocomotiveCard? {
         //

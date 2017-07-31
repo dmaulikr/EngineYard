@@ -104,6 +104,8 @@ class BaseTests: XCTestCase {
         XCTAssert(gameObj.players.count == expectedPlayers)
         XCTAssert(gameBoard.decks.count == Constants.Board.decks)
 
+        let unlocked = TrainAPI.countUnlockedDecks(in: gameBoard)
+        XCTAssert(unlocked == 1)
 
         // Validate board decks
         var cards = Mock.Cards()
@@ -115,6 +117,11 @@ class BaseTests: XCTestCase {
             XCTAssert(train.income == Int(train.productionCost / 2))
 
             print (train.description)
+
+            let orders = train.existingOrders.count
+            let howMany = (train.capacity - orders)
+            XCTAssertTrue(train.orderBook.canGenerateExistingOrders(howMany: howMany, forTrain: train))
+            XCTAssertFalse(train.orderBook.canGenerateExistingOrders(howMany: howMany + 1, forTrain: train))
 
             for _ in train.cards {
                 switch train.engineColor {
@@ -143,5 +150,7 @@ class BaseTests: XCTestCase {
         XCTAssert(cards.blue == Mock.Cards.Expected.blue, "Not enough blue cards. Found: \(cards.blue), Expected: \(Mock.Cards.Expected.blue)")
         XCTAssert(cards.total == Mock.Cards.Expected.total, "Not enough cards, total = \(cards.total), Expected: \(Mock.Cards.Expected.total)")
 
+
     }
+
 }

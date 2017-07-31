@@ -14,13 +14,13 @@ extension Notification.Name {
 }
 */
 
-protocol DeckProtocol: NSObjectProtocol
+protocol DeckProtocol
 {
     var decks: [Train] { get }
     func unlockNextDeck()
 }
 
-final class GameBoard: NSObject, DeckProtocol
+final class GameBoard: DeckProtocol
 {
     //static var instance = GameBoard()
 
@@ -30,10 +30,6 @@ final class GameBoard: NSObject, DeckProtocol
         return self._decks.sorted(by: { (t1: Train, t2: Train) -> Bool in
             return (t1.cost < t2.cost)
         })
-    }
-
-    override init() {
-        super.init()
     }
 
     // MARK: - Register Notifications
@@ -58,7 +54,21 @@ extension GameBoard {
     // MARK: - GameBoard delegate method
 
     internal func unlockNextDeck() {
-        print ("YEP, UNLOCKED!")
+
+        let numberOfUnlocked = TrainAPI.countUnlockedDecks(in: self)
+
+        if (numberOfUnlocked == Constants.Board.decks) {
+            print ("numberOfUnlocked: \(numberOfUnlocked) - No more trains to unlock")
+        }
+
+        guard let train = TrainAPI.getNextLockedDeck(in: self) else {
+            print ("There are no more trains to unlock")
+            return
+        }
+
+        print ("Unlocking \(train.name)")
+        let order: ExistingOrder = ExistingOrder.generate()
+        train.orderBook.add(order: order)
     }
 
 }
