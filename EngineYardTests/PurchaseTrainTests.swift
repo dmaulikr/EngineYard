@@ -138,27 +138,8 @@ class PurchaseTrainTests: BaseTests {
             return
         }
 
-        guard let firstCardInDeck = train.cards.first else {
-            XCTFail("No firstCardInDeck")
-            return
-        }
 
-        XCTAssertTrue(firstHandItem == firstCardInDeck)
-        XCTAssertTrue(firstCardInDeck.owner == buyer)
-        XCTAssertTrue(firstCardInDeck.parent == train)
-
-        XCTAssertTrue(firstHandItem.production.units == 1)
-        XCTAssertTrue(firstHandItem.production.unitsSpent == 0)
-
-        var counter = 0
-        for train in gameBoard.decks {
-            if (train.isUnlocked) {
-                counter += 1
-            }
-        }
-
-        XCTAssertTrue(counter == 2, "\(counter)")
-
+        
 
 
     }

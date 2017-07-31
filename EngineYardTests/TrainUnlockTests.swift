@@ -46,21 +46,7 @@ class TrainUnlockTests: BaseTests {
         let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
         XCTAssert(numberOfTrue == 1, "\(numberOfTrue)")
 
-        if let nextTrain = TrainAPI.getNextLockedDeck(in: gameBoard) {
-
-
-            print ("NXT TRAIN > \(nextTrain.name), \(nextTrain.isUnlocked), \(nextTrain.existingOrders), \(nextTrain.completedOrders)")
-
-        }
-        else {
-            XCTFail("no next train")
-        }
-
-
-        
-
-
-        /**
+        XCTAssertNotNil(gameBoard.nextDeckToUnlock())
 
         // force clear & generate orders
         for t in gameBoard.decks {
@@ -68,12 +54,12 @@ class TrainUnlockTests: BaseTests {
             t.orderBook.generateExistingOrders(howMany: 1)
         }
 
-        numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
-        XCTAssert(numberOfTrue == Constants.Board.decks, "\(numberOfTrue)")
+        let valid = TrainAPI.countUnlockedDecks(in: gameBoard)
+        XCTAssert(valid == Constants.Board.decks, "\(valid)")
 
         XCTAssertNil(gameBoard.nextDeckToUnlock())
 
-        **/
+
     }
 
 
