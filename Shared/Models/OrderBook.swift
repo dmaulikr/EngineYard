@@ -101,7 +101,7 @@ final class OrderBook {
         if howMany > forTrain.capacity {
             return false
         }
-        if ((forTrain.existingOrders.count + howMany) > forTrain.capacity) {
+        if ((forTrain.existingOrderValues.count + howMany) > forTrain.capacity) {
             return false
         }
         return true

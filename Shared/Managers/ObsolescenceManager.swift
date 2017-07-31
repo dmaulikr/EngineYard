@@ -109,7 +109,7 @@ struct ObsolescenceManager
     func findGenerationsForEngineColor(engineColor: EngineColor) -> [Train]? {
         let filteredTrains = trains
             .filter { (train: Train) -> Bool in
-                return ( (train.engineColor == engineColor) && ((train.existingOrders.count > 0) || (train.completedOrders.count > 0)) )
+                return ( (train.engineColor == engineColor) && ((train.existingOrderValues.count > 0) || (train.completedOrderValues.count > 0)) )
             }
             .sorted { (train1: Train, train2: Train) -> Bool in
                 return (train1.cost < train2.cost)

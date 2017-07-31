@@ -246,7 +246,7 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(greenGenerations.count == 3)
 
         for (index, train) in trainsWithOrders.enumerated() {
-            print ("#\(index), \(train.name), orders: \(train.existingOrders), completedOrders: \(train.completedOrders), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
+            print ("#\(index), \(train.name), orders: \(train.existingOrderValues), completedOrders: \(train.completedOrderValues), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
         }
 
         // start obsolescence of 3 generations
@@ -254,7 +254,7 @@ class ObsolescenceTests: BaseTests {
         ob.handler()
 
         for (index, train) in trainsWithOrders.enumerated() {
-            print ("#\(index), \(train.name), orders: \(train.existingOrders), completedOrders: \(train.completedOrders), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
+            print ("#\(index), \(train.name), orders: \(train.existingOrderValues), completedOrders: \(train.completedOrderValues), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
         }
 
         let isRusting = trainsWithOrders.filter { (t: Train) -> Bool in

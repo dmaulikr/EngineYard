@@ -38,7 +38,7 @@ final class Train : CustomStringConvertible, Equatable
     lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book
 
     var isUnlocked: Bool {
-        return ((self.existingOrders.count > 0) || (self.completedOrders.count > 0))
+        return ((self.existingOrderValues.count > 0) || (self.completedOrderValues.count > 0))
     }
 
     //public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){
@@ -85,13 +85,13 @@ extension Train {
 
 extension Train {
     
-    var existingOrders: [Int] {
+    var existingOrderValues: [Int] {
         return orderBook.existingOrders.flatMap({ (e:ExistingOrder) -> Int in
             return e.value
         })
     }
 
-    var completedOrders: [Int] {
+    var completedOrderValues: [Int] {
         return orderBook.completedOrders.flatMap({ (c:CompletedOrder) -> Int in
             return c.value
         })

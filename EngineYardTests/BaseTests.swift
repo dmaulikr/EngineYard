@@ -118,7 +118,7 @@ class BaseTests: XCTestCase {
 
             print (train.description)
 
-            let orders = train.existingOrders.count
+            let orders = train.existingOrderValues.count
             let howMany = (train.capacity - orders)
             XCTAssertTrue(train.orderBook.canGenerateExistingOrders(howMany: howMany, forTrain: train))
             XCTAssertFalse(train.orderBook.canGenerateExistingOrders(howMany: howMany + 1, forTrain: train))

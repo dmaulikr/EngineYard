@@ -116,7 +116,7 @@ class PlayerTests: BaseTests {
             return
         }
 
-        XCTAssert(firstTrain.existingOrders.count == 1)
+        XCTAssert(firstTrain.existingOrderValues.count == 1)
         XCTAssert(firstTrain.engineColor == .green)
         XCTAssert(firstTrain.generation == .first)
 

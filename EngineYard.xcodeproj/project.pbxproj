@@ -31,6 +31,7 @@
 		4D55EDCF1F2E8EC1008B773F /* ObsolescenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDCE1F2E8EC1008B773F /* ObsolescenceTests.swift */; };
 		4D55EDD11F2E9067008B773F /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDD01F2E9067008B773F /* ProductionTests.swift */; };
 		4D55EDD31F2EA974008B773F /* TrainUnlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDD21F2EA974008B773F /* TrainUnlockTests.swift */; };
+		4D55EDD91F2F7C5E008B773F /* TransferOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDD81F2F7C5E008B773F /* TransferOrderTests.swift */; };
 		4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429721F2124B7006B2D89 /* AppDelegate.swift */; };
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
 		4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */; };
@@ -99,6 +100,7 @@
 		4D55EDCE1F2E8EC1008B773F /* ObsolescenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceTests.swift; sourceTree = "<group>"; };
 		4D55EDD01F2E9067008B773F /* ProductionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionTests.swift; sourceTree = "<group>"; };
 		4D55EDD21F2EA974008B773F /* TrainUnlockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainUnlockTests.swift; sourceTree = "<group>"; };
+		4D55EDD81F2F7C5E008B773F /* TransferOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferOrderTests.swift; sourceTree = "<group>"; };
 		4D94294E1F21243C006B2D89 /* EngineYard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineYard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429621F21243C006B2D89 /* EngineYardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineYardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429681F21243C006B2D89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */,
 				4D55EDCA1F2E5594008B773F /* HandTests.swift */,
 				4D55EDD01F2E9067008B773F /* ProductionTests.swift */,
+				4D55EDD81F2F7C5E008B773F /* TransferOrderTests.swift */,
 				4D55EDD21F2EA974008B773F /* TrainUnlockTests.swift */,
 				4D9EDAF31F2E09A200755834 /* WalletTests.swift */,
 				4D9EDAFB1F2E10AF00755834 /* TaxTests.swift */,
@@ -612,6 +615,7 @@
 				4D55EDCB1F2E5594008B773F /* HandTests.swift in Sources */,
 				4D9EDB0B1F2E1F2400755834 /* PlayerTests.swift in Sources */,
 				4D55EDD11F2E9067008B773F /* ProductionTests.swift in Sources */,
+				4D55EDD91F2F7C5E008B773F /* TransferOrderTests.swift in Sources */,
 				4D9EDAF41F2E09A200755834 /* WalletTests.swift in Sources */,
 				4D9EDAFC1F2E10AF00755834 /* TaxTests.swift in Sources */,
 				4D9EDB191F2E336F00755834 /* SalesRuleTests.swift in Sources */,
