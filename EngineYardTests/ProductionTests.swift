@@ -52,7 +52,11 @@ class ProductionTests: BaseTests {
             return
         }
 
-        //train.purchase(buyer: buyer)
+        // buy train
+
+        // expect production units = 1
+
+        // test can spend, did spend and reset
 
     }
 
