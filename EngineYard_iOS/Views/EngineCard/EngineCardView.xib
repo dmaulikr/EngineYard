@@ -200,6 +200,33 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkmark" destination="YBG-Xp-dMe" id="z9T-ai-Prj"/>
+                <outlet property="costLabel" destination="h7l-r5-5fZ" id="XQs-Ai-VxI"/>
+                <outlet property="generationLabel" destination="hiW-eS-hoW" id="5C9-5k-xpE"/>
+                <outlet property="headerView" destination="2jT-ug-reM" id="8Pn-Rh-41H"/>
+                <outlet property="incomeLabel" destination="U2F-7E-Pub" id="0Wh-fI-S5H"/>
+                <outlet property="nameLabel" destination="h0W-HQ-bZC" id="3do-ON-zzi"/>
+                <outlet property="numberOfChildrenLabel" destination="RC6-Tp-F4X" id="13W-OD-cwR"/>
+                <outlet property="orderLabel" destination="hC1-mG-mMG" id="sA5-ub-8UU"/>
+                <outlet property="productionCostLabel" destination="shI-ye-wbH" id="HDe-74-U6M"/>
+                <outletCollection property="iconsOutletCollection" destination="rxn-cr-pqv" collectionClass="NSMutableArray" id="o9z-qo-hCu"/>
+                <outletCollection property="iconsOutletCollection" destination="VJD-0a-gkO" collectionClass="NSMutableArray" id="81x-1L-tcw"/>
+                <outletCollection property="iconsOutletCollection" destination="9ep-Iu-dof" collectionClass="NSMutableArray" id="R4d-zh-ow8"/>
+                <outletCollection property="labelOutletCollection" destination="h7l-r5-5fZ" collectionClass="NSMutableArray" id="1k6-fY-vjL"/>
+                <outletCollection property="labelOutletCollection" destination="shI-ye-wbH" collectionClass="NSMutableArray" id="xOU-0y-OrS"/>
+                <outletCollection property="labelOutletCollection" destination="U2F-7E-Pub" collectionClass="NSMutableArray" id="oFj-GD-BrP"/>
+                <outletCollection property="labelOutletCollection" destination="hiW-eS-hoW" collectionClass="NSMutableArray" id="zzg-IC-Oxj"/>
+                <outletCollection property="labelOutletCollection" destination="h0W-HQ-bZC" collectionClass="NSMutableArray" id="BVb-0n-W8o"/>
+                <outletCollection property="labelOutletCollection" destination="hC1-mG-mMG" collectionClass="NSMutableArray" id="590-Xk-nI9"/>
+                <outletCollection property="labelOutletCollection" destination="RC6-Tp-F4X" collectionClass="NSMutableArray" id="qUo-Br-ILO"/>
+                <outletCollection property="diceOutletCollection" destination="srL-rt-jEq" collectionClass="NSMutableArray" id="wMx-61-2jR"/>
+                <outletCollection property="diceOutletCollection" destination="QPC-Dv-y0H" collectionClass="NSMutableArray" id="WD6-0o-R2g"/>
+                <outletCollection property="diceOutletCollection" destination="ArS-FC-zT1" collectionClass="NSMutableArray" id="QBh-Qc-V3N"/>
+                <outletCollection property="diceOutletCollection" destination="gpr-U0-oe3" collectionClass="NSMutableArray" id="5fH-mK-fCO"/>
+                <outletCollection property="diceOutletCollection" destination="KT6-b0-Cgw" collectionClass="NSMutableArray" id="SdA-jT-Fw7"/>
+                <outletCollection property="iconsOutletCollection" destination="y4v-ec-6XV" collectionClass="NSMutableArray" id="Ttt-YQ-XRK"/>
+            </connections>
             <point key="canvasLocation" x="5" y="-133"/>
         </view>
     </objects>

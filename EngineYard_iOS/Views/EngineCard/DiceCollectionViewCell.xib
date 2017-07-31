@@ -31,6 +31,9 @@
                 <constraint firstItem="5hF-vR-vUf" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VE2-Sh-OMf"/>
                 <constraint firstItem="5hF-vR-vUf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eTO-Jl-F71"/>
             </constraints>
+            <connections>
+                <outlet property="imageView" destination="5hF-vR-vUf" id="PWM-Ry-atI"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>

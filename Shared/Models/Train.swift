@@ -8,7 +8,25 @@
 
 import Foundation
 
-final class Train : CustomStringConvertible, Equatable
+protocol TrainProtocol
+{
+    var name: String { get }
+    var cost: Int { get }
+    var productionCost: Int { get }
+    var income: Int { get }
+    var generation: Generation { get }
+    var engineColor: EngineColor { get }
+    var isUnlocked: Bool { get }
+    var capacity: Int { get }
+    var numberOfChildren: Int { get }
+    var isRusting: Bool { get set }
+    var hasRusted: Bool { get set }
+    var existingOrderValues: [Int] { get }
+    var owners: [Player]? { get }
+}
+
+
+final class Train : CustomStringConvertible, Equatable, TrainProtocol
 {
     var delegate: DeckProtocol?
 
@@ -22,12 +40,12 @@ final class Train : CustomStringConvertible, Equatable
     public private (set) var numberOfChildren: Int = 0
 
     // # Obsolescence variables
-    public fileprivate(set) var isRusting : Bool = false {
+    internal var isRusting : Bool = false {
         didSet {
             print ("\(self.name) is rusting")
         }
     }
-    public fileprivate(set) var hasRusted: Bool = false {
+    internal var hasRusted: Bool = false {
         didSet {
             print ("\(self.name) has rusted - OBSOLETE")
         }

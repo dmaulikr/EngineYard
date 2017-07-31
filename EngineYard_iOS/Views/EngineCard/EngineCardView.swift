@@ -1,4 +1,4 @@
-//
+ //
 //  EYEngineCardView.swift
 //  EngineYard
 //
@@ -7,6 +7,39 @@
 //
 
 import UIKit
+
+struct Card : TrainProtocol
+{
+    let name: String
+    let cost: Int
+    let productionCost: Int
+    let income: Int
+    let generation: Generation
+    let engineColor: EngineColor
+    let isUnlocked: Bool
+    let capacity: Int
+    let numberOfChildren: Int
+    var isRusting: Bool
+    var hasRusted: Bool
+    var existingOrderValues: [Int]
+    var owners: [Player]?
+
+    init(with train: Train) {
+        self.name = train.name
+        self.cost = train.cost
+        self.productionCost = train.productionCost
+        self.income = train.cost
+        self.generation = train.generation
+        self.engineColor = train.engineColor
+        self.isUnlocked = train.isUnlocked
+        self.capacity = train.capacity
+        self.numberOfChildren = train.capacity
+        self.isRusting = train.isRusting
+        self.hasRusted = train.hasRusted
+        self.existingOrderValues = train.existingOrderValues
+        self.owners = train.owners
+    }
+}
 
 class EngineCardView: UIView {
 
@@ -22,16 +55,10 @@ class EngineCardView: UIView {
         super.updateConstraints()
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     override func updateConstraintsIfNeeded() {
         super.updateConstraintsIfNeeded()
     }
 
-
-    /**
     @IBOutlet var iconsOutletCollection: [UIImageView]!
     @IBOutlet var labelOutletCollection: [UILabel]!
     @IBOutlet var diceOutletCollection: [UIImageView]!
@@ -43,8 +70,7 @@ class EngineCardView: UIView {
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var checkMark: UIImageView!
-
+    @IBOutlet weak var checkmark: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,60 +84,45 @@ class EngineCardView: UIView {
                 iconIV.image = iconIV.image?.maskWithColor(color: .white)
             }
         }
-        self.checkMark.image = self.checkMark.image?.maskWithColor(color: .green)
+        self.checkmark.image = self.checkmark.image?.maskWithColor(color: .green)
     }
-    func setup(loco: Locomotive) {
-        let genNumber = NSNumber(integerLiteral: loco.generation.rawValue)
-        let costNumber = NSNumber(integerLiteral: loco.cost)
-        let productionNumber = NSNumber(integerLiteral: loco.productionCost)
-        let incomeNumber = NSNumber(integerLiteral: loco.income)
-        let childrenNumber = NSNumber(integerLiteral: loco.numberOfChildren)
 
-        self.nameLabel.text = loco.name
+    func setup(card: Card) {
+
+        let genNumber = NSNumber(integerLiteral: card.generation.rawValue)
+        let costNumber = NSNumber(integerLiteral: card.cost)
+        let productionNumber = NSNumber(integerLiteral: card.productionCost)
+        let incomeNumber = NSNumber(integerLiteral: card.income)
+
+        let ownersCount = card.owners?.count ?? 0
+        let cardsLeft = (card.numberOfChildren - ownersCount)
+        let remainingStockNumber = NSNumber(integerLiteral: cardsLeft)
+
+        self.nameLabel.text = card.name
         self.generationLabel.text = NSLocalizedString("Generation \(genNumber)", comment: "Train generation number")
         self.costLabel.text = ObjectCache.currencyRateFormatter.string(from: costNumber)
         self.productionCostLabel.text = ObjectCache.currencyRateFormatter.string(from: productionNumber)
         self.incomeLabel.text = ObjectCache.currencyRateFormatter.string(from: incomeNumber)
-        self.numberOfChildrenLabel.text = NSLocalizedString("\(childrenNumber) / \(childrenNumber)", comment: "Number of child Engines remaining in stock")
-
-        for label in labelOutletCollection {
-            label.sizeToFit()
-            label.layoutIfNeeded()
-        }
+        self.numberOfChildrenLabel.text = NSLocalizedString("\(remainingStockNumber) left", comment: "Number of cards left in stock")
 
         self.orderLabel.text = NSLocalizedString("Orders", comment: "Orders title")
+        self.checkmark.isHidden = true
 
-        for imgView:UIImageView in self.diceOutletCollection {
-            imgView.isHidden = true
-        }
+        let _ = self.diceOutletCollection.map({
+            $0.isHidden = true
+        })
 
-        if (loco.existingOrders.count > 0)
-        {
-            for (index, orderValue) in loco.existingOrders.enumerated() {
-                let asset = Die.assetNameForValue(dieValue: orderValue)
+        let _ = self.labelOutletCollection.map({
+            $0.sizeToFit()
+            $0.layoutIfNeeded()
+        })
 
-                guard let item = (self.diceOutletCollection.filter({ (imgView) -> Bool in
-                    return (imgView.tag == index)
-                }).first) else {
-                    return
-                }
-                item.image = UIImage(named: asset)
-                item.isHidden = false
-
-                /*
-                self.diceOutletCollection[index].image = UIImage(named: asset)
-                self.diceOutletCollection[index].isHidden = false
-                 */
-            }
-        }
-
-        self.checkMark.isHidden = true
-
-        self.setHeaderColor(loco: loco)
+        self.applyHeaderColor(card: card)
     }
 
-    func setHeaderColor(loco: Locomotive) {
-        switch loco.engineColor {
+    func applyHeaderColor(card: Card) {
+
+        switch card.engineColor {
         case .green:
             self.headerView.backgroundColor = UIColor.init(colorLiteralRed: 66/255, green: 230/255, blue: 149/255, alpha: 1)
             break
@@ -127,12 +138,11 @@ class EngineCardView: UIView {
         }
     }
 
-    public static func applyDropShadow(loco: Locomotive, toView: UIView) {
-        
+    func applyDropShadow(card: Card, forView: UIView) {
         let alpha: Float = 1.0
         var color = UIColor.init(colorLiteralRed: 192/255, green: 192/255, blue: 192/255, alpha: alpha)
 
-        switch loco.engineColor {
+        switch card.engineColor {
         case .green:
             color = UIColor.init(colorLiteralRed: 59/255, green: 178/255, blue: 184/255, alpha: alpha)
             break
@@ -147,17 +157,15 @@ class EngineCardView: UIView {
             break
         }
 
-        toView.layer.masksToBounds = false
-        toView.layer.shadowColor = color.cgColor
-        toView.layer.shadowOpacity = 0.25
-        toView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        toView.layer.shadowRadius = 5
-        toView.layer.shadowPath = UIBezierPath(rect: toView.bounds).cgPath
-        toView.layer.shouldRasterize = true
-        toView.layer.rasterizationScale = UIScreen.main.scale
+        forView.layer.masksToBounds = false
+        forView.layer.shadowColor = color.cgColor
+        forView.layer.shadowOpacity = 0.25
+        forView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        forView.layer.shadowRadius = 5
+        forView.layer.shadowPath = UIBezierPath(rect: forView.bounds).cgPath
+        forView.layer.shouldRasterize = true
+        forView.layer.rasterizationScale = UIScreen.main.scale
     }
-     **/
-
 
 //    // Only override draw() if you perform custom drawing.
 //    // An empty implementation adversely affects performance during animation.

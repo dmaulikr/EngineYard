@@ -8,19 +8,74 @@
 
 import UIKit
 
-class WinnerViewController: UIViewController {
+class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+{
+    @IBOutlet weak private var winnerCollectionView: UICollectionView!
+    @IBOutlet var menuBtnOutletCollection: [UIButton]!
+    @IBOutlet weak var pageTitleLabel: UILabel!
+
+    var winnerViewModel: WinnerViewModel!
+
+    lazy var players: [Player]? = {
+        guard let sorted = self.winnerViewModel.playersSortedByHighestCash else {
+            return nil
+        }
+        return sorted
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.pageTitleLabel.text = WinnerViewModel.pageTitleText
+        self.winnerCollectionView.allowsSelection = false
+        self.winnerCollectionView.allowsMultipleSelection = false
+        self.winnerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "winnerCellReuseID")
+        self.winnerCollectionView.dataSource = self
+        self.winnerCollectionView.delegate = self
+        self.view.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+
+    // MARK: - CollectionView delegate
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let players = self.players else {
+            return 0
+        }
+        return players.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "winnerCellReuseID", for: indexPath) as UICollectionViewCell
+
+        if let player = self.players?[indexPath.row]  {
+
+            let arr = UINib(nibName: "PlayerOblongView", bundle: nil).instantiate(withOwner: nil, options: nil)
+            let view = arr[0] as! PlayerOblongView
+            cell.contentView.addSubview(view)
+
+            view.avatarImageView?.image = UIImage(named: player.asset)
+            view.indexLabel?.text = "#\(indexPath.row+1)"
+            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            view.nameLabel?.text = player.name
+
+            view.layoutIfNeeded()
+        }
+
+        cell.setNeedsLayout()
+        
+        return cell
+    }
+
+    // MARK: - IBActions
+
+    @IBAction func menuBtnPressed(_ sender: UIButton) {
+        
+    }
+
 
     /*
     // MARK: - Navigation
