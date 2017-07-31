@@ -90,28 +90,17 @@ class WinnerTests: BaseTests {
         print ("The winner is \(winner.description)")
     }
 
-    func testPayTaxAndNewTurnOrder() {
+    func testNewTurnOrder() {
         let players = Mock.players(howMany: 5)!
 
-        let filtered = players.filter({
-            return (Constants.hasReachedGoal(cash: $0.wallet.balance))
-        })
-
-        XCTAssertTrue(filtered.count == 0)
-
-        let _ = players.map({
-            let value:Int = Int.randomInt(withMax: 50)
-            let amount = (330 + value)
-            $0.wallet.credit(amount: amount)
-        })
-
-        let _ = players.map({
-            let taxDue = Tax.calculateTaxDue(onBalance: $0.wallet.balance)
-            $0.wallet.debit(amount: taxDue)
-        })
+        let amounts = [50,40,30,20,10]
+        for (index, player) in players.enumerated() {
+            player.wallet.credit(amount: amounts[index])
+        }
+        XCTAssert(players.first?.wallet.balance == 50)
 
         let sorted = PlayerAPI.sortPlayersByLowestCash(players: players)
-        print ("new turn order = \(sorted)")
+        XCTAssert(sorted.first?.wallet.balance == 10)
     }
     
 

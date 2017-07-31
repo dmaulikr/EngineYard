@@ -12,16 +12,7 @@ import Foundation
 // Note: - The game has no concept of currency; it uses Int's
 
 class Wallet: CustomStringConvertible  {
-    public private(set) var balance: Int = 0 {
-        didSet {
-            if (balance > 999) {
-                balance = 999
-            }
-            if (balance < -999) {
-                balance = -999
-            }
-        }
-    }
+    public private(set) var balance: Int = 0
 
     init(balance: Int = 0) {
         self.balance = balance
