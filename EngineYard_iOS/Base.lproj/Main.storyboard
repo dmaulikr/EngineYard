@@ -75,11 +75,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DUO-lH-ebv">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="3" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="DUO-lH-ebv">
                                 <rect key="frame" x="30" y="71" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperValueChanged:" destination="ywo-bh-DyN" eventType="valueChanged" id="kQ0-KS-a4F"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zb-3K-cOu">
-                                <rect key="frame" x="148" y="75" width="70" height="21"/>
+                                <rect key="frame" x="144" y="75" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +100,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddPlayerCellReuseID" id="PUt-TL-QzZ" customClass="AddPlayerCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddPlayerCellReuseID" id="PUt-TL-QzZ">
                                         <rect key="frame" x="0.0" y="7" width="65" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -106,6 +109,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ywo-bh-DyN" id="axQ-bG-q2O"/>
+                                    <outlet property="delegate" destination="ywo-bh-DyN" id="s1H-H8-iYQ"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mh-n8-Ffx">
                                 <rect key="frame" x="474" y="246" width="44" height="44"/>
@@ -114,6 +121,9 @@
                                     <constraint firstAttribute="width" constant="44" id="WNP-2o-xGK"/>
                                 </constraints>
                                 <state key="normal" image="circle-check"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="ywo-bh-DyN" eventType="touchUpInside" id="cMJ-gr-vGQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tw2-DY-dQc">
                                 <rect key="frame" x="30" y="30" width="84" height="21"/>
@@ -127,7 +137,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="uQO-nb-Wbc" secondAttribute="trailing" constant="3" id="12O-do-VDv"/>
                             <constraint firstItem="uQO-nb-Wbc" firstAttribute="top" secondItem="DUO-lH-ebv" secondAttribute="bottom" constant="20" id="5hF-tV-HzT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uQO-nb-Wbc" secondAttribute="trailing" constant="3" id="GZk-QQ-6AB"/>
-                            <constraint firstItem="6zb-3K-cOu" firstAttribute="leading" secondItem="DUO-lH-ebv" secondAttribute="trailing" constant="24" id="IMn-zt-44R"/>
+                            <constraint firstItem="6zb-3K-cOu" firstAttribute="leading" secondItem="DUO-lH-ebv" secondAttribute="trailing" constant="20" id="IMn-zt-44R"/>
                             <constraint firstItem="tw2-DY-dQc" firstAttribute="leading" secondItem="1ob-hg-BUy" secondAttribute="leadingMargin" constant="10" id="LnP-j5-O8H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Mh-n8-Ffx" secondAttribute="trailing" constant="30" id="LuJ-J8-jRN"/>
                             <constraint firstItem="c4V-1o-UtZ" firstAttribute="top" secondItem="2Mh-n8-Ffx" secondAttribute="bottom" constant="30" id="Tog-Up-Vn7"/>
@@ -138,6 +148,12 @@
                             <constraint firstItem="6zb-3K-cOu" firstAttribute="centerY" secondItem="DUO-lH-ebv" secondAttribute="centerY" id="sT0-HY-L57"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="uQO-nb-Wbc" id="CIM-pg-l5H"/>
+                        <outlet property="doneBtn" destination="2Mh-n8-Ffx" id="3f2-7t-5cJ"/>
+                        <outlet property="stepper" destination="DUO-lH-ebv" id="xsh-eJ-jPG"/>
+                        <outlet property="stepperLabel" destination="6zb-3K-cOu" id="n7b-5Y-FjI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h15-Bs-tHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

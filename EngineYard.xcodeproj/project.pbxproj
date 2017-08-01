@@ -77,8 +77,8 @@
 		4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C3D1F21316F00680333 /* StateManager.swift */; };
 		4D1A4C411F21319D00680333 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C401F21319D00680333 /* Generation.swift */; };
 		4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C421F2131A700680333 /* EngineColor.swift */; };
-		4D45BE541F310176004A945D /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE521F310176004A945D /* AddPlayerCollectionViewCell.swift */; };
-		4D45BE551F310176004A945D /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45BE531F310176004A945D /* AddPlayerCollectionViewCell.xib */; };
+		4D45BE581F3108C0004A945D /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */; };
+		4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */; };
 		4D55EDC91F2E4EBD008B773F /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDC81F2E4EBD008B773F /* Hand.swift */; };
 		4D55EDCB1F2E5594008B773F /* HandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDCA1F2E5594008B773F /* HandTests.swift */; };
 		4D55EDCD1F2E8D9A008B773F /* ObsolescenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDCC1F2E8D9A008B773F /* ObsolescenceManager.swift */; };
@@ -201,8 +201,8 @@
 		4D1A4C3D1F21316F00680333 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		4D1A4C401F21319D00680333 /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		4D1A4C421F2131A700680333 /* EngineColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineColor.swift; sourceTree = "<group>"; };
-		4D45BE521F310176004A945D /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
-		4D45BE531F310176004A945D /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
+		4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D55EDC81F2E4EBD008B773F /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		4D55EDCA1F2E5594008B773F /* HandTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandTests.swift; sourceTree = "<group>"; };
 		4D55EDCC1F2E8D9A008B773F /* ObsolescenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObsolescenceManager.swift; sourceTree = "<group>"; };
@@ -328,8 +328,8 @@
 			children = (
 				4D0833E01F2FA00B0055641A /* MainMenuViewController.swift */,
 				4D0833E21F2FA0180055641A /* NewGameSetupViewController.swift */,
-				4D45BE521F310176004A945D /* AddPlayerCollectionViewCell.swift */,
-				4D45BE531F310176004A945D /* AddPlayerCollectionViewCell.xib */,
+				4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */,
+				4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -752,7 +752,7 @@
 				4D08342F1F2FA31A0055641A /* PlayerOblongView.xib in Resources */,
 				4D0834411F304E090055641A /* Birdy_Notification1.wav in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
-				4D45BE551F310176004A945D /* AddPlayerCollectionViewCell.xib in Resources */,
+				4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */,
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
 				4D08342B1F2FA31A0055641A /* PlayerHUDView.xib in Resources */,
@@ -913,7 +913,7 @@
 				4D0833F91F2FA1CA0055641A /* BuyTrainListViewController.swift in Sources */,
 				4D0833E31F2FA0180055641A /* NewGameSetupViewController.swift in Sources */,
 				4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */,
-				4D45BE541F310176004A945D /* AddPlayerCollectionViewCell.swift in Sources */,
+				4D45BE581F3108C0004A945D /* AddPlayerCollectionViewCell.swift in Sources */,
 				4D9EDAF61F2E0A0B00755834 /* Transaction.swift in Sources */,
 				4D9EDB111F2E261E00755834 /* Train+API.swift in Sources */,
 				4D1A4C2D1F21315200680333 /* Sounds.swift in Sources */,
