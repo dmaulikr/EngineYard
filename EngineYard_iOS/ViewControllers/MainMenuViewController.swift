@@ -45,9 +45,9 @@ class MainMenuViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        let hasGame = Game.instance
-        let vc : NewGameSetupViewController = (segue.destination as? NewGameSetupViewController)!
-        vc.viewModel = NewGameViewModel.init(game: hasGame)
+        //let hasGame = Game.instance
+        //let vc : NewGameSetupViewController = (segue.destination as? NewGameSetupViewController)!
+        //vc.viewModel = NewGameViewModel.init(game: hasGame)
 
     }
 

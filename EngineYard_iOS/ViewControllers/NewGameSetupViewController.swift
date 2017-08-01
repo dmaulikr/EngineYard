@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewGameViewModel : BaseViewModel
+class NewGameViewModel
 {
     
 }
@@ -19,8 +19,6 @@ class NewGameSetupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print (self.viewModel?.game?.description as Any)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +32,7 @@ class NewGameSetupViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
+        /*
         guard let hasGame = self.viewModel?.game else {
             return
         }
@@ -46,6 +45,7 @@ class NewGameSetupViewController: UIViewController {
         if (segue.identifier == "") {
             
         }
+         */
     }
 
 
