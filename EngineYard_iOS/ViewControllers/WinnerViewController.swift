@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GSMessages
 
 class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
@@ -26,12 +27,55 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.winnerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "winnerCellReuseID")
         self.winnerCollectionView.dataSource = self
         self.winnerCollectionView.delegate = self
+
         self.view.layoutIfNeeded()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.displayWinnerMessage()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    func displayWinnerMessage() {
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+
+        guard let winners = hasViewModel.playersSortedByHighestCash else {
+            return
+        }
+
+        guard let winner = winners.first else {
+            return
+        }
+
+        let cashNumber = NSNumber(integerLiteral: winner.wallet.balance)
+        let cashString = ObjectCache.currencyRateFormatter.string(from: cashNumber)!
+        let message = NSLocalizedString("\(winner.name) is the winner with \(cashString)", comment: "Winner declared!")
+
+        //showMessage(message, type: .success)
+
+        self.showMessage(message, type: .success, options: [
+            .animation(.slide),
+            .animationDuration(0.5),
+            .autoHide(true),
+            .autoHideDelay(10.0),
+            .height(44.0),
+            .hideOnTap(true),
+            .position(.top),
+            .textAlignment(.center),
+            .textColor(UIColor.white),
+            .textNumberOfLines(1),
+            .textPadding(30.0)
+            ])
+    }
+
+
 
     // MARK: - CollectionView delegate
 

@@ -96,7 +96,8 @@ class MainMenuViewController: UIViewController {
             if let controller = sb.instantiateViewController(withIdentifier: "WinnerViewController") as? WinnerViewController
             {
                 controller.viewModel = WinnerViewModel.init(game: hasGame)
-                self.present(controller, animated: true, completion: nil)
+                //self.present(controller, animated: true, completion: nil)
+                navigationController?.pushViewController(controller, animated: true)
             }
             break
 
@@ -105,7 +106,8 @@ class MainMenuViewController: UIViewController {
             if let controller = sb.instantiateViewController(withIdentifier: "NewTurnOrderViewController") as? NewTurnOrderViewController
             {
                 controller.viewModel = NewTurnOrderViewModel.init(game: hasGame)
-                self.present(controller, animated: true, completion: nil)
+                //self.present(controller, animated: true, completion: nil)
+                navigationController?.pushViewController(controller, animated: true)
             }
             break
 
