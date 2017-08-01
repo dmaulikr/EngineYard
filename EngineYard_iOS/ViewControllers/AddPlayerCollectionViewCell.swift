@@ -28,6 +28,4 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         sender.isSelected = !sender.isSelected
     }
     
-
-
 }
