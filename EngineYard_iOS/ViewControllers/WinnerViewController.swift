@@ -16,13 +16,6 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     var winnerViewModel: WinnerViewModel!
 
-    lazy var players: [Player]? = {
-        guard let sorted = self.winnerViewModel.playersSortedByHighestCash else {
-            return nil
-        }
-        return sorted
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,28 +35,25 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let players = self.players else {
-            return 0
-        }
-        return players.count
+        return self.winnerViewModel.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "winnerCellReuseID", for: indexPath) as UICollectionViewCell
 
-        if let player = self.players?[indexPath.row]  {
+        let player = self.winnerViewModel.players[indexPath.row]
 
-            let arr = UINib(nibName: "PlayerOblongView", bundle: nil).instantiate(withOwner: nil, options: nil)
-            let view = arr[0] as! PlayerOblongView
-            cell.contentView.addSubview(view)
+        let arr = UINib(nibName: "PlayerOblongView", bundle: nil).instantiate(withOwner: nil, options: nil)
+        let view = arr[0] as! PlayerOblongView
+        cell.contentView.addSubview(view)
 
-            view.avatarImageView?.image = UIImage(named: player.asset)
-            view.indexLabel?.text = "#\(indexPath.row+1)"
-            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
-            view.nameLabel?.text = player.name
+        view.avatarImageView?.image = UIImage(named: player.asset)
+        view.indexLabel?.text = "#\(indexPath.row+1)"
+        view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+        view.nameLabel?.text = player.name
 
-            view.layoutIfNeeded()
-        }
+        view.layoutIfNeeded()
+
 
         cell.setNeedsLayout()
         

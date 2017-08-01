@@ -10,6 +10,17 @@ import Foundation
 
 class WinnerViewModel : BaseViewModel
 {
+    var players: [Player] = [Player]()
+
+    override init(game: Game) {
+        super.init(game: game)
+
+        guard let sorted = self.playersSortedByHighestCash else {
+            return
+        }
+        self.players = sorted
+    }
+
     lazy var playersSortedByHighestCash: [Player]? = {
         guard let gameObj = self.game else {
             return nil

@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-FR-1dz">
-                                <rect key="frame" x="24" y="63" width="233" height="230"/>
+                                <rect key="frame" x="24" y="63" width="233" height="257"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="233" id="hqr-el-qga"/>
@@ -111,7 +111,7 @@
                             <constraint firstItem="Oac-FR-1dz" firstAttribute="top" secondItem="WW0-wn-4r8" secondAttribute="top" constant="-3" id="h2W-Ct-RAV"/>
                             <constraint firstItem="Oac-FR-1dz" firstAttribute="top" secondItem="hXD-u1-OLv" secondAttribute="bottom" constant="9" id="jKk-lJ-Tb3"/>
                             <constraint firstItem="hXD-u1-OLv" firstAttribute="top" secondItem="ed1-63-H0s" secondAttribute="topMargin" constant="20" id="nty-2U-ZVT"/>
-                            <constraint firstItem="ufa-8H-zg2" firstAttribute="top" secondItem="Oac-FR-1dz" secondAttribute="bottom" constant="27" id="nxt-bv-FG2"/>
+                            <constraint firstItem="ufa-8H-zg2" firstAttribute="top" secondItem="Oac-FR-1dz" secondAttribute="bottom" id="nxt-bv-FG2"/>
                             <constraint firstItem="Oac-FR-1dz" firstAttribute="leading" secondItem="ed1-63-H0s" secondAttribute="leadingMargin" constant="4" id="oV6-kJ-JaN"/>
                             <constraint firstItem="QKf-HV-56D" firstAttribute="top" secondItem="1bF-oD-rJC" secondAttribute="bottom" constant="3" id="u77-AZ-HxE"/>
                         </constraints>

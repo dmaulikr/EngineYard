@@ -12,7 +12,14 @@ class NewTurnOrderViewModel : BaseViewModel
 {
     static var cellReuseIdentifier = "turnOrderCellReuseID"
 
-    lazy var playersSortedByLowestCash : [Player]? = {
+    lazy var players : [Player]? = {
+        guard let gameObj = self.game else {
+            return nil
+        }
+        return gameObj.turnOrderManager.turnOrder
+    }()
+
+    lazy var sortPlayersByLowestCash : [Player]? = {
         guard let gameObj = self.game else {
             return nil
         }

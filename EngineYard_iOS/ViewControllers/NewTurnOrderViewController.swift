@@ -8,19 +8,65 @@
 
 import UIKit
 
-class NewTurnOrderViewController: UIViewController {
+class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+{
+    @IBOutlet weak private var turnOrderCollectionView: UICollectionView!
+
+    var turnOrderViewModel: NewTurnOrderViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.turnOrderCollectionView.allowsSelection = false
+        self.turnOrderCollectionView.allowsMultipleSelection = false
+        self.turnOrderCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "turnOrderCellReuseID")
+        self.turnOrderCollectionView.dataSource = self
+        self.turnOrderCollectionView.delegate = self
+
+        self.view.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+
+    // MARK: - CollectionView delegate
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let players = self.turnOrderViewModel.game?.players else {
+            return 0
+        }
+        return players.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "turnOrderCellReuseID", for: indexPath) as UICollectionViewCell
+
+        if let player = self.turnOrderViewModel.game?.players[indexPath.row]
+        {
+            let arr = UINib(nibName: "PlayerOblongView", bundle: nil).instantiate(withOwner: nil, options: nil)
+            let view = arr[0] as! PlayerOblongView
+            cell.contentView.addSubview(view)
+
+            view.avatarImageView?.image = UIImage(named: player.asset)
+            view.indexLabel?.text = "#\(indexPath.row+1)"
+            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            view.nameLabel?.text = player.name
+            
+            view.layoutIfNeeded()
+        }
+
+        cell.setNeedsLayout()
+
+        return cell
+    }
+
+    // MARK: - IBActions
+
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+        
+    }
+
 
     /*
     // MARK: - Navigation
