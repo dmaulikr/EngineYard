@@ -59,6 +59,7 @@
 		4D0834411F304E090055641A /* Birdy_Notification1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D08343D1F304E090055641A /* Birdy_Notification1.wav */; };
 		4D0834421F304E090055641A /* cardSlide1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D08343E1F304E090055641A /* cardSlide1.wav */; };
 		4D0834431F304E090055641A /* cardSlide8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D08343F1F304E090055641A /* cardSlide8.wav */; };
+		4D0834451F3058040055641A /* HUDCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0834441F3058040055641A /* HUDCollectionViewCell.swift */; };
 		4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C181F212DAF00680333 /* Assets.xcassets */; };
 		4D1A4C231F212DAF00680333 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D1A4C1B1F212DAF00680333 /* data.json */; };
 		4D1A4C261F21314B00680333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C241F21314B00680333 /* Constants.swift */; };
@@ -180,6 +181,7 @@
 		4D08343D1F304E090055641A /* Birdy_Notification1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Birdy_Notification1.wav; sourceTree = "<group>"; };
 		4D08343E1F304E090055641A /* cardSlide1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardSlide1.wav; sourceTree = "<group>"; };
 		4D08343F1F304E090055641A /* cardSlide8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardSlide8.wav; sourceTree = "<group>"; };
+		4D0834441F3058040055641A /* HUDCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D1A4C181F212DAF00680333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D1A4C1B1F212DAF00680333 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		4D1A4C241F21314B00680333 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4D0833F61F2FA19F0055641A /* HUDViewController.swift */,
+				4D0834441F3058040055641A /* HUDCollectionViewCell.swift */,
 			);
 			name = HUD;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				4D0833F71F2FA19F0055641A /* HUDViewController.swift in Sources */,
 				4D1A4C3E1F21316F00680333 /* GameStates.swift in Sources */,
 				4D0834011F2FA1FF0055641A /* SellingViewController.swift in Sources */,
+				4D0834451F3058040055641A /* HUDCollectionViewCell.swift in Sources */,
 				4D1A4C351F21315800680333 /* EY+Time.swift in Sources */,
 				4D9EDAF81F2E0FCF00755834 /* Tax.swift in Sources */,
 				4D0834241F2FA31A0055641A /* DiceCollectionViewCell.swift in Sources */,

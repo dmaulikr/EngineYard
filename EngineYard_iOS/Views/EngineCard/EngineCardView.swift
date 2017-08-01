@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Card : TrainProtocol
+struct EngineCard : TrainProtocol
 {
     let name: String
     let cost: Int
@@ -87,7 +87,7 @@ class EngineCardView: UIView {
         self.checkmark.image = self.checkmark.image?.maskWithColor(color: .green)
     }
 
-    func setup(card: Card) {
+    func setup(card: EngineCard) {
 
         let genNumber = NSNumber(integerLiteral: card.generation.rawValue)
         let costNumber = NSNumber(integerLiteral: card.cost)
@@ -120,7 +120,7 @@ class EngineCardView: UIView {
         self.applyHeaderColor(card: card)
     }
 
-    func applyHeaderColor(card: Card) {
+    func applyHeaderColor(card: EngineCard) {
 
         switch card.engineColor {
         case .green:
@@ -138,7 +138,7 @@ class EngineCardView: UIView {
         }
     }
 
-    func applyDropShadow(card: Card, forView: UIView) {
+    func applyDropShadow(card: EngineCard, forView: UIView) {
         let alpha: Float = 1.0
         var color = UIColor.init(colorLiteralRed: 192/255, green: 192/255, blue: 192/255, alpha: alpha)
 

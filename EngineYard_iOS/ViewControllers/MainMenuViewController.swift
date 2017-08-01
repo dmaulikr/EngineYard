@@ -56,18 +56,19 @@ class MainMenuViewController: UIViewController {
 
         let winnerBtn: UIButton = UIButton(type: .system)
         winnerBtn.setTitle("Winner", for: .normal)
-        winnerBtn.frame = CGRect(x: 100, y: 100, width: 150, height: 20)
+        winnerBtn.frame = CGRect(x: 100, y: 75, width: 150, height: 20)
         winnerBtn.tag = 0
         winnerBtn.addTarget(self, action: #selector(menuButtonPressed(_:)), for: .touchUpInside)
 
         let turnOrderBtn: UIButton = UIButton(type: .system)
         turnOrderBtn.setTitle("TurnOrder", for: .normal)
-        turnOrderBtn.frame = CGRect(x: 100, y: 150, width: 150, height: 20)
+        turnOrderBtn.frame = CGRect(x: 100, y: 125, width: 150, height: 20)
         turnOrderBtn.tag = 1
         turnOrderBtn.addTarget(self, action: #selector(menuButtonPressed(_:)), for: .touchUpInside)
 
         self.view.addSubview(winnerBtn)
         self.view.addSubview(turnOrderBtn)
+
     }
 
     override func didReceiveMemoryWarning() {
