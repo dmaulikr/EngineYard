@@ -25,16 +25,39 @@
                             <constraint firstAttribute="width" constant="67" id="g6j-Ng-n4p"/>
                         </constraints>
                         <state key="normal" image="avt_1"/>
+                        <connections>
+                            <action selector="avtBtnPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="T8H-o2-6T4"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUa-OX-Ygz">
+                        <rect key="frame" x="20" y="75" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="06e-50-z3c"/>
+                            <constraint firstAttribute="height" constant="25" id="yLZ-I1-bN9"/>
+                        </constraints>
+                        <state key="normal" image="icon-pawn"/>
+                        <state key="selected" image="icon-bot2"/>
+                        <connections>
+                            <action selector="aiSwitchPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="SVc-ZR-4Dv"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="DUa-OX-Ygz" firstAttribute="top" secondItem="aFb-Vw-Eux" secondAttribute="bottom" constant="15" id="Zne-vG-LfO"/>
                 <constraint firstAttribute="trailing" secondItem="aFb-Vw-Eux" secondAttribute="trailing" id="ihn-eT-YRN"/>
+                <constraint firstItem="DUa-OX-Ygz" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="nHU-8R-H9K"/>
                 <constraint firstItem="aFb-Vw-Eux" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zi2-Ik-xrb"/>
             </constraints>
+            <connections>
+                <outlet property="aiSwitchBtn" destination="DUa-OX-Ygz" id="HiQ-Rw-PBX"/>
+                <outlet property="avtBtn" destination="aFb-Vw-Eux" id="BnT-br-faD"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="avt_1" width="241" height="212"/>
+        <image name="icon-bot2" width="200" height="226"/>
+        <image name="icon-pawn" width="300" height="340"/>
     </resources>
 </document>

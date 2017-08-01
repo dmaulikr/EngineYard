@@ -10,9 +10,23 @@ import UIKit
 
 class AddPlayerCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var avtBtn: UIButton!
+    @IBOutlet weak var aiSwitchBtn: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        self.avtBtn.layer.cornerRadius = 8.0
+        self.avtBtn.layer.masksToBounds = true
+    }
+
+
+    @IBAction func avtBtnPressed(_ sender: UIButton) {
+
+    }
+
+    @IBAction func aiSwitchPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
 
 }
