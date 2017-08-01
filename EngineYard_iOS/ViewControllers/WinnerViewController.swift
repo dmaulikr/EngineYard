@@ -14,12 +14,13 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet var menuBtnOutletCollection: [UIButton]!
     @IBOutlet weak var pageTitleLabel: UILabel!
 
-    var winnerViewModel: WinnerViewModel!
+    var winnerViewModel: WinnerViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.pageTitleLabel.text = WinnerViewModel.pageTitleText
+
         self.winnerCollectionView.allowsSelection = false
         self.winnerCollectionView.allowsMultipleSelection = false
         self.winnerCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "winnerCellReuseID")
@@ -35,7 +36,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let game = self.winnerViewModel.game else {
+        guard let game = self.winnerViewModel?.game else {
             return 0
         }
         return game.players.count
@@ -44,7 +45,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "winnerCellReuseID", for: indexPath) as UICollectionViewCell
 
-        guard let players = self.winnerViewModel.players else {
+        guard let players = self.winnerViewModel?.players else {
             return cell
         }
 
