@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewGameViewModel
+class QuickGameViewModel
 {
     var game: Game = Game.instance
 
@@ -47,23 +47,31 @@ class NewGameViewModel
 
 class MainMenuViewController: UIViewController {
 
-    var viewModel: NewGameViewModel?
+    var viewModel: QuickGameViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.viewModel = NewGameViewModel.init()
+        self.viewModel = QuickGameViewModel.init()
+
+
+        let playBtn: UIButton = UIButton(type: .system)
+        playBtn.setTitle("Play", for: .normal)
+        playBtn.frame = CGRect(x: 50, y: 50, width: 150, height: 20)
+        playBtn.tag = 0
+        playBtn.addTarget(self, action: #selector(menuButtonPressed(_:)), for: .touchUpInside)
+
 
         let winnerBtn: UIButton = UIButton(type: .system)
         winnerBtn.setTitle("Winner", for: .normal)
         winnerBtn.frame = CGRect(x: 100, y: 75, width: 150, height: 20)
-        winnerBtn.tag = 0
+        winnerBtn.tag = 1
         winnerBtn.addTarget(self, action: #selector(menuButtonPressed(_:)), for: .touchUpInside)
 
         let turnOrderBtn: UIButton = UIButton(type: .system)
         turnOrderBtn.setTitle("TurnOrder", for: .normal)
         turnOrderBtn.frame = CGRect(x: 100, y: 125, width: 150, height: 20)
-        turnOrderBtn.tag = 1
+        turnOrderBtn.tag = 2
         turnOrderBtn.addTarget(self, action: #selector(menuButtonPressed(_:)), for: .touchUpInside)
 
         self.view.addSubview(winnerBtn)
@@ -91,7 +99,12 @@ class MainMenuViewController: UIViewController {
 
 
         switch sender.tag {
+
         case 0:
+            self.performSegue(withIdentifier: "newGameSetupSegue", sender: self)
+            break
+
+        case 1:
             // Launch Train View Controller
             let sb: UIStoryboard = UIStoryboard(name: "Winner", bundle: nil)
             if let controller = sb.instantiateViewController(withIdentifier: "WinnerViewController") as? WinnerViewController
@@ -102,7 +115,7 @@ class MainMenuViewController: UIViewController {
             }
             break
 
-        case 1:
+        case 2:
             let sb: UIStoryboard = UIStoryboard(name: "MarketDemands", bundle: nil)
             if let controller = sb.instantiateViewController(withIdentifier: "NewTurnOrderViewController") as? NewTurnOrderViewController
             {
@@ -124,6 +137,20 @@ class MainMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        guard let hasGame = self.viewModel?.game else {
+            return
+        }
+
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("No gameboard defined")
+            return
+        }
+
+        if (segue.identifier == "newGameSetupSegue") {
+            let vc : NewGameSetupViewController = (segue.destination as? NewGameSetupViewController)!
+            vc.viewModel = NewGameViewModel.init(game: hasGame)
+        }
     }
 
 

@@ -8,10 +8,19 @@
 
 import UIKit
 
+class NewGameViewModel : BaseViewModel
+{
+    
+}
+
 class NewGameSetupViewController: UIViewController {
+
+    var viewModel: NewGameViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print (self.viewModel?.game?.description as Any)
     }
 
     override func didReceiveMemoryWarning() {
