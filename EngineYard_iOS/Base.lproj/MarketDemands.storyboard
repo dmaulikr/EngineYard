@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkT-nf-7nC">
-                                <rect key="frame" x="457" y="27" width="44" height="44"/>
+                                <rect key="frame" x="457" y="35" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="W1M-oU-we6"/>
                                     <constraint firstAttribute="height" constant="44" id="rzv-6i-cBr"/>
@@ -87,7 +87,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OkT-nf-7nC" firstAttribute="top" secondItem="bXw-G8-a2z" secondAttribute="bottom" constant="7" id="VYM-bi-F18"/>
+                            <constraint firstItem="OkT-nf-7nC" firstAttribute="top" secondItem="bXw-G8-a2z" secondAttribute="bottom" constant="15" id="VYM-bi-F18"/>
                             <constraint firstItem="1SV-pf-9U0" firstAttribute="top" secondItem="bXw-G8-a2z" secondAttribute="bottom" constant="15" id="WOR-Nd-Ou1"/>
                             <constraint firstAttribute="bottom" secondItem="44H-En-iTU" secondAttribute="bottom" id="XB8-5d-t2v"/>
                             <constraint firstItem="1SV-pf-9U0" firstAttribute="leading" secondItem="Gyo-Qy-Cng" secondAttribute="leading" constant="17" id="er7-CP-G0S"/>
