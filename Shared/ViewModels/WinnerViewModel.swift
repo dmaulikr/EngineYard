@@ -10,7 +10,7 @@ import Foundation
 
 class WinnerViewModel : BaseViewModel
 {
-    var players: [Player] = [Player]()
+    var players: [Player]?
 
     override init(game: Game) {
         super.init(game: game)

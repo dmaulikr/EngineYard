@@ -35,13 +35,20 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.winnerViewModel.players.count
+        guard let game = self.winnerViewModel.game else {
+            return 0
+        }
+        return game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "winnerCellReuseID", for: indexPath) as UICollectionViewCell
 
-        let player = self.winnerViewModel.players[indexPath.row]
+        guard let players = self.winnerViewModel.players else {
+            return cell
+        }
+
+        let player = players[indexPath.row]
 
         let arr = UINib(nibName: "PlayerOblongView", bundle: nil).instantiate(withOwner: nil, options: nil)
         let view = arr[0] as! PlayerOblongView
