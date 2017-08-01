@@ -8,10 +8,51 @@
 
 import UIKit
 
+class NewGameViewModel
+{
+    var game: Game = Game.instance
+
+    private(set) var players:[Player] = [Player]()
+
+    init() {
+        setupPlayers(playerCount: Constants.NumberOfPlayers.max)
+
+        guard let gameObj = Game.setup(players: self.players) else {
+            assertionFailure("Invalid game object")
+            return
+        }
+        guard let _ = gameObj.gameBoard else {
+            assertionFailure("Invalid game board")
+            return
+        }
+        self.game = gameObj
+        print (self.game.description)
+    }
+
+    private func setupPlayers(playerCount: Int) {
+        for idx:Int in 1...playerCount {
+            let name = "Player #\(idx)"
+            let filename = "avt_\(idx)"
+
+            var isAI: Bool = true
+            if (idx == 1) {
+                isAI = false
+            }
+
+            let playerObj = Player.init(name: name, isAI: isAI, asset: filename)
+            self.players.append(playerObj)
+        }
+    }
+}
+
 class MainMenuViewController: UIViewController {
+
+    var viewModel: NewGameViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.viewModel = NewGameViewModel.init()
 
         let winnerBtn: UIButton = UIButton(type: .system)
         winnerBtn.setTitle("Winner", for: .normal)
@@ -38,12 +79,23 @@ class MainMenuViewController: UIViewController {
 
     @IBAction func menuButtonPressed(_ sender: UIButton) {
 
+        guard let hasGame = self.viewModel?.game else {
+            assertionFailure("No game object was created")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("No game board was created")
+            return
+        }
+
+
         switch sender.tag {
         case 0:
             // Launch Train View Controller
             let sb: UIStoryboard = UIStoryboard(name: "Winner", bundle: nil)
             if let controller = sb.instantiateViewController(withIdentifier: "WinnerViewController") as? WinnerViewController
             {
+                controller.viewModel = WinnerViewModel.init(game: hasGame)
                 self.present(controller, animated: true, completion: nil)
             }
             break
@@ -52,6 +104,7 @@ class MainMenuViewController: UIViewController {
             let sb: UIStoryboard = UIStoryboard(name: "MarketDemands", bundle: nil)
             if let controller = sb.instantiateViewController(withIdentifier: "NewTurnOrderViewController") as? NewTurnOrderViewController
             {
+                controller.viewModel = NewTurnOrderViewModel.init(game: hasGame)
                 self.present(controller, animated: true, completion: nil)
             }
             break

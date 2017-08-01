@@ -10,6 +10,8 @@ import Foundation
 
 final class Game : CustomStringConvertible
 {
+    static var instance = Game()
+
     var settings: GameConfig?
     
     var gameBoard: GameBoard? {

@@ -12,7 +12,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
 {
     @IBOutlet weak private var turnOrderCollectionView: UICollectionView!
 
-    var turnOrderViewModel: NewTurnOrderViewModel?
+    var viewModel: NewTurnOrderViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
     // MARK: - CollectionView delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let game = self.turnOrderViewModel?.game else {
+        guard let game = self.viewModel?.game else {
             return 0
         }
         return game.players.count
@@ -42,7 +42,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "turnOrderCellReuseID", for: indexPath) as UICollectionViewCell
 
-        guard let viewModel = self.turnOrderViewModel else {
+        guard let viewModel = self.viewModel else {
             return cell
         }
 
