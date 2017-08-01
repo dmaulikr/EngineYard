@@ -8,10 +8,6 @@
 
 import UIKit
 
-class BuyTrainListViewModel: BaseViewModel {
-
-}
-
 class BuyTrainListViewController: UIViewController {
 
     var viewModel: BuyTrainListViewModel?
