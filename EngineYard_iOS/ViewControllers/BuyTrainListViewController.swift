@@ -8,7 +8,13 @@
 
 import UIKit
 
+class BuyTrainListViewModel: BaseViewModel {
+
+}
+
 class BuyTrainListViewController: UIViewController {
+
+    var viewModel: BuyTrainListViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()

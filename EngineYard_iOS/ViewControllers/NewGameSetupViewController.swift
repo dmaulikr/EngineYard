@@ -14,6 +14,7 @@ protocol StepperProtocol {
 
 class NewGameViewModel
 {
+    var game: Game = Game.instance
     var delegate: StepperProtocol?
 
     private(set) var players: [Player] = [Player]()
@@ -96,11 +97,42 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
 
+        print (self.viewModel?.game.description as Any)
+
+        /*
+        if (self.viewModel.game.inProgress)
+        {
+            self.abandonGameAlert(completionClosure: { (abandoned) in
+                if (self.viewModel.shouldAbandonGame(abandoned: abandoned))
+                {
+                    self.launchGame()
+                }
+            })
+        }
+        else {
+            self.launchGame()
+        }
+ */
     }
+
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
+
 
     internal func updateStepperLabel(with text: String) {
         self.stepperLabel.text = text
         self.stepperLabel.layoutIfNeeded()
+    }
+
+    func launchGame() {
+        //self.viewModel.setupNewGame()
+
+        waitFor(duration: 0.85) { (completed) in
+            if (completed) {
+                self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
+            }
+        }
     }
 
     // MARK: - Collection View
@@ -134,7 +166,6 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        /*
         guard let hasGame = self.viewModel?.game else {
             return
         }
@@ -144,10 +175,13 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
             return
         }
         
-        if (segue.identifier == "") {
-            
+        if (segue.identifier == "buyTrainSegue") {
+
+            let vc : BuyTrainListViewController = (segue.destination as? BuyTrainListViewController)!
+            vc.viewModel = BuyTrainListViewModel.init(game: hasGame)            
+
         }
-         */
+
     }
 
 

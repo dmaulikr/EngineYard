@@ -51,12 +51,4 @@ extension Player {
         self.turnOrder = number
     }
 
-    func canPurchase(train: Train) -> Bool {
-        print ("train: \(train.description)")
-
-        
-
-        return true
-    }
-
 }
