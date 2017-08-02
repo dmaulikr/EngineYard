@@ -69,14 +69,22 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let _ = self.trainsListViewModel else {
+        guard let trains = self.trainsListViewModel?.trains else {
             return 0
         }
-       return 0
+        return trains.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
+
+        if let trains = self.trainsListViewModel?.trains {
+
+            let trainObj = trains[indexPath.row]
+
+            
+
+        }
 
         return cell
     }
