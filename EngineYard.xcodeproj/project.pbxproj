@@ -25,7 +25,6 @@
 		4D0833E61F2FA10E0055641A /* BuyTrain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0833E41F2FA10E0055641A /* BuyTrain.storyboard */; };
 		4D0833E91F2FA1290055641A /* BuyProduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0833E71F2FA1290055641A /* BuyProduction.storyboard */; };
 		4D0833EC1F2FA1360055641A /* Sales.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0833EA1F2FA1360055641A /* Sales.storyboard */; };
-		4D0833EF1F2FA1550055641A /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0833ED1F2FA1550055641A /* HUD.storyboard */; };
 		4D0833F21F2FA16E0055641A /* Winner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0833F01F2FA16E0055641A /* Winner.storyboard */; };
 		4D0833F51F2FA17C0055641A /* Trains.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0833F31F2FA17C0055641A /* Trains.storyboard */; };
 		4D0833F71F2FA19F0055641A /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833F61F2FA19F0055641A /* HUDViewController.swift */; };
@@ -154,7 +153,6 @@
 		4D0833E51F2FA10E0055641A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BuyTrain.storyboard; sourceTree = "<group>"; };
 		4D0833E81F2FA1290055641A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BuyProduction.storyboard; sourceTree = "<group>"; };
 		4D0833EB1F2FA1360055641A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Sales.storyboard; sourceTree = "<group>"; };
-		4D0833EE1F2FA1550055641A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		4D0833F11F2FA16E0055641A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Winner.storyboard; sourceTree = "<group>"; };
 		4D0833F41F2FA17C0055641A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trains.storyboard; sourceTree = "<group>"; };
 		4D0833F61F2FA19F0055641A /* HUDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
@@ -602,7 +600,6 @@
 				4D0833E71F2FA1290055641A /* BuyProduction.storyboard */,
 				4D0833EA1F2FA1360055641A /* Sales.storyboard */,
 				4D0834321F2FA6B80055641A /* MarketDemands.storyboard */,
-				4D0833ED1F2FA1550055641A /* HUD.storyboard */,
 				4D0833F31F2FA17C0055641A /* Trains.storyboard */,
 				4D0833F01F2FA16E0055641A /* Winner.storyboard */,
 			);
@@ -759,7 +756,6 @@
 				4D0833E91F2FA1290055641A /* BuyProduction.storyboard in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D0834251F2FA31A0055641A /* DiceCollectionViewCell.xib in Resources */,
-				4D0833EF1F2FA1550055641A /* HUD.storyboard in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4D0834421F304E090055641A /* cardSlide1.wav in Resources */,
 				4D0833F21F2FA16E0055641A /* Winner.storyboard in Resources */,
@@ -1018,14 +1014,6 @@
 				4D0833EB1F2FA1360055641A /* Base */,
 			);
 			name = Sales.storyboard;
-			sourceTree = "<group>";
-		};
-		4D0833ED1F2FA1550055641A /* HUD.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D0833EE1F2FA1550055641A /* Base */,
-			);
-			name = HUD.storyboard;
 			sourceTree = "<group>";
 		};
 		4D0833F01F2FA16E0055641A /* Winner.storyboard */ = {

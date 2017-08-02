@@ -36,7 +36,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EngineCardCollectionViewCell" id="Bgx-PA-NtA" customClass="EngineCardCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="12.5" width="150" height="200"/>
+                                        <rect key="frame" x="15" y="13" width="150" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
