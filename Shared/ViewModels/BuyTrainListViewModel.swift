@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BuyTrainListViewModel: BaseViewModel
+class BuyTrainListViewModel : BaseViewModel
 {
 
 }

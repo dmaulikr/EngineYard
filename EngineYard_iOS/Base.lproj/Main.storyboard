@@ -153,11 +153,20 @@
                         <outlet property="doneBtn" destination="2Mh-n8-Ffx" id="3f2-7t-5cJ"/>
                         <outlet property="stepper" destination="DUO-lH-ebv" id="xsh-eJ-jPG"/>
                         <outlet property="stepperLabel" destination="6zb-3K-cOu" id="n7b-5Y-FjI"/>
+                        <segue destination="4IM-NH-Yh5" kind="showDetail" identifier="buyTrainSegue" action="showViewController:sender:" id="Q7Z-8R-Osl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h15-Bs-tHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1557.0422535211267" y="1520.625"/>
+        </scene>
+        <!--BuyTrainListViewController-->
+        <scene sceneID="i5t-hl-fMY">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SBBuyTrainSegueRef" storyboardName="BuyTrain" referencedIdentifier="BuyTrainListViewController" id="4IM-NH-Yh5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeS-ic-ju9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="2141"/>
         </scene>
     </scenes>
     <resources>
