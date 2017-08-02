@@ -33,7 +33,7 @@ struct EngineCard : TrainProtocol
         self.engineColor = train.engineColor
         self.isUnlocked = train.isUnlocked
         self.capacity = train.capacity
-        self.numberOfChildren = train.capacity
+        self.numberOfChildren = train.numberOfChildren
         self.isRusting = train.isRusting
         self.hasRusted = train.hasRusted
         self.existingOrderValues = train.existingOrderValues
@@ -96,8 +96,8 @@ class EngineCardView: UIView {
         let incomeNumber = NSNumber(integerLiteral: card.income)
 
         let ownersCount = card.owners?.count ?? 0
-        let cardsLeft = (card.numberOfChildren - ownersCount)
-        let remainingStockNumber = NSNumber(integerLiteral: cardsLeft)
+        let cardsRemaining = (card.numberOfChildren - ownersCount)
+        let remainingStockNumber = NSNumber(integerLiteral: cardsRemaining)
 
         self.nameLabel.text = card.name
         self.generationLabel.text = NSLocalizedString("Generation \(genNumber)", comment: "Train generation number")
@@ -117,6 +117,21 @@ class EngineCardView: UIView {
             $0.sizeToFit()
             $0.layoutIfNeeded()
         })
+
+        if (card.existingOrderValues.count > 0)
+        {
+            for (index, orderValue) in card.existingOrderValues.enumerated() {
+                let asset = Die.assetNameForValue(dieValue: orderValue)
+
+                guard let item = (self.diceOutletCollection.filter({ (imgView) -> Bool in
+                    return (imgView.tag == index)
+                }).first) else {
+                    return
+                }
+                item.image = UIImage(named: asset)
+                item.isHidden = false
+            }
+        }
 
         self.applyHeaderColor(card: card)
     }
