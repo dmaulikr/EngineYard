@@ -9,12 +9,18 @@
 import Foundation
 import GameplayKit
 
-final class Player : CustomStringConvertible, Equatable
+protocol PlayerModelProtocol {
+    var name: String { get set }
+    var isAI: Bool { get set }
+    var asset: String { get set }
+}
+
+final class Player : CustomStringConvertible, Equatable, PlayerModelProtocol
 {
     let uuid: String = UUID().uuidString
-    public fileprivate(set) var name : String = ""
-    public fileprivate(set) var isAI: Bool = false
-    public fileprivate(set) var asset: String = ""
+    internal var name : String = ""
+    internal var isAI: Bool = false
+    internal var asset: String = ""
     public fileprivate(set) var turnOrder: Int = 0
 
     lazy var hand: Hand = Hand(owner: self) // hand of cards

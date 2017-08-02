@@ -134,7 +134,7 @@
                                         <rect key="frame" x="20" y="10" width="44" height="44"/>
                                         <state key="normal" image="circle-back"/>
                                         <connections>
-                                            <action selector="doneBtnPressed:" destination="ywo-bh-DyN" eventType="touchUpInside" id="s8o-7v-i7q"/>
+                                            <action selector="backBtnPressed:" destination="ywo-bh-DyN" eventType="touchUpInside" id="GR5-PP-sAb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mh-n8-Ffx">
@@ -180,6 +180,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backBtn" destination="53I-p4-pIV" id="BbM-v9-Caa"/>
                         <outlet property="collectionView" destination="uQO-nb-Wbc" id="CIM-pg-l5H"/>
                         <outlet property="doneBtn" destination="2Mh-n8-Ffx" id="3f2-7t-5cJ"/>
                         <outlet property="stepper" destination="DUO-lH-ebv" id="xsh-eJ-jPG"/>

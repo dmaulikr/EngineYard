@@ -56,6 +56,19 @@ class NewGameViewModel
     func stepperValueDidChange(value: Int) {
         self.stepperValue = value
     }
+
+    func launchGame() {
+        guard let gameObj = Game.setup(players: self.players) else {
+            assertionFailure("Invalid game object")
+            return
+        }
+        guard let _ = gameObj.gameBoard else {
+            assertionFailure("Invalid game board")
+            return
+        }
+        self.game = gameObj
+        print (self.game.description)
+    }
 }
 
 class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StepperProtocol
@@ -67,6 +80,7 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var stepperLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,20 +113,7 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
 
         print (self.viewModel?.game.description as Any)
 
-        /*
-        if (self.viewModel.game.inProgress)
-        {
-            self.abandonGameAlert(completionClosure: { (abandoned) in
-                if (self.viewModel.shouldAbandonGame(abandoned: abandoned))
-                {
-                    self.launchGame()
-                }
-            })
-        }
-        else {
-            self.launchGame()
-        }
- */
+        self.launchGame()
     }
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
@@ -126,7 +127,10 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
     }
 
     func launchGame() {
-        //self.viewModel.setupNewGame()
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+        hasViewModel.launchGame()
 
         waitFor(duration: 0.85) { (completed) in
             if (completed) {
@@ -183,6 +187,5 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
         }
 
     }
-
-
 }
+
