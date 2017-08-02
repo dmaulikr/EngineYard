@@ -89,7 +89,8 @@ extension Train {
             returnString = returnString.appending(" ** OBSOLETE **")
         }
         returnString = returnString.appending(" Cost: \(self.cost), Production: \(self.productionCost) Income: \(self.income)")
-        returnString = returnString.appending(" -- Cards: \(self.cards.count)")
+        returnString = returnString.appending(" -- Cards: \(self.cards.count), children: \(self.numberOfChildren)")
+        returnString = returnString.appending(" orders - \(self.orderBook.existingOrders) | \(self.orderBook.completedOrders)")
         return returnString
     }
 
