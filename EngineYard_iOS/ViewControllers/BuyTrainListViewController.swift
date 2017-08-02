@@ -40,16 +40,17 @@ class BuyTrainListViewController: UIViewController {
             assertionFailure("No game object defined")
             return
         }
+        guard let trains = hasViewModel.trains else {
+            assertionFailure("There are no trains")
+            return
+        }
 
         // Launch Train View Controller
         let sb: UIStoryboard = UIStoryboard(name: "Trains", bundle: nil)
         if let controller = sb.instantiateViewController(withIdentifier: "TrainListViewController") as? TrainListViewController
         {
-            //let trains = hasViewModel.allTrains
-
             self.trainListViewController = controller
-            //self.trainListViewController?.trainsViewModel = TrainListViewModel.init(game: gameObj, trains: trains)
-
+            self.trainListViewController?.trainsListViewModel = TrainsListViewModel.init(game: gameObj, trains: trains)
 
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false

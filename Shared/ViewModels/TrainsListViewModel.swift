@@ -10,5 +10,10 @@ import Foundation
 
 class TrainsListViewModel : BaseViewModel
 {
-    
+    var trains: [Train]?
+
+    init(game: Game, trains: [Train]) {
+        super.init(game: game)
+        self.trains = trains
+    }
 }
