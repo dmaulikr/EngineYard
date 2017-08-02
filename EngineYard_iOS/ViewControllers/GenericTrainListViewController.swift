@@ -1,5 +1,5 @@
 //
-//  TrainListViewController.swift
+//  GenericTrainListViewController.swift
 //  EngineYard
 //
 //  Created by Amarjit on 31/07/2017.
@@ -12,10 +12,10 @@ import UIKit
 // Generic view controller listing trains in a given deck
 //
 
-class TrainListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+class GenericTrainListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
+    public var genericTrainListViewModel: GenericTrainListViewModel?
 
-    var trainsListViewModel: TrainsListViewModel?
     var doneBtnClosure : ((_ doneBtnPressed: Bool)->())?
     var selectedTrainClosure : ((_ train: Train?)->())?
 
@@ -27,7 +27,7 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.HUD = HUDViewController.loadHUD(game: self.trainsListViewModel?.game, viewController: self)
+        self.HUD = HUDViewController.loadHUD(game: self.genericTrainListViewModel?.game, viewController: self)
 
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self
@@ -37,6 +37,12 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
         self.trainsCollectionView.dataSource = self
         self.trainsCollectionView.allowsMultipleSelection = false
         self.trainsCollectionView.layoutIfNeeded()
+
+        if let pageTitle = self.genericTrainListViewModel?.pageTitle {
+            self.pageTitleLabel.text = pageTitle
+        }
+
+        self.view.layoutIfNeeded()
 
         self.reloadData()
     }
@@ -69,7 +75,7 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let trains = self.trainsListViewModel?.trains else {
+        guard let trains = self.genericTrainListViewModel?.trains else {
             return 0
         }
         return trains.count
@@ -78,11 +84,6 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
 
-        /*
-        if let trains = self.trainsListViewModel?.trains {
-            let trainObj = trains[indexPath.row]
-        }*/
-
         if cell.engineCardView == nil {
             let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
             let view = arr[0] as! EngineCardView
@@ -90,7 +91,7 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
             cell.engineCardView = view
         }
 
-        if let trains = self.trainsListViewModel?.trains {
+        if let trains = self.genericTrainListViewModel?.trains {
             let train: Train = trains[indexPath.row]
 
             print(indexPath.row, train.description)

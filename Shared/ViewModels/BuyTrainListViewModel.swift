@@ -10,6 +10,8 @@ import Foundation
 
 class BuyTrainListViewModel : BaseViewModel
 {
+    let pageTitle: String = NSLocalizedString("Buy Train", comment: "Buy train page title")
+
     lazy var trains: [Train]? = {
         guard let hasGame = self.game else {
             return nil

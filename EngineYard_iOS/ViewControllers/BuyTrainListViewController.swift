@@ -11,7 +11,7 @@ import UIKit
 class BuyTrainListViewController: UIViewController {
 
     var viewModel: BuyTrainListViewModel?
-    weak var trainListViewController: TrainListViewController?
+    weak var childVC: GenericTrainListViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class BuyTrainListViewController: UIViewController {
     }
 
     deinit {
-        guard let hasChildController = self.trainListViewController else {
+        guard let hasChildController = self.childVC else {
             return
         }
         hasChildController.removeFromParentViewController()
@@ -47,10 +47,12 @@ class BuyTrainListViewController: UIViewController {
 
         // Launch Train View Controller
         let sb: UIStoryboard = UIStoryboard(name: "Trains", bundle: nil)
-        if let controller = sb.instantiateViewController(withIdentifier: "TrainListViewController") as? TrainListViewController
+        if let controller = sb.instantiateViewController(withIdentifier: "GenericTrainListViewController") as? GenericTrainListViewController
         {
-            self.trainListViewController = controller
-            self.trainListViewController?.trainsListViewModel = TrainsListViewModel.init(game: gameObj, trains: trains)
+
+            self.childVC = controller
+            self.childVC?.genericTrainListViewModel = GenericTrainListViewModel.init(game: gameObj, trains: trains)
+            self.childVC?.genericTrainListViewModel?.pageTitle = hasViewModel.pageTitle
 
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +79,7 @@ class BuyTrainListViewController: UIViewController {
                     //self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
                 }
             }
+             
         }
     }
 

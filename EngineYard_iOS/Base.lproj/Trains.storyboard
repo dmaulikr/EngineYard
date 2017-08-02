@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Train List View Controller-->
+        <!--Generic Train List View Controller-->
         <scene sceneID="dCg-m7-vIr">
             <objects>
-                <viewController restorationIdentifier="TrainListViewController" storyboardIdentifier="TrainListViewController" id="TMU-bg-agE" customClass="TrainListViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GenericTrainListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TMU-bg-agE" customClass="GenericTrainListViewController" customModule="EngineYard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YQG-Sz-1Fc"/>
                         <viewControllerLayoutGuide type="bottom" id="F2j-Cb-yn9"/>
@@ -36,7 +36,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EngineCardCollectionViewCell" id="Bgx-PA-NtA" customClass="EngineCardCollectionViewCell" customModule="EngineYard" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="13" width="150" height="200"/>
+                                        <rect key="frame" x="15" y="12.5" width="150" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
@@ -77,7 +77,7 @@
                     </view>
                     <connections>
                         <outlet property="doneBtn" destination="3os-LQ-RMN" id="vyx-gc-voa"/>
-                        <outlet property="pageTitleLabel" destination="7ni-GC-uUE" id="eOl-Xd-4MS"/>
+                        <outlet property="pageTitleLabel" destination="7ni-GC-uUE" id="Qph-zY-81m"/>
                         <outlet property="trainsCollectionView" destination="8LP-2B-QZV" id="F4V-GL-UIL"/>
                     </connections>
                 </viewController>

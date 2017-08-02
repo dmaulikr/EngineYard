@@ -1,5 +1,5 @@
 //
-//  TrainsListViewModel.swift
+//  GenericTrainListViewModel.swift
 //  EngineYard
 //
 //  Created by Amarjit on 31/07/2017.
@@ -8,9 +8,10 @@
 
 import Foundation
 
-class TrainsListViewModel : BaseViewModel
+class GenericTrainListViewModel : BaseViewModel
 {
     var trains: [Train]?
+    var pageTitle: String?
 
     init(game: Game, trains: [Train]) {
         super.init(game: game)
