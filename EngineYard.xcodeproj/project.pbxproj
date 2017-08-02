@@ -76,7 +76,6 @@
 		4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C3D1F21316F00680333 /* StateManager.swift */; };
 		4D1A4C411F21319D00680333 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C401F21319D00680333 /* Generation.swift */; };
 		4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C421F2131A700680333 /* EngineColor.swift */; };
-		4D2146CB1F320407002238BF /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2146C91F320407002238BF /* HUD.storyboard */; };
 		4D45BE581F3108C0004A945D /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */; };
 		4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */; };
 		4D45BE5B1F3123CF004A945D /* BuyTrainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE5A1F3123CF004A945D /* BuyTrainListViewModel.swift */; };
@@ -120,6 +119,7 @@
 		4D9EDB191F2E336F00755834 /* SalesRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB181F2E336F00755834 /* SalesRuleTests.swift */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
 		4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB42D41F2DFDCF009ABCD7 /* Train.swift */; };
+		4DECE6BC1F3208B90009087C /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DECE6BA1F3208B90009087C /* HUD.storyboard */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -205,7 +205,6 @@
 		4D1A4C3D1F21316F00680333 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		4D1A4C401F21319D00680333 /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		4D1A4C421F2131A700680333 /* EngineColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineColor.swift; sourceTree = "<group>"; };
-		4D2146CA1F320407002238BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D45BE5A1F3123CF004A945D /* BuyTrainListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainListViewModel.swift; sourceTree = "<group>"; };
@@ -254,6 +253,7 @@
 		4D9EDB181F2E336F00755834 /* SalesRuleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRuleTests.swift; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4DCB42D41F2DFDCF009ABCD7 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
+		4DECE6BB1F3208B90009087C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -601,8 +601,8 @@
 				4D0833E41F2FA10E0055641A /* BuyTrain.storyboard */,
 				4D0833E71F2FA1290055641A /* BuyProduction.storyboard */,
 				4D0833EA1F2FA1360055641A /* Sales.storyboard */,
+				4DECE6BA1F3208B90009087C /* HUD.storyboard */,
 				4D0834321F2FA6B80055641A /* MarketDemands.storyboard */,
-				4D2146C91F320407002238BF /* HUD.storyboard */,
 				4D0833F31F2FA17C0055641A /* Trains.storyboard */,
 				4D0833F01F2FA16E0055641A /* Winner.storyboard */,
 			);
@@ -760,7 +760,7 @@
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D0834251F2FA31A0055641A /* DiceCollectionViewCell.xib in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
-				4D2146CB1F320407002238BF /* HUD.storyboard in Resources */,
+				4DECE6BC1F3208B90009087C /* HUD.storyboard in Resources */,
 				4D0834421F304E090055641A /* cardSlide1.wav in Resources */,
 				4D0833F21F2FA16E0055641A /* Winner.storyboard in Resources */,
 				4D08342D1F2FA31A0055641A /* PlayerTaxView.xib in Resources */,
@@ -1044,14 +1044,6 @@
 			name = MarketDemands.storyboard;
 			sourceTree = "<group>";
 		};
-		4D2146C91F320407002238BF /* HUD.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D2146CA1F320407002238BF /* Base */,
-			);
-			name = HUD.storyboard;
-			sourceTree = "<group>";
-		};
 		4D9429741F2124B7006B2D89 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1066,6 +1058,14 @@
 				4D9429771F2124B7006B2D89 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4DECE6BA1F3208B90009087C /* HUD.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DECE6BB1F3208B90009087C /* Base */,
+			);
+			name = HUD.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

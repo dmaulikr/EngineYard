@@ -12,15 +12,13 @@ import QuartzCore
 
 class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var menuBtn: UIButton!
 
-    @IBOutlet weak private var collectionView: UICollectionView!
-    @IBOutlet weak private var menuBtn: UIButton!
-
-    var viewModel: HUDViewModel?
+    var hudViewModel: HUDViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
         self.collectionView.register(HUDCollectionViewCell.self, forCellWithReuseIdentifier: HUDCollectionViewCell.cellReuseIdentifer)
         self.collectionView.delegate = self
@@ -32,9 +30,7 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 
     func reloadHUD() {
         DispatchQueue.main.async {
@@ -54,7 +50,7 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
         if let controller = hudVC
         {
             let view = viewController.view!
-            controller.viewModel = HUDViewModel.init(game: hasGame)
+            controller.hudViewModel = HUDViewModel.init(game: hasGame)
             viewController.addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(controller.view)
@@ -67,14 +63,15 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
             controller.didMove(toParentViewController: viewController)
         }
-        
+
         return hudVC
     }
+
 
     // MARK: - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let hasViewModel = self.viewModel else {
+        guard let hasViewModel = self.hudViewModel else {
             return 0
         }
         guard let playersInTurnOrder = hasViewModel.playersInTurnOrder else {
@@ -86,7 +83,7 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HUDCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HUDCollectionViewCell.cellReuseIdentifer, for: indexPath) as! HUDCollectionViewCell
 
-        if let hasViewModel = self.viewModel {
+        if let hasViewModel = self.hudViewModel {
             if let playersInTurnOrder = hasViewModel.playersInTurnOrder  {
 
                 let player = playersInTurnOrder[indexPath.row]
@@ -118,13 +115,13 @@ class HUDViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
 
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
