@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,9 +55,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3os-LQ-RMN">
-                                <rect key="frame" x="499" y="19" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3os-LQ-RMN">
+                                <rect key="frame" x="499" y="45" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="doneBtnPressed:" destination="TMU-bg-agE" eventType="touchUpInside" id="6fV-Iu-Nyr"/>
@@ -67,7 +67,9 @@
                         <constraints>
                             <constraint firstItem="8LP-2B-QZV" firstAttribute="centerX" secondItem="hvQ-Oe-Qhi" secondAttribute="centerX" id="7gl-QV-esH"/>
                             <constraint firstItem="8LP-2B-QZV" firstAttribute="centerY" secondItem="hvQ-Oe-Qhi" secondAttribute="centerY" constant="25" id="Nkv-Vj-1yz"/>
+                            <constraint firstItem="3os-LQ-RMN" firstAttribute="centerY" secondItem="7ni-GC-uUE" secondAttribute="centerY" id="Nth-MB-ERA"/>
                             <constraint firstItem="7ni-GC-uUE" firstAttribute="leading" secondItem="hvQ-Oe-Qhi" secondAttribute="leading" constant="17" id="QP7-O2-Zn6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3os-LQ-RMN" secondAttribute="trailing" constant="3" id="V8q-7n-xPX"/>
                             <constraint firstAttribute="trailing" secondItem="8LP-2B-QZV" secondAttribute="trailing" id="Yht-Yq-bfJ"/>
                             <constraint firstItem="8LP-2B-QZV" firstAttribute="leading" secondItem="hvQ-Oe-Qhi" secondAttribute="leading" id="Ykl-rx-s70"/>
                             <constraint firstItem="8LP-2B-QZV" firstAttribute="top" secondItem="7ni-GC-uUE" secondAttribute="bottom" constant="2" id="cyl-Ou-5Nk"/>
