@@ -8,29 +8,81 @@
 
 import UIKit
 
-// a generic view controller listing trains in a given deck
-class TrainListViewController: UIViewController {
+//
+// Generic view controller listing trains in a given deck
+//
+
+class TrainListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+{
+
+    var trainsListViewModel: TrainsListViewModel?
+    var doneBtnClosure : ((_ doneBtnPressed: Bool)->())?
+    var selectedTrainClosure : ((_ train: Train?)->())?
+
+    weak var HUD: HUDViewController?
+    @IBOutlet weak var pageTitleLabel: UILabel!
+    @IBOutlet weak var trainsCollectionView: UICollectionView!
+    @IBOutlet weak var doneBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.HUD = HUDViewController.loadHUD(game: self.trainsListViewModel?.game, viewController: self)
+
+        self.trainsCollectionView.delegate = self
+        self.trainsCollectionView.dataSource = self
+        self.trainsCollectionView.register(EngineCardCollectionViewCell.self, forCellWithReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier)
+        self.trainsCollectionView.backgroundColor = UIColor.clear
+        self.trainsCollectionView.delegate = self
+        self.trainsCollectionView.dataSource = self
+        self.trainsCollectionView.allowsMultipleSelection = false
+        self.trainsCollectionView.layoutIfNeeded()
+
+        self.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    deinit {
+        self.HUD = nil
     }
-    */
+
+    func reloadData() {
+        guard let hud = self.HUD else {
+            return
+        }
+        hud.reloadHUD()
+        self.trainsCollectionView.reloadData()
+    }
+
+    // MARK: - IBActions
+
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+        print ("Done pressed")
+        if let closure = self.doneBtnClosure {
+            closure(true)
+        }
+    }
+
+    // MARK: - CollectionView
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let _ = self.trainsListViewModel else {
+            return 0
+        }
+       return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
+
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print ("Selected indexPath: \(indexPath)")
+    }
 
 }
