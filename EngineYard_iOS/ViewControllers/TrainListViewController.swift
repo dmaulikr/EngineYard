@@ -78,12 +78,27 @@ class TrainListViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: EngineCardCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: EngineCardCollectionViewCell.cellReuseIdentifier, for: indexPath) as! EngineCardCollectionViewCell
 
+        /*
         if let trains = self.trainsListViewModel?.trains {
-
             let trainObj = trains[indexPath.row]
+        }*/
 
+        if cell.engineCardView == nil {
+            let arr = UINib(nibName: "EngineCardView", bundle: nil).instantiate(withOwner: nil, options: nil)
+            let view = arr[0] as! EngineCardView
+            cell.contentView.addSubview(view)
+            cell.engineCardView = view
+        }
+
+        if let trains = self.trainsListViewModel?.trains {
+            let train: Train = trains[indexPath.row]
+
+            print(indexPath.row, train.description)
+
+            cell.engineCardView?.setup(with: train)
+
+            EngineCardView.applyDropShadow(train: train, forView: cell)
             
-
         }
 
         return cell

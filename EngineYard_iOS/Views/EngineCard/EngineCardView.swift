@@ -87,7 +87,8 @@ class EngineCardView: UIView {
         self.checkmark.image = self.checkmark.image?.maskWithColor(color: .green)
     }
 
-    func setup(card: EngineCard) {
+    func setup(with train: Train) {
+        let card = EngineCard.init(with: train)
 
         let genNumber = NSNumber(integerLiteral: card.generation.rawValue)
         let costNumber = NSNumber(integerLiteral: card.cost)
@@ -138,11 +139,11 @@ class EngineCardView: UIView {
         }
     }
 
-    func applyDropShadow(card: EngineCard, forView: UIView) {
+    public static func applyDropShadow(train: Train, forView: UIView) {
         let alpha: Float = 1.0
         var color = UIColor.init(colorLiteralRed: 192/255, green: 192/255, blue: 192/255, alpha: alpha)
 
-        switch card.engineColor {
+        switch train.engineColor {
         case .green:
             color = UIColor.init(colorLiteralRed: 59/255, green: 178/255, blue: 184/255, alpha: alpha)
             break
