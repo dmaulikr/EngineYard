@@ -26,12 +26,26 @@ class TaxReportViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "marketDemandsSegue", sender: self)
+        let identifier = "marketDemandsSegue"
+        if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+            self.performSegue(withIdentifier: identifier, sender: self)
+        }
     }
 
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            return false
+        }
+
         return false
     }
 

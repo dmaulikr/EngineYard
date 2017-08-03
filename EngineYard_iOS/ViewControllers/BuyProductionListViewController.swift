@@ -77,6 +77,11 @@ class BuyProductionListViewController: UIViewController {
                     print ("You clicked on: \(selectedTrain.name)")
                     //hasViewModel.selectedTrain = selectedTrain
                     //self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
+
+                    let identifier = "trainDetailSegue"
+                    if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                        self.performSegue(withIdentifier: identifier, sender: self)
+                    }
                 }
             }
             
@@ -86,7 +91,18 @@ class BuyProductionListViewController: UIViewController {
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return false
+
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            return false
+        }
+
+        return true
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -94,34 +110,23 @@ class BuyProductionListViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let identifier = segue.identifier else {
+        guard let hasGame = self.viewModel?.game else {
+            assertionFailure("** No game object defined **")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
             return
         }
 
-        if shouldPerformSegue(withIdentifier: identifier, sender: self)
-        {
+        if (segue.identifier == "productionDetailSegue") {
 
-            guard let hasGame = self.viewModel?.game else {
-                assertionFailure("** No game object defined **")
-                return
-            }
-            guard let _ = hasGame.gameBoard else {
-                assertionFailure("** No game board defined **")
-                return
-            }
-
-            if (segue.identifier == "productionDetailSegue") {
-
-            }
-
-            if (segue.identifier == "salesSegue") {
-                let vc : SellingViewController = (segue.destination as? SellingViewController)!
-                vc.viewModel = SellingRoundViewModel.init(game: hasGame)
-            }
-            
         }
-        
 
+        if (segue.identifier == "salesSegue") {
+            let vc : SellingViewController = (segue.destination as? SellingViewController)!
+            vc.viewModel = SellingRoundViewModel.init(game: hasGame)
+        }
     }
 
 

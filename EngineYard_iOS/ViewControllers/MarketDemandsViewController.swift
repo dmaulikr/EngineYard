@@ -32,6 +32,23 @@ class MarketDemandsViewController: UIViewController {
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            return false
+        }
+
+        let identifier = "newTurnOrderSegue"
+        if (self.shouldPerformSegue(withIdentifier: identifier, sender: self))
+        {
+            self.performSegue(withIdentifier: identifier, sender: self)
+        }
+        
         return false
     }
 
@@ -41,11 +58,9 @@ class MarketDemandsViewController: UIViewController {
         // Pass the selected object to the new view controller.
 
         guard let hasGame = self.viewModel?.game else {
-            assertionFailure("** No game object defined **")
             return
         }
         guard let _ = hasGame.gameBoard else {
-            assertionFailure("** No game board defined **")
             return
         }
 

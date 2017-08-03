@@ -121,7 +121,7 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return false
+        return true
     }
 
     /*

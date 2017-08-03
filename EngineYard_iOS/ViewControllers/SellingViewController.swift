@@ -74,7 +74,13 @@ class SellingViewController: UIViewController {
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
-                self.performSegue(withIdentifier: "salesReportSegue", sender: self)
+                //self.performSegue(withIdentifier: "salesReportSegue", sender: self)
+
+                let identifier = "salesReportSegue"
+                if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                    self.performSegue(withIdentifier: identifier, sender: self)
+                }
+
             }
 
             /*
@@ -93,7 +99,17 @@ class SellingViewController: UIViewController {
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return false
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            return false
+        }
+
+        return true
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

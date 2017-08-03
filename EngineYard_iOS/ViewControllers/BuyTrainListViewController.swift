@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class BuyTrainListViewController: UIViewController {
 
     var viewModel: BuyTrainListViewModel?
@@ -71,11 +72,12 @@ class BuyTrainListViewController: UIViewController {
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
 
-                let identifier = BuyTrainListViewModel.SegueID.productionSegue.rawValue
+                let identifier = "productionSegue"
                 if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
                     self.performSegue(withIdentifier: identifier, sender: self)
                 }
             }
+
             controller.selectedTrainClosure = { (train: Train?) in
                 print ("selectedTrainClosure pressed")
                 if let selectedTrain = train {
@@ -84,41 +86,24 @@ class BuyTrainListViewController: UIViewController {
                     //self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
                 }
             }
-             
+
         }
     }
+
 
     // MARK: - Navigation
-
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-
-        if let hasViewModel = self.viewModel {
-            guard let _ = hasViewModel.checkGameObject(game: hasViewModel.game) else {
-                return false
-            }
-
-            guard let _ = (hasViewModel.validSegues.map({
-                return ($0.rawValue == identifier)
-            }).first) else {
-                return false
-            }
-
-            return true
-        }
-
-        return false
-    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasViewModel = self.viewModel else {
+        guard let hasGame = self.viewModel?.game else {
+            assertionFailure("** No game object defined **")
             return
         }
-
-        guard let hasGame = hasViewModel.checkGameObject(game: hasViewModel.game) else {
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
             return
         }
 
@@ -130,7 +115,8 @@ class BuyTrainListViewController: UIViewController {
             let vc : BuyProductionListViewController = (segue.destination as? BuyProductionListViewController)!
             vc.viewModel = BuyProductionListViewModel.init(game: hasGame)
         }
-
+        
     }
-
+    
+    
 }
