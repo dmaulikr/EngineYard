@@ -64,10 +64,15 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
 
         hasViewModel.applyTaxes { (completed) in
             if (completed) {
-                let identifier = "marketDemandsSegue"
-                if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
-                    self.performSegue(withIdentifier: identifier, sender: self)
-                }
+
+                waitFor(duration: 0.75, callback: { (completed) in
+                    if (completed) {
+                        let identifier = "marketDemandsSegue"
+                        if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                            self.performSegue(withIdentifier: identifier, sender: self)
+                        }
+                    }
+                })
             }
         }
     }
@@ -86,7 +91,7 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
             return false
         }
 
-        return false
+        return true
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
