@@ -24,13 +24,22 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
         self.turnOrderCollectionView.delegate = self
 
         self.view.layoutIfNeeded()
+    }
 
-        /*
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         guard let hasViewModel = self.viewModel else {
             return
         }
 
-        waitFor(duration: 0.5) { (complete) in
+        guard let sortedPlayers = hasViewModel.sortPlayersByLowestCash else {
+            return
+        }
+
+        hasViewModel.game?.turnOrderManager.turnOrder = sortedPlayers
+
+        waitFor(duration: 0.75) { (complete) in
             if (complete) {
                 guard let sortedPlayers = hasViewModel.sortPlayersByLowestCash else {
                     return
@@ -38,11 +47,17 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
 
                 hasViewModel.game?.turnOrderManager.turnOrder = sortedPlayers
 
-                print ("turnOrder: \(hasViewModel.game?.turnOrderManager.turnOrder)")
-                print ("players: \(self.viewModel?.game?.players)")
+                self.turnOrderCollectionView.performBatchUpdates({
+
+                    self.turnOrderCollectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
+                    
+                }, completion: { (complete) in
+                    if (complete) {
+
+                    }
+                })
             }
         }
-         */
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +65,13 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
     }
 
     // MARK: - CollectionView delegate
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0.0
+        UIView.animate(withDuration: 1.0, animations: { () -> Void in
+            cell.alpha = 1.0
+        })
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let game = self.viewModel?.game else {
