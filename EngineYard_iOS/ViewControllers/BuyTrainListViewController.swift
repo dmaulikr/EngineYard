@@ -70,7 +70,11 @@ class BuyTrainListViewController: UIViewController {
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
-                self.performSegue(withIdentifier: "productionSegue", sender: self)
+
+                let identifier = BuyTrainListViewModel.SegueID.productionSegue.rawValue
+                if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                    self.performSegue(withIdentifier: identifier, sender: self)
+                }
             }
             controller.selectedTrainClosure = { (train: Train?) in
                 print ("selectedTrainClosure pressed")
@@ -89,16 +93,17 @@ class BuyTrainListViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
         if let hasViewModel = self.viewModel {
-
             guard let _ = hasViewModel.checkGameObject(game: hasViewModel.game) else {
                 return false
             }
 
-            guard let _ = (hasViewModel.validSegueIds.map({
-                return ($0 == identifier)
+            guard let _ = (hasViewModel.validSegues.map({
+                return ($0.rawValue == identifier)
             }).first) else {
                 return false
             }
+
+            return true
         }
 
         return false
@@ -125,6 +130,7 @@ class BuyTrainListViewController: UIViewController {
             let vc : BuyProductionListViewController = (segue.destination as? BuyProductionListViewController)!
             vc.viewModel = BuyProductionListViewModel.init(game: hasGame)
         }
+
     }
 
 }

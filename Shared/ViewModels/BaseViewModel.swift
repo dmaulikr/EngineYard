@@ -14,13 +14,8 @@ class BaseViewModel : CustomStringConvertible {
     init(game: Game) {
         self.game = game
 
-        guard let hasGame = self.game else {
+        guard let _ = self.game else {
             assertionFailure(ErrorCode.noGameObjectDefined.localizedDescription)
-            return
-        }
-
-        guard let _ = hasGame.gameBoard else {
-            assertionFailure(ErrorCode.noGameBoardDefined.localizedDescription)
             return
         }
 

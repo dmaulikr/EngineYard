@@ -37,8 +37,7 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
         self.trainsCollectionView.dataSource = self
         self.trainsCollectionView.allowsMultipleSelection = false
 
-        
-
+    
         self.trainsCollectionView.layoutIfNeeded()
         
 

@@ -32,7 +32,7 @@ enum ErrorCode: Error {
             return NSLocalizedString("** No game object defined **", comment: "System-error: No game object defined message")
 
         case .noGameBoardDefined:
-            return NSLocalizedString("** No game board defined", comment: "System-error: No game board defined message")
+            return NSLocalizedString("** No game board defined **", comment: "System-error: No game board defined message")
 
 
         case .notUnlocked:

@@ -94,23 +94,33 @@ class BuyProductionListViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasGame = self.viewModel?.game else {
-            assertionFailure("** No game object defined **")
-            return
-        }
-        guard let _ = hasGame.gameBoard else {
-            assertionFailure("** No game board defined **")
+        guard let identifier = segue.identifier else {
             return
         }
 
-        if (segue.identifier == "productionDetailSegue") {
+        if shouldPerformSegue(withIdentifier: identifier, sender: self)
+        {
 
+            guard let hasGame = self.viewModel?.game else {
+                assertionFailure("** No game object defined **")
+                return
+            }
+            guard let _ = hasGame.gameBoard else {
+                assertionFailure("** No game board defined **")
+                return
+            }
+
+            if (segue.identifier == "productionDetailSegue") {
+
+            }
+
+            if (segue.identifier == "salesSegue") {
+                let vc : SellingViewController = (segue.destination as? SellingViewController)!
+                vc.viewModel = SellingRoundViewModel.init(game: hasGame)
+            }
+            
         }
         
-        if (segue.identifier == "salesSegue") {
-            let vc : SellingViewController = (segue.destination as? SellingViewController)!
-            vc.viewModel = SellingRoundViewModel.init(game: hasGame)
-        }
 
     }
 

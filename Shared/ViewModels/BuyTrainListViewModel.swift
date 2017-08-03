@@ -10,8 +10,14 @@ import Foundation
 
 class BuyTrainListViewModel : BaseViewModel
 {
-    let validSegueIds = ["buyTrainDetailSegue", "productionSegue"]
-    
+    enum SegueID: String {
+        case buyTrainDetailSegue
+        case productionSegue
+        case unnamed = ""
+    }
+    var validSegues = [SegueID.buyTrainDetailSegue, SegueID.productionSegue]
+
+    //let validSegues = ["buyTrainDetailSegue", "productionSegue"]
     let pageTitle: String = NSLocalizedString("Buy Train", comment: "Buy train page title")
 
     lazy var trains: [Train]? = {
