@@ -8,22 +8,23 @@
 
 import UIKit
 
-fileprivate struct PlayerTaxViewModel
+public struct PlayerTaxViewModel
 {
     public static var circleRadius: CGFloat = 70.0
 
-    public private(set) var preTaxBalance: Int = 0 {
-        didSet {
-            self.taxDue = Tax.calculateTaxDue(onBalance: self.preTaxBalance)
+    var beforeTax: Int = 0
+    var taxDue: Int {
+        if (self.beforeTax > 0) {
+            return Tax.calculateTaxDue(onBalance: self.beforeTax)
         }
+        return 0
     }
-    public private(set) var taxDue: Int = 0
-    public var balance: Int {
-        return Int(self.preTaxBalance - taxDue)
+    var afterTax: Int {
+        return (Int(self.beforeTax - taxDue))
     }
 
     lazy var formattedPreTaxBalance : String? = {
-        let number = NSNumber(integerLiteral: self.preTaxBalance)
+        let number = NSNumber(integerLiteral: self.beforeTax)
         guard let formatted = ObjectCache.currencyRateFormatter.string(from: number) else {
             return String(0)
         }
@@ -39,15 +40,16 @@ fileprivate struct PlayerTaxViewModel
     }()
 
     lazy var formattedBalance: String = {
-        let number = NSNumber(integerLiteral: self.balance)
+        let number = NSNumber(integerLiteral: self.afterTax)
         guard let formatted = ObjectCache.currencyRateFormatter.string(from: number) else {
             return String(0)
         }
         return formatted
     }()
 
-    init(player: Player) {
-        self.preTaxBalance = player.wallet.balance
+
+    init(amount: Int) {
+        self.beforeTax = amount
     }
 }
 
@@ -68,7 +70,7 @@ class PlayerTaxView: UIView {
             return
         }
 
-        var taxViewModel: PlayerTaxViewModel = PlayerTaxViewModel(player: player)
+        var taxViewModel: PlayerTaxViewModel = PlayerTaxViewModel(amount: player.wallet.balance)
 
         self.avatarImageView.image = image.circled(forRadius: PlayerTaxViewModel.circleRadius)
         self.avatarImageView.layoutIfNeeded()

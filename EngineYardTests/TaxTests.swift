@@ -51,4 +51,22 @@ class TaxTests: BaseTests {
         })
     }
 
+    func testTaxViewModel() {
+        let deposit = 100
+        let expectedTaxDue = 10
+        let expectedBalance = 90
+
+        let wallet = Wallet.init(balance: deposit)
+
+        var taxModel = PlayerTaxViewModel.init(amount: wallet.balance)
+
+        XCTAssertTrue(taxModel.beforeTax == deposit)
+        XCTAssertTrue(taxModel.taxDue == expectedTaxDue)
+        XCTAssertTrue(taxModel.afterTax == expectedBalance)
+
+        XCTAssertTrue(taxModel.formattedPreTaxBalance == "$100", "\(taxModel.formattedPreTaxBalance)")
+        XCTAssertTrue(taxModel.formattedTaxDue == "$10", "\(taxModel.formattedTaxDue)")
+        XCTAssertTrue(taxModel.formattedBalance == "$90", "\(taxModel.formattedBalance)")        
+    }
+
 }
