@@ -74,6 +74,7 @@ class SellingViewController: UIViewController {
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
+                self.performSegue(withIdentifier: "salesReportSegue", sender: self)
             }
 
             /*
