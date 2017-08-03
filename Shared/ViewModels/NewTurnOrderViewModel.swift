@@ -2,27 +2,28 @@
 //  NewTurnOrderViewModel.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-class NewTurnOrderViewModel
+class NewTurnOrderViewModel : BaseViewModel
 {
-    weak var game: Game?
-    
-    init(game: Game) {
-        self.game = game
-    }
-
     static var cellReuseIdentifier = "turnOrderCellReuseID"
 
-    lazy var playersSortedByLowestCash : [Player]? = {
+    lazy var players : [Player]? = {
+        guard let gameObj = self.game else {
+            return nil
+        }
+        return gameObj.turnOrderManager.turnOrder
+    }()
+
+    lazy var sortPlayersByLowestCash : [Player]? = {
         guard let gameObj = self.game else {
             return nil
         }
         return PlayerAPI.sortPlayersByLowestCash(players: gameObj.players)
     }()
-
+    
 }

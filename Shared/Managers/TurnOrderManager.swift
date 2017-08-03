@@ -2,11 +2,12 @@
 //  TurnOrderManager.swift
 //  EngineYard
 //
-//  Created by Amarjit on 20/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
+
 
 protocol TurnDelegate: NSObjectProtocol {
     func turnDidEnd()

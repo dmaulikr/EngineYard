@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerWinnerView: UIView {
+class PlayerOblongView: UIView {
 
     @IBOutlet weak var avatarImageView: UIImageView?
     @IBOutlet weak var cashLabel: UILabel?

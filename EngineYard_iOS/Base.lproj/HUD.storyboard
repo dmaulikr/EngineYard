@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cOU-Ah-oad">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cOU-Ah-oad">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,11 +23,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHe-sr-cf5">
-                                <rect key="frame" x="0.0" y="0.0" width="467" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="490" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="YUO-ZO-onk"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VG2-AU-IYm">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="VG2-AU-IYm">
                                     <size key="itemSize" width="110" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -60,7 +60,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2Sa-Yl-c6P" secondAttribute="trailing" constant="4" id="68y-gO-aUd"/>
                             <constraint firstItem="p5y-pb-pse" firstAttribute="top" secondItem="hHe-sr-cf5" secondAttribute="bottom" id="KYo-cy-zga"/>
                             <constraint firstItem="hHe-sr-cf5" firstAttribute="top" secondItem="Dtq-P0-P1M" secondAttribute="bottom" id="VWx-QJ-E3S"/>
-                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="leading" secondItem="hHe-sr-cf5" secondAttribute="trailing" constant="38" id="aDV-DK-e5h"/>
+                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="leading" secondItem="hHe-sr-cf5" secondAttribute="trailing" constant="15" id="aDV-DK-e5h"/>
                             <constraint firstItem="2Sa-Yl-c6P" firstAttribute="centerY" secondItem="OWg-vu-j1l" secondAttribute="centerY" id="duv-Y3-GZt"/>
                             <constraint firstItem="hHe-sr-cf5" firstAttribute="leading" secondItem="OWg-vu-j1l" secondAttribute="leading" id="pqG-ZK-Rz9"/>
                         </constraints>

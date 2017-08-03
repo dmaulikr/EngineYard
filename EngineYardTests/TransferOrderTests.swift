@@ -2,7 +2,7 @@
 //  TransferOrderTests.swift
 //  EngineYard
 //
-//  Created by Amarjit on 24/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -12,70 +12,73 @@ import XCTest
 
 class TransferOrderTests: BaseTests {
 
-    var gameObj: Game!
-    var gameBoard: GameBoard = GameBoard.init()
-    var trains: [Locomotive] = [Locomotive]()
+    var game: Game!
+    var gameBoard: GameBoard!
 
     override func setUp() {
         super.setUp()
 
-        guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: 5) else {
-            XCTFail("No mock players found")
+        let howMany = 5
+        guard let players = Mock.players(howMany: howMany) else {
+            XCTFail("Mock players failed")
             return
         }
 
-        guard let gameObj = Game.setup(players: mockPlayers) else {
-            XCTFail("No game object")
+        guard let game = Game.setup(players: players) else {
+            XCTFail("Game setup failed")
             return
         }
-        guard let gameBoard = gameObj.gameBoard else {
+        self.game = game
+
+        guard let gameBoard = game.gameBoard else {
             XCTFail("No game board defined")
             return
         }
-
-        self.gameObj = gameObj
         self.gameBoard = gameBoard
-        self.trains = gameBoard.decks
 
+        let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
+        XCTAssertTrue(numberOfTrue == 1)
     }
 
+    
     override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
-    func testTransferOrders() {
-        XCTAssert(self.trains.count == Constants.Board.decks)
+    func testTransferExistingOrdersToComplete()
+    {
+        let firstTrain = gameBoard.decks.first!
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 1)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 0)
 
-        // force unlock first train
-        guard let firstTrain = trains.first else {
-            XCTFail("No train found")
-            return
-        }
+        let firstExistingOrder = firstTrain.orderBook.existingOrders.first!
+        let value = firstExistingOrder.value
+        firstTrain.orderBook.transferOrder(order: firstExistingOrder, index: 0)
 
-        XCTAssert(firstTrain.orderBook.existingOrders.count == 1)
-
-        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
-        }
-
-        XCTAssert(trainsWithOrders.count == 1)
-
-        guard let firstTrainWithOrder = trainsWithOrders.first else {
-            return
-        }
-
-        XCTAssert(firstTrainWithOrder.engineColor == .green)
-        XCTAssert(firstTrainWithOrder.generation == .first)
-
-        XCTAssert(firstTrainWithOrder.orderBook.existingOrders.count == 1)
-        XCTAssert(firstTrainWithOrder.orderBook.completedOrders.count == 0)
-
-        guard let existingOrder = firstTrainWithOrder.orderBook.existingOrders.first else {
-            XCTFail("No order found in existingOrders")
-            return
-        }
-
-        firstTrainWithOrder.orderBook.transferOrder(order: existingOrder, index: 0)
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 0)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 1)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.first?.value == value)
     }
 
+    func testRerollAndTransfer() {
+        let firstTrain = gameBoard.decks.first!
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 1)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 0)
+
+        let firstExistingOrder = firstTrain.orderBook.existingOrders.first!
+        firstTrain.orderBook.transferOrder(order: firstExistingOrder, index: 0)
+
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 0)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 1)
+
+        firstTrain.orderBook.rerollAndTransferCompletedOrders()
+
+        XCTAssertTrue(firstTrain.orderBook.existingOrders.count == 1)
+        XCTAssertTrue(firstTrain.orderBook.completedOrders.count == 0)
+
+
+    }
+
+    
 }

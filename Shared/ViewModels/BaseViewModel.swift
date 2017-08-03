@@ -2,7 +2,7 @@
 //  BaseViewModel.swift
 //  EngineYard
 //
-//  Created by Amarjit on 29/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -14,27 +14,73 @@ class BaseViewModel : CustomStringConvertible {
     init(game: Game) {
         self.game = game
 
-        guard let hasGame = self.game else {
-            assertionFailure("** No game model defined **")
+        guard let _ = self.game else {
+            assertionFailure(ErrorCode.noGameObjectDefined.localizedDescription)
             return
+        }
+
+        print (description)
+    }
+}
+
+extension BaseViewModel {
+
+    func checkGameObject(game: Game?) -> Game? {
+        do {
+            guard let hasGame = try self.validateGameObject(game: game) else {
+                assertionFailure("no game model found")
+                return nil
+            }
+
+            return hasGame
+        } catch let error {
+            print (error.localizedDescription)
+        }
+
+        return nil
+    }
+
+    func validateGameObject(game: Game?) throws -> Game?
+    {
+        guard let hasGame = game else {
+            throw ErrorCode.noGameObjectDefined
         }
 
         guard let _ = hasGame.gameBoard else {
-            assertionFailure("** No game board defined **")
+            throw ErrorCode.noGameBoardDefined
+        }
+        
+        return hasGame
+    }
+
+    private func forceAddDeposits() {
+        // force apply deposits
+        guard let game = self.game else {
             return
         }
 
-        print (self.description)
-    }
+        var counter = game.players.count
+        for player in game.players {
+            let deposit = Int(counter * (301 - counter))
+            player.wallet.credit(amount: deposit)
+            counter -= 1
+        }
 
-    var description: String {
-        guard let hasGame = self.game else {
-            return "** No game defined **"
-        }
-        guard let gameBoard = hasGame.gameBoard else {
-            return "** No game board defined **"
-        }
-        return ("\(hasGame.description), decks: \(gameBoard.decks.count)")
     }
 
 }
+
+extension BaseViewModel {
+    var description: String {
+        guard let hasGame = self.game else {
+            return ErrorCode.noGameObjectDefined.localizedDescription as String
+        }
+
+        guard let hasGameBoard = hasGame.gameBoard else {
+            return ErrorCode.noGameBoardDefined.localizedDescription as String
+        }
+
+        return ("\(hasGame.description), decks: \(hasGameBoard.decks.count)")
+    }
+}
+

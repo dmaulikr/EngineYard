@@ -11,6 +11,7 @@ def commmon_pods
     pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
     pod "GSMessages"
     pod 'EasyTipView', '~> 1.0.2'
+    pod 'Font-Awesome-Swift', '~> 1.6.2'
 end
 
 target 'EngineYard' do

@@ -2,7 +2,7 @@
 //  EngineCardCollectionViewCell.swift
 //  EngineYard
 //
-//  Created by Amarjit on 27/07/2017.
+//  Created by Amarjit on 02/08/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -19,6 +19,5 @@ class EngineCardCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = true
         self.backgroundColor = UIColor.white
     }
-
+    
 }
-

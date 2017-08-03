@@ -2,20 +2,16 @@
 //  MainMenuViewController.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import UIKit
-import GameplayKit
 
-fileprivate enum MainMenuTag: Int {
-    case newGame = 0
-}
 
 class MainMenuViewController: UIViewController {
 
-    @IBOutlet var mainMenuBtnOutletCollection: [UIButton]!
+    @IBOutlet var menuBtnOutletCollection: [UIButton]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +21,18 @@ class MainMenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    @IBAction func mainMenuBtnPressed(_ sender: UIButton) {
-        guard let tagSelected = MainMenuTag.init(rawValue: (sender).tag) else {
-            return
-        }
+    // MARK: - IBAction
 
-        switch tagSelected {
-        case .newGame:
-            self.performSegue(withIdentifier: "newGameSegue", sender: self)
+    @IBAction func menuButtonPressed(_ sender: UIButton) {
+
+        switch sender.tag {
+
+        case 0:
+            self.performSegue(withIdentifier: "newGameSetupSegue", sender: self)
+            break
+
+
+        default:
             break
         }
     }
@@ -44,10 +44,6 @@ class MainMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-
-        if (segue.identifier == "newGameSegue") {
-            //let vc: NewGameViewController = segue.destination as! NewGameViewController
-        }
 
     }
 

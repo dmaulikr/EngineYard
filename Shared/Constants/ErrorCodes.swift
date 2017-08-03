@@ -8,7 +8,9 @@
 
 import Foundation
 
-enum ErrorCode: Error, CustomStringConvertible {
+enum ErrorCode: Error {
+    case noGameObjectDefined
+    case noGameBoardDefined
     case notUnlocked
     case gameIsPaused
     case notYourTurn
@@ -24,46 +26,69 @@ enum ErrorCode: Error, CustomStringConvertible {
     case invalidAction
     case __UNKNOWN__
 
-    public var description: String {
+    public var localizedDescription: String {
         switch self {
+        case .noGameObjectDefined:
+            return NSLocalizedString("** No game object defined **", comment: "System-error: No game object defined message")
+
+        case .noGameBoardDefined:
+            return NSLocalizedString("** No game board defined **", comment: "System-error: No game board defined message")
+
+
         case .notUnlocked:
-            let localizedDescription = NSLocalizedString("This train is not unlocked", comment: "notUnlocked message")
-            return localizedDescription
+            return  NSLocalizedString("This train is not unlocked", comment: "notUnlocked message")
+            
         case .gameIsPaused:
-            let localizedDescription = NSLocalizedString("The game is paused", comment: "gameIsPaused message")
-            return localizedDescription
+            return  NSLocalizedString("The game is paused", comment: "gameIsPaused message")
+            
         case .notYourTurn:
-            let localizedDescription = NSLocalizedString("It is not your turn", comment: "notYourTurn message")
-            return localizedDescription
+            return  NSLocalizedString("It is not your turn", comment: "notYourTurn message")
+            
         case .alreadyOwnTrain:
-            let localizedDescription = NSLocalizedString("You already own this train", comment: "alreadyOwnTrain message")
-            return localizedDescription
+            return  NSLocalizedString("You already own this train", comment: "alreadyOwnTrain message")
+            
         case .trainIsObsolete:
-            let localizedDescription = NSLocalizedString("This train is obsolete", comment: "trainIsObsolete message")
-            return localizedDescription
+            return  NSLocalizedString("This train is obsolete", comment: "trainIsObsolete message")
+            
         case .insufficientFunds(let amount):
-            let localizedDescription = NSLocalizedString("Insufficient funds \(amount)", comment: "insufficientFunds message")
-            return localizedDescription
+            return  NSLocalizedString("Insufficient funds \(amount)", comment: "insufficientFunds message")
+            
         case .outOfStock:
-            let localizedDescription = NSLocalizedString("This train is out of stock", comment: "trainIsObsolete message")
-            return localizedDescription
+            return  NSLocalizedString("This train is out of stock", comment: "trainIsObsolete message")
+            
         case .noPlayerFound:
-            let localizedDescription = NSLocalizedString("No player found", comment: "noPlayerFound message")
-            return localizedDescription
+            return  NSLocalizedString("No player found", comment: "noPlayerFound message")
+            
         case .noEngineFound:
-            let localizedDescription = NSLocalizedString("No engine found", comment: "noEngineFound message")
-            return localizedDescription
+            return  NSLocalizedString("No engine found", comment: "noEngineFound message")
+            
         case .noLocoFound:
-            let localizedDescription = NSLocalizedString("No locomotive found", comment: "noLocoFound message")
-            return localizedDescription
+            return  NSLocalizedString("No locomotive found", comment: "noLocoFound message")
+            
         case .invalidNumberOfPlayers:
-            let localizedDescription = NSLocalizedString("Invalid number of players", comment: "invalidPlayers message")
-            return localizedDescription
+            return  NSLocalizedString("Invalid number of players", comment: "invalidPlayers message")
+            
         case .invalidAction:
-            let localizedDescription = NSLocalizedString("Invalid Action", comment: "invalidAction message")
-            return localizedDescription
+            return  NSLocalizedString("Invalid Action", comment: "invalidAction message")
+            
         default:
             return ""
+        }
+    }
+}
+
+extension ErrorCode: Equatable
+{
+    public static func == (lhs: ErrorCode, rhs: ErrorCode) -> Bool {
+        switch (lhs, rhs) {
+        case (.notUnlocked, .notUnlocked):
+            return true
+
+        case  (.insufficientFunds, .insufficientFunds):
+            return true
+
+        default:
+            return false;
         }
     }
 }

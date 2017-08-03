@@ -1,8 +1,8 @@
 //
-//  EYHUDCollectionViewCell.swift
+//  HUDCollectionViewCell.swift
 //  EngineYard
 //
-//  Created by Amarjit on 04/04/2017.
+//  Created by Amarjit on 01/08/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -23,5 +23,3 @@ class HUDCollectionViewCell: UICollectionViewCell {
     }
 
 }
-
-
