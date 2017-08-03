@@ -137,8 +137,6 @@ class TaxTests: BaseTests {
             XCTAssertTrue(player.turnOrder == index)
         }
 
-
-
         let sorted = (PlayerAPI.sortPlayersByLowestCash(players: game.players))
 
         game.turnOrderManager.turnOrder = sorted

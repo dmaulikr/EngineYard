@@ -71,9 +71,10 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
             {
                 waitFor(duration: 0.5, callback: { (completed) in
                     if (completed) {
-                        let identifier = "marketDemandsSegue"
-                        if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
-                            self.performSegue(withIdentifier: identifier, sender: self)
+                        let hasIdentifier: String = hasViewModel.nextSegueIdentifier
+
+                        if (self.shouldPerformSegue(withIdentifier: hasIdentifier, sender: self)) {
+                            self.performSegue(withIdentifier: hasIdentifier, sender: self)
                         }
                     }
                 })
@@ -113,6 +114,9 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
         }
 
         if (segue.identifier == "winnerSegue") {
+
+            let vc : WinnerViewController = (segue.destination as? WinnerViewController)!
+            vc.viewModel = WinnerViewModel.init(game: hasGame)
 
         }
         if (segue.identifier == "marketDemandsSegue") {

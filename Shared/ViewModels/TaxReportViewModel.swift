@@ -10,6 +10,28 @@ import Foundation
 
 class TaxReportViewModel : BaseViewModel
 {
+    lazy var gameGoalWasReached: Bool = {
+        guard let hasGame = self.game else {
+            return false
+        }
+
+        let results = PlayerAPI.listOfPlayersWhoReachedGameGoal(players: hasGame.players)
+        return (results.count > 0)
+    }()
+
+    lazy var nextSegueIdentifier: String = {
+        var identifier: String
+
+        if (self.gameGoalWasReached) {
+            identifier = "winnerSegue"
+        }
+        else {
+            identifier = "marketDemandsSegue"
+        }
+
+        return identifier
+    }()
+
     func applyTaxes(callback: @escaping (Bool) -> ()) {
 
         guard let hasGame = self.game else {

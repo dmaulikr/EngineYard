@@ -53,6 +53,21 @@ extension BaseViewModel {
         return hasGame
     }
 
+    private func forceAddDeposits() {
+        // force apply deposits
+        guard let game = self.game else {
+            return
+        }
+
+        var counter = game.players.count
+        for player in game.players {
+            let deposit = Int(counter * (301 - counter))
+            player.wallet.credit(amount: deposit)
+            counter -= 1
+        }
+
+    }
+
 }
 
 extension BaseViewModel {

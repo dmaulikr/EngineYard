@@ -41,5 +41,13 @@ class PlayerAPI {
         
         callback(true)
     }
+
+    public static func listOfPlayersWhoReachedGameGoal(players: [Player]) -> [Player] {
+        let sorted = PlayerAPI.sortPlayersByHighestCash(players: players)
+        let filter = sorted.filter { (p1: Player) -> Bool in
+            return (Constants.hasReachedGoal(cash: p1.wallet.balance))
+        }
+        return filter
+    }
     
 }
