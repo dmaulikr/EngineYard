@@ -50,7 +50,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
                 self.turnOrderCollectionView.performBatchUpdates({
 
                     self.turnOrderCollectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
-                    
+
                 }, completion: { (complete) in
                     if (complete) {
 
@@ -66,12 +66,13 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
 
     // MARK: - CollectionView delegate
 
+    /*
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.alpha = 0.0
         UIView.animate(withDuration: 1.0, animations: { () -> Void in
             cell.alpha = 1.0
         })
-    }
+    }*/
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let game = self.viewModel?.game else {
@@ -95,7 +96,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
 
             view.avatarImageView?.image = UIImage(named: player.asset)
             view.indexLabel?.text = "#\(indexPath.row+1)"
-            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
+            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.wallet.balance))
             view.nameLabel?.text = player.name
             
             view.layoutIfNeeded()
@@ -104,6 +105,10 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
         cell.setNeedsLayout()
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     // MARK: - IBActions
@@ -130,7 +135,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
             return false
         }
 
-        return false
+        return true
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

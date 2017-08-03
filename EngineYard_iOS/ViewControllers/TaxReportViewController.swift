@@ -52,6 +52,10 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
         print ("Selected indexPath: \(indexPath)")
     }
 
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
