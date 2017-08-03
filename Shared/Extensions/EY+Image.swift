@@ -33,5 +33,51 @@ extension UIImage {
             return nil
         }
     }
+
+    func resize(_ size: CGSize) -> UIImage? {
+        let rect = CGRect(origin: .zero, size: size)
+        return redraw(in: rect)
+    }
+
+    func redraw(in rect: CGRect) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+
+        guard let context = UIGraphicsGetCurrentContext(), let cgImage = cgImage else { return nil }
+
+        let rect = CGRect(origin: .zero, size: size)
+        let flipVertical = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: rect.size.height)
+
+        context.concatenate(flipVertical)
+        context.draw(cgImage, in: rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+
+    func circled(forRadius radius: CGFloat) -> UIImage? {
+        let rediusSize = CGSize(width: radius, height: radius)
+        let rect = CGRect(origin: .zero, size: size)
+
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+
+        guard let context = UIGraphicsGetCurrentContext(), let cgImage = cgImage else { return nil }
+
+        let flipVertical = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: rect.size.height)
+        context.concatenate(flipVertical)
+
+        let bezierPath = UIBezierPath(roundedRect: rect, byRoundingCorners: [.allCorners], cornerRadii: rediusSize)
+        context.addPath(bezierPath.cgPath)
+        context.clip()
+
+        context.drawPath(using: .fillStroke)
+        context.draw(cgImage, in: rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+
     
 }

@@ -43,7 +43,7 @@ class SalesReportViewController: UIViewController {
             return false
         }
 
-        return false
+        return true
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -61,7 +61,6 @@ class SalesReportViewController: UIViewController {
         }
 
         if (segue.identifier == "taxReportSegue") {
-
             let vc : TaxReportViewController = (segue.destination as? TaxReportViewController)!
             vc.viewModel = TaxReportViewModel.init(game: hasGame)
         }

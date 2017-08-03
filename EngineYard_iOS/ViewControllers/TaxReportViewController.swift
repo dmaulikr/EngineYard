@@ -8,19 +8,49 @@
 
 import UIKit
 
-class TaxReportViewController: UIViewController {
+class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+{
 
     var viewModel: TaxReportViewModel?
+    @IBOutlet weak var taxCollectionView : UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - CollectionView
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let hasGame = self.viewModel?.game else {
+            return 0
+        }
+        return hasGame.players.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxCellReuseID", for: indexPath)
+
+        if let hasGame = self.viewModel?.game
+        {
+            let arr = UINib(nibName: "PlayerTaxView", bundle: nil).instantiate(withOwner: nil, options: nil)
+            let view = arr[0] as! PlayerTaxView
+
+            let player = hasGame.players[indexPath.row]
+            view.setup(player: player)
+
+            cell.contentView.addSubview(view)
+            cell.layoutIfNeeded()
+        }
+
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print ("Selected indexPath: \(indexPath)")
     }
 
     // MARK: - IBActions

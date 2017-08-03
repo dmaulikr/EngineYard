@@ -54,10 +54,6 @@ class SellingViewController: UIViewController {
             self.childVC?.genericTrainListViewModel = GenericTrainListViewModel.init(game: gameObj, trains: trains)
             self.childVC?.genericTrainListViewModel?.pageTitle = hasViewModel.pageTitle
 
-            if let childCollectionView = self.childVC?.trainsCollectionView {
-                childCollectionView.isUserInteractionEnabled = false
-            }
-
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(controller.view)
@@ -70,6 +66,9 @@ class SellingViewController: UIViewController {
                 ])
 
             controller.didMove(toParentViewController: self)
+
+            // selling page disables interaction
+            controller.trainsCollectionView.isUserInteractionEnabled = false
 
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
