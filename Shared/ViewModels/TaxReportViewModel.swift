@@ -10,5 +10,7 @@ import Foundation
 
 class TaxReportViewModel : BaseViewModel
 {
-    
+    func applyTax() {
+
+    }
 }

@@ -11,7 +11,6 @@
 		4D0833C51F2F9CF70055641A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833C41F2F9CF70055641A /* BaseViewModel.swift */; };
 		4D0833C71F2F9D4B0055641A /* HUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833C61F2F9D4B0055641A /* HUDViewModel.swift */; };
 		4D0833C91F2F9D730055641A /* WinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833C81F2F9D730055641A /* WinnerViewModel.swift */; };
-		4D0833CB1F2F9D960055641A /* TaxesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833CA1F2F9D960055641A /* TaxesViewModel.swift */; };
 		4D0833CD1F2F9DB60055641A /* PauseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833CC1F2F9DB60055641A /* PauseViewModel.swift */; };
 		4D0833CF1F2F9DD80055641A /* MarketDemandsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833CE1F2F9DD80055641A /* MarketDemandsViewModel.swift */; };
 		4D0833D11F2F9DF40055641A /* NewTurnOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0833D01F2F9DF40055641A /* NewTurnOrderViewModel.swift */; };
@@ -142,7 +141,6 @@
 		4D0833C41F2F9CF70055641A /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		4D0833C61F2F9D4B0055641A /* HUDViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDViewModel.swift; sourceTree = "<group>"; };
 		4D0833C81F2F9D730055641A /* WinnerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewModel.swift; sourceTree = "<group>"; };
-		4D0833CA1F2F9D960055641A /* TaxesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxesViewModel.swift; sourceTree = "<group>"; };
 		4D0833CC1F2F9DB60055641A /* PauseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseViewModel.swift; sourceTree = "<group>"; };
 		4D0833CE1F2F9DD80055641A /* MarketDemandsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDemandsViewModel.swift; sourceTree = "<group>"; };
 		4D0833D01F2F9DF40055641A /* NewTurnOrderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTurnOrderViewModel.swift; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 				4D0833D01F2F9DF40055641A /* NewTurnOrderViewModel.swift */,
 				4D0833D21F2F9E220055641A /* SalesReportViewModel.swift */,
 				4D0833D41F2F9E380055641A /* SellingRoundViewModel.swift */,
-				4D0833CA1F2F9D960055641A /* TaxesViewModel.swift */,
 				4D1DD6381F32FB8200456A75 /* TaxReportViewModel.swift */,
 				4D0833CE1F2F9DD80055641A /* MarketDemandsViewModel.swift */,
 				4D0833DA1F2F9E8C0055641A /* PlayerHandViewModel.swift */,
@@ -925,7 +922,6 @@
 				4D0834261F2FA31A0055641A /* EngineCardView.swift in Sources */,
 				4D0833FB1F2FA1D40055641A /* BuyTrainDetailViewController.swift in Sources */,
 				4D45BE5F1F31240C004A945D /* BuyProductionListViewModel.swift in Sources */,
-				4D0833CB1F2F9D960055641A /* TaxesViewModel.swift in Sources */,
 				4D0833CD1F2F9DB60055641A /* PauseViewModel.swift in Sources */,
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
 				4D0833D11F2F9DF40055641A /* NewTurnOrderViewModel.swift in Sources */,

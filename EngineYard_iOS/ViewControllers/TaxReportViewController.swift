@@ -10,7 +10,6 @@ import UIKit
 
 class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
-
     var viewModel: TaxReportViewModel?
     @IBOutlet weak var taxCollectionView : UICollectionView!
 
@@ -56,6 +55,10 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
+
+        // #TODO --
+        // Apply tax to players before continuing
+
         let identifier = "marketDemandsSegue"
         if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
             self.performSegue(withIdentifier: identifier, sender: self)
