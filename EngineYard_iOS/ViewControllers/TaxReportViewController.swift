@@ -43,7 +43,9 @@ class TaxReportViewController: UIViewController {
 
         }
         if (segue.identifier == "marketDemandsSegue") {
-            
+
+            let vc : MarketDemandsViewController = (segue.destination as? MarketDemandsViewController)!
+            vc.viewModel = MarketDemandsViewModel.init(game: hasGame)
         }
 
     }

@@ -88,7 +88,9 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
         }
 
         if (segue.identifier == "buyTrainSegue") {
-            
+
+            let vc : BuyTrainListViewController = (segue.destination as? BuyTrainListViewController)!
+            vc.viewModel = BuyTrainListViewModel.init(game: hasGame)
         }
     }
 

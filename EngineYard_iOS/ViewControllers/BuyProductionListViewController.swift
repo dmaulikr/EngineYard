@@ -102,8 +102,10 @@ class BuyProductionListViewController: UIViewController {
         if (segue.identifier == "productionDetailSegue") {
 
         }
+        
         if (segue.identifier == "salesSegue") {
-
+            let vc : SellingViewController = (segue.destination as? SellingViewController)!
+            vc.viewModel = SellingRoundViewModel.init(game: hasGame)
         }
 
     }

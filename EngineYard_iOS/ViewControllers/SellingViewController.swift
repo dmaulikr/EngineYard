@@ -106,7 +106,8 @@ class SellingViewController: UIViewController {
         }
 
         if (segue.identifier == "salesReportSegue") {
-            
+            let vc : SalesReportViewController = (segue.destination as? SalesReportViewController)!
+            vc.viewModel = SalesReportViewModel.init(game: hasGame)
         }
     }
 

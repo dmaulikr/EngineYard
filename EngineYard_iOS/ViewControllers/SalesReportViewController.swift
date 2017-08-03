@@ -38,7 +38,9 @@ class SalesReportViewController: UIViewController {
         }
 
         if (segue.identifier == "taxReportSegue") {
-            
+
+            let vc : TaxReportViewController = (segue.destination as? TaxReportViewController)!
+            vc.viewModel = TaxReportViewModel.init(game: hasGame)
         }
     }
 

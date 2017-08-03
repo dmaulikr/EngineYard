@@ -41,7 +41,9 @@ class MarketDemandsViewController: UIViewController {
         }
 
         if (segue.identifier == "newTurnOrderSegue") {
-            
+
+            let vc : NewTurnOrderViewController = (segue.destination as? NewTurnOrderViewController)!
+            vc.viewModel = NewTurnOrderViewModel.init(game: hasGame)
         }
 
     }
