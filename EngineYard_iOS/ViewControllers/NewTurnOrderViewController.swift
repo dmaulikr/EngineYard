@@ -24,6 +24,25 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
         self.turnOrderCollectionView.delegate = self
 
         self.view.layoutIfNeeded()
+
+        /*
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+
+        waitFor(duration: 0.5) { (complete) in
+            if (complete) {
+                guard let sortedPlayers = hasViewModel.sortPlayersByLowestCash else {
+                    return
+                }
+
+                hasViewModel.game?.turnOrderManager.turnOrder = sortedPlayers
+
+                print ("turnOrder: \(hasViewModel.game?.turnOrderManager.turnOrder)")
+                print ("players: \(self.viewModel?.game?.players)")
+            }
+        }
+         */
     }
 
     override func didReceiveMemoryWarning() {
