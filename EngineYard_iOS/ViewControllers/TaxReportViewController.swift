@@ -63,9 +63,9 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
         }
 
         hasViewModel.applyTaxes { (completed) in
-            if (completed) {
-
-                waitFor(duration: 0.75, callback: { (completed) in
+            if (completed)
+            {
+                waitFor(duration: 0.5, callback: { (completed) in
                     if (completed) {
                         let identifier = "marketDemandsSegue"
                         if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
