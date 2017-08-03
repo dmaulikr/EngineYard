@@ -2,18 +2,23 @@
 //  WinnerViewModel.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-class WinnerViewModel
+class WinnerViewModel : BaseViewModel
 {
-    weak var game: Game?
+    var players: [Player]?
 
-    init(game: Game) {
-        self.game = game
+    override init(game: Game) {
+        super.init(game: game)
+
+        guard let sorted = self.playersSortedByHighestCash else {
+            return
+        }
+        self.players = sorted
     }
 
     lazy var playersSortedByHighestCash: [Player]? = {

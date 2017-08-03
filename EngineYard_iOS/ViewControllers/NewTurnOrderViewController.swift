@@ -2,93 +2,162 @@
 //  NewTurnOrderViewController.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import UIKit
 
-class NewTurnOrderViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
+class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
 {
-    var turnOrderViewModel: NewTurnOrderViewModel!
+    @IBOutlet weak private var turnOrderCollectionView: UICollectionView!
 
-    @IBOutlet weak var doneBtn: UIButton!
-    @IBOutlet weak var turnOrderCollectionView: UICollectionView!
+    var viewModel: NewTurnOrderViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.turnOrderCollectionView.delegate = self
-        self.turnOrderCollectionView.dataSource = self
-        self.turnOrderCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NewTurnOrderViewModel.cellReuseIdentifier)
-        self.turnOrderCollectionView.backgroundColor = UIColor.clear
-        self.turnOrderCollectionView.delegate = self
-        self.turnOrderCollectionView.dataSource = self
-        self.turnOrderCollectionView.allowsMultipleSelection = false
         self.turnOrderCollectionView.allowsSelection = false
-        self.turnOrderCollectionView.layoutIfNeeded()
-        self.turnOrderCollectionView.reloadData()
-        self.view.layoutIfNeeded()
+        self.turnOrderCollectionView.allowsMultipleSelection = false
+        self.turnOrderCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "turnOrderCellReuseID")
+        self.turnOrderCollectionView.dataSource = self
+        self.turnOrderCollectionView.delegate = self
 
+        self.view.layoutIfNeeded()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+
+        guard let sortedPlayers = hasViewModel.sortPlayersByLowestCash else {
+            return
+        }
+
+        hasViewModel.game?.turnOrderManager.turnOrder = sortedPlayers
+
+        waitFor(duration: 0.75) { (complete) in
+            if (complete) {
+                guard let sortedPlayers = hasViewModel.sortPlayersByLowestCash else {
+                    return
+                }
+
+                hasViewModel.game?.turnOrderManager.turnOrder = sortedPlayers
+
+                self.turnOrderCollectionView.performBatchUpdates({
+
+                    self.turnOrderCollectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
+
+                }, completion: { (complete) in
+                    if (complete) {
+
+                    }
+                })
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    // MARK: - CollectionView
+
+    // MARK: - CollectionView delegate
+
+    /*
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0.0
+        UIView.animate(withDuration: 1.0, animations: { () -> Void in
+            cell.alpha = 1.0
+        })
+    }*/
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let gameObj = self.turnOrderViewModel.game else {
+        guard let game = self.viewModel?.game else {
             return 0
         }
-        return gameObj.players.count
+        return game.players.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewTurnOrderViewModel.cellReuseIdentifier, for: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "turnOrderCellReuseID", for: indexPath) as UICollectionViewCell
 
-        let arr = UINib(nibName: "PlayerWinnerView", bundle: nil).instantiate(withOwner: nil, options: nil)
-        let view = arr[0] as! PlayerWinnerView
-        cell.contentView.addSubview(view)
-
-        if let _ = self.turnOrderViewModel.game {
-
-            if let playersSortedByLowestCash = self.turnOrderViewModel.playersSortedByLowestCash {
-
-                let player = playersSortedByLowestCash[indexPath.row]
-                view.avatarImageView?.image = UIImage(named: player.asset)
-                view.indexLabel?.text = "#\(indexPath.row+1)"
-                view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.cash))
-                view.nameLabel?.text = player.name
-            }
-
+        guard let viewModel = self.viewModel else {
+            return cell
         }
 
-        view.layoutIfNeeded()
+        if let player = viewModel.game?.players[indexPath.row]
+        {
+            let arr = UINib(nibName: "PlayerOblongView", bundle: nil).instantiate(withOwner: nil, options: nil)
+            let view = arr[0] as! PlayerOblongView
+            cell.contentView.addSubview(view)
+
+            view.avatarImageView?.image = UIImage(named: player.asset)
+            view.indexLabel?.text = "#\(indexPath.row+1)"
+            view.cashLabel?.text = ObjectCache.currencyRateFormatter.string(from: NSNumber(integerLiteral: player.wallet.balance))
+            view.nameLabel?.text = player.name
+            
+            view.layoutIfNeeded()
+        }
+
         cell.setNeedsLayout()
 
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print ("Selected indexPath: \(indexPath)")
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
+        let identifier = "buyTrainSegue"
+        if (self.shouldPerformSegue(withIdentifier: identifier, sender: self))
+        {
+            self.performSegue(withIdentifier: identifier, sender: self)
+        }
     }
 
-
-    /*
     // MARK: - Navigation
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            return false
+        }
+
+        return true
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        guard let hasGame = self.viewModel?.game else {
+            assertionFailure("** No game object defined **")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
+            return
+        }
+
+        if (segue.identifier == "buyTrainSegue") {
+
+            let vc : BuyTrainListViewController = (segue.destination as? BuyTrainListViewController)!
+            vc.viewModel = BuyTrainListViewModel.init(game: hasGame)
+        }
     }
-    */
+
 
 }

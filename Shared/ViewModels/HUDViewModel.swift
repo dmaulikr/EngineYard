@@ -2,15 +2,14 @@
 //  HUDViewModel.swift
 //  EngineYard
 //
-//  Created by Amarjit on 28/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-class HUDViewModel {
-    weak var game: Game?
-
+class HUDViewModel : BaseViewModel
+{
     lazy var playersInTurnOrder: [Player]? = {
         guard let hasGame = self.game else {
             return nil
@@ -18,7 +17,4 @@ class HUDViewModel {
         return hasGame.turnOrderManager.turnOrder
     }()
 
-    init(game: Game) {
-        self.game = game
-    }
 }

@@ -2,16 +2,14 @@
 //  SalesReportViewModel.swift
 //  EngineYard
 //
-//  Created by Amarjit on 27/07/2017.
+//  Created by Amarjit on 31/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-class SalesReportViewModel {
-    weak var game: Game?
+class SalesReportViewModel : BaseViewModel
+{
 
-    init(game: Game) {
-        self.game = game
-    }
+    
 }

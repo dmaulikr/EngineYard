@@ -11,7 +11,16 @@ import Foundation
 
 // Game constants from manual
 struct Constants {
-    static let endCashGoal: Int = 300 // The (cashGoal + tax) is end-game trigger
+    fileprivate static var _cashGoal: Int = 300
+
+    static let cashGoal: Int = {
+        return (Tax.addSalesTax(toBalance: _cashGoal))
+    }()
+
+    public static func hasReachedGoal(cash: Int) -> Bool {
+        return (cash >= Constants.cashGoal)
+    }
+
     static let taxRate: Float = 0.10 // Players pay 10% of their cash in taxes, rounded down
 
     struct SeedCash {

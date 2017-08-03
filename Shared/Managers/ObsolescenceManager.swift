@@ -2,7 +2,7 @@
 //  ObsolescenceManager.swift
 //  EngineYard
 //
-//  Created by Amarjit on 21/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -13,65 +13,65 @@ import Foundation
 /** Notes
  Procedure is repeated for all locomotives on game board in sequence
 
- Determine how many generations of that locomotive type currently exist. 
- A generation exists if there are dice in either the Existing Orders boxes 
+ Determine how many generations of that locomotive type currently exist.
+ A generation exists if there are dice in either the Existing Orders boxes
  or the Customer Base boxes or in both.
- 
- The maximum number of dice for a locomotive type and generation is 
+
+ The maximum number of dice for a locomotive type and generation is
  determined by the number of boxes in the Customer Base.
 
- There are 4 cases of existing generations: 
- 
+ There are 4 cases of existing generations:
+
  a) No generation exists:
  Nothing is done for this type.
- 
+
  b) 1 generation exists:
- If this locomotive type does not have the maximum number of dice, add 
- one die to the Customer Base from the dice pool. Then roll all dice 
- in the Customer Base and place them in the empty Existing Order boxes 
+ If this locomotive type does not have the maximum number of dice, add
+ one die to the Customer Base from the dice pool. Then roll all dice
+ in the Customer Base and place them in the empty Existing Order boxes
  for that locomotive type.
 
  c) 2 generations exist:
  The players begin with the older (lower generation number) locomotive.
  Transfer one of the dice from the Customer Base to the dice pool.
- 
- Then roll any remaining dice in the Customer Base and place them in 
- the empty Existing Order boxes for that locomotive. 
- 
+
+ Then roll any remaining dice in the Customer Base and place them in
+ the empty Existing Order boxes for that locomotive.
+
  This locomotive is considered old.
 
  The newer generation is now checked. If this loco- motive type does
- not have the maximum number of dice, add 1 die to the Customer Base 
- from the dice pool. Then the dice in the Customer Base are rolled 
+ not have the maximum number of dice, add 1 die to the Customer Base
+ from the dice pool. Then the dice in the Customer Base are rolled
  and placed in the empty Existing Order boxes for that locomotive.
 
  d) 3 generations exist:
- The players begin with the oldest (lowest generation number) locomotive. 
- Place all dice from the Custo- mer Base and Existing Orders areas back 
+ The players begin with the oldest (lowest generation number) locomotive.
+ Place all dice from the Custo- mer Base and Existing Orders areas back
  in the dice pool. This locomotive is obsolete – there is no demand for
  this generation of that locomotive type anymore.
 
- The players continue with the next (middle genera- tion number) 
+ The players continue with the next (middle genera- tion number)
  locomotive.
- 
+
  If needed, add enough dice from the dice pool to the Customer Base to
- match the maximum number of dice for that locomotive. Then roll all 
- dice in the Customer Base and place them in the empty Existing 
+ match the maximum number of dice for that locomotive. Then roll all
+ dice in the Customer Base and place them in the empty Existing
  Order boxes for that locomotive.
- 
+
  Finally, the newest (highest generation number) loco- motive is
- checked. 
- 
- If this locomotive does not have the maximum number of dice, 
- add 1 die to the Cus- tomer Base from the dice pool. Then all dice 
- in the Customer Base are rolled and are placed in the 
+ checked.
+
+ If this locomotive does not have the maximum number of dice,
+ add 1 die to the Cus- tomer Base from the dice pool. Then all dice
+ in the Customer Base are rolled and are placed in the
  empty Existing Order boxes for that locomotive type.
 
  */
 
 struct ObsolescenceManager
 {
-    var trains: [Locomotive] = [Locomotive]()
+    var trains: [Train] = [Train]()
 
     init(trains: [Train]) {
         self.trains = trains
@@ -108,11 +108,11 @@ struct ObsolescenceManager
 
     func findGenerationsForEngineColor(engineColor: EngineColor) -> [Train]? {
         let filteredTrains = trains
-            .filter { (loco:Locomotive) -> Bool in
-                return ( (loco.engineColor == engineColor) && ((loco.existingOrders.count > 0) || (loco.completedOrders.count > 0)) )
+            .filter { (train: Train) -> Bool in
+                return ( (train.engineColor == engineColor) && ((train.existingOrderValues.count > 0) || (train.completedOrderValues.count > 0)) )
             }
-            .sorted { (loco1:Locomotive, loco2:Locomotive) -> Bool in
-                return (loco1.cost < loco2.cost)
+            .sorted { (train1: Train, train2: Train) -> Bool in
+                return (train1.cost < train2.cost)
         }
         return filteredTrains
     }
@@ -127,7 +127,7 @@ struct ObsolescenceManager
             return
         }
 
-        if (firstTrain.hasMaximumDice() == false) {
+        if (firstTrain.hasMaximumDice == false) {
             firstTrain.orderBook.add(order: CompletedOrder.generate())
         }
 
@@ -144,7 +144,7 @@ struct ObsolescenceManager
                 train.markAsOld()
             }
             else {
-                if (train.hasMaximumDice() == false) {
+                if (train.hasMaximumDice == false) {
                     train.orderBook.add(order: CompletedOrder.generate())
                 }
 
@@ -162,13 +162,13 @@ struct ObsolescenceManager
                 train.markAsObsolete()
             }
             else if (index == 1) {
-                if (train.hasMaximumDice() == false) {
+                if (train.hasMaximumDice == false) {
                     train.orderBook.add(order: CompletedOrder.generate())
                 }
                 train.orderBook.rerollAndTransferCompletedOrders()
             }
             else if (index == 2) {
-                if (train.hasMaximumDice() == false) {
+                if (train.hasMaximumDice == false) {
                     train.orderBook.add(order: CompletedOrder.generate())
                 }
                 train.orderBook.rerollAndTransferCompletedOrders()
@@ -179,5 +179,5 @@ struct ObsolescenceManager
         }
         
     }
-
+    
 }

@@ -2,16 +2,17 @@
 //  SetupManager.swift
 //  EngineYard
 //
-//  Created by Amarjit on 20/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-class SetupManager : NSObject {
+class SetupManager
+{
     static var instance = SetupManager()
 
-    func setup(settings:GameConfig, players:[Player]) throws -> Game? {
+    func setup(settings: GameConfig, players: [Player]) throws -> Game? {
 
         do {
             if try Constants.NumberOfPlayers.isValid(count: players.count)
@@ -21,6 +22,7 @@ class SetupManager : NSObject {
                 // prepare board
                 gameObj.gameBoard = GameBoard.prepare()
                 gameObj.turnOrderManager.turnOrder = players
+                gameObj.settings = settings
 
                 if (settings.shouldShuffleTurnOrder) {
                     gameObj.turnOrderManager.shuffleTurnOrder()
@@ -50,10 +52,11 @@ class SetupManager : NSObject {
             print (error.localizedDescription)
             return nil
         }
-
+        
     }
-
+ 
 }
+
 
 
 extension SetupManager
@@ -69,47 +72,37 @@ extension SetupManager
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
 
+        assert(gameModel.players.count > 0, "No players were defined")
+
         guard let gameBoard = gameModel.gameBoard else {
             assertionFailure("GameBoard is not defined")
             return
         }
 
-        let decks = gameBoard.decks
+        // Get first 2 decks
+        let decks = gameBoard.decks[0...1]
 
-        guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
+        guard let firstTrain = decks.first else {
+            assertionFailure("No first train found")
             return
         }
 
-        let enginesList = firstLoco.engines.filter({
-            $0.owner == nil
-        })
-
-        if (enginesList.count == 0) {
+        guard let lastTrain = decks.last else {
+            assertionFailure("No last train found")
             return
         }
 
-        // Give each player first generation green train
+        assert(firstTrain.generation == .first && firstTrain.engineColor == .green)
+        assert(lastTrain.generation == .first && lastTrain.engineColor == .red)
+
+        // Give each player a first train card (if possible)
+
         for player in gameModel.players {
-            guard let firstUnownedEngine = enginesList.filter({ (eng:Engine) -> Bool in
-                return (eng.owner == nil)
-            }).first else {
-                fatalError("Cannot find any unowned engine for \(firstLoco.name)")
-                break
-            }
-
-            firstUnownedEngine.assignOwner(player: player)
+            player.hand.add(train: firstTrain)
         }
 
-        // generate 3 orders for firstLoco
-        print ("Generating orders for \(firstLoco.name)")
-        firstLoco.orderBook.generateExistingOrders(howMany: 3)
-
-        // generate 1 order for secondLoco
-        let secondLoco:Locomotive = decks[1] as Locomotive
-        if ((secondLoco.generation != .first) && (secondLoco.engineColor != .red)) {
-            assertionFailure("Second loco is invalid")
-        }
-        secondLoco.orderBook.generateExistingOrders(howMany: 1)
+        firstTrain.orderBook.generateExistingOrders(howMany: 3)
+        lastTrain.orderBook.generateExistingOrders(howMany: 1)
     }
 
 
@@ -121,6 +114,7 @@ extension SetupManager
 
     fileprivate func setupFivePlayerGame(gameModel:Game) {
 
+        assert(gameModel.players.count > 0, "# Players invalid")
         let seedCash = Constants.SeedCash.fivePlayers
         let players = gameModel.turnOrderManager.turnOrder
         gameModel.turnOrderManager.turnOrder = PlayerAPI.setSeedCash(players: players, amount: seedCash)
@@ -130,16 +124,14 @@ extension SetupManager
             return
         }
 
-        let decks = gameBoard.decks
-
-        guard let firstLoco = LocomotiveAPI.findLocomotiveInDeck(decks: decks, whereColor: .green, whereGeneration: .first) else {
+        guard let firstTrain = gameBoard.decks.first else {
+            assertionFailure("firstTrain does not exist")
             return
         }
+        assert(firstTrain.generation == .first && firstTrain.engineColor == .green)
 
-        // Generate 1 orders for firstLoco
-        print ("Generating orders for \(firstLoco.name)")
-        firstLoco.orderBook.generateExistingOrders(howMany: 1)
+        firstTrain.orderBook.generateExistingOrders(howMany: 1)
     }
     
-
+    
 }

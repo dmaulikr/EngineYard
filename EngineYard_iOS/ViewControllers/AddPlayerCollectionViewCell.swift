@@ -2,7 +2,7 @@
 //  AddPlayerCollectionViewCell.swift
 //  EngineYard
 //
-//  Created by Amarjit on 25/07/2017.
+//  Created by Amarjit on 01/08/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -20,13 +20,13 @@ class AddPlayerCollectionViewCell: UICollectionViewCell {
         self.avtBtn.layer.masksToBounds = true
     }
 
+
     @IBAction func avtBtnPressed(_ sender: UIButton) {
 
     }
 
-    @IBAction func toggleAISwitch(_ sender: UIButton) {
+    @IBAction func aiSwitchPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
     }
-
 
 }

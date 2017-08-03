@@ -2,21 +2,33 @@
 //  Production.swift
 //  EngineYard
 //
-//  Created by Amarjit on 20/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-final class Production : NSObject {
-    fileprivate(set) weak var parent: Engine?
-    fileprivate(set) var units : Int = 0 {
+protocol ProductionProtocol: class
+{
+    func setDefaultProduction()
+}
+
+final class Production: CustomStringConvertible, ProductionProtocol
+{
+    weak var parent: LocomotiveCard?
+
+    init(parent: LocomotiveCard) {
+        self.parent = parent
+    }
+
+    public fileprivate(set) var units : Int = 0 {
         didSet {
             if (units < 0) {
                 units = 0
             }
         }
     }
+
     fileprivate(set) var unitsSpent : Int = 0 {
         didSet {
             if (unitsSpent < 0) {
@@ -24,24 +36,23 @@ final class Production : NSObject {
             }
         }
     }
+
     var cost: Int {
-        return self.parent?.parent?.productionCost ?? 0
+        guard let train = self.parent?.parent else {
+            return 0
+        }
+        return train.productionCost
     }
 
-    override var description: String {
+}
+
+extension Production {
+    var description: String {
         return ("Production Units - \(self.units) vs spent: \(self.unitsSpent)")
-    }
-
-    init(parent: Engine) {
-        self.parent = parent
     }
 }
 
 extension Production {
-
-    func setDefaultProduction() {
-        self.units = 1
-    }
 
     func increase(by:Int) {
         guard by > 0 else {
@@ -71,5 +82,14 @@ extension Production {
 
     func setProductionAtZero() {
         self.units = 0
+    }
+}
+
+extension Production {
+
+    // MARK: - Production delegate methods
+
+    internal func setDefaultProduction() {
+        self.units = 1
     }
 }

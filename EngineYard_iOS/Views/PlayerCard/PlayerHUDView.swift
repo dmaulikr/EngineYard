@@ -33,8 +33,6 @@ class PlayerHUDView: UIView {
             let image = UIImage(named: player.asset)
             self.avtButton.setImage(image, for: .normal)
         }
-
-        //self.trainsCountLbl.text = String(0)
     }
     
     // MARK: - IBActions

@@ -2,20 +2,18 @@
 //  Game.swift
 //  EngineYard
 //
-//  Created by Amarjit on 20/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-final class Game: CustomStringConvertible
+final class Game : CustomStringConvertible
 {
     static var instance = Game()
 
-    fileprivate(set) var dateCreated: Date?
-
-    var lastKnownState: Int = 0
     var settings: GameConfig?
+    
     var gameBoard: GameBoard? {
         didSet {
             guard let gameBoard = self.gameBoard else {
@@ -29,24 +27,32 @@ final class Game: CustomStringConvertible
             }
         }
     }
-    var inProgress : Bool {
-        return (self.dateCreated != nil)
-    }
+
     var turnOrderManager: TurnOrderManager = TurnOrderManager.instance
     var players: [Player] {
         return self.turnOrderManager.turnOrder
     }
+    
+    var dateCreated: Date?
+
+    var inProgress : Bool {
+        return (self.dateCreated != nil)
+    }
+}
+
+extension Game {
     var description: String {
         var dateCreatedString = "N/A"
         if let dateCreated = self.dateCreated {
             dateCreatedString = String(describing: dateCreated)
         }
-        return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress), Players: \(self.players.count)")
+        return ("dateCreated: \(dateCreatedString), inProgress: \(self.inProgress)")
     }
 }
 
+
 extension Game {
-    
+
     public static func setup(players:[Player]) -> Game? {
         do {
             let settings = GameConfig()
@@ -74,5 +80,6 @@ extension Game {
         self.dateCreated = nil
         self.turnOrderManager.turnOrder.removeAll()
         self.settings = nil
+
     }
 }

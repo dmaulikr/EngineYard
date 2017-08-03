@@ -2,7 +2,7 @@
 //  ObsolescenceTests.swift
 //  EngineYard
 //
-//  Created by Amarjit on 21/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
@@ -14,17 +14,12 @@ class ObsolescenceTests: BaseTests {
 
     var gameObj: Game!
     var gameBoard: GameBoard = GameBoard.init()
-    var trains: [Locomotive] = [Locomotive]()
+    var trains: [Train] = [Train]()
 
     override func setUp() {
         super.setUp()
 
-        guard let mockPlayers = PlayerAPI.generateMockPlayers(howMany: 5) else {
-            XCTFail("No mock players found")
-            return
-        }
-
-        guard let gameObj = Game.setup(players: mockPlayers) else {
+        guard let gameObj = Game.setup(players: Mock.players(howMany: 5)!) else {
             XCTFail("No game object")
             return
         }
@@ -51,9 +46,9 @@ class ObsolescenceTests: BaseTests {
             }
         }
 
-        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
-            }
+        let trainsWithOrders = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
+        }
 
         XCTAssert(trainsWithOrders.count == Constants.Board.decks)
 
@@ -101,8 +96,8 @@ class ObsolescenceTests: BaseTests {
 
         XCTAssert(firstTrain.orderBook.existingOrders.count == 1)
 
-        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
+        let trainsWithOrders = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
         }
 
         XCTAssert(trainsWithOrders.count == 1)
@@ -128,9 +123,9 @@ class ObsolescenceTests: BaseTests {
             }
         }
 
-        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
-            }
+        let trainsWithOrders = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
+        }
 
         XCTAssert(trainsWithOrders.count == 5)
 
@@ -141,18 +136,18 @@ class ObsolescenceTests: BaseTests {
             }
         }
 
-        let countExisting = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
-        }.count
+        let countExisting = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
+            }.count
 
-        let countCompleted = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.completedOrders.count > 0)
-        }.count
+        let countCompleted = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.completedOrders.count > 0)
+            }.count
 
         XCTAssert(countExisting == 0)
         XCTAssert(countCompleted == 5)
 
-        // test generations 
+        // test generations
         guard let greenGenerations = ObsolescenceManager(trains: trainsWithOrders).findGenerationsForEngineColor(engineColor: .green) else {
             return
         }
@@ -197,13 +192,13 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(lastGreenTrain.generation == .second)
         XCTAssert(lastGreenTrain.orderBook.existingOrders.count == 2)
 
-        let countRusting = trains.filter({ (loco: Locomotive) -> Bool in
-            return (loco.isRusting)
+        let countRusting = trains.filter({ (t: Train) -> Bool in
+            return (t.isRusting)
         }).count
 
-        let countHasRusted = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.hasRusted)
-        }.count
+        let countHasRusted = trains.filter { (t: Train) -> Bool in
+            return (t.hasRusted)
+            }.count
 
         XCTAssert(countRusting == 1)
         XCTAssert(countHasRusted == 0)
@@ -218,8 +213,8 @@ class ObsolescenceTests: BaseTests {
             }
         }
 
-        let trainsWithOrders = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
+        let trainsWithOrders = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
         }
 
         XCTAssert(trainsWithOrders.last?.engineColor == .green)
@@ -231,12 +226,12 @@ class ObsolescenceTests: BaseTests {
                 train.orderBook.transferOrder(order: item, index: index)
             }
         }
-        let countExisting = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.existingOrders.count > 0)
+        let countExisting = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.existingOrders.count > 0)
             }.count
 
-        let countCompleted = trains.filter { (loco: Locomotive) -> Bool in
-            return (loco.orderBook.completedOrders.count > 0)
+        let countCompleted = trains.filter { (t: Train) -> Bool in
+            return (t.orderBook.completedOrders.count > 0)
             }.count
 
         XCTAssert(countExisting == 0)
@@ -251,7 +246,7 @@ class ObsolescenceTests: BaseTests {
         XCTAssert(greenGenerations.count == 3)
 
         for (index, train) in trainsWithOrders.enumerated() {
-            print ("#\(index), \(train.name), orders: \(train.existingOrders), completedOrders: \(train.completedOrders), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
+            print ("#\(index), \(train.name), orders: \(train.existingOrderValues), completedOrders: \(train.completedOrderValues), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
         }
 
         // start obsolescence of 3 generations
@@ -259,26 +254,26 @@ class ObsolescenceTests: BaseTests {
         ob.handler()
 
         for (index, train) in trainsWithOrders.enumerated() {
-            print ("#\(index), \(train.name), orders: \(train.existingOrders), completedOrders: \(train.completedOrders), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
+            print ("#\(index), \(train.name), orders: \(train.existingOrderValues), completedOrders: \(train.completedOrderValues), rusting: \(train.isRusting), hasRusted: \(train.hasRusted)")
         }
 
-        let isRusting = trainsWithOrders.filter { (loco: Locomotive) -> Bool in
-            return (loco.isRusting)
+        let isRusting = trainsWithOrders.filter { (t: Train) -> Bool in
+            return (t.isRusting)
         }
-
-        let hasRusted = trainsWithOrders.filter { (loco: Locomotive) -> Bool in
-            return (loco.hasRusted)
+        
+        let hasRusted = trainsWithOrders.filter { (t: Train) -> Bool in
+            return (t.hasRusted)
         }
-
+        
         XCTAssert(isRusting.count == 2)
         XCTAssert(hasRusted.count == 1)
-
+        
         guard let firstRusted = hasRusted.first else {
             return
         }
-
+        
         XCTAssert(firstRusted.engineColor == .green)
         XCTAssert(firstRusted.generation == .first)
     }
-        
+    
 }

@@ -2,13 +2,13 @@
 //  OrderBook.swift
 //  EngineYard
 //
-//  Created by Amarjit on 20/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
 
-
+typealias FulfiledOrder = CompletedOrder
 typealias CustomerBase = CompletedOrder
 
 protocol EntryProtocol {
@@ -22,11 +22,11 @@ enum OrderBookEntryType {
 
 // Orders are array of [Int] and can be existingOrder or completedOrder
 final class OrderBook {
-    public fileprivate(set) weak var parent: Locomotive?
+    public fileprivate(set) weak var parent: Train?
     var existingOrders: [ExistingOrder] = [ExistingOrder]()
     var completedOrders: [CompletedOrder] = [CompletedOrder]()
 
-    init(parent: Locomotive) {
+    init(parent: Train) {
         self.parent = parent
     }
 
@@ -78,31 +78,33 @@ final class OrderBook {
 
 
     func generateExistingOrders(howMany: Int) {
-        guard let forTrain = self.parent else {
+        guard let train = self.parent else {
             assertionFailure("No train provided")
             return
         }
+
+        if self.canGenerateExistingOrders(howMany: howMany, forTrain: train) {
+            for _ in 1...howMany {
+                let orderObj: ExistingOrder = ExistingOrder.generate()
+                train.orderBook.add(order: orderObj)
+            }
+        }
+    }
+
+    internal func canGenerateExistingOrders(howMany: Int, forTrain: Train) -> Bool {
         guard forTrain.capacity > 0 else {
-            assertionFailure("Capacity must > 0")
-            return
+            return false
         }
         if howMany <= 0 {
-            assertionFailure("Generate must > 0")
-            return
+            return false
         }
         if howMany > forTrain.capacity {
-            assertionFailure("Cannot exceed orders capacity .1")
-            return
+            return false
         }
-        if ((forTrain.existingOrders.count + howMany) > forTrain.capacity) {
-            assertionFailure("Cannot exceed orders capacity .2")
-            return
+        if ((forTrain.existingOrderValues.count + howMany) > forTrain.capacity) {
+            return false
         }
-
-        for _ in 1...howMany {
-            let orderObj: ExistingOrder = ExistingOrder.generate()
-            forTrain.orderBook.add(order: orderObj)
-        }
+        return true
     }
 
 
@@ -130,7 +132,7 @@ final class OrderBook {
 
             self.existingOrders.append(orderObj)
             self.completedOrders.remove(at: index)
-        }        
+        }
     }
 
     // Remove first value from completedOrder
@@ -195,7 +197,7 @@ final class OrderBook {
 }
 
 class ExistingOrder: EntryProtocol, CustomStringConvertible {
-    var value : Int = 0
+    var value: Int = 0
 
     var description: String {
         return String(self.value)
@@ -211,16 +213,16 @@ class ExistingOrder: EntryProtocol, CustomStringConvertible {
 }
 
 class CompletedOrder: EntryProtocol, CustomStringConvertible {
-    var value : Int = 0
+    var value: Int = 0
 
     var description: String {
         return String(self.value)
     }
-
+    
     init(value: Int) {
         self.value = value
     }
-
+    
     public static func generate() -> CompletedOrder {
         return CompletedOrder.init(value: Die.roll())
     }

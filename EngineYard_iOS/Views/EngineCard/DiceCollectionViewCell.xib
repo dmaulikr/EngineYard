@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,7 +32,7 @@
                 <constraint firstItem="5hF-vR-vUf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eTO-Jl-F71"/>
             </constraints>
             <connections>
-                <outlet property="imageView" destination="5hF-vR-vUf" id="mMn-Bs-q29"/>
+                <outlet property="imageView" destination="5hF-vR-vUf" id="PWM-Ry-atI"/>
             </connections>
         </collectionViewCell>
     </objects>

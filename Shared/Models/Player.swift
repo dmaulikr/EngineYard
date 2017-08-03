@@ -2,53 +2,59 @@
 //  Player.swift
 //  EngineYard
 //
-//  Created by Amarjit on 20/07/2017.
+//  Created by Amarjit on 30/07/2017.
 //  Copyright © 2017 Amarjit. All rights reserved.
 //
 
 import Foundation
+import GameplayKit
 
-final class Player : NSObject {
-    public fileprivate(set) var name: String = ""
-    public fileprivate(set) var isAI: Bool = false
-    public fileprivate(set) var asset: String = ""
+protocol PlayerModelProtocol {
+    var name: String { get set }
+    var isAI: Bool { get set }
+    var asset: String { get set }
+}
+
+final class Player : CustomStringConvertible, Equatable, PlayerModelProtocol
+{
+    let uuid: String = UUID().uuidString
+    internal var name : String = ""
+    internal var isAI: Bool = false
+    internal var asset: String = ""
     public fileprivate(set) var turnOrder: Int = 0
 
-    var account: Account = Account()
-    var engines: [Engine] = [Engine]()
+    lazy var hand: Hand = Hand(owner: self) // hand of cards
+    var wallet: Wallet = Wallet() // in-game cash wallet
 
     var cash: Int {
-        return self.account.balance
+        return (self.wallet.balance)
     }
 
-    override var description: String {
-        return ("\(self.name), turnOrder: \(self.turnOrder), cash: $\(self.cash)")
-    }
-
-    init(name:String, isAI:Bool = false, asset:String?) {
+    init(name: String, isAI: Bool = false, asset: String?) {
         self.name = name
         self.isAI = isAI
-
         if let hasAsset = asset {
             self.asset = hasAsset
         }
+    }
+}
 
-        super.init()
+extension Player {
+    var description: String {
+        return ("\(self.name), turnOrder: \(self.turnOrder), cash: $\(self.cash)")
+    }
+}
+
+extension Player {
+    public static func ==(lhs: Player, rhs: Player) -> Bool {
+        return (lhs.uuid == rhs.uuid)
     }
 }
 
 extension Player {
 
-    func setTurnOrderIndex(number:Int) {
+    func setTurnOrderIndex(number: Int) {
         self.turnOrder = number
     }
 
-    func toggleIsAI() {
-        self.isAI = !self.isAI
-    }
-
-    func addEngine(engine:Engine) {
-        self.engines.append(engine)
-    }
-    
 }
