@@ -68,7 +68,8 @@ class SellingViewController: UIViewController {
             controller.didMove(toParentViewController: self)
 
             // selling page disables interaction
-            controller.trainsCollectionView.isUserInteractionEnabled = false
+            controller.genericTrainListViewModel?.shouldSelectItemAt = false
+            controller.HUD?.collectionView.isUserInteractionEnabled = false
 
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page

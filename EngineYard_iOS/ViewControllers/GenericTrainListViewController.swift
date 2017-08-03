@@ -37,9 +37,7 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
         self.trainsCollectionView.dataSource = self
         self.trainsCollectionView.allowsMultipleSelection = false
 
-    
         self.trainsCollectionView.layoutIfNeeded()
-        
 
         if let pageTitle = self.genericTrainListViewModel?.pageTitle {
             self.pageTitleLabel.text = pageTitle
@@ -110,6 +108,13 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print ("Selected indexPath: \(indexPath)")
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let hasViewModel = self.genericTrainListViewModel else {
+            return true
+        }
+        return hasViewModel.shouldSelectItemAt
     }
 
 }

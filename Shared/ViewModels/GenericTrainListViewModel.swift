@@ -13,6 +13,9 @@ class GenericTrainListViewModel : BaseViewModel
     var trains: [Train]?
     var pageTitle: String?
 
+    var hudDisableCellSelection = false
+    var shouldSelectItemAt = true
+
     init(game: Game, trains: [Train]) {
         super.init(game: game)
         self.trains = trains
