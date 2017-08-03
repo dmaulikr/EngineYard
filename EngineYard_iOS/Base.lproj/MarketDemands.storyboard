@@ -21,10 +21,27 @@
                     <view key="view" contentMode="scaleToFill" id="ZVZ-fo-zFl">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Market demands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZV-iw-yrm">
+                                <rect key="frame" x="30" y="32" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7l-Hi-4jz">
+                                <rect key="frame" x="436" y="254" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="Xlu-S1-LWf" eventType="touchUpInside" id="Q1z-5C-8xq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="srA-3Z-wVH" kind="show" identifier="newTurnOrderSegue" id="H0I-Nd-3ge"/>
+                        <segue destination="srA-3Z-wVH" kind="showDetail" identifier="newTurnOrderSegue" action="showViewController:sender:" id="H0I-Nd-3ge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QI0-Yl-6Gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,6 +100,9 @@
                                     <constraint firstAttribute="height" constant="44" id="rzv-6i-cBr"/>
                                 </constraints>
                                 <state key="normal" image="circle-check"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="srA-3Z-wVH" eventType="touchUpInside" id="p5N-ZQ-m2C"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="turnOrderCollectionView" destination="44H-En-iTU" id="o8G-OH-CSv"/>
-                        <segue destination="IaZ-Vh-g2O" kind="show" identifier="buyTrainSegue" id="zVQ-IQ-y5F"/>
+                        <segue destination="IaZ-Vh-g2O" kind="showDetail" identifier="buyTrainSegue" action="showViewController:sender:" id="zVQ-IQ-y5F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXg-P6-vCa" userLabel="First Responder" sceneMemberID="firstResponder"/>

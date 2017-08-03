@@ -607,8 +607,8 @@
 				4D0833E41F2FA10E0055641A /* BuyTrain.storyboard */,
 				4D0833E71F2FA1290055641A /* BuyProduction.storyboard */,
 				4D0833EA1F2FA1360055641A /* Sales.storyboard */,
-				4DECE6BA1F3208B90009087C /* HUD.storyboard */,
 				4D0834321F2FA6B80055641A /* MarketDemands.storyboard */,
+				4DECE6BA1F3208B90009087C /* HUD.storyboard */,
 				4D0833F31F2FA17C0055641A /* Trains.storyboard */,
 				4D0833F01F2FA16E0055641A /* Winner.storyboard */,
 			);

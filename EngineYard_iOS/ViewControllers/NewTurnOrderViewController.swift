@@ -68,7 +68,7 @@ class NewTurnOrderViewController: UIViewController, UICollectionViewDelegate, UI
     // MARK: - IBActions
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "buyTrainSegue", sender: self)
     }
 
     // MARK: - Navigation

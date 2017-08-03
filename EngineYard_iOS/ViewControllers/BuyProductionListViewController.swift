@@ -69,6 +69,7 @@ class BuyProductionListViewController: UIViewController {
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
+                self.performSegue(withIdentifier: "salesSegue", sender: self)
             }
             controller.selectedTrainClosure = { (train: Train?) in
                 print ("selectedTrainClosure pressed")

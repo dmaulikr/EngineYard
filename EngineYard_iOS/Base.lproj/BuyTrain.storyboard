@@ -24,7 +24,7 @@
                     </view>
                     <connections>
                         <segue destination="2GK-lj-Nr0" kind="presentation" identifier="buyTrainDetailSegue" id="qjP-2N-xLF"/>
-                        <segue destination="5gD-vg-dJ4" kind="show" identifier="productionSegue" id="m1v-82-hXc"/>
+                        <segue destination="5gD-vg-dJ4" kind="showDetail" identifier="productionSegue" action="showViewController:sender:" id="m1v-82-hXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ML-3s-JZm" userLabel="First Responder" sceneMemberID="firstResponder"/>

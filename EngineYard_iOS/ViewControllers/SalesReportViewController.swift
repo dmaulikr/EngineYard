@@ -19,8 +19,13 @@ class SalesReportViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
+    // MARK: - IBActions
+
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "taxReportSegue", sender: self)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

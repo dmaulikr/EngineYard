@@ -23,6 +23,12 @@ class MarketDemandsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - IBActions
+
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "newTurnOrderSegue", sender: self)
+    }
+
 
     // MARK: - Navigation
 
