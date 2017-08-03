@@ -10,7 +10,17 @@ import Foundation
 
 class TaxReportViewModel : BaseViewModel
 {
-    func applyTax() {
+    func applyTaxes(callback: @escaping (Bool) -> ()) {
 
+        guard let hasGame = self.game else {
+            callback(false)
+            return
+        }
+
+        PlayerAPI.applyTax(players: hasGame.players) { (completed) in
+            if (completed) {
+                callback(true)
+            }
+        }
     }
 }

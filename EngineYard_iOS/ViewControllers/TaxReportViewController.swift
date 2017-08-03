@@ -56,12 +56,19 @@ class TaxReportViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBAction func doneBtnPressed(_ sender: UIButton) {
 
-        // #TODO --
         // Apply tax to players before continuing
+        guard let hasViewModel = self.viewModel else {
+            assertionFailure("** No view model defined in \(#file) \(#function)**")
+            return
+        }
 
-        let identifier = "marketDemandsSegue"
-        if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
-            self.performSegue(withIdentifier: identifier, sender: self)
+        hasViewModel.applyTaxes { (completed) in
+            if (completed) {
+                let identifier = "marketDemandsSegue"
+                if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                    self.performSegue(withIdentifier: identifier, sender: self)
+                }
+            }
         }
     }
 
