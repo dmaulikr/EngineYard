@@ -118,9 +118,13 @@ class WinnerViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
 
+    // MARK: - Navigation
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return false
+    }
 
     /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

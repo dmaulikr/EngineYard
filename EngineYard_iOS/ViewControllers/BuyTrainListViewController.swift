@@ -84,20 +84,36 @@ class BuyTrainListViewController: UIViewController {
         }
     }
 
-
     // MARK: - Navigation
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        if let hasViewModel = self.viewModel {
+
+            guard let _ = hasViewModel.checkGameObject(game: hasViewModel.game) else {
+                return false
+            }
+
+            guard let _ = (hasViewModel.validSegueIds.map({
+                return ($0 == identifier)
+            }).first) else {
+                return false
+            }
+        }
+
+        return false
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasGame = self.viewModel?.game else {
-            assertionFailure("** No game object defined **")
+        guard let hasViewModel = self.viewModel else {
             return
         }
-        guard let _ = hasGame.gameBoard else {
-            assertionFailure("** No game board defined **")
+
+        guard let hasGame = hasViewModel.checkGameObject(game: hasViewModel.game) else {
             return
         }
 
@@ -109,8 +125,6 @@ class BuyTrainListViewController: UIViewController {
             let vc : BuyProductionListViewController = (segue.destination as? BuyProductionListViewController)!
             vc.viewModel = BuyProductionListViewModel.init(game: hasGame)
         }
-
     }
-
 
 }

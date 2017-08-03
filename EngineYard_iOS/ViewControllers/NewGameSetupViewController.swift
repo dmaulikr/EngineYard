@@ -171,14 +171,15 @@ class NewGameSetupViewController: UIViewController, UICollectionViewDelegate, UI
         // Pass the selected object to the new view controller.
 
         guard let hasGame = self.viewModel?.game else {
+            assertionFailure(ErrorCode.noGameObjectDefined.localizedDescription)
             return
         }
 
         guard let _ = hasGame.gameBoard else {
-            assertionFailure("No gameboard defined")
+            assertionFailure(ErrorCode.noGameBoardDefined.localizedDescription)
             return
         }
-        
+
         if (segue.identifier == "buyTrainSegue") {
 
             let vc : BuyTrainListViewController = (segue.destination as? BuyTrainListViewController)!

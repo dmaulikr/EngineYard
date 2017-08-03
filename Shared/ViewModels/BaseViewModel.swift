@@ -15,12 +15,12 @@ class BaseViewModel : CustomStringConvertible {
         self.game = game
 
         guard let hasGame = self.game else {
-            assertionFailure("** No game model defined **")
+            assertionFailure(ErrorCode.noGameObjectDefined.localizedDescription)
             return
         }
 
         guard let _ = hasGame.gameBoard else {
-            assertionFailure("** No game board defined **")
+            assertionFailure(ErrorCode.noGameBoardDefined.localizedDescription)
             return
         }
 
@@ -29,14 +29,48 @@ class BaseViewModel : CustomStringConvertible {
 }
 
 extension BaseViewModel {
+
+    func checkGameObject(game: Game?) -> Game? {
+        do {
+            guard let hasGame = try self.validateGameObject(game: game) else {
+                assertionFailure("no game model found")
+                return nil
+            }
+
+            return hasGame
+        } catch let error {
+            print (error.localizedDescription)
+        }
+
+        return nil
+    }
+
+    func validateGameObject(game: Game?) throws -> Game?
+    {
+        guard let hasGame = game else {
+            throw ErrorCode.noGameObjectDefined
+        }
+
+        guard let _ = hasGame.gameBoard else {
+            throw ErrorCode.noGameBoardDefined
+        }
+        
+        return hasGame
+    }
+
+}
+
+extension BaseViewModel {
     var description: String {
         guard let hasGame = self.game else {
-            return "** No game defined **"
+            return ErrorCode.noGameObjectDefined.localizedDescription as String
         }
-        guard let gameBoard = hasGame.gameBoard else {
-            return "** No game board defined **"
+
+        guard let hasGameBoard = hasGame.gameBoard else {
+            return ErrorCode.noGameBoardDefined.localizedDescription as String
         }
-        return ("\(hasGame.description), decks: \(gameBoard.decks.count)")
+
+        return ("\(hasGame.description), decks: \(hasGameBoard.decks.count)")
     }
 }
 
