@@ -91,6 +91,8 @@
 		4D55EDD31F2EA974008B773F /* TrainUnlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDD21F2EA974008B773F /* TrainUnlockTests.swift */; };
 		4D55EDD91F2F7C5E008B773F /* TransferOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDD81F2F7C5E008B773F /* TransferOrderTests.swift */; };
 		4D55EDDB1F2F7EFC008B773F /* WinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDDA1F2F7EFC008B773F /* WinnerTests.swift */; };
+		4D6D11591F33BC93006F1101 /* SalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D11571F33BC93006F1101 /* SalesTableViewCell.swift */; };
+		4D6D115A1F33BC93006F1101 /* SalesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6D11581F33BC93006F1101 /* SalesTableViewCell.xib */; };
 		4D78B9861F31D811009010C8 /* EngineCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78B9851F31D811009010C8 /* EngineCardCollectionViewCell.swift */; };
 		4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9429721F2124B7006B2D89 /* AppDelegate.swift */; };
 		4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9429731F2124B7006B2D89 /* Assets.xcassets */; };
@@ -221,6 +223,8 @@
 		4D55EDD21F2EA974008B773F /* TrainUnlockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainUnlockTests.swift; sourceTree = "<group>"; };
 		4D55EDD81F2F7C5E008B773F /* TransferOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferOrderTests.swift; sourceTree = "<group>"; };
 		4D55EDDA1F2F7EFC008B773F /* WinnerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerTests.swift; sourceTree = "<group>"; };
+		4D6D11571F33BC93006F1101 /* SalesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesTableViewCell.swift; sourceTree = "<group>"; };
+		4D6D11581F33BC93006F1101 /* SalesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesTableViewCell.xib; sourceTree = "<group>"; };
 		4D78B9851F31D811009010C8 /* EngineCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D94294E1F21243C006B2D89 /* EngineYard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineYard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9429621F21243C006B2D89 /* EngineYardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineYardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +328,7 @@
 		4D0833DF1F2F9FE80055641A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D6D11561F33BC7C006F1101 /* Sales */,
 				4D0834141F2FA31A0055641A /* EngineCard */,
 				4D08341B1F2FA31A0055641A /* PlayerCard */,
 			);
@@ -550,6 +555,15 @@
 			path = States;
 			sourceTree = "<group>";
 		};
+		4D6D11561F33BC7C006F1101 /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				4D6D11571F33BC93006F1101 /* SalesTableViewCell.swift */,
+				4D6D11581F33BC93006F1101 /* SalesTableViewCell.xib */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
 		4D9429451F21243C006B2D89 = {
 			isa = PBXGroup;
 			children = (
@@ -768,6 +782,7 @@
 				4D0833F21F2FA16E0055641A /* Winner.storyboard in Resources */,
 				4D08342D1F2FA31A0055641A /* PlayerTaxView.xib in Resources */,
 				4D08342F1F2FA31A0055641A /* PlayerOblongView.xib in Resources */,
+				4D6D115A1F33BC93006F1101 /* SalesTableViewCell.xib in Resources */,
 				4D0834411F304E090055641A /* Birdy_Notification1.wav in Resources */,
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
 				4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */,
@@ -943,6 +958,7 @@
 				4D1A4C2C1F21315200680333 /* Fonts.swift in Sources */,
 				4D9EDB031F2E1AEF00755834 /* SetupManager.swift in Sources */,
 				4D0833C51F2F9CF70055641A /* BaseViewModel.swift in Sources */,
+				4D6D11591F33BC93006F1101 /* SalesTableViewCell.swift in Sources */,
 				4D0834391F2FA9E90055641A /* GenericTrainListViewController.swift in Sources */,
 				4D1A4C391F21316100680333 /* Helpers.swift in Sources */,
 				4D0834051F2FA20E0055641A /* TaxReportViewController.swift in Sources */,

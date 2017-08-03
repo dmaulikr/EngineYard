@@ -8,12 +8,23 @@
 
 import UIKit
 
-class SalesReportViewController: UIViewController {
+class SalesReportViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var viewModel: SalesReportViewModel?
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.register(UINib(nibName: "SalesTableViewCell", bundle: nil), forCellReuseIdentifier: "SalesTableViewCell")
+        //self.tableView.register(SalesTableViewCell.self, forCellReuseIdentifier: "SalesTableViewCell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.allowsSelection = false
+        self.tableView.allowsMultipleSelection = false
+        //self.tableView.rowHeight = UITableViewAutomaticDimension
+        //self.tableView.estimatedRowHeight = 70
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +39,32 @@ class SalesReportViewController: UIViewController {
             self.performSegue(withIdentifier: identifier, sender: self)
         }
     }
-    
+
+    // MARK: - UITableView delegate
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: SalesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SalesTableViewCell", for: indexPath) as! SalesTableViewCell
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 70
+    }
+
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
