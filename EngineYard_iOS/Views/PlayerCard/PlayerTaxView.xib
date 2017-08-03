@@ -47,8 +47,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi6-gW-oNJ">
-                            <rect key="frame" x="7" y="78" width="29" height="14"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi6-gW-oNJ">
+                            <rect key="frame" x="7" y="78" width="45" height="14"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -125,10 +125,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="avatarImageView" destination="7dX-9I-FPE" id="WpL-os-KIA"/>
-                <outlet property="balanceLabel" destination="8dH-dl-I6f" id="3XP-J5-DP8"/>
+                <outlet property="balanceLabel" destination="8dH-dl-I6f" id="JEn-Tz-EZD"/>
                 <outlet property="headerBGView" destination="pha-O9-bO4" id="mwF-rN-0ba"/>
-                <outlet property="preTaxLabel" destination="lOF-yE-iw9" id="cjV-K1-lgg"/>
-                <outlet property="taxDueAmountLabel" destination="Dyj-TI-YYF" id="8Kt-jh-Jar"/>
+                <outlet property="preTaxLabel" destination="lOF-yE-iw9" id="2GF-kK-Vli"/>
+                <outlet property="taxDueLabel" destination="Dyj-TI-YYF" id="CVg-7l-OvT"/>
                 <outletCollection property="taxLabelOutletCollection" destination="bkJ-da-rtA" collectionClass="NSMutableArray" id="EW2-B5-lDo"/>
                 <outletCollection property="taxLabelOutletCollection" destination="g3l-pe-1pw" collectionClass="NSMutableArray" id="zLl-gr-H3B"/>
                 <outletCollection property="taxLabelOutletCollection" destination="Bi6-gW-oNJ" collectionClass="NSMutableArray" id="WGv-zb-c6m"/>
