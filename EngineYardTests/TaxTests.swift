@@ -130,17 +130,20 @@ class TaxTests: BaseTests {
             }
         }
 
+        print ("\nturnOrderBEFORE :")
+
+        for (index, player) in turnOrderBefore.enumerated() {
+            print ("#\(index), \(player.name) turnOrder: \(player.turnOrder), \(player.wallet.balance)")
+            XCTAssertTrue(player.turnOrder == index)
+        }
+
+
+
         let sorted = (PlayerAPI.sortPlayersByLowestCash(players: game.players))
 
         game.turnOrderManager.turnOrder = sorted
 
         let turnOrderAfter = game.turnOrderManager.turnOrder
-
-        print ("\nturnOrderBEFORE :")
-
-        for (index, player) in turnOrderBefore.enumerated() {
-            print ("#\(index), \(player.name) turnOrder: \(player.turnOrder), \(player.wallet.balance)")
-        }
 
         print ("\nturnOrderAFTER :")
 
