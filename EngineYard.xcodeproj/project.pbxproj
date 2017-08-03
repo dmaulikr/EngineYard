@@ -76,6 +76,7 @@
 		4D1A4C3F1F21316F00680333 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C3D1F21316F00680333 /* StateManager.swift */; };
 		4D1A4C411F21319D00680333 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C401F21319D00680333 /* Generation.swift */; };
 		4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C421F2131A700680333 /* EngineColor.swift */; };
+		4D1DD6371F32F79200456A75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DD6361F32F79200456A75 /* Message.swift */; };
 		4D45BE581F3108C0004A945D /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */; };
 		4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */; };
 		4D45BE5B1F3123CF004A945D /* BuyTrainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE5A1F3123CF004A945D /* BuyTrainListViewModel.swift */; };
@@ -205,6 +206,7 @@
 		4D1A4C3D1F21316F00680333 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		4D1A4C401F21319D00680333 /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		4D1A4C421F2131A700680333 /* EngineColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineColor.swift; sourceTree = "<group>"; };
+		4D1DD6361F32F79200456A75 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D45BE5A1F3123CF004A945D /* BuyTrainListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainListViewModel.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				4D9EDAF51F2E0A0B00755834 /* Transaction.swift */,
 				4D9EDAF71F2E0FCF00755834 /* Tax.swift */,
 				4D9EDB161F2E335A00755834 /* SalesRule.swift */,
+				4D1DD6361F32F79200456A75 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				4D9EDAE71F2E01F000755834 /* LocomotiveCard+API.swift in Sources */,
 				4D9EDB0F1F2E258C00755834 /* Die.swift in Sources */,
 				4D1A4C321F21315800680333 /* EY+Array.swift in Sources */,
+				4D1DD6371F32F79200456A75 /* Message.swift in Sources */,
 				4D45BE611F312419004A945D /* BuyProductionDetailViewModel.swift in Sources */,
 				4D0833D31F2F9E220055641A /* SalesReportViewModel.swift in Sources */,
 				4D78B9861F31D811009010C8 /* EngineCardCollectionViewCell.swift in Sources */,

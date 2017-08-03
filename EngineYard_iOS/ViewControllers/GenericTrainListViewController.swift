@@ -36,7 +36,11 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
         self.trainsCollectionView.delegate = self
         self.trainsCollectionView.dataSource = self
         self.trainsCollectionView.allowsMultipleSelection = false
+
+        
+
         self.trainsCollectionView.layoutIfNeeded()
+        
 
         if let pageTitle = self.genericTrainListViewModel?.pageTitle {
             self.pageTitleLabel.text = pageTitle
