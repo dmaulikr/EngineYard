@@ -70,6 +70,7 @@ class BuyTrainListViewController: UIViewController {
             controller.doneBtnClosure = { (doneBtnPressed: Bool) in
                 // end turn, handle whether to move to next page
                 print ("doneBtn pressed")
+                self.performSegue(withIdentifier: "productionSegue", sender: self)
             }
             controller.selectedTrainClosure = { (train: Train?) in
                 print ("selectedTrainClosure pressed")
@@ -91,11 +92,22 @@ class BuyTrainListViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
+        guard let hasGame = self.viewModel?.game else {
+            assertionFailure("** No game object defined **")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
+            return
+        }
+
         if (segue.identifier == "buyTrainDetailSegue") {
 
         }
         if (segue.identifier == "productionSegue") {
 
+            let vc : BuyProductionListViewController = (segue.destination as? BuyProductionListViewController)!
+            vc.viewModel = BuyProductionListViewModel.init(game: hasGame)
         }
 
     }

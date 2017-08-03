@@ -77,6 +77,7 @@
 		4D1A4C411F21319D00680333 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C401F21319D00680333 /* Generation.swift */; };
 		4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A4C421F2131A700680333 /* EngineColor.swift */; };
 		4D1DD6371F32F79200456A75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DD6361F32F79200456A75 /* Message.swift */; };
+		4D1DD6391F32FB8200456A75 /* TaxReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DD6381F32FB8200456A75 /* TaxReportViewModel.swift */; };
 		4D45BE581F3108C0004A945D /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */; };
 		4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */; };
 		4D45BE5B1F3123CF004A945D /* BuyTrainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45BE5A1F3123CF004A945D /* BuyTrainListViewModel.swift */; };
@@ -207,6 +208,7 @@
 		4D1A4C401F21319D00680333 /* Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		4D1A4C421F2131A700680333 /* EngineColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineColor.swift; sourceTree = "<group>"; };
 		4D1DD6361F32F79200456A75 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4D1DD6381F32FB8200456A75 /* TaxReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxReportViewModel.swift; sourceTree = "<group>"; };
 		4D45BE561F3108C0004A945D /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D45BE571F3108C0004A945D /* AddPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D45BE5A1F3123CF004A945D /* BuyTrainListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyTrainListViewModel.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				4D0833D21F2F9E220055641A /* SalesReportViewModel.swift */,
 				4D0833D41F2F9E380055641A /* SellingRoundViewModel.swift */,
 				4D0833CA1F2F9D960055641A /* TaxesViewModel.swift */,
+				4D1DD6381F32FB8200456A75 /* TaxReportViewModel.swift */,
 				4D0833CE1F2F9DD80055641A /* MarketDemandsViewModel.swift */,
 				4D0833DA1F2F9E8C0055641A /* PlayerHandViewModel.swift */,
 				4D0833CC1F2F9DB60055641A /* PauseViewModel.swift */,
@@ -917,6 +920,7 @@
 				4D08342C1F2FA31A0055641A /* PlayerTaxView.swift in Sources */,
 				4D0833E11F2FA00B0055641A /* MainMenuViewController.swift in Sources */,
 				4D1A4C431F2131A700680333 /* EngineColor.swift in Sources */,
+				4D1DD6391F32FB8200456A75 /* TaxReportViewModel.swift in Sources */,
 				4D1A4C411F21319D00680333 /* Generation.swift in Sources */,
 				4D0834261F2FA31A0055641A /* EngineCardView.swift in Sources */,
 				4D0833FB1F2FA1D40055641A /* BuyTrainDetailViewController.swift in Sources */,

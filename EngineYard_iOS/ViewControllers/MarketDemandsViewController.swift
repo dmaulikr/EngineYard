@@ -10,6 +10,8 @@ import UIKit
 
 class MarketDemandsViewController: UIViewController {
 
+    var viewModel: MarketDemandsViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +30,15 @@ class MarketDemandsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        guard let hasGame = self.viewModel?.game else {
+            assertionFailure("** No game object defined **")
+            return
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
+            return
+        }
 
         if (segue.identifier == "newTurnOrderSegue") {
             
