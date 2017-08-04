@@ -82,12 +82,38 @@ class BuyTrainListViewController: UIViewController {
                 print ("selectedTrainClosure pressed")
                 if let selectedTrain = train {
                     print ("You clicked on: \(selectedTrain.name)")
-                    //hasViewModel.selectedTrain = selectedTrain
-                    //self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
+
+                    hasViewModel.selectedTrain = selectedTrain
+                    let identifier = "trainDetailSegue"
+                    if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                        self.performSegue(withIdentifier: identifier, sender: self)
+                    }
                 }
             }
 
         }
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            assertionFailure("** No game object defined **")
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            assertionFailure("** No game board defined **")
+            return false
+        }
+
+        if (identifier == "buyTrainDetailSegue") {
+            guard let _ = hasViewModel.selectedTrain else {
+                return false
+            }
+        }
+
+        return true
     }
 
 
@@ -98,7 +124,11 @@ class BuyTrainListViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasGame = self.viewModel?.game else {
+
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+        guard let hasGame = hasViewModel.game else {
             assertionFailure("** No game object defined **")
             return
         }
@@ -106,8 +136,15 @@ class BuyTrainListViewController: UIViewController {
             assertionFailure("** No game board defined **")
             return
         }
+        guard let selectedTrain = hasViewModel.selectedTrain else {
+            return
+        }
+
 
         if (segue.identifier == "buyTrainDetailSegue") {
+
+            let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
+            vc.viewModel = BuyTrainDetailViewModel.init(game: hasGame, train: selectedTrain)
 
         }
         if (segue.identifier == "productionSegue") {

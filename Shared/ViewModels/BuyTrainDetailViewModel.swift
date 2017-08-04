@@ -13,6 +13,7 @@ class BuyTrainDetailViewModel : BaseViewModel
 {
     var train: Train?
 
+
     public var playerOnTurn : Player? {
         guard let hasGame = self.game else {
             return nil
