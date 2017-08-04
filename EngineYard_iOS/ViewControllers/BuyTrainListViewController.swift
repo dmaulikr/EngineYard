@@ -60,6 +60,8 @@ class BuyTrainListViewController: UIViewController, BuyTrainAlertProtocol {
             self.childVC?.genericTrainListViewModel = GenericTrainListViewModel.init(game: gameObj, trains: trains)
             self.childVC?.genericTrainListViewModel?.pageTitle = hasViewModel.pageTitle
 
+            controller.state = 0
+
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(controller.view)
@@ -101,6 +103,12 @@ class BuyTrainListViewController: UIViewController, BuyTrainAlertProtocol {
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
             return false
         }
 
@@ -150,15 +158,14 @@ class BuyTrainListViewController: UIViewController, BuyTrainAlertProtocol {
             assertionFailure("** No game board defined **")
             return
         }
-        guard let selectedTrain = hasViewModel.selectedTrain else {
-            return
-        }
-
 
         if (segue.identifier == "trainDetailSegue") {
 
+            let selectedTrain = hasViewModel.selectedTrain!
+
             let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
             vc.viewModel = BuyTrainDetailViewModel.init(game: hasGame, train: selectedTrain)
+
 
         }
         if (segue.identifier == "productionSegue") {
