@@ -98,48 +98,12 @@ class TrainPurchaseTests: BaseTests {
             XCTAssertTrue(firstPlayer.wallet.balance == expectedCashAfter)
             XCTAssertTrue(firstPlayer.hand.cards.count == expectedHandAfter)
 
-            let countUnlockedAfter = gameBoard.countUnlocked
-            XCTAssertTrue(countUnlockedAfter == 2, "\(countUnlockedAfter)")
+            //let countUnlockedAfter = gameBoard.countUnlocked
+            //XCTAssertTrue(countUnlockedAfter == 2, "\(countUnlockedAfter)")
 
         } catch let error {
             XCTFail(error as! String)
         }
-
-    }
-
-    // when all decks are unlocked, I expect no more trains to unlock
-    func testPurchaseAll_ExpectedNilDecksToUnlock()
-    {
-
-        guard let players = Mock.players(howMany: 5) else {
-            XCTFail("Mock players failed")
-            return
-        }
-        XCTAssert(players.count == 5)
-
-        guard let game = Game.setup(players: players) else {
-            XCTFail("Game setup failed")
-            return
-        }
-
-        guard let gameBoard = game.gameBoard else {
-            XCTFail("No game board defined")
-            return
-        }
-
-        XCTAssertTrue(gameBoard.countUnlocked == 1)
-
-        for deck in gameBoard.decks {
-            print ("at: \(deck.name), attempting to unlock next")
-            TrainAPI.unlockNextDeck()
-        }
-
-        for deck in gameBoard.decks {
-            XCTAssertTrue(deck.isUnlocked)
-            XCTAssertTrue(deck.existingOrderValues.count > 0)
-        }
-
-
 
     }
 

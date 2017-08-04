@@ -50,7 +50,6 @@ final class GameBoard: DeckProtocol
 
     @objc func didPurchaseTrain() {
         print ("didPurchaseTrain")
-        self.unlockNextDeck()
     }
 
 
@@ -61,40 +60,7 @@ final class GameBoard: DeckProtocol
 
 extension GameBoard {
 
-    // MARK: - GameBoard delegate method
 
-    fileprivate func unlockNextDeck() {
-
-        if (self.decks.count > 0)
-        {
-            guard let train = self.getNextLockedDeck() else {
-                return
-            }
-            self.didUnlockNextDeck(train: train)
-        }
-        else {
-            assertionFailure("System error: Invalid decks - Could not unlock next deck")
-        }
-    }
-
-    fileprivate func getNextLockedDeck() -> Train? {
-
-        guard let train = (self.decks.filter({
-            return ($0.isUnlocked == false)
-        }).first) else {
-            return nil
-        }
-
-        print ("the next locked train is: \(train.name), \(train.isUnlocked)")
-
-        return train
-    }
-
-    fileprivate func didUnlockNextDeck(train: Train) {
-        let order = ExistingOrder.generate()
-        train.orderBook.add(order: order)
-        print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
-    }
 
 
 }
