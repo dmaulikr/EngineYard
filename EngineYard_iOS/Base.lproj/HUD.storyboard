@@ -24,6 +24,9 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHe-sr-cf5">
                                 <rect key="frame" x="0.0" y="0.0" width="490" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Vu5-R1-h5x"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="VG2-AU-IYm">
                                     <size key="itemSize" width="110" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,13 +57,12 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="leading" secondItem="hHe-sr-cf5" secondAttribute="trailing" constant="15" id="Wr2-Ab-hst"/>
-                            <constraint firstItem="hHe-sr-cf5" firstAttribute="leading" secondItem="OWg-vu-j1l" secondAttribute="leading" id="bb6-Yh-5a0"/>
-                            <constraint firstItem="hHe-sr-cf5" firstAttribute="centerY" secondItem="OWg-vu-j1l" secondAttribute="centerY" id="ec4-Tw-7Mu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2Sa-Yl-c6P" secondAttribute="trailing" constant="4" id="jmy-Ix-16E"/>
-                            <constraint firstItem="hHe-sr-cf5" firstAttribute="top" secondItem="Dtq-P0-P1M" secondAttribute="bottom" id="puf-L6-iB1"/>
-                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="centerY" secondItem="OWg-vu-j1l" secondAttribute="centerY" id="wly-6Z-QEV"/>
-                            <constraint firstItem="p5y-pb-pse" firstAttribute="top" secondItem="hHe-sr-cf5" secondAttribute="bottom" id="zRl-bj-5sz"/>
+                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="leading" secondItem="hHe-sr-cf5" secondAttribute="trailing" constant="15" id="IKi-VR-TPx"/>
+                            <constraint firstItem="2Sa-Yl-c6P" firstAttribute="top" secondItem="Dtq-P0-P1M" secondAttribute="bottom" constant="10" id="erA-vC-163"/>
+                            <constraint firstItem="hHe-sr-cf5" firstAttribute="top" secondItem="Dtq-P0-P1M" secondAttribute="bottom" id="jwv-uf-E5p"/>
+                            <constraint firstItem="hHe-sr-cf5" firstAttribute="leading" secondItem="OWg-vu-j1l" secondAttribute="leading" id="rMQ-gB-zWW"/>
+                            <constraint firstItem="p5y-pb-pse" firstAttribute="top" secondItem="2Sa-Yl-c6P" secondAttribute="bottom" constant="10" id="sjK-iN-Jni"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Sa-Yl-c6P" secondAttribute="trailing" constant="4" id="vmn-aO-bJ9"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
