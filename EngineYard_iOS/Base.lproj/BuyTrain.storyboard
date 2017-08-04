@@ -23,7 +23,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="2GK-lj-Nr0" kind="presentation" identifier="buyTrainDetailSegue" id="qjP-2N-xLF"/>
+                        <segue destination="2GK-lj-Nr0" kind="presentation" identifier="trainDetailSegue" id="qjP-2N-xLF"/>
                         <segue destination="5gD-vg-dJ4" kind="showDetail" identifier="productionSegue" action="showViewController:sender:" id="m1v-82-hXc"/>
                     </connections>
                 </viewController>

@@ -107,7 +107,7 @@ class BuyTrainListViewController: UIViewController {
             return false
         }
 
-        if (identifier == "buyTrainDetailSegue") {
+        if (identifier == "trainDetailSegue") {
             guard let _ = hasViewModel.selectedTrain else {
                 return false
             }

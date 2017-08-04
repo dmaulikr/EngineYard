@@ -107,6 +107,17 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print ("Selected indexPath: \(indexPath)")
+
+        guard let trains = self.genericTrainListViewModel?.trains else {
+            return
+        }
+        let selectedTrain = trains[indexPath.row]
+
+        print ("selected train: \(selectedTrain.description)")
+
+        if let closure = self.selectedTrainClosure {
+            closure(selectedTrain)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
