@@ -59,7 +59,7 @@ class HandTests: BaseTests {
 
             if (index < firstTrain.numberOfChildren) {
                 XCTAssertTrue((player.hand.canAdd(train: firstTrain) != nil))
-                player.hand.add(train: firstTrain)
+                let _ = player.hand.add(train: firstTrain)
 
                 XCTAssertTrue(player.hand.cards.count == 1)
 

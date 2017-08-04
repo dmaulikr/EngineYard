@@ -36,7 +36,7 @@ class ProductionTests: BaseTests {
         }
         self.gameBoard = gameBoard
 
-        let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
+        let numberOfTrue = gameBoard.countUnlocked
         XCTAssertTrue(numberOfTrue == 1)
     }
     
@@ -59,7 +59,7 @@ class ProductionTests: BaseTests {
         }
 
         // buy train
-        buyer.hand.add(train: train)
+        let _ = buyer.hand.add(train: train)
 
         XCTAssertTrue(buyer.hand.cards.count == 1)
         XCTAssertTrue(buyer.hand.cards.first?.production?.units == 1)
@@ -99,7 +99,7 @@ class ProductionTests: BaseTests {
         }
 
         // buy train
-        buyer.hand.add(train: train)
+        let _ = buyer.hand.add(train: train)
 
         XCTAssertTrue(buyer.hand.cards.count == 1)
         XCTAssertTrue(buyer.hand.cards.first?.production?.units == 1)

@@ -98,7 +98,7 @@ extension SetupManager
         // Give each player a first train card (if possible)
 
         for player in gameModel.players {
-            player.hand.add(train: firstTrain)
+            let _ = player.hand.add(train: firstTrain)
         }
 
         firstTrain.orderBook.generateExistingOrders(howMany: 3)

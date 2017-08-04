@@ -36,7 +36,7 @@ class TransferOrderTests: BaseTests {
         }
         self.gameBoard = gameBoard
 
-        let numberOfTrue = TrainAPI.countUnlockedDecks(in: gameBoard)
+        let numberOfTrue = gameBoard.countUnlocked 
         XCTAssertTrue(numberOfTrue == 1)
     }
 

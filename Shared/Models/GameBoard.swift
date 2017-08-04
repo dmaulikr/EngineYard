@@ -8,22 +8,17 @@
 
 import Foundation
 
-/*
 extension Notification.Name {
     static let boughtTrainNotificationId = Notification.Name("boughtTrainNotificationId")
 }
-*/
 
-protocol DeckProtocol
-{
+protocol DeckProtocol {
     var decks: [Train] { get }
     func unlockNextDeck()
 }
 
 final class GameBoard: DeckProtocol
 {
-    //static var instance = GameBoard()
-
     fileprivate var _decks: [Train] = [Train]()
 
     public var decks: [Train] {
@@ -32,9 +27,20 @@ final class GameBoard: DeckProtocol
         })
     }
 
+    var countUnlocked : Int {
+        return (self.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) })
+    }
+
     // MARK: - Register Notifications
 
-    /*
+    init() {
+        registerForNotifications()
+    }
+
+    deinit {
+        removeNotifications()
+    }
+
     func registerForNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didPurchaseTrain), name: .boughtTrainNotificationId, object: nil)
     }
@@ -45,8 +51,9 @@ final class GameBoard: DeckProtocol
 
     @objc func didPurchaseTrain() {
         print ("didPurchaseTrain")
+        self.unlockNextDeck()
     }
-     */
+
 
     func reset() {
         self._decks.removeAll()
@@ -57,9 +64,33 @@ extension GameBoard {
 
     // MARK: - GameBoard delegate method
 
+    internal func unlockNextDeck() {
+        print (self.decks.description)
+
+
+        guard let firstLockedDeck = (self.decks.filter({
+            return ($0.isUnlocked == false)
+        }).first) else {
+            return
+        }
+
+        print ("Unlocking: \(firstLockedDeck.name)")
+    }
+    
+    /**
     internal func nextDeckToUnlock() -> Train? {
 
-        return nil
+        print (self.decks.description)
+
+        guard let firstLockedDeck = (self.decks.filter({
+            return ($0.isUnlocked == false)
+        }).first) else {
+            return nil
+        }
+
+        print ("Unlocking: \(firstLockedDeck.name)")
+
+        return firstLockedDeck
     }
 
     internal func unlockNextDeck() {
@@ -67,14 +98,15 @@ extension GameBoard {
             return
         }
 
+        self.didUnlockNextDeck(train: train)
+    }
+
+    private func didUnlockNextDeck(train: Train) {
         let order = ExistingOrder.generate()
         train.orderBook.add(order: order)
         print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
     }
-
-    private func didUnlockNextDeck(train: Train) {
-
-    }
+     **/
 
 }
 
@@ -82,7 +114,6 @@ extension GameBoard {
 
     // MARK: - Prepare board
 
-    // #TODO - Add callback
     public static func prepare() -> GameBoard {
         let gameBoard = GameBoard()
 
@@ -96,7 +127,7 @@ extension GameBoard {
 
     fileprivate static func prepareDecks() -> [Train] {
         let trains: [Train] = [
-            Train.init(name: "Green.1", cost: 4, generation: .first, engineColor: .green, capacity: 3, numberOfChildren: 4, delegate:  GameBoard())
+              Train.init(name: "Green.1", cost: 4, generation: .first, engineColor: .green, capacity: 3, numberOfChildren: 4, delegate:  GameBoard())
             , Train.init(name: "Red.1", cost: 8, generation: .first, engineColor: .red, capacity: 3, numberOfChildren: 3, delegate:  GameBoard())
             , Train.init(name: "Yellow.1", cost: 12, generation: .first, engineColor: .yellow, capacity: 2, numberOfChildren: 2, delegate:  GameBoard())
             , Train.init(name: "Blue.1", cost: 16, generation: .first, engineColor: .blue, capacity: 1, numberOfChildren: 1, delegate:  GameBoard())

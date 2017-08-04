@@ -104,7 +104,7 @@ class BaseTests: XCTestCase {
         XCTAssert(gameObj.players.count == expectedPlayers)
         XCTAssert(gameBoard.decks.count == Constants.Board.decks)
 
-        let unlocked = TrainAPI.countUnlockedDecks(in: gameBoard)
+        let unlocked = gameBoard.countUnlocked
         XCTAssert(unlocked == 1)
 
         // Validate board decks
