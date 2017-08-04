@@ -69,41 +69,21 @@ class TrainPurchaseTests: BaseTests {
         var invalidPurchases: Int = 0
         let _ = game.gameBoard?.decks.map({
 
-            do {
-                let result = try $0.canBePurchased(by: firstPlayer)
-                XCTAssertTrue(result)
 
-            } catch let error {
-                print (error)
+            let (result, error) = TrainAPI
+                .isValidPurchase(train: $0, player: firstPlayer)
+
+            if let error = error {
+                print(error)
                 invalidPurchases += 1
+            }
+            else {
+                XCTAssertTrue(result)
             }
         })
 
-        XCTAssertTrue(invalidPurchases == (Constants.Board.decks - 1))
 
-        let countUnlockedBefore = gameBoard.countUnlocked
-        XCTAssertTrue(countUnlockedBefore == 1)
-
-        let cashBefore = firstPlayer.wallet.balance
-        let expectedCashAfter = (cashBefore - train.cost)
-        let expectedHandAfter = 1
-
-        do {
-            let result = try train.canBePurchased(by: firstPlayer)
-            XCTAssertTrue(result)
-            XCTAssertNotNil(firstPlayer.hand.canAdd(train: train))
-
-            train.purchase(buyer: firstPlayer)
-
-            XCTAssertTrue(firstPlayer.wallet.balance == expectedCashAfter)
-            XCTAssertTrue(firstPlayer.hand.cards.count == expectedHandAfter)
-
-            //let countUnlockedAfter = gameBoard.countUnlocked
-            //XCTAssertTrue(countUnlockedAfter == 2, "\(countUnlockedAfter)")
-
-        } catch let error {
-            XCTFail(error as! String)
-        }
+        XCTAssertTrue(invalidPurchases == 13)
 
     }
 
