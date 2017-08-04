@@ -22,6 +22,11 @@ class TrainAPI
         return card
     }
 
+    // #TODO - Make it so that only protocols can fire this
+    public static func unlockNextDeck() {
+        NotificationCenter.default.post(name: .boughtTrainNotificationId, object: nil)
+    }
+
     public static func findTrainInDeck(decks: [Train], whereColor: EngineColor, whereGeneration: Generation) -> Train? {
         guard let firstTrain = (decks.filter({ (train: Train) -> Bool in
             return (train.engineColor == whereColor) && (train.generation == whereGeneration)

@@ -129,14 +129,18 @@ class TrainPurchaseTests: BaseTests {
 
         XCTAssertTrue(gameBoard.countUnlocked == 1)
 
-        /*
         for deck in gameBoard.decks {
-            deck.delegate?.unlockNextDeck()
-            print ("deck: \(deck.name), \(deck.isUnlocked), orders: \(deck.existingOrderValues)\n")
+            print ("at: \(deck.name), attempting to unlock next")
+            TrainAPI.unlockNextDeck()
         }
 
-        XCTAssertTrue(gameBoard.countUnlocked == Constants.Board.decks)
-        */
+        for deck in gameBoard.decks {
+            XCTAssertTrue(deck.isUnlocked)
+            XCTAssertTrue(deck.existingOrderValues.count > 0)
+        }
+
+
+
     }
 
 
