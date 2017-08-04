@@ -10,6 +10,11 @@ import UIKit
 
 class RivalTrainOwnersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var indexLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var unitsImageView: UIImageView!
+    @IBOutlet weak var unitsLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +24,10 @@ class RivalTrainOwnersTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    func configureCellWith() {
+        
     }
     
 }

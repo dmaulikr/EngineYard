@@ -17,13 +17,10 @@ class SalesReportViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         self.tableView.register(UINib(nibName: "SalesTableViewCell", bundle: nil), forCellReuseIdentifier: "SalesTableViewCell")
-        //self.tableView.register(SalesTableViewCell.self, forCellReuseIdentifier: "SalesTableViewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.allowsSelection = false
         self.tableView.allowsMultipleSelection = false
-        //self.tableView.rowHeight = UITableViewAutomaticDimension
-        //self.tableView.estimatedRowHeight = 70
 
     }
 

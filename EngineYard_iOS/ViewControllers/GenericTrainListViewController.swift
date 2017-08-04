@@ -100,7 +100,6 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
             cell.engineCardView?.setup(with: train)
 
             EngineCardView.applyDropShadow(train: train, forView: cell)
-            
         }
 
         return cell
