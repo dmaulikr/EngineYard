@@ -27,64 +27,6 @@ class TrainPurchaseTests: BaseTests {
     func testPurchaseTrain() {
 
 
-        guard let players = Mock.players(howMany: 5) else {
-            XCTFail("Mock players failed")
-            return
-        }
-        XCTAssert(players.count == 5)
-
-        guard let game = Game.setup(players: players) else {
-            XCTFail("Game setup failed")
-            return
-        }
-
-        guard let gameBoard = game.gameBoard else {
-            XCTFail("No game board defined")
-            return
-        }
-
-        guard let train = game.gameBoard?.decks.first else {
-            XCTFail("No train found")
-            return
-        }
-
-        guard let firstPlayer = game.players.first else {
-            XCTFail("no player found")
-            return
-        }
-
-
-        XCTAssertTrue(train.generation == .first && train.engineColor == .green)
-        XCTAssertTrue(game.players.count == Constants.NumberOfPlayers.max)
-
-
-        // Checks
-        // 1. Train is unlocked, has orders
-        // 2. There is stock available
-        // 3. Player can afford train
-        // 4. Player doesn't already have the train in his hand
-
-        // I expect that all trains except first are invalid purchases
-
-        var invalidPurchases: Int = 0
-        let _ = game.gameBoard?.decks.map({
-
-
-            let (result, error) = TrainAPI
-                .isValidPurchase(train: $0, player: firstPlayer)
-
-            if let error = error {
-                print(error)
-                invalidPurchases += 1
-            }
-            else {
-                XCTAssertTrue(result)
-            }
-        })
-
-
-        XCTAssertTrue(invalidPurchases == 13)
-
     }
 
 
