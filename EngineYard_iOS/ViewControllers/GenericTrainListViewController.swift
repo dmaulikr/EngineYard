@@ -104,7 +104,7 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
             EngineCardView.applyDropShadow(train: train, forView: cell)
 
             // # TODO - REQUIRES REFACTOR
-            /*
+
             if let hasState = self.state {
                 if (hasState == 0) { // buy trains state
 
@@ -121,7 +121,7 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
                         cell.alpha = 0.5
                     }
                 }
-            }*/
+            }
 
 
         }
