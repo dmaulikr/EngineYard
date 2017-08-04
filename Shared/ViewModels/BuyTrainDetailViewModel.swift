@@ -13,7 +13,7 @@ class BuyTrainDetailViewModel : BaseViewModel
 {
     var train: Train?
 
-    public var buyTrainText : String? {
+    var buyTrainText : String? {
         guard let hasTrain = self.train else {
             return nil
         }
@@ -25,6 +25,22 @@ class BuyTrainDetailViewModel : BaseViewModel
 
         return NSLocalizedString("Buy train for \(price)", comment: "Buy train message")
     }
+
+    lazy var purchaseTrainAlertMessage: Message? = {
+        guard let train = self.train else {
+            return nil
+        }
+
+        let costNumber = NSNumber(integerLiteral: train.cost)
+        guard let formattedCost = ObjectCache.currencyRateFormatter.string(from: costNumber) else {
+            return nil
+        }
+
+        let title = NSLocalizedString("Purchase train?", comment: "Purchase train alert title")
+        let body = NSLocalizedString("Purchase train for \(formattedCost)", comment: "Purchase train alert message")
+
+        return (Message.init(title: title, message: body))
+    }()
 
     lazy var rivals: [Player]? = {
         guard let hasGame = self.game else {
@@ -71,5 +87,15 @@ class BuyTrainDetailViewModel : BaseViewModel
         cell.indexLabel.text = "# \(atIndexPath.row)"
 
         cell.layoutIfNeeded()
+    }
+
+    func purchase() {
+        /*
+        guard let hasTrain = self.train else {
+            return
+        }
+        guard let hasPlayer = self.playerOnTurn else {
+            return
+        }*/
     }
 }

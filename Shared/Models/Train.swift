@@ -152,5 +152,24 @@ extension Train {
 }
 
 extension Train {
+
+    func canBePurchased(by player: Player) throws -> Bool {
+
+        if (!self.isUnlocked) {
+            throw ErrorCode.trainIsNotUnlocked(train: self)
+        }
+        if (TrainAPI.getRemainingStock(train: self) <= 0) {
+            throw ErrorCode.trainHasNoStockRemaining(train: self)
+        }
+        if (player.hand.containsTrain(train: self)) {
+            throw ErrorCode.playerAlreadyOwns(train: self)
+        }
+        if (!player.wallet.canAfford(amount: self.cost)) {
+            throw ErrorCode.insufficientFunds(coinsNeeded: self.cost)
+        }
+
+        return true
+    }
+
 }
 

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import GSMessages
 
 class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     var viewModel: BuyTrainDetailViewModel?
+    var completionClosure : ((_ didPurchase: Bool)->())?
 
     @IBOutlet weak var engineCardXIBView: EngineCardXibView!
     @IBOutlet weak var playerXIBView: PlayerXIBView!
@@ -57,6 +59,32 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
         let hudCardView: PlayerHUDView = self.playerXIBView.contentView as! PlayerHUDView
         hudCardView.setupUI(player: playerOnTurn)
         hudCardView.layoutIfNeeded()
+
+        // can afford train?
+        if let train = viewModel.train {
+            if (!playerOnTurn.wallet.canAfford(amount: train.cost)) {
+                self.showMessage("You cannot afford this train", type: .error)
+                self.toggleBuyButton(false)
+            }
+            else {
+                self.showMessage("Buying this train will add to your portfolio and unlock the next train", type: .info)
+                self.toggleBuyButton(true)
+            }
+        }
+    }
+
+    func toggleBuyButton(_ state: Bool = true) {
+        if (state) {
+            self.buyBtn.isEnabled = true
+            self.buyBtn.alpha = 1.0
+            self.buyTrainLabel.isHidden = false
+        }
+        else {
+            self.buyBtn.isEnabled = false
+            self.buyBtn.alpha = 0.5
+            self.buyTrainLabel.isHidden = true
+
+        }
     }
 
     func setupTrainView(viewModel: BuyTrainDetailViewModel) {
@@ -127,11 +155,95 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
 
     @IBAction func buyBtnPressed(_ sender: UIButton) {
         print("buy btn pressed")
+
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+        guard let playerOnTurn = hasViewModel.playerOnTurn else {
+            return
+        }
+
+        if let train = hasViewModel.train {
+
+            // #TODO refactor checking
+            if ((playerOnTurn.wallet.canAfford(amount: train.cost)) && (playerOnTurn.hand.containsTrain(train: train) == false))
+            {
+                showPurchaseAlert(completionClosure: { (willPurchase) in
+                    if (willPurchase) {
+                        hasViewModel.purchase()
+                    }
+                })
+                /*
+                showPurchaseAlert { (willPurchase) in
+                    if (willPurchase) {
+
+                        viewModel.purchaseTrain(train: loco, player: playerOnTurn)
+
+                        waitFor(duration: 1.0) { (complete: Bool) in
+                            if (complete) {
+                                self.dismiss(animated: true) {
+                                    if let closure = self.completionClosure {
+                                        closure(true)
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                 */
+
+            }
+        }
+
     }
 
     @IBAction func cancelBtnPressed(_ sender: UIButton) {
         print("cancel btn pressed")
-        self.dismiss(animated: true, completion: nil)
+
+        self.dismiss(animated: true) {
+            if let closure = self.completionClosure {
+                closure(false)
+            }
+        }
+    }
+
+    // MARK: - Purchase Alert
+
+    func showPurchaseAlert(completionClosure : @escaping ((_ willPurchase:Bool)->())) {
+
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        guard let messageObj = viewModel.purchaseTrainAlertMessage else {
+            return
+        }
+        guard let messageTitle = messageObj.title else {
+            return
+        }
+        guard let messageBody = messageObj.message else {
+            return
+        }
+
+        // Show alert
+        let alertController = UIAlertController(title: messageTitle,
+                                                message: messageBody,
+            preferredStyle: .alert)
+
+        let okString = NSLocalizedString("OK", comment: "OK")
+        let cancelString = NSLocalizedString("Cancel", comment: "Cancel")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            completionClosure(true)
+        }
+        let actionCancel = UIAlertAction(title: cancelString, style: .cancel) { (action) in
+            completionClosure(false)
+        }
+
+        alertController.addAction(actionOK)
+        alertController.addAction(actionCancel)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
     /*

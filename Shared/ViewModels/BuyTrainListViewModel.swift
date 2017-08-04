@@ -46,40 +46,6 @@ class BuyTrainListViewModel : BaseViewModel
 extension BuyTrainListViewModel
 {
 
-
-    func isTrainAvailableForPurchase(train: Train) -> Bool {
-        if (train.isUnlocked) {
-            print ("train is ok to purchase")
-        }
-        else {
-            print ("train is NOT open for purchase")
-        }
-        return (train.isUnlocked)
-    }
-
-    func doesPlayerAlreadyOwnTrain(train: Train) -> Bool {
-
-        guard let playerOnTurn = self.playerOnTurn else {
-            return false
-        }
-
-        if (playerOnTurn.hand.containsTrain(train: train)) {
-            return false
-        }
-
-        return true
-    }
-
-    func canPlayerAffordTrain(train: Train) -> Bool {
-        guard let playerOnTurn = self.playerOnTurn else {
-            return false
-        }
-        return (playerOnTurn.wallet.canAfford(amount: train.cost))
-    }
-
-    func hasRemainingStock(train: Train) -> Bool {
-        return (TrainAPI.getRemainingStock(train: train) > 0)
-    }
 }
 
 
@@ -97,9 +63,14 @@ extension BuyTrainListViewModel
         }
 
         if (identifier == "trainDetailSegue") {
-            guard let train = self.selectedTrain else {
-                return false
-            }
+//            guard let train = self.selectedTrain else {
+//                return false
+//            }
+
+            
+
+
+            /**
             if (!self.isTrainAvailableForPurchase(train: train)) {
 
                 let title = NSLocalizedString("Not available for purchase", comment: "Not purchasable - Title")
@@ -137,6 +108,7 @@ extension BuyTrainListViewModel
 
                 return false
             }
+             **/
         }
 
         return true
