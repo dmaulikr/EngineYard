@@ -180,8 +180,8 @@ extension Train {
         // if the player can add the train to his hand
         if (buyer.hand.add(train: self)) {
             buyer.wallet.debit(amount: self.cost)
-            //self.delegate?.unlockNextDeck()
-            NotificationCenter.default.post(name: .boughtTrainNotificationId, object: nil)
+            self.delegate?.unlockNextDeck()
+            //NotificationCenter.default.post(name: .boughtTrainNotificationId, object: nil)
         }
         else {
             assertionFailure("can't purchase it")

@@ -66,17 +66,23 @@ extension GameBoard {
 
     internal func unlockNextDeck() {
         print (self.decks.description)
+        assert(self.decks.count > 0, "invalid decks: \(self.decks.count)")
 
-
-        guard let firstLockedDeck = (self.decks.filter({
+        guard let train = (self.decks.filter({
             return ($0.isUnlocked == false)
         }).first) else {
             return
         }
 
-        print ("Unlocking: \(firstLockedDeck.name)")
+        self.didUnlockNextDeck(train: train)
     }
-    
+
+    private func didUnlockNextDeck(train: Train) {
+        let order = ExistingOrder.generate()
+        train.orderBook.add(order: order)
+        print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
+    }
+
     /**
     internal func nextDeckToUnlock() -> Train? {
 
@@ -101,12 +107,7 @@ extension GameBoard {
         self.didUnlockNextDeck(train: train)
     }
 
-    private func didUnlockNextDeck(train: Train) {
-        let order = ExistingOrder.generate()
-        train.orderBook.add(order: order)
-        print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
-    }
-     **/
+        **/
 
 }
 
