@@ -79,7 +79,8 @@ class HandTests: BaseTests {
         // remaining stock test
         
         let remainingStock = TrainAPI.getRemainingStock(train: firstTrain)
-        XCTAssertTrue(remainingStock >= 0, "\(remainingStock)")
+        XCTAssertTrue(remainingStock == 0, "\(remainingStock)")
+        XCTAssertFalse(remainingStock < 0, "\(remainingStock)")
 
     }
 

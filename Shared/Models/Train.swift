@@ -51,6 +51,10 @@ final class Train : CustomStringConvertible, Equatable, TrainProtocol
         }
     }
 
+    var hasRemainingStock : Bool {
+        return (TrainAPI.getRemainingStock(train: self) > 0)
+    }
+
     var cards: [LocomotiveCard] = [LocomotiveCard]()
 
     lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book

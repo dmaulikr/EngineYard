@@ -19,6 +19,8 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
     var doneBtnClosure : ((_ doneBtnPressed: Bool)->())?
     var selectedTrainClosure : ((_ train: Train?)->())?
 
+    var state: Int = 0 // use this to decide what to alpha, filter out, etc
+
     weak var HUD: HUDViewController?
     @IBOutlet weak var pageTitleLabel: UILabel!
     @IBOutlet weak var trainsCollectionView: UICollectionView!
@@ -100,6 +102,23 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
             cell.engineCardView?.setup(with: train)
 
             EngineCardView.applyDropShadow(train: train, forView: cell)
+
+            // # TODO - REFACTOR
+            if (self.state == 0) { // buy trains state
+
+                if let playerOnTurn = self.genericTrainListViewModel?.playerOnTurn {
+                    if (!playerOnTurn.wallet.canAfford(amount: train.cost))
+                    {
+                        cell.alpha = 0.5
+                    }
+                    if (playerOnTurn.hand.containsTrain(train: train)) {
+                        cell.alpha = 0.5
+                    }
+                }
+                if ((!train.isUnlocked) || (!train.hasRemainingStock)) {
+                    cell.alpha = 0.5
+                }
+            }
         }
 
         return cell
