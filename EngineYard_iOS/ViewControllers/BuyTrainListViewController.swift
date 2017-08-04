@@ -111,8 +111,6 @@ class BuyTrainListViewController: UIViewController, BuyTrainAlertProtocol {
 
     internal func showAlert(message: Message) {
 
-        print ("MESSAGE: \(message)")
-
         guard let title = message.title else {
             return
         }
