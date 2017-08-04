@@ -95,9 +95,8 @@ class EngineCardView: UIView {
         let productionNumber = NSNumber(integerLiteral: card.productionCost)
         let incomeNumber = NSNumber(integerLiteral: card.income)
 
-        let ownersCount = card.owners?.count ?? 0
-        let cardsRemaining = (card.numberOfChildren - ownersCount)
-        let remainingStockNumber = NSNumber(integerLiteral: cardsRemaining)
+        let cardsLeft = TrainAPI.getRemainingStock(train: train)
+        let remainingStockNumber = NSNumber(integerLiteral: cardsLeft)
 
         self.nameLabel.text = card.name
         self.generationLabel.text = NSLocalizedString("Generation \(genNumber)", comment: "Train generation number")

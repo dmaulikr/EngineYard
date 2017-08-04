@@ -37,4 +37,14 @@ class TrainAPI
         }
         return firstTrain
     }
+
+    public static func getRemainingStock(train: Train) -> Int {
+        if (train.numberOfChildren > 0) {
+            guard let owners = train.owners?.count else {
+                return train.numberOfChildren
+            }
+            return (train.numberOfChildren - owners)
+        }
+        return train.numberOfChildren
+    }
 }

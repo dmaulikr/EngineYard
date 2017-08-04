@@ -8,14 +8,19 @@
 
 import UIKit
 
+protocol BuyTrainAlertProtocol {
+    func showAlert(message: Message)
+}
 
-class BuyTrainListViewController: UIViewController {
+class BuyTrainListViewController: UIViewController, BuyTrainAlertProtocol {
 
     var viewModel: BuyTrainListViewModel?
     weak var childVC: GenericTrainListViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.viewModel?.delegate = self
 
         addTrainViewController()
     }
@@ -91,7 +96,6 @@ class BuyTrainListViewController: UIViewController {
                     }
                 }
             }
-
         }
     }
 
@@ -99,22 +103,33 @@ class BuyTrainListViewController: UIViewController {
         guard let hasViewModel = self.viewModel else {
             return false
         }
-        guard let hasGame = hasViewModel.game else {
-            assertionFailure("** No game object defined **")
-            return false
+
+        return hasViewModel.shouldPerformSegue(identifier: identifier)
+    }
+
+    // Buy Train Alert delegate
+
+    internal func showAlert(message: Message) {
+
+        print ("MESSAGE: \(message)")
+
+        guard let title = message.title else {
+            return
         }
-        guard let _ = hasGame.gameBoard else {
-            assertionFailure("** No game board defined **")
-            return false
+        guard let message = message.message else {
+            return
         }
 
-        if (identifier == "trainDetailSegue") {
-            guard let _ = hasViewModel.selectedTrain else {
-                return false
-            }
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okString = NSLocalizedString("OK", comment: "OK")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
         }
 
-        return true
+        alertController.addAction(actionOK)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
 
