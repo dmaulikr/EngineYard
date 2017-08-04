@@ -84,6 +84,7 @@ class BuyTrainListViewController: UIViewController {
                     print ("You clicked on: \(selectedTrain.name)")
 
                     hasViewModel.selectedTrain = selectedTrain
+
                     let identifier = "trainDetailSegue"
                     if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
                         self.performSegue(withIdentifier: identifier, sender: self)
@@ -141,7 +142,7 @@ class BuyTrainListViewController: UIViewController {
         }
 
 
-        if (segue.identifier == "buyTrainDetailSegue") {
+        if (segue.identifier == "trainDetailSegue") {
 
             let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
             vc.viewModel = BuyTrainDetailViewModel.init(game: hasGame, train: selectedTrain)

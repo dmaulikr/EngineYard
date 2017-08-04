@@ -37,6 +37,8 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
         if let hasViewModel = self.viewModel {
             setupTrainView(viewModel: hasViewModel)
             setupPlayerView(viewModel: hasViewModel)
+
+            print ("rivals -- \(hasViewModel.rivals)")
         }
     }
 
@@ -64,19 +66,24 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
         guard let train = viewModel.train else {
             return
         }
-        guard let hasTrainBuyText = viewModel.buyTrainText else {
+        guard let trainBuyText = viewModel.buyTrainText else {
             return
         }
 
         let engineCard = self.engineCardXIBView.contentView as! EngineCardView
         engineCard.setup(with: train)
-
-        EngineCardView.applyDropShadow(train: train, forView: self.view)
-        self.engineCardXIBView.layoutIfNeeded()
+        EngineCardView.applyDropShadow(train: train, forView: self.engineCardXIBView!)
 
         // setup buy button text
-        self.buyBtn.setTitle(hasTrainBuyText, for: .normal)
-        self.buyBtn.layoutIfNeeded()
+        self.buyTrainLabel.text = trainBuyText
+
+        guard let rivals = viewModel.rivals else {
+            return
+        }
+        if (rivals.count == 0) {
+            self.noRivalOwnersLabel.isHidden = false
+            self.rivalOwnersTableView.isHidden = true
+        }
     }
 
     // MARK: - UITableView delegate

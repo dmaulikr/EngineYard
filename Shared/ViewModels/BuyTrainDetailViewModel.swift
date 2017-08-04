@@ -27,7 +27,9 @@ class BuyTrainDetailViewModel : BaseViewModel
         }
 
         let cost: NSNumber = NSNumber(integerLiteral: hasTrain.cost)
-        let price = ObjectCache.currencyRateFormatter.string(from: cost)
+        guard let price = ObjectCache.currencyRateFormatter.string(from: cost) else {
+            return nil
+        }
 
         return NSLocalizedString("Buy train for \(price)", comment: "Buy train message")
     }
