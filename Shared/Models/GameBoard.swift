@@ -8,12 +8,9 @@
 
 import Foundation
 
-extension Notification.Name {
-    static let boughtTrainNotificationId = Notification.Name("boughtTrainNotificationId")
-}
-
 protocol DeckProtocol {
     var decks: [Train] { get }
+    //func unlockNextDeck()
 }
 
 final class GameBoard: DeckProtocol
@@ -30,29 +27,6 @@ final class GameBoard: DeckProtocol
         return (self.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) })
     }
 
-    // MARK: - Notifications
-
-    init() {
-        registerForNotifications()
-    }
-
-    deinit {
-        removeNotifications()
-    }
-
-    func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didPurchaseTrain), name: .boughtTrainNotificationId, object: nil)
-    }
-
-    func removeNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .boughtTrainNotificationId, object: nil)
-    }
-
-    @objc func didPurchaseTrain() {
-        print ("didPurchaseTrain")
-    }
-
-
     func reset() {
         self._decks.removeAll()
     }
@@ -61,7 +35,26 @@ final class GameBoard: DeckProtocol
 extension GameBoard {
 
 
+    internal func unlockNextDeck(_ train: Train?) {
+        assert(self.decks.count > 0, "Invalid decks: \(self.decks.count)")
 
+        guard let currentDeck = train else {
+            return
+        }
+
+        guard let nextDeck = self.decks.after(currentDeck) else {
+            return
+        }
+
+        if (!nextDeck.isUnlocked) {
+            print ("unlock next item")
+            //let order = ExistingOrder.generate()
+            //print("Generated order: \(order.value) for \(nextDeck.name)")
+            //nextDeck.orderBook.add(order: order)
+        }
+
+
+    }
 
 }
 
