@@ -45,7 +45,6 @@ class HandTests: BaseTests {
             return
         }
         XCTAssertTrue(firstTrain.generation == .first && firstTrain.engineColor == .green)
-
         XCTAssertTrue(firstTrain.owners?.count == 0)
 
         let _ = players.map({
@@ -60,7 +59,7 @@ class HandTests: BaseTests {
 
             if (index < firstTrain.numberOfChildren) {
                 XCTAssertTrue((player.hand.canAdd(train: firstTrain) != nil))
-                player.hand.add(train: firstTrain)
+                let _ = player.hand.add(train: firstTrain)
 
                 XCTAssertTrue(player.hand.cards.count == 1)
 
@@ -73,11 +72,15 @@ class HandTests: BaseTests {
             }
             else {
                 XCTAssertFalse((player.hand.canAdd(train: firstTrain) != nil))
-
                 XCTAssertTrue(player.hand.cards.count == 0)
             }
         }
 
+        // remaining stock test
+        
+        let remainingStock = TrainAPI.getRemainingStock(train: firstTrain)
+        XCTAssertTrue(remainingStock == 0, "\(remainingStock)")
+        XCTAssertFalse(remainingStock < 0, "\(remainingStock)")
 
     }
 

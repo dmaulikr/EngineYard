@@ -41,20 +41,22 @@ class Hand : CustomStringConvertible
         }
     }
 
-    func add(train: Train) {
+    func add(train: Train) -> Bool {
         guard let hasOwner = self.owner else {
             assertionFailure("Hand has no owner")
-            return
+            return false
         }
         guard let card = self.canAdd(train: train) else {
-            return
+            return false
         }
         card.setOwner(owner: hasOwner)
         self.cards.append(card)
         card.productionDelegate?.setDefaultProduction()
+
+        return true
     }
 
-    func canAdd(train: Train) -> LocomotiveCard? {
+    internal func canAdd(train: Train) -> LocomotiveCard? {
         if (self.containsTrain(train: train) == false) {
 
             guard let card = TrainAPI.findFirstUnownedCard(for: train) else {
@@ -66,8 +68,6 @@ class Hand : CustomStringConvertible
 
         return nil
     }
-
-
 }
 
 extension Hand {

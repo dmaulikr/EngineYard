@@ -11,18 +11,18 @@ import Foundation
 enum ErrorCode: Error {
     case noGameObjectDefined
     case noGameBoardDefined
-    case notUnlocked
-    case gameIsPaused
-    case notYourTurn
-    case alreadyOwnTrain
-    case noOrders
-    case trainIsObsolete
-    case insufficientFunds(coinsNeeded: Int)
-    case outOfStock
-    case noEngineFound
-    case noLocoFound
     case noPlayerFound
     case invalidNumberOfPlayers
+    case gameIsPaused
+    case notYourTurn
+    case trainIsObsolete
+    case trainIsRusting
+    case insufficientFunds(coinsNeeded: Int)
+
+    case trainIsNotUnlocked(train: Train)
+    case trainHasNoStockRemaining(train: Train)
+    case playerAlreadyOwns(train: Train)
+
     case invalidAction
     case __UNKNOWN__
 
@@ -34,40 +34,34 @@ enum ErrorCode: Error {
         case .noGameBoardDefined:
             return NSLocalizedString("** No game board defined **", comment: "System-error: No game board defined message")
 
+        case .noPlayerFound:
+            return  NSLocalizedString("No player found", comment: "noPlayerFound message")
 
-        case .notUnlocked:
-            return  NSLocalizedString("This train is not unlocked", comment: "notUnlocked message")
-            
+
+        case .invalidNumberOfPlayers:
+            return  NSLocalizedString("Invalid number of players", comment: "invalidPlayers message")
+
         case .gameIsPaused:
             return  NSLocalizedString("The game is paused", comment: "gameIsPaused message")
             
         case .notYourTurn:
             return  NSLocalizedString("It is not your turn", comment: "notYourTurn message")
-            
-        case .alreadyOwnTrain:
-            return  NSLocalizedString("You already own this train", comment: "alreadyOwnTrain message")
-            
+
         case .trainIsObsolete:
             return  NSLocalizedString("This train is obsolete", comment: "trainIsObsolete message")
-            
+
+        case .playerAlreadyOwns(let train):
+            return NSLocalizedString("You already own \(train.name)", comment: "Already own train mesage")
+
+        case .trainIsNotUnlocked(let train):
+            return NSLocalizedString("\(train.name) is not available for purchase", comment: "Not unlocked message")
+
+        case .trainHasNoStockRemaining(let train):
+            return NSLocalizedString("\(train.name) has no cards remaining", comment: "No stock remaining message")
+
         case .insufficientFunds(let amount):
             return  NSLocalizedString("Insufficient funds \(amount)", comment: "insufficientFunds message")
-            
-        case .outOfStock:
-            return  NSLocalizedString("This train is out of stock", comment: "trainIsObsolete message")
-            
-        case .noPlayerFound:
-            return  NSLocalizedString("No player found", comment: "noPlayerFound message")
-            
-        case .noEngineFound:
-            return  NSLocalizedString("No engine found", comment: "noEngineFound message")
-            
-        case .noLocoFound:
-            return  NSLocalizedString("No locomotive found", comment: "noLocoFound message")
-            
-        case .invalidNumberOfPlayers:
-            return  NSLocalizedString("Invalid number of players", comment: "invalidPlayers message")
-            
+
         case .invalidAction:
             return  NSLocalizedString("Invalid Action", comment: "invalidAction message")
             
@@ -81,9 +75,7 @@ extension ErrorCode: Equatable
 {
     public static func == (lhs: ErrorCode, rhs: ErrorCode) -> Bool {
         switch (lhs, rhs) {
-        case (.notUnlocked, .notUnlocked):
-            return true
-
+        
         case  (.insufficientFunds, .insufficientFunds):
             return true
 

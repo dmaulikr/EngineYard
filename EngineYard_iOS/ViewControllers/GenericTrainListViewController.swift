@@ -19,6 +19,8 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
     var doneBtnClosure : ((_ doneBtnPressed: Bool)->())?
     var selectedTrainClosure : ((_ train: Train?)->())?
 
+    var state: Int? // use this to decide what to alpha, filter out, etc
+
     weak var HUD: HUDViewController?
     @IBOutlet weak var pageTitleLabel: UILabel!
     @IBOutlet weak var trainsCollectionView: UICollectionView!
@@ -100,7 +102,28 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
             cell.engineCardView?.setup(with: train)
 
             EngineCardView.applyDropShadow(train: train, forView: cell)
-            
+
+            // # TODO - REQUIRES REFACTOR
+
+            if let hasState = self.state {
+                if (hasState == 0) { // buy trains state
+
+                    if let playerOnTurn = self.genericTrainListViewModel?.playerOnTurn {
+                        if (!playerOnTurn.wallet.canAfford(amount: train.cost))
+                        {
+                            cell.alpha = 0.5
+                        }
+                        if (playerOnTurn.hand.containsTrain(train: train)) {
+                            cell.alpha = 0.5
+                        }
+                    }
+                    if ((!train.isUnlocked) || (!train.hasRemainingStock)) {
+                        cell.alpha = 0.5
+                    }
+                }
+            }
+
+
         }
 
         return cell
@@ -108,6 +131,17 @@ class GenericTrainListViewController: UIViewController, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print ("Selected indexPath: \(indexPath)")
+
+        guard let trains = self.genericTrainListViewModel?.trains else {
+            return
+        }
+        let selectedTrain = trains[indexPath.row]
+
+        print ("selected train: \(selectedTrain.description)")
+
+        if let closure = self.selectedTrainClosure {
+            closure(selectedTrain)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {

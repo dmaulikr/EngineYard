@@ -11,6 +11,13 @@ import Foundation
 class BaseViewModel : CustomStringConvertible {
     weak var game: Game?
 
+    lazy var playerOnTurn : Player? = {
+        guard let hasGame = self.game else {
+            return nil
+        }
+        return hasGame.turnOrderManager.current
+    }()
+
     init(game: Game) {
         self.game = game
 

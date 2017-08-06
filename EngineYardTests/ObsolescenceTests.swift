@@ -10,6 +10,8 @@ import XCTest
 
 @testable import EngineYard
 
+// NEEDS REFACTORING
+
 class ObsolescenceTests: BaseTests {
 
     var gameObj: Game!

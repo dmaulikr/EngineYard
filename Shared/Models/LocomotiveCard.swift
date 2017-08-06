@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias Locomotive = LocomotiveCard
+typealias Card = LocomotiveCard
 
 final class LocomotiveCard : CustomStringConvertible, Equatable
 {

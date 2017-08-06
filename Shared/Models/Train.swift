@@ -25,10 +25,12 @@ protocol TrainProtocol
     var owners: [Player]? { get }
 }
 
+// Each train has a collection of locomotive cards; hence this can be described as a deck of cards
+typealias Deck = Train
 
 final class Train : CustomStringConvertible, Equatable, TrainProtocol
 {
-    var delegate: DeckProtocol?
+    public fileprivate (set) var subscribers: [GameBoardProtocol] = []
 
     public private (set) var name: String = ""
     public private (set) var cost: Int = 0
@@ -51,6 +53,10 @@ final class Train : CustomStringConvertible, Equatable, TrainProtocol
         }
     }
 
+    var hasRemainingStock : Bool {
+        return (TrainAPI.getRemainingStock(train: self) > 0)
+    }
+
     var cards: [LocomotiveCard] = [LocomotiveCard]()
 
     lazy var orderBook: OrderBook = OrderBook(parent: self) // order book & completedOrders book
@@ -59,8 +65,7 @@ final class Train : CustomStringConvertible, Equatable, TrainProtocol
         return ((self.existingOrderValues.count > 0) || (self.completedOrderValues.count > 0))
     }
 
-    //public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){
-    init(name: String, cost: Int, generation: Generation, engineColor: EngineColor, capacity: Int, numberOfChildren: Int, delegate: DeckProtocol?) {
+    init(name: String, cost: Int, generation: Generation, engineColor: EngineColor, capacity: Int, numberOfChildren: Int) {
         assert(cost % 4 == 0, "Cost must be a modulus of 4")
         assert(capacity > 0, "Capacity must be > 0")
         assert(numberOfChildren > 0, "Number of children must be > 0")
@@ -72,7 +77,6 @@ final class Train : CustomStringConvertible, Equatable, TrainProtocol
         self.engineColor = engineColor
         self.capacity = capacity
         self.numberOfChildren = numberOfChildren
-        self.delegate = delegate
 
         // functional code to map the cards to children
         self.cards += (1...numberOfChildren).map{ _ in LocomotiveCard.init(parent: self) }
@@ -93,7 +97,25 @@ extension Train {
         returnString = returnString.appending(" orders - \(self.orderBook.existingOrders) | \(self.orderBook.completedOrders)")
         return returnString
     }
+}
 
+extension Deck {
+    func addSubscriber(_ subscriber: GameBoardProtocol)
+    {
+        self.subscribers.append(subscriber)
+    }
+
+    func notifySubscribers()
+    {
+        let _ = self.subscribers.map({
+            $0.unlockNextDeck(self)
+        })
+    }
+
+    func removeSubscribers()
+    {
+        self.subscribers.removeAll()
+    }
 }
 
 extension Train {
@@ -102,8 +124,9 @@ extension Train {
     }
 }
 
+// OrderBook related
 extension Train {
-    
+
     var existingOrderValues: [Int] {
         return orderBook.existingOrders.flatMap({ (e:ExistingOrder) -> Int in
             return e.value
@@ -118,6 +141,12 @@ extension Train {
 
     var hasMaximumDice: Bool {
         return (self.orderBook.completedOrders.count >= self.capacity)
+    }
+
+    func didUnlock() {
+        let newOrder: ExistingOrder = ExistingOrder.generate()
+        print ("Unlocked: \(self.name), order generated: \(newOrder)")
+        self.orderBook.add(order: newOrder)
     }
 }
 
@@ -148,5 +177,40 @@ extension Train {
 }
 
 extension Train {
+
+    func canBePurchased(by player: Player) throws -> Bool {
+
+        if (!self.isUnlocked) {
+            throw ErrorCode.trainIsNotUnlocked(train: self)
+        }
+        if (TrainAPI.getRemainingStock(train: self) <= 0) {
+            throw ErrorCode.trainHasNoStockRemaining(train: self)
+        }
+        if (player.hand.containsTrain(train: self)) {
+            throw ErrorCode.playerAlreadyOwns(train: self)
+        }
+        if (!player.wallet.canAfford(amount: self.cost)) {
+            throw ErrorCode.insufficientFunds(coinsNeeded: self.cost)
+        }
+
+        return true
+    }
+
 }
+
+extension Train {
+
+    // # TO-DO add checks against canBePurchased
+    func purchase(buyer: Player) {
+        // if the player can add the train to his hand
+        if (buyer.hand.add(train: self)) {
+            buyer.wallet.debit(amount: self.cost)
+
+            self.notifySubscribers()
+        }
+    }
+
+
+}
+
 

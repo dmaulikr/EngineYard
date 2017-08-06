@@ -8,14 +8,19 @@
 
 import UIKit
 
+protocol BuyTrainAlertProtocol {
+    func showAlert(message: Message)
+}
 
-class BuyTrainListViewController: UIViewController {
+class BuyTrainListViewController: UIViewController, BuyTrainAlertProtocol {
 
     var viewModel: BuyTrainListViewModel?
     weak var childVC: GenericTrainListViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.viewModel?.delegate = self
 
         addTrainViewController()
     }
@@ -55,6 +60,8 @@ class BuyTrainListViewController: UIViewController {
             self.childVC?.genericTrainListViewModel = GenericTrainListViewModel.init(game: gameObj, trains: trains)
             self.childVC?.genericTrainListViewModel?.pageTitle = hasViewModel.pageTitle
 
+            controller.state = 0
+
             addChildViewController(controller)
             controller.view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(controller.view)
@@ -82,12 +89,53 @@ class BuyTrainListViewController: UIViewController {
                 print ("selectedTrainClosure pressed")
                 if let selectedTrain = train {
                     print ("You clicked on: \(selectedTrain.name)")
-                    //hasViewModel.selectedTrain = selectedTrain
-                    //self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
+
+                    hasViewModel.selectedTrain = selectedTrain
+
+                    let identifier = "trainDetailSegue"
+                    if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
+                        self.performSegue(withIdentifier: identifier, sender: self)
+                    }
                 }
             }
-
         }
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard let hasViewModel = self.viewModel else {
+            return false
+        }
+        guard let hasGame = hasViewModel.game else {
+            return false
+        }
+        guard let _ = hasGame.gameBoard else {
+            return false
+        }
+
+        return hasViewModel.shouldPerformSegue(identifier: identifier)
+    }
+
+    // Buy Train Alert delegate
+
+    internal func showAlert(message: Message) {
+
+        guard let title = message.title else {
+            return
+        }
+        guard let message = message.message else {
+            return
+        }
+
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okString = NSLocalizedString("OK", comment: "OK")
+
+        let actionOK = UIAlertAction(title: okString, style: .default) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+
+        alertController.addAction(actionOK)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
 
@@ -98,7 +146,11 @@ class BuyTrainListViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
-        guard let hasGame = self.viewModel?.game else {
+
+        guard let hasViewModel = self.viewModel else {
+            return
+        }
+        guard let hasGame = hasViewModel.game else {
             assertionFailure("** No game object defined **")
             return
         }
@@ -107,7 +159,13 @@ class BuyTrainListViewController: UIViewController {
             return
         }
 
-        if (segue.identifier == "buyTrainDetailSegue") {
+        if (segue.identifier == "trainDetailSegue") {
+
+            let selectedTrain = hasViewModel.selectedTrain!
+
+            let vc : BuyTrainDetailViewController = (segue.destination as? BuyTrainDetailViewController)!
+            vc.viewModel = BuyTrainDetailViewModel.init(game: hasGame, train: selectedTrain)
+
 
         }
         if (segue.identifier == "productionSegue") {

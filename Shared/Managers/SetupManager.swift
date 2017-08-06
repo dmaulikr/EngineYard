@@ -19,8 +19,8 @@ class SetupManager
             {
                 let gameObj = Game.init()
 
-                // prepare board
-                gameObj.gameBoard = GameBoard.prepare()
+                gameObj.gameBoard = GameBoard()
+                
                 gameObj.turnOrderManager.turnOrder = players
                 gameObj.settings = settings
 
@@ -98,7 +98,7 @@ extension SetupManager
         // Give each player a first train card (if possible)
 
         for player in gameModel.players {
-            player.hand.add(train: firstTrain)
+            let _ = player.hand.add(train: firstTrain)
         }
 
         firstTrain.orderBook.generateExistingOrders(howMany: 3)

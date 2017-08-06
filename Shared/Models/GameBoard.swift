@@ -8,110 +8,76 @@
 
 import Foundation
 
-/*
-extension Notification.Name {
-    static let boughtTrainNotificationId = Notification.Name("boughtTrainNotificationId")
-}
-*/
-
-protocol DeckProtocol
-{
-    var decks: [Train] { get }
-    func unlockNextDeck()
+protocol GameBoardProtocol {
+    func unlockNextDeck( _ deck: Deck )
 }
 
-final class GameBoard: DeckProtocol
+final class GameBoard : GameBoardProtocol
 {
-    //static var instance = GameBoard()
+    fileprivate var _decks: [Deck] = [Deck]()
 
-    fileprivate var _decks: [Train] = [Train]()
+    var countUnlocked : Int {
+        return (self.decks.reduce(0) { $0 + ($1.isUnlocked ? 1 : 0) })
+    }
 
-    public var decks: [Train] {
-        return self._decks.sorted(by: { (t1: Train, t2: Train) -> Bool in
+    public var decks: [Deck] {
+        return self._decks.sorted(by: { (t1: Deck, t2: Deck) -> Bool in
             return (t1.cost < t2.cost)
         })
     }
 
-    // MARK: - Register Notifications
-
-    /*
-    func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didPurchaseTrain), name: .boughtTrainNotificationId, object: nil)
-    }
-
-    func removeNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .boughtTrainNotificationId, object: nil)
-    }
-
-    @objc func didPurchaseTrain() {
-        print ("didPurchaseTrain")
-    }
-     */
-
-    func reset() {
-        self._decks.removeAll()
+    init() {
+        if (self.decks.count == 0) {
+            self.prepare()
+        }
     }
 }
 
 extension GameBoard {
 
-    // MARK: - GameBoard delegate method
-
-    internal func nextDeckToUnlock() -> Train? {
-
-        return nil
-    }
-
-    internal func unlockNextDeck() {
-        guard let train = nextDeckToUnlock() else {
+    internal func unlockNextDeck(_ deck: Deck) {
+        guard let nextDeck = self.decks.after(deck) else {
             return
         }
 
-        let order = ExistingOrder.generate()
-        train.orderBook.add(order: order)
-        print ("Unlocked: \(train.name) -- Added new order: \(order.description) => \(train.orderBook.existingOrders)")
+        guard (!nextDeck.isUnlocked) else {
+            return
+        }
+
+        nextDeck.didUnlock()
     }
-
-    private func didUnlockNextDeck(train: Train) {
-
-    }
-
 }
 
 extension GameBoard {
 
     // MARK: - Prepare board
 
-    // #TODO - Add callback
-    public static func prepare() -> GameBoard {
-        let gameBoard = GameBoard()
+    fileprivate func prepare() {
 
-        // # prepare decks
-        gameBoard._decks = self.prepareDecks()
+        let trains = [
+            Train.init(name: "Green.1", cost: 4, generation: .first, engineColor: .green, capacity: 3, numberOfChildren: 4)
+            , Train.init(name: "Red.1", cost: 8, generation: .first, engineColor: .red, capacity: 3, numberOfChildren: 3)
+            , Train.init(name: "Yellow.1", cost: 12, generation: .first, engineColor: .yellow, capacity: 2, numberOfChildren: 2)
+            , Train.init(name: "Blue.1", cost: 16, generation: .first, engineColor: .blue, capacity: 1, numberOfChildren: 1)
+            , Train.init(name: "Green.2", cost: 20, generation: .second, engineColor: .green, capacity: 4, numberOfChildren: 4)
+            , Train.init(name: "Red.2", cost: 24, generation: .second, engineColor: .red, capacity: 3, numberOfChildren: 3)
+            , Train.init(name: "Yellow.2", cost: 28, generation: .second, engineColor: .yellow, capacity: 3, numberOfChildren: 2)
+            , Train.init(name: "Green.3", cost: 32, generation: .third, engineColor: .green, capacity: 4, numberOfChildren: 4)
+            , Train.init(name: "Blue.2", cost: 36, generation: .second, engineColor: .blue, capacity: 2, numberOfChildren: 2)
+            , Train.init(name: "Red.3", cost: 40, generation: .third, engineColor: .red, capacity: 4, numberOfChildren: 3)
+            , Train.init(name: "Green.4", cost: 44, generation: .fourth, engineColor: .green, capacity: 5, numberOfChildren: 4)
+            , Train.init(name: "Yellow.3", cost: 48, generation: .third, engineColor: .yellow, capacity: 3, numberOfChildren: 3)
+            , Train.init(name: "Red.4", cost: 52, generation: .fourth, engineColor: .red, capacity: 4, numberOfChildren: 4)
+            , Train.init(name: "Green.5", cost: 56, generation: .fifth, engineColor: .green, capacity: 5, numberOfChildren: 4)
+        ]
 
-        // # save to db (#TODO)
+        // add subscriber
+        let _ = trains.map({
+            $0.addSubscriber(self)
+        })
 
-        return gameBoard
+        self._decks = trains
     }
 
-    fileprivate static func prepareDecks() -> [Train] {
-        let trains: [Train] = [
-            Train.init(name: "Green.1", cost: 4, generation: .first, engineColor: .green, capacity: 3, numberOfChildren: 4, delegate:  GameBoard())
-            , Train.init(name: "Red.1", cost: 8, generation: .first, engineColor: .red, capacity: 3, numberOfChildren: 3, delegate:  GameBoard())
-            , Train.init(name: "Yellow.1", cost: 12, generation: .first, engineColor: .yellow, capacity: 2, numberOfChildren: 2, delegate:  GameBoard())
-            , Train.init(name: "Blue.1", cost: 16, generation: .first, engineColor: .blue, capacity: 1, numberOfChildren: 1, delegate:  GameBoard())
-            , Train.init(name: "Green.2", cost: 20, generation: .second, engineColor: .green, capacity: 4, numberOfChildren: 4, delegate:  GameBoard())
-            , Train.init(name: "Red.2", cost: 24, generation: .second, engineColor: .red, capacity: 3, numberOfChildren: 3, delegate:  GameBoard())
-            , Train.init(name: "Yellow.2", cost: 28, generation: .second, engineColor: .yellow, capacity: 3, numberOfChildren: 2, delegate:  GameBoard())
-            , Train.init(name: "Green.3", cost: 32, generation: .third, engineColor: .green, capacity: 4, numberOfChildren: 4, delegate:  GameBoard())
-            , Train.init(name: "Blue.2", cost: 36, generation: .second, engineColor: .blue, capacity: 2, numberOfChildren: 2, delegate:  GameBoard())
-            , Train.init(name: "Red.3", cost: 40, generation: .third, engineColor: .red, capacity: 4, numberOfChildren: 3, delegate:  GameBoard())
-            , Train.init(name: "Green.4", cost: 44, generation: .fourth, engineColor: .green, capacity: 5, numberOfChildren: 4, delegate:  GameBoard())
-            , Train.init(name: "Yellow.3", cost: 48, generation: .third, engineColor: .yellow, capacity: 3, numberOfChildren: 3, delegate:  GameBoard())
-            , Train.init(name: "Red.4", cost: 52, generation: .fourth, engineColor: .red, capacity: 4, numberOfChildren: 4, delegate:  GameBoard())
-            , Train.init(name: "Green.5", cost: 56, generation: .fifth, engineColor: .green, capacity: 5, numberOfChildren: 4, delegate:  GameBoard())
-        ]        
-        return trains
-    }
 
 }
