@@ -14,7 +14,8 @@ final class Game : CustomStringConvertible
 
     var settings: GameConfig?
     
-    var gameBoard: GameBoard? {
+    var gameBoard: GameBoard?
+    {
         didSet {
             guard let gameBoard = self.gameBoard else {
                 return
@@ -72,10 +73,9 @@ extension Game {
     }
 
     func abandon() {
-        guard let gameBoard = self.gameBoard else {
+        guard let _ = self.gameBoard else {
             return
         }
-        gameBoard.reset()
         self.gameBoard = nil
         self.dateCreated = nil
         self.turnOrderManager.turnOrder.removeAll()

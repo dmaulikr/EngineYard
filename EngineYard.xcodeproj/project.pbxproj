@@ -121,6 +121,7 @@
 		4D9EDB111F2E261E00755834 /* Train+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB101F2E261E00755834 /* Train+API.swift */; };
 		4D9EDB171F2E335A00755834 /* SalesRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB161F2E335A00755834 /* SalesRule.swift */; };
 		4D9EDB191F2E336F00755834 /* SalesRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EDB181F2E336F00755834 /* SalesRuleTests.swift */; };
+		4DA3B5381F36EDF100EADACB /* GameBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA3B5371F36EDF100EADACB /* GameBoardTests.swift */; };
 		4DA7CEDF1F349AFA00E0948A /* TrainPurchaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7CEDE1F349AFA00E0948A /* TrainPurchaseTests.swift */; };
 		4DC6B4A11F2851E900B3C991 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC6B4A01F2851E900B3C991 /* GradientView.swift */; };
 		4DCB42D51F2DFDCF009ABCD7 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB42D41F2DFDCF009ABCD7 /* Train.swift */; };
@@ -262,6 +263,7 @@
 		4D9EDB101F2E261E00755834 /* Train+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Train+API.swift"; sourceTree = "<group>"; };
 		4D9EDB161F2E335A00755834 /* SalesRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRule.swift; sourceTree = "<group>"; };
 		4D9EDB181F2E336F00755834 /* SalesRuleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRuleTests.swift; sourceTree = "<group>"; };
+		4DA3B5371F36EDF100EADACB /* GameBoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardTests.swift; sourceTree = "<group>"; };
 		4DA7CEDE1F349AFA00E0948A /* TrainPurchaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainPurchaseTests.swift; sourceTree = "<group>"; };
 		4DC6B4A01F2851E900B3C991 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4DCB42D41F2DFDCF009ABCD7 /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 				4D9429681F21243C006B2D89 /* Info.plist */,
 				4D9EDAEE1F2E07C700755834 /* EngineYardTests-Bridging-Header.h */,
 				4D9EDAEF1F2E07C700755834 /* BaseTests.swift */,
+				4DA3B5371F36EDF100EADACB /* GameBoardTests.swift */,
 				4D9EDB0A1F2E1F2400755834 /* PlayerTests.swift */,
 				4DA7CEDE1F349AFA00E0948A /* TrainPurchaseTests.swift */,
 				4D16B2191F34F2C800D1D17B /* WalkThroughDeckTests.swift */,
@@ -1005,6 +1008,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA3B5381F36EDF100EADACB /* GameBoardTests.swift in Sources */,
 				4D55EDCB1F2E5594008B773F /* HandTests.swift in Sources */,
 				4D9EDB0B1F2E1F2400755834 /* PlayerTests.swift in Sources */,
 				4D55EDDB1F2F7EFC008B773F /* WinnerTests.swift in Sources */,

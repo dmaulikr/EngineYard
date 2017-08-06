@@ -51,22 +51,7 @@ class TrainPurchaseTests: BaseTests {
 
         firstTrain.purchase(buyer: firstPlayer)
 
-        /*
-        XCTAssertTrue(gameBoard.countUnlocked == 2)
 
-        let withOrders = gameBoard.decks.filter { (t: Train) -> Bool in
-            return (t.orderBook.existingOrders.count > 0)
-        }
-
-        XCTAssertTrue(withOrders.count == 2)
-
-        guard let lastTrain = withOrders.last else {
-            XCTFail("no last train found")
-            return
-        }
-
-        XCTAssertTrue(lastTrain.generation == .first && lastTrain.engineColor == .red)
-*/
     }
 
 

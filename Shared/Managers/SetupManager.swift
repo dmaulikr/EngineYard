@@ -19,8 +19,8 @@ class SetupManager
             {
                 let gameObj = Game.init()
 
-                // prepare board
-                gameObj.gameBoard = GameBoard.prepare()
+                gameObj.gameBoard = GameBoard()
+                
                 gameObj.turnOrderManager.turnOrder = players
                 gameObj.settings = settings
 

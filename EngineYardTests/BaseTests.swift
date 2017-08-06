@@ -45,7 +45,7 @@ struct Mock
             return (self.green + self.red + self.blue + self.yellow)
         }
 
-        fileprivate struct Expected {
+        struct Expected {
             static let green = Constants.Board.numberOfCardsForColor(engineColor: .green)
             static let red = Constants.Board.numberOfCardsForColor(engineColor: .red)
             static let blue = Constants.Board.numberOfCardsForColor(engineColor: .blue)
@@ -54,6 +54,7 @@ struct Mock
         }
     }
 }
+
 
 class BaseTests: XCTestCase {
     
@@ -80,76 +81,6 @@ class BaseTests: XCTestCase {
         XCTAssert(allColors.count == 4)
     }
 
-    func testGamePreparation() {
-        let expectedPlayers = Constants.NumberOfPlayers.max
-
-        guard let generatedPlayers = Mock.players(howMany: expectedPlayers) else {
-            XCTFail("No mock players generated")
-            return
-        }
-        XCTAssert(generatedPlayers.count == expectedPlayers)
-
-        guard let gameObj = Game.setup(players: generatedPlayers) else {
-            XCTFail("** No game object defined **")
-            return
-        }
-
-        guard let gameBoard = gameObj.gameBoard else {
-            XCTFail("** No game board defined **")
-            return
-        }
-
-        XCTAssertNotNil(gameObj)
-        XCTAssertNotNil(gameObj.dateCreated)
-        XCTAssert(gameObj.players.count == expectedPlayers)
-        XCTAssert(gameBoard.decks.count == Constants.Board.decks)
-
-        let unlocked = gameBoard.countUnlocked
-        XCTAssert(unlocked == 1)
-
-        // Validate board decks
-        var cards = Mock.Cards()
-
-        for train in gameBoard.decks
-        {
-            XCTAssert(train.cost % 4 == 0)
-            XCTAssert(train.productionCost == Int(train.cost / 2))
-            XCTAssert(train.income == Int(train.productionCost / 2))
-
-            print (train.description)
-
-            let orders = train.existingOrderValues.count
-            let howMany = (train.capacity - orders)
-            XCTAssertTrue(train.orderBook.canGenerateExistingOrders(howMany: howMany, forTrain: train))
-            XCTAssertFalse(train.orderBook.canGenerateExistingOrders(howMany: howMany + 1, forTrain: train))
-
-            for _ in train.cards {
-                switch train.engineColor {
-                case .green:
-                    cards.green += 1
-                    break
-
-                case .red:
-                    cards.red += 1
-                    break
-
-                case .blue:
-                    cards.blue += 1
-                    break
-
-                case .yellow:
-                    cards.yellow += 1
-                    break
-                }
-            }
-        }
-
-        XCTAssert(cards.green == Mock.Cards.Expected.green, "Not enough green cards. Found: \(cards.green), Expected: \(Mock.Cards.Expected.green)")
-        XCTAssert(cards.red == Mock.Cards.Expected.red, "Not enough red cards. Found: \(cards.red), Expected: \(Mock.Cards.Expected.red)")
-        XCTAssert(cards.yellow == Mock.Cards.Expected.yellow, "Not enough yellow cards. Found: \(cards.yellow), Expected: \(Mock.Cards.Expected.yellow)")
-        XCTAssert(cards.blue == Mock.Cards.Expected.blue, "Not enough blue cards. Found: \(cards.blue), Expected: \(Mock.Cards.Expected.blue)")
-        XCTAssert(cards.total == Mock.Cards.Expected.total, "Not enough cards, total = \(cards.total), Expected: \(Mock.Cards.Expected.total)")
-    }
 
     func testAbandonGame() {
         let expectedPlayers = Constants.NumberOfPlayers.max
@@ -182,5 +113,4 @@ class BaseTests: XCTestCase {
         XCTAssertNil(gameObj.dateCreated)
         XCTAssertNil(gameObj.gameBoard)
     }
-
 }

@@ -30,6 +30,7 @@ typealias Deck = Train
 
 final class Train : CustomStringConvertible, Equatable, TrainProtocol
 {
+
     public private (set) var name: String = ""
     public private (set) var cost: Int = 0
     public private (set) var productionCost: Int = 0
@@ -96,7 +97,6 @@ extension Train {
         returnString = returnString.appending(" orders - \(self.orderBook.existingOrders) | \(self.orderBook.completedOrders)")
         return returnString
     }
-
 }
 
 extension Train {
