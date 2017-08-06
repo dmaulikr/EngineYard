@@ -8,17 +8,12 @@
 
 import Foundation
 
-protocol DeckProtocol {
-    var decks: [Train] { get }
-    //func unlockNextDeck()
-}
-
-final class GameBoard: DeckProtocol
+final class GameBoard
 {
-    fileprivate var _decks: [Train] = [Train]()
+    fileprivate var _decks: [Deck] = [Deck]()
 
-    public var decks: [Train] {
-        return self._decks.sorted(by: { (t1: Train, t2: Train) -> Bool in
+    public var decks: [Deck] {
+        return self._decks.sorted(by: { (t1: Deck, t2: Deck) -> Bool in
             return (t1.cost < t2.cost)
         })
     }
@@ -38,21 +33,8 @@ extension GameBoard {
     internal func unlockNextDeck(_ train: Train?) {
         assert(self.decks.count > 0, "Invalid decks: \(self.decks.count)")
 
-        guard let currentDeck = train else {
-            return
-        }
 
-        guard let nextDeck = self.decks.after(currentDeck) else {
-            return
-        }
-
-        if (!nextDeck.isUnlocked) {
-            print ("unlock next item")
-            //let order = ExistingOrder.generate()
-            //print("Generated order: \(order.value) for \(nextDeck.name)")
-            //nextDeck.orderBook.add(order: order)
-        }
-
+        print ("unlock next item")
 
     }
 
