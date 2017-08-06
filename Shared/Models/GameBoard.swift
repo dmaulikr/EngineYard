@@ -36,14 +36,11 @@ final class GameBoard : GameBoardProtocol
 extension GameBoard {
 
     internal func unlockNextDeck(_ deck: Deck) {
-        print ("#\(self.decks.count) decks found")
-
         guard let nextDeck = self.decks.after(deck) else {
             return
         }
 
         guard (!nextDeck.isUnlocked) else {
-            print ("deck is already unlocked")
             return
         }
 
