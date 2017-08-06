@@ -14,15 +14,7 @@ import XCTest
 
 class ObsolescenceTests: BaseTests {
 
-    override func setUp() {
-        super.setUp()
-    }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    /**
     var gameObj: Game!
     var gameBoard: GameBoard = GameBoard.init()
     var trains: [Train] = [Train]()
@@ -285,6 +277,6 @@ class ObsolescenceTests: BaseTests {
         
         XCTAssert(firstRusted.engineColor == .green)
         XCTAssert(firstRusted.generation == .first)
-    }**/
+    }
     
 }
