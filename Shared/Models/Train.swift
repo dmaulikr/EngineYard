@@ -206,7 +206,7 @@ extension Train {
         if (buyer.hand.add(train: self)) {
             buyer.wallet.debit(amount: self.cost)
 
-
+            self.notifySubscribers()
         }
     }
 
