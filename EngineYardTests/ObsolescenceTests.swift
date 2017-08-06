@@ -14,7 +14,6 @@ import XCTest
 
 class ObsolescenceTests: BaseTests {
 
-
     var gameObj: Game!
     var gameBoard: GameBoard = GameBoard.init()
     var trains: [Train] = [Train]()
