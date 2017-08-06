@@ -25,6 +25,8 @@ protocol TrainProtocol
     var owners: [Player]? { get }
 }
 
+// Each train has a collection of locomotive cards; hence this can be described as a deck of cards
+typealias Deck = Train
 
 final class Train : CustomStringConvertible, Equatable, TrainProtocol
 {
