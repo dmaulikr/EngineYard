@@ -22,9 +22,7 @@ class TrainPurchaseTests: BaseTests {
         super.tearDown()
     }
 
-    // I expect to be able to purchase a train, unlocks the next train, 
-    // adds the train to a player's hand and debits the player's wallet
-    func testPurchaseTrain() {
+    func testNotifySubscribers() {
         guard let players = Mock.players(howMany: 5) else {
             XCTFail("Mock players failed")
             return
@@ -45,14 +43,39 @@ class TrainPurchaseTests: BaseTests {
             XCTFail("no train found")
             return
         }
-        guard let firstPlayer = game.players.first else {
+
+        firstTrain.notifySubscribers()
+        XCTAssert(gameBoard.countUnlocked == 2)
+    }
+
+    func testNotifyAllSubscribers() {
+        guard let players = Mock.players(howMany: 5) else {
+            XCTFail("Mock players failed")
+            return
+        }
+        XCTAssert(players.count == 5)
+
+        guard let game = Game.setup(players: players) else {
+            XCTFail("Game setup failed")
             return
         }
 
-        firstTrain.purchase(buyer: firstPlayer)
+        guard let gameBoard = game.gameBoard else {
+            XCTFail("No game board defined")
+            return
+        }
 
+        let _ = gameBoard.decks.map({
+            $0.notifySubscribers()
+        })
 
+        XCTAssert(gameBoard.countUnlocked == Constants.Board.decks)
+
+        let _ = gameBoard.decks.map({
+            XCTAssert($0.orderBook.existingOrders.count == 1)
+        })
     }
 
+    
 
 }

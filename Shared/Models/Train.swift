@@ -30,6 +30,7 @@ typealias Deck = Train
 
 final class Train : CustomStringConvertible, Equatable, TrainProtocol
 {
+    public fileprivate (set) var subscribers: [GameBoardProtocol] = []
 
     public private (set) var name: String = ""
     public private (set) var cost: Int = 0
@@ -64,7 +65,6 @@ final class Train : CustomStringConvertible, Equatable, TrainProtocol
         return ((self.existingOrderValues.count > 0) || (self.completedOrderValues.count > 0))
     }
 
-    //public init (text: String, preferences: Preferences = EasyTipView.globalPreferences, delegate: EasyTipViewDelegate? = nil){
     init(name: String, cost: Int, generation: Generation, engineColor: EngineColor, capacity: Int, numberOfChildren: Int) {
         assert(cost % 4 == 0, "Cost must be a modulus of 4")
         assert(capacity > 0, "Capacity must be > 0")
@@ -99,14 +99,34 @@ extension Train {
     }
 }
 
+extension Deck {
+    func addSubscriber(_ subscriber: GameBoardProtocol)
+    {
+        self.subscribers.append(subscriber)
+    }
+
+    func notifySubscribers()
+    {
+        let _ = self.subscribers.map({
+            $0.unlockNextDeck(self)
+        })
+    }
+
+    func removeSubscribers()
+    {
+        self.subscribers.removeAll()
+    }
+}
+
 extension Train {
     public static func ==(lhs: Train, rhs: Train) -> Bool {
         return (lhs.name == rhs.name)
     }
 }
 
+// OrderBook related
 extension Train {
-    
+
     var existingOrderValues: [Int] {
         return orderBook.existingOrders.flatMap({ (e:ExistingOrder) -> Int in
             return e.value
@@ -121,6 +141,12 @@ extension Train {
 
     var hasMaximumDice: Bool {
         return (self.orderBook.completedOrders.count >= self.capacity)
+    }
+
+    func didUnlock() {
+        let newOrder: ExistingOrder = ExistingOrder.generate()
+        print ("Unlocked: \(self.name), order generated: \(newOrder)")
+        self.orderBook.add(order: newOrder)
     }
 }
 

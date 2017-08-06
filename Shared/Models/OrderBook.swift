@@ -210,6 +210,7 @@ class ExistingOrder: EntryProtocol, CustomStringConvertible {
     public static func generate() -> ExistingOrder {
         return ExistingOrder.init(value: Die.roll())
     }
+
 }
 
 class CompletedOrder: EntryProtocol, CustomStringConvertible {
