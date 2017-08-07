@@ -8,23 +8,17 @@
 
 import Foundation
 
-// #TODO
-struct Transaction: CustomStringConvertible
+struct Transaction
 {
-    let dateCreated: Date = Date.init(timeIntervalSinceNow: 0)
-    var amount: Int = 0
-    var note: String = ""
+    private var dateCreated = Date.init(timeIntervalSinceNow: 0)
+    var amount: Int
+    var note: String?
 
-    init(amount: Int, note: String?) {
+    init(amount: Int, note: String? = nil) {
         self.amount = amount
-        if let noteObj = note {
-            self.note = noteObj
+        guard let hasNote = note else {
+            return
         }
-    }
-}
-
-extension Transaction {
-    var description: String {
-        return ("Transaction: \(self.dateCreated) - Amount: \(self.amount) - Note: \(self.note)")
+        self.note = hasNote
     }
 }

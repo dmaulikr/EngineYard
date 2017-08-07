@@ -94,6 +94,7 @@
 		4D55EDDB1F2F7EFC008B773F /* WinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55EDDA1F2F7EFC008B773F /* WinnerTests.swift */; };
 		4D61E5581F38D71800091631 /* SalesRuleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D61E5571F38D71800091631 /* SalesRuleHandler.swift */; };
 		4D61E55A1F38D87A00091631 /* SalesHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D61E5591F38D87A00091631 /* SalesHandlerTests.swift */; };
+		4D61E55E1F38EC8F00091631 /* TransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D61E55D1F38EC8F00091631 /* TransactionTests.swift */; };
 		4D6D11591F33BC93006F1101 /* SalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D11571F33BC93006F1101 /* SalesTableViewCell.swift */; };
 		4D6D115A1F33BC93006F1101 /* SalesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6D11581F33BC93006F1101 /* SalesTableViewCell.xib */; };
 		4D78B9861F31D811009010C8 /* EngineCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78B9851F31D811009010C8 /* EngineCardCollectionViewCell.swift */; };
@@ -233,6 +234,7 @@
 		4D55EDDA1F2F7EFC008B773F /* WinnerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerTests.swift; sourceTree = "<group>"; };
 		4D61E5571F38D71800091631 /* SalesRuleHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRuleHandler.swift; sourceTree = "<group>"; };
 		4D61E5591F38D87A00091631 /* SalesHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesHandlerTests.swift; sourceTree = "<group>"; };
+		4D61E55D1F38EC8F00091631 /* TransactionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTests.swift; sourceTree = "<group>"; };
 		4D6D11571F33BC93006F1101 /* SalesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesTableViewCell.swift; sourceTree = "<group>"; };
 		4D6D11581F33BC93006F1101 /* SalesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesTableViewCell.xib; sourceTree = "<group>"; };
 		4D78B9851F31D811009010C8 /* EngineCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineCardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 				4D9EDB181F2E336F00755834 /* SalesRuleTests.swift */,
 				4D61E5591F38D87A00091631 /* SalesHandlerTests.swift */,
 				4D55EDCE1F2E8EC1008B773F /* ObsolescenceTests.swift */,
+				4D61E55D1F38EC8F00091631 /* TransactionTests.swift */,
 			);
 			path = EngineYardTests;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				4D9EDAF41F2E09A200755834 /* WalletTests.swift in Sources */,
 				4D61E55A1F38D87A00091631 /* SalesHandlerTests.swift in Sources */,
 				4D9EDAFC1F2E10AF00755834 /* TaxTests.swift in Sources */,
+				4D61E55E1F38EC8F00091631 /* TransactionTests.swift in Sources */,
 				4D9EDB191F2E336F00755834 /* SalesRuleTests.swift in Sources */,
 				4D16B21A1F34F2C800D1D17B /* WalkThroughDeckTests.swift in Sources */,
 				4D55EDD31F2EA974008B773F /* TrainUnlockTests.swift in Sources */,

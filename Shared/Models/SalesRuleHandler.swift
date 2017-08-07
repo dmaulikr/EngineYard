@@ -15,7 +15,6 @@ public enum SalesRuleType
     case higher
 }
 
-
 public struct SalesRuleHandler
 {
     public private(set) var orders: [Int]
@@ -88,22 +87,20 @@ public struct SalesRuleHandler
 
     private mutating func handlePerfect(match: (Int, Int)) {
 
-        // add transaction here
-        assert(match.1 == self.units)
-        self.orders[match.0] -= match.1
-        self.units -= match.1
+        let unitsSold = match.1
+        self.orders[match.0] -= unitsSold
+        self.units -= unitsSold
     }
 
     private mutating func handleLower(match: (Int, Int)) {
 
-        // add transaction here
         self.orders[match.0] -= self.units
         self.units -= self.units
     }
 
     private mutating func handleHigher(match: (Int, Int)) {
 
-        // add transaction here
+
         let remainingUnits = self.units - match.1
         self.orders[match.0] -= (self.units - remainingUnits)
         self.units = remainingUnits
