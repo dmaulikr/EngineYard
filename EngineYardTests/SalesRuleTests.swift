@@ -29,6 +29,7 @@ class SalesRuleTests: BaseTests {
         let units = 1
 
         let matcher = SalesRuleHandler.init(orders: orders, units: units)
+
         XCTAssertTrue(matcher.ruleType == .lower)
     }
 
@@ -37,7 +38,7 @@ class SalesRuleTests: BaseTests {
         let units = 3
 
         let matcher = SalesRuleHandler.init(orders: orders, units: units)
-        XCTAssertTrue(matcher.ruleType == .perfectMatch)
+        XCTAssertTrue(matcher.ruleType == .perfect)
     }
 
     func testSalesRuleHigher() {

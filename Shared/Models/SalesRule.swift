@@ -8,49 +8,6 @@
 
 import Foundation
 
-enum SalesRuleType {
-    case lower
-    case perfectMatch
-    case higher
-}
-
-struct SalesRuleHandler {
-    var ruleType: SalesRuleType = .lower
-    var rule: SalesRule!
-    var matchTuple:(Int,Int)!
-
-    init(orders:[Int], units: Int) {
-        self.rule = SalesRule.init(orders: orders)
-
-        let orders = self.rule.orders
-
-        if let perfectMatch = self.rule.perfectMatch(units) {
-            print("Found perfect match for: \(units) in orders \(orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
-            self.ruleType = .perfectMatch
-            self.matchTuple = perfectMatch
-
-        }
-        else {
-            if let lowerMatch = self.rule.lowerMatch(units) {
-                print("Found lower match for: \(units) in orders \(orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
-                self.ruleType = .lower
-                self.matchTuple = lowerMatch
-            }
-            else {
-                if let higherMatch = self.rule.higherMatch(units) {
-                    print("Found higher match for: \(units) in orders \(orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
-                    self.ruleType = .higher
-                    self.matchTuple = higherMatch
-                }
-                else {
-                    assertionFailure("Sales rule failure for \(orders), units: \(units)")
-                }
-            }
-        }
-    }
-}
-
-
 struct SalesRule {
     private var _orders: [Int]
     var orders: [Int] {
