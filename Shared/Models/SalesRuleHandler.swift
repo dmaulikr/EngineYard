@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SalesRuleType
+public enum SalesRuleType
 {
     case perfect
     case lower
@@ -16,38 +16,99 @@ enum SalesRuleType
 }
 
 
-struct SalesRuleHandler
+public struct SalesRuleHandler
 {
-    var ruleType : SalesRuleType?
+    public private(set) var orders: [Int]
+    public private(set) var units: Int
+
+    public var ruleType: SalesRuleType?
+    private var match: (Int, Int)?
 
     init(orders: [Int], units: Int)
     {
-        let rule : SalesRule = SalesRule.init(orders: orders)
+        self.orders = orders
+        self.units = units
 
-        if let match = rule.perfectMatch(units) {
-            print("Found perfect match for: \(units) in orders \(rule.orders) at index: \(match.0) which is the value \(match.1)")
+        let rule = SalesRule(orders: orders)
 
-            ruleType = .perfect
+        if let perfectMatch = rule.perfectMatch(units) {
+            print("Found perfect match for: \(units) in orders \(rule.orders) at index: \(perfectMatch.0) which is the value \(perfectMatch.1)")
+
+            self.ruleType = .perfect
+            self.match = perfectMatch
 
         } else {
 
-            if let lower = rule.lowerMatch(units) {
-                print("Found lower match for: \(units) in orders \(rule.orders) at index: \(lower.0) which is the value \(lower.1)")
+            if let lowerMatch = rule.lowerMatch(units) {
+                print("Found lower match for: \(units) in orders \(rule.orders) at index: \(lowerMatch.0) which is the value \(lowerMatch.1)")
 
-                ruleType = .lower
+                self.ruleType = .lower
+                self.match = lowerMatch
 
             } else {
 
-                if let higher = rule.higherMatch(units) {
-                    print("Found higher match for: \(units) in orders \(rule.orders) at index: \(higher.0)  which is the value \(higher.1)")
+                if let higherMatch = rule.higherMatch(units) {
+                    print("Found higher match for: \(units) in orders \(rule.orders) at index: \(higherMatch.0)  which is the value \(higherMatch.1)")
 
-                    ruleType = .higher
-
+                    self.ruleType = .higher
+                    self.match = higherMatch
+                    
                 } else {
                     return
                 }
             }
         }
     }
+
+    mutating func handle() {
+
+        guard let ruleType = self.ruleType else {
+            return
+        }
+        guard let match = self.match else {
+            return
+        }
+
+        switch ruleType {
+
+        case .perfect:
+            handlePerfect(match: match)
+            break
+
+        case .lower:
+            handleLower(match: match)
+            break
+
+        case .higher:
+            handleHigher(match: match)
+            break
+        }
+    }
+
+
+    private mutating func handlePerfect(match: (Int, Int)) {
+
+        // add transaction here
+        assert(match.1 == self.units)
+        self.orders[match.0] -= match.1
+        self.units -= match.1
+    }
+
+    private mutating func handleLower(match: (Int, Int)) {
+
+        // add transaction here
+        self.orders[match.0] -= self.units
+        self.units -= self.units
+    }
+
+    private mutating func handleHigher(match: (Int, Int)) {
+
+        // add transaction here
+        let remainingUnits = self.units - match.1
+        self.orders[match.0] -= (self.units - remainingUnits)
+        self.units = remainingUnits
+    }
+
+
 
 }
