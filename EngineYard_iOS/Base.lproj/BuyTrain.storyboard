@@ -74,29 +74,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yc-GQ-2Uf">
-                                <rect key="frame" x="480" y="264" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="circle-check"/>
-                                <connections>
-                                    <action selector="cancelBtnPressed:" destination="2GK-lj-Nr0" eventType="touchUpInside" id="KXU-v6-gNM"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Buy train for $99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYO-19-rrg">
-                                <rect key="frame" x="335" y="271" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEP-t4-kLD">
-                                <rect key="frame" x="480" y="17" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="circle-cross"/>
-                                <connections>
-                                    <action selector="cancelBtnPressed:" destination="2GK-lj-Nr0" eventType="touchUpInside" id="tbb-FK-udP"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There are no rival owners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7R-PH-vbc">
                                 <rect key="frame" x="200" y="84" width="193" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -113,7 +90,7 @@
                                         <rect key="frame" x="0.0" y="28" width="236" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7B0-jR-ERO" id="i48-Xm-jVv">
-                                            <rect key="frame" x="0.0" y="0.0" width="236" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="236" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -124,20 +101,36 @@
                                     <outlet property="delegate" destination="2GK-lj-Nr0" id="CzY-ch-WWE"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Owners &amp; Rivals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDB-sy-HuO">
-                                <rect key="frame" x="200" y="52" width="124" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Owners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDB-sy-HuO">
+                                <rect key="frame" x="200" y="52" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xR-8j-FkR">
+                                <rect key="frame" x="389" y="267" width="125" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Buy train for $99"/>
+                                <connections>
+                                    <action selector="buyBtnPressed:" destination="2GK-lj-Nr0" eventType="touchUpInside" id="zh9-pb-rmh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-GR-Mf0">
+                                <rect key="frame" x="201" y="268" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBtnPressed:" destination="2GK-lj-Nr0" eventType="touchUpInside" id="kCU-hO-X5N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="buyBtn" destination="9Yc-GQ-2Uf" id="JDK-uK-Gaf"/>
-                        <outlet property="buyTrainLabel" destination="XYO-19-rrg" id="cL0-H2-yv7"/>
-                        <outlet property="cancelBtn" destination="tEP-t4-kLD" id="4pW-jY-kAu"/>
+                        <outlet property="buyBtn" destination="4xR-8j-FkR" id="KOz-Ta-ocP"/>
+                        <outlet property="cancelBtn" destination="Fqv-GR-Mf0" id="omx-AS-rB3"/>
                         <outlet property="engineCardXIBView" destination="y20-95-iZt" id="EAd-i8-jUA"/>
                         <outlet property="noRivalOwnersLabel" destination="U7R-PH-vbc" id="MFg-IT-FsX"/>
                         <outlet property="pageTitleLabel" destination="vuY-Zn-cPW" id="ppf-fm-jSh"/>
@@ -151,8 +144,4 @@
             <point key="canvasLocation" x="962.32394366197184" y="682.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="circle-check" width="128" height="128"/>
-        <image name="circle-cross" width="128" height="128"/>
-    </resources>
 </document>

@@ -345,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				4D6D11561F33BC7C006F1101 /* Sales */,
-				4D0834141F2FA31A0055641A /* EngineCard */,
+				4D0834141F2FA31A0055641A /* EngineCardView */,
 				4D08341B1F2FA31A0055641A /* PlayerCard */,
 			);
 			path = Views;
@@ -424,7 +424,7 @@
 			name = Winner;
 			sourceTree = "<group>";
 		};
-		4D0834141F2FA31A0055641A /* EngineCard */ = {
+		4D0834141F2FA31A0055641A /* EngineCardView */ = {
 			isa = PBXGroup;
 			children = (
 				4D0834151F2FA31A0055641A /* DiceCollectionViewCell.swift */,
@@ -436,6 +436,7 @@
 				4DCCE3A81F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.swift */,
 				4DCCE3A91F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.xib */,
 			);
+			name = EngineCardView;
 			path = EngineCard;
 			sourceTree = "<group>";
 		};

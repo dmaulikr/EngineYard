@@ -90,12 +90,13 @@ class BuyTrainDetailViewModel : BaseViewModel
     }
 
     func purchase() {
-        /*
         guard let hasTrain = self.train else {
             return
         }
         guard let hasPlayer = self.playerOnTurn else {
             return
-        }*/
+        }
+
+        hasTrain.purchase(buyer: hasPlayer)
     }
 }

@@ -171,31 +171,12 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
                 showPurchaseAlert(completionClosure: { (willPurchase) in
                     if (willPurchase) {
                         hasViewModel.purchase()
+                        
+                        self.waitAndClose()
                     }
                 })
-                /*
-                showPurchaseAlert { (willPurchase) in
-                    if (willPurchase) {
-
-                        viewModel.purchaseTrain(train: loco, player: playerOnTurn)
-
-                        waitFor(duration: 1.0) { (complete: Bool) in
-                            if (complete) {
-                                self.dismiss(animated: true) {
-                                    if let closure = self.completionClosure {
-                                        closure(true)
-                                    }
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-                 */
-
             }
         }
-
     }
 
     @IBAction func cancelBtnPressed(_ sender: UIButton) {
@@ -204,6 +185,18 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
         self.dismiss(animated: true) {
             if let closure = self.completionClosure {
                 closure(false)
+            }
+        }
+    }
+
+    func waitAndClose() {
+        waitFor(duration: 1.0) { (complete: Bool) in
+            if (complete) {
+                self.dismiss(animated: true, completion: {
+                    if let closure = self.completionClosure {
+                        closure(true)
+                    }
+                })
             }
         }
     }
