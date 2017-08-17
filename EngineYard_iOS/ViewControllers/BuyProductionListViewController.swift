@@ -75,10 +75,8 @@ class BuyProductionListViewController: UIViewController {
                 print ("selectedTrainClosure pressed")
                 if let selectedTrain = train {
                     print ("You clicked on: \(selectedTrain.name)")
-                    //hasViewModel.selectedTrain = selectedTrain
-                    //self.performSegue(withIdentifier: "trainDetailSegue", sender: self)
 
-                    let identifier = "trainDetailSegue"
+                    let identifier = "productionDetailSegue"
                     if (self.shouldPerformSegue(withIdentifier: identifier, sender: self)) {
                         self.performSegue(withIdentifier: identifier, sender: self)
                     }
@@ -120,12 +118,13 @@ class BuyProductionListViewController: UIViewController {
         }
 
         if (segue.identifier == "productionDetailSegue") {
-
+            let vc : BuyProductionDetailViewController = (segue.destination as? BuyProductionDetailViewController)!
+            vc.viewModel = BuyProductionDetailViewModel(game: hasGame)
         }
 
         if (segue.identifier == "salesSegue") {
             let vc : SellingViewController = (segue.destination as? SellingViewController)!
-            vc.viewModel = SellingRoundViewModel.init(game: hasGame)
+            vc.viewModel = SellingRoundViewModel(game: hasGame)
         }
     }
 

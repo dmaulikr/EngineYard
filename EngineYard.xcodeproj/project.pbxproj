@@ -131,6 +131,10 @@
 		4DCCE3AA1F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCCE3A81F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.swift */; };
 		4DCCE3AB1F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCCE3A91F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.xib */; };
 		4DECE6BC1F3208B90009087C /* HUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DECE6BA1F3208B90009087C /* HUD.storyboard */; };
+		4DF776C01F45BDD600CBFDFA /* ProductionCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF776BE1F45BDD600CBFDFA /* ProductionCartViewController.swift */; };
+		4DF776C11F45BDD600CBFDFA /* ProductionCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF776BF1F45BDD600CBFDFA /* ProductionCartViewController.xib */; };
+		4DF776C41F45BE9300CBFDFA /* ProductionRivalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF776C21F45BE9300CBFDFA /* ProductionRivalsViewController.swift */; };
+		4DF776C51F45BE9300CBFDFA /* ProductionRivalsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF776C31F45BE9300CBFDFA /* ProductionRivalsViewController.xib */; };
 		5617A9067209ECA7DCF81613 /* Pods_EngineYard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253187BCC76A335ACA251DC2 /* Pods_EngineYard.framework */; };
 /* End PBXBuildFile section */
 
@@ -276,6 +280,10 @@
 		4DCCE3A81F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RivalTrainOwnersTableViewCell.swift; sourceTree = "<group>"; };
 		4DCCE3A91F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RivalTrainOwnersTableViewCell.xib; sourceTree = "<group>"; };
 		4DECE6BB1F3208B90009087C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HUD.storyboard; sourceTree = "<group>"; };
+		4DF776BE1F45BDD600CBFDFA /* ProductionCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductionCartViewController.swift; path = ../Views/Production/ProductionCartViewController.swift; sourceTree = "<group>"; };
+		4DF776BF1F45BDD600CBFDFA /* ProductionCartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductionCartViewController.xib; path = ../Views/Production/ProductionCartViewController.xib; sourceTree = "<group>"; };
+		4DF776C21F45BE9300CBFDFA /* ProductionRivalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionRivalsViewController.swift; sourceTree = "<group>"; };
+		4DF776C31F45BE9300CBFDFA /* ProductionRivalsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductionRivalsViewController.xib; sourceTree = "<group>"; };
 		65072EB2C8C219F36F877EE3 /* Pods_EngineYardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineYardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9367A3353E6EE7FD594061E2 /* Pods-EngineYard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYard/Pods-EngineYard.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E5013E34E3028E718C800D /* Pods-EngineYardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EngineYardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EngineYardTests/Pods-EngineYardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -386,6 +394,10 @@
 			children = (
 				4D0833FC1F2FA1E10055641A /* BuyProductionListViewController.swift */,
 				4D0833FE1F2FA1EB0055641A /* BuyProductionDetailViewController.swift */,
+				4DF776BE1F45BDD600CBFDFA /* ProductionCartViewController.swift */,
+				4DF776BF1F45BDD600CBFDFA /* ProductionCartViewController.xib */,
+				4DF776C21F45BE9300CBFDFA /* ProductionRivalsViewController.swift */,
+				4DF776C31F45BE9300CBFDFA /* ProductionRivalsViewController.xib */,
 			);
 			name = BuyProduction;
 			sourceTree = "<group>";
@@ -802,6 +814,7 @@
 				4D0833E91F2FA1290055641A /* BuyProduction.storyboard in Resources */,
 				4D94297D1F2124B7006B2D89 /* Main.storyboard in Resources */,
 				4D0834251F2FA31A0055641A /* DiceCollectionViewCell.xib in Resources */,
+				4DF776C51F45BE9300CBFDFA /* ProductionRivalsViewController.xib in Resources */,
 				4D94297B1F2124B7006B2D89 /* Assets.xcassets in Resources */,
 				4DECE6BC1F3208B90009087C /* HUD.storyboard in Resources */,
 				4D0834421F304E090055641A /* cardSlide1.wav in Resources */,
@@ -813,6 +826,7 @@
 				4D1A4C221F212DAF00680333 /* Assets.xcassets in Resources */,
 				4D45BE591F3108C0004A945D /* AddPlayerCollectionViewCell.xib in Resources */,
 				4D1A4C231F212DAF00680333 /* data.json in Resources */,
+				4DF776C11F45BDD600CBFDFA /* ProductionCartViewController.xib in Resources */,
 				4D94297C1F2124B7006B2D89 /* LaunchScreen.storyboard in Resources */,
 				4D08342B1F2FA31A0055641A /* PlayerHUDView.xib in Resources */,
 				4D0834311F2FA31A0055641A /* PlayerXIBView.xib in Resources */,
@@ -945,6 +959,7 @@
 				4D08342E1F2FA31A0055641A /* PlayerWinnerView.swift in Sources */,
 				4D55EDCD1F2E8D9A008B773F /* ObsolescenceManager.swift in Sources */,
 				4DCCE3AA1F345D3D005DCA9B /* RivalTrainOwnersTableViewCell.swift in Sources */,
+				4DF776C01F45BDD600CBFDFA /* ProductionCartViewController.swift in Sources */,
 				4D94297A1F2124B7006B2D89 /* AppDelegate.swift in Sources */,
 				4D1A4C341F21315800680333 /* EY+Image.swift in Sources */,
 				4D9EDB171F2E335A00755834 /* SalesRule.swift in Sources */,
@@ -969,6 +984,7 @@
 				4D1A4C331F21315800680333 /* EY+Color.swift in Sources */,
 				4D0833D11F2F9DF40055641A /* NewTurnOrderViewModel.swift in Sources */,
 				4D9EDAFF1F2E198E00755834 /* Player+API.swift in Sources */,
+				4DF776C41F45BE9300CBFDFA /* ProductionRivalsViewController.swift in Sources */,
 				4D9EDAE11F2DFEF000755834 /* Player.swift in Sources */,
 				4D1A4C381F21316100680333 /* GameConfig.swift in Sources */,
 				4D9EDB0D1F2E200700755834 /* OrderBook.swift in Sources */,

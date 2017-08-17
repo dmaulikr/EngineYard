@@ -10,16 +10,45 @@ import UIKit
 
 class BuyProductionDetailViewController: UIViewController {
 
+    weak var viewModel: BuyProductionDetailViewModel?
+
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var componentView: UIView!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        /*
+        self.componentView.addSubview(self.productionCartView)
+        self.componentView.addSubview(self.rivalsTableView)
+        self.componentView.sendSubview(toBack: self.rivalsTableView)
+         */
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+
+
+    // MARK: - IBActions
+
+    @IBAction func segmentControlValueChanged(_ sender: Any) {
+
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            //self.componentView.bringSubview(toFront: self.productionCartView)
+            break
+
+        case 1:
+            //self.componentView.bringSubview(toFront: self.rivalsTableView)
+            break
+
+        default:
+            break
+        }
+    }
+
 
     /*
     // MARK: - Navigation

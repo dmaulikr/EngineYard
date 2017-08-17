@@ -97,13 +97,14 @@ class BuyTrainDetailViewController: UIViewController, UITableViewDelegate, UITab
         guard let trainBuyText = viewModel.buyTrainText else {
             return
         }
+        print ("trainBuyText - \(trainBuyText)")
 
         let engineCard = self.engineCardXIBView.contentView as! EngineCardView
         engineCard.setup(with: train)
         EngineCardView.applyDropShadow(train: train, forView: self.engineCardXIBView!)
 
         // setup buy button text
-        self.buyTrainLabel.text = trainBuyText
+        self.buyTrainLabel.text = "Buy train"
 
         guard let rivals = viewModel.rivals else {
             return
