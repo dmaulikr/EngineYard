@@ -8,6 +8,21 @@
 
 import UIKit
 
+struct ProductionCart {
+    var train: Train?
+    var units: Int
+    var totalCost: Int = 0
+
+    init(train: Train, units: Int = 0) {
+        self.train = train
+        self.units = units
+    }
+
+    func updateUnits() {
+
+    }
+}
+
 class BuyProductionDetailViewController: UIViewController {
 
     weak var viewModel: BuyProductionDetailViewModel?
@@ -23,6 +38,10 @@ class BuyProductionDetailViewController: UIViewController {
 
         self.cartVC = ProductionCartViewController()
         self.rivalsVC = ProductionRivalsViewController()
+
+        self.cartVC.doneBtnClosure = { (cart: Bool) in
+            print ("cart -- ()")
+        }
 
         self.addChildViewController(cartVC)
         self.addChildViewController(rivalsVC)
