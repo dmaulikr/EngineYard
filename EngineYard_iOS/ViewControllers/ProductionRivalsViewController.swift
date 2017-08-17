@@ -11,6 +11,7 @@ import UIKit
 class ProductionRivalsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var rivalsTableView: UITableView!
+    var rivals: [Player]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,20 @@ class ProductionRivalsViewController: UIViewController, UITableViewDataSource, U
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        guard let hasRivals = rivals else {
+            return 0
+        }
+        return hasRivals.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RivalTrainOwnersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RivalTrainOwnersTableViewCell", for: indexPath) as! RivalTrainOwnersTableViewCell
+
+        /*
+        guard let hasRivals = rivals else {
+            return cell
+        }
+        */
 
         return cell
     }
