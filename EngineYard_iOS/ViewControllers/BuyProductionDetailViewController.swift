@@ -12,34 +12,24 @@ class BuyProductionDetailViewController: UIViewController {
 
     weak var viewModel: BuyProductionDetailViewModel?
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var componentView: UIView!
+    var cartVC : ProductionCartViewController!
+    var rivalsVC: ProductionRivalsViewController!
 
-    weak var cartVC: ProductionCartViewController!
-    weak var rivalsVC: ProductionRivalsViewController!
+    @IBOutlet weak var childContentView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.cartVC = ProductionCartViewController()
         self.rivalsVC = ProductionRivalsViewController()
-        
-        addChildViewController(self.cartVC)
-        addChildViewController(self.rivalsVC)
 
-        NSLayoutConstraint.activate([
-            self.cartVC.view.leadingAnchor.constraint(equalTo: self.componentView.leadingAnchor),
-            self.cartVC.view.trailingAnchor.constraint(equalTo: self.componentView.trailingAnchor),
-            self.cartVC.view.topAnchor.constraint(equalTo: self.componentView.topAnchor),
-            self.cartVC.view.bottomAnchor.constraint(equalTo: self.componentView.bottomAnchor)
-            ])
+        self.addChildViewController(cartVC)
+        self.addChildViewController(rivalsVC)
 
-        self.didMove(toParentViewController: self)
-
-        self.componentView.addSubview(self.cartVC.view)
-        self.componentView.addSubview(self.rivalsVC.view)
-        self.componentView.sendSubview(toBack: self.rivalsVC.view)
-
+        self.childContentView.addSubview(cartVC.view)
+        self.childContentView.addSubview(rivalsVC.view)
+        self.childContentView.sendSubview(toBack: rivalsVC.view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,11 +43,11 @@ class BuyProductionDetailViewController: UIViewController {
 
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            self.componentView.bringSubview(toFront: self.cartVC.view)
+            self.childContentView.bringSubview(toFront: self.cartVC.view)
             break
 
         case 1:
-            self.componentView.bringSubview(toFront: self.rivalsVC.view)
+            self.childContentView.bringSubview(toFront: self.rivalsVC.view)
             break
 
         default:
@@ -65,6 +55,7 @@ class BuyProductionDetailViewController: UIViewController {
         }
     }
 
+    
 
     /*
     // MARK: - Navigation

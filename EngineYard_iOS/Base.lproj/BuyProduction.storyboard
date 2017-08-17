@@ -85,17 +85,17 @@
                                     <action selector="segmentControlValueChanged:" destination="WQx-mr-Jtj" eventType="valueChanged" id="SlZ-XY-urU"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KR-5g-tWe">
-                                <rect key="frame" x="193" y="90" width="375" height="231"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnB-0m-iCU">
+                                <rect key="frame" x="194" y="99" width="368" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <connections>
-                        <outlet property="componentView" destination="6KR-5g-tWe" id="Ddc-Gn-Yj3"/>
+                        <outlet property="childContentView" destination="YnB-0m-iCU" id="Kjb-Li-4cz"/>
                         <outlet property="segmentedControl" destination="XMT-sj-1Bx" id="t30-ym-UKc"/>
                     </connections>
                 </viewController>
