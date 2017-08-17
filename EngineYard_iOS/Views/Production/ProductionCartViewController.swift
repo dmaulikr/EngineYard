@@ -10,6 +10,17 @@ import UIKit
 
 class ProductionCartViewController: UIViewController {
 
+    @IBOutlet weak var myUnitsLbl: UILabel!
+
+    @IBOutlet weak var cartUnitsLbl: UILabel!
+    @IBOutlet weak var cartStepper: UIStepper!
+    @IBOutlet weak var cartPricePerUnitLbl: UILabel!
+
+    @IBOutlet weak var buyBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var shiftProductionBtn: UIButton!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +31,21 @@ class ProductionCartViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: - IBActions
+
+    @IBAction func stepperValueChanged(_ sender: Any) {
+    }
+
+    @IBAction func buyBtnPressed(_ sender: Any) {
+    }
     
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+    }
+
+    @IBAction func shiftProductionBtnPressed(_ sender: Any) {
+    }
+
 
     /*
     // MARK: - Navigation

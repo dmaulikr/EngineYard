@@ -15,15 +15,31 @@ class BuyProductionDetailViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var componentView: UIView!
 
+    weak var cartVC: ProductionCartViewController!
+    weak var rivalsVC: ProductionRivalsViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*
-        self.componentView.addSubview(self.productionCartView)
-        self.componentView.addSubview(self.rivalsTableView)
-        self.componentView.sendSubview(toBack: self.rivalsTableView)
-         */
+        self.cartVC = ProductionCartViewController()
+        self.rivalsVC = ProductionRivalsViewController()
+        
+        addChildViewController(self.cartVC)
+        addChildViewController(self.rivalsVC)
+
+        NSLayoutConstraint.activate([
+            self.cartVC.view.leadingAnchor.constraint(equalTo: self.componentView.leadingAnchor),
+            self.cartVC.view.trailingAnchor.constraint(equalTo: self.componentView.trailingAnchor),
+            self.cartVC.view.topAnchor.constraint(equalTo: self.componentView.topAnchor),
+            self.cartVC.view.bottomAnchor.constraint(equalTo: self.componentView.bottomAnchor)
+            ])
+
+        self.didMove(toParentViewController: self)
+
+        self.componentView.addSubview(self.cartVC.view)
+        self.componentView.addSubview(self.rivalsVC.view)
+        self.componentView.sendSubview(toBack: self.rivalsVC.view)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +53,11 @@ class BuyProductionDetailViewController: UIViewController {
 
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            //self.componentView.bringSubview(toFront: self.productionCartView)
+            self.componentView.bringSubview(toFront: self.cartVC.view)
             break
 
         case 1:
-            //self.componentView.bringSubview(toFront: self.rivalsTableView)
+            self.componentView.bringSubview(toFront: self.rivalsVC.view)
             break
 
         default:

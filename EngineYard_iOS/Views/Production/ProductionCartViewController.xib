@@ -11,6 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductionCartViewController" customModule="EngineYard" customModuleProvider="target">
             <connections>
+                <outlet property="buyBtn" destination="dpu-jf-RrE" id="VHZ-Bk-Z75"/>
+                <outlet property="cancelBtn" destination="dn6-cq-OvF" id="DuG-4B-25y"/>
+                <outlet property="cartPricePerUnitLbl" destination="pLL-Uq-rjG" id="67A-Go-WxX"/>
+                <outlet property="cartStepper" destination="6jP-kn-AER" id="6tk-jP-bAf"/>
+                <outlet property="cartUnitsLbl" destination="Smj-fm-o5Q" id="WnF-zE-6QC"/>
+                <outlet property="myUnitsLbl" destination="ywr-W1-JdQ" id="tTV-wv-Aoy"/>
+                <outlet property="shiftProductionBtn" destination="J2S-oK-I5L" id="Oga-57-X0n"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +36,9 @@
                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="6jP-kn-AER">
                     <rect key="frame" x="11" y="41" width="94" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="i55-NF-gJ0"/>
+                    </connections>
                 </stepper>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99 units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smj-fm-o5Q">
                     <rect key="frame" x="120" y="45" width="63" height="21"/>
@@ -48,17 +58,26 @@
                     <rect key="frame" x="9" y="168" width="48" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="cancelBtnPressed:" destination="-1" eventType="touchUpInside" id="7kn-Kk-PbJ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2S-oK-I5L">
                     <rect key="frame" x="163" y="168" width="111" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Shift Production"/>
+                    <connections>
+                        <action selector="shiftProductionBtnPressed:" destination="-1" eventType="touchUpInside" id="Cq6-bl-eNI"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpu-jf-RrE">
                     <rect key="frame" x="10" y="130" width="181" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="Buy Production for $999"/>
+                    <connections>
+                        <action selector="buyBtnPressed:" destination="-1" eventType="touchUpInside" id="l8d-d5-nae"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
